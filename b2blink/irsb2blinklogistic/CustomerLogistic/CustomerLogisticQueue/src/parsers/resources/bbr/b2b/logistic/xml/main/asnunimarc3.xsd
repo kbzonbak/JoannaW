@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema xmlns:tns="urn:schemas-microsoft-com:office:excel" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:schemas-microsoft-com:office:excel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ExcelWorkbook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="WindowHeight" type="xs:unsignedShort" />
+        <xs:element name="WindowWidth" type="xs:unsignedShort" />
+        <xs:element name="WindowTopX" type="xs:unsignedByte" />
+        <xs:element name="WindowTopY" type="xs:unsignedByte" />
+        <xs:element name="ProtectStructure" type="xs:string" />
+        <xs:element name="ProtectWindows" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:attribute name="Family" type="xs:string" />
+  <xs:attribute name="FullColumns" type="xs:unsignedByte" />
+  <xs:attribute name="FullRows" type="xs:unsignedByte" />
+  <xs:element name="WorksheetOptions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="PageSetup">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="Layout">
+                <xs:complexType>
+                  <xs:attribute ref="tns:CenterHorizontal" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Header">
+                <xs:complexType>
+                  <xs:attribute ref="tns:Margin" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Footer">
+                <xs:complexType>
+                  <xs:attribute ref="tns:Margin" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="PageMargins">
+                <xs:complexType>
+                  <xs:attribute ref="tns:Bottom" use="required" />
+                  <xs:attribute ref="tns:Left" use="required" />
+                  <xs:attribute ref="tns:Right" use="required" />
+                  <xs:attribute ref="tns:Top" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="Print">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ValidPrinterInfo" />
+              <xs:element name="HorizontalResolution" type="xs:unsignedShort" />
+              <xs:element name="VerticalResolution" type="xs:unsignedShort" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="Selected" />
+        <xs:element minOccurs="0" name="DoNotDisplayGridlines" />
+        <xs:element name="ProtectObjects" type="xs:string" />
+        <xs:element name="ProtectScenarios" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:attribute name="CenterHorizontal" type="xs:unsignedByte" />
+  <xs:attribute name="Margin" type="xs:unsignedByte" />
+  <xs:attribute name="Bottom" type="xs:decimal" />
+  <xs:attribute name="Left" type="xs:decimal" />
+  <xs:attribute name="Right" type="xs:decimal" />
+  <xs:attribute name="Top" type="xs:decimal" />
+  <xs:element name="PageBreaks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="RowBreaks">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RowBreak">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Row" type="xs:unsignedByte" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

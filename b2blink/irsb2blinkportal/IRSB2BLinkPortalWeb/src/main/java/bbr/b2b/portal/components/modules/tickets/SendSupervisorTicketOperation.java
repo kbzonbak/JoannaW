@@ -1,0 +1,359 @@
+//package bbr.b2b.portal.components.modules.tickets;
+//
+//import java.io.Serializable;
+//
+//import org.vaadin.openesignforms.ckeditor.CKEditorConfig;
+//import org.vaadin.openesignforms.ckeditor.CKEditorTextField;
+//
+//import com.vaadin.ui.AbstractSelect.ItemCaptionMode;
+//import com.vaadin.ui.Alignment;
+//import com.vaadin.ui.Button;
+//import com.vaadin.ui.Button.ClickEvent;
+//import com.vaadin.ui.Button.ClickListener;
+//import com.vaadin.ui.HorizontalLayout;
+//import com.vaadin.ui.Label;
+//import com.vaadin.ui.VerticalLayout;
+//
+//import bbr.b2b.common.adtclasses.exceptions.OperationFailedException;
+//import bbr.b2b.common.factories.BeanExtenderFactory;
+//import bbr.b2b.portal.classes.basics.CustomUserDTO;
+//import bbr.b2b.portal.classes.constants.BbrPublishingConstants;
+//import bbr.b2b.portal.constants.BbrUtilsResources;
+//import bbr.b2b.portal.classes.constants.EnumTicketOperation;
+//import bbr.b2b.portal.classes.factory.EJBFactory;
+//import bbr.b2b.portal.classes.i18n.I18NManager;
+//import bbr.b2b.portal.classes.utils.app.AppUtils;
+//import bbr.b2b.portal.classes.wrappers.management.SupervisorTicketOperationInfo;
+//import bbr.b2b.portal.components.basics.BbrSystemException;
+//import bbr.b2b.portal.components.basics.BbrUserException;
+//import bbr.b2b.trac.report.classes.SupervisorTicketInitParamDTO;
+//import bbr.b2b.trac.report.classes.TicketReportDataDTO;
+//import bbr.b2b.trac.report.classes.TicketReportResultDTO;
+//import bbr.b2b.users.report.classes.UserDTO;
+//import bbr.b2b.users.report.classes.UsersResultDTO;
+//import cl.bbr.core.classes.basics.BbrUser;
+//import cl.bbr.core.classes.events.BbrEvent;
+//import cl.bbr.core.components.basics.BbrComboBox;
+//import cl.bbr.core.components.basics.BbrWindow;
+//
+//public class SendSupervisorTicketOperation extends BbrWindow 
+//{
+//	// ****************************************************************************************
+//	// BEGINNING SECTION 	---->			PROPERTIES
+//	// ****************************************************************************************
+//	private static final long serialVersionUID = 3247626779164695209L;
+//
+//	private CKEditorConfig 						config 				= null;
+//	private CKEditorTextField 					ckEditorTextField 	= null;
+//	private BbrComboBox<CustomUserDTO> 			cbx_Users 			= null;
+//	
+//	private CustomUserDTO[] 					users 				= null;
+//
+//	private TicketReportDataDTO 				selectedTicket 		= null;
+//	private Long 								vendorId 			= null;
+//	private String 								vendorName 			= null;
+//	private EnumTicketOperation					ticketOperation		= null;
+//	// ****************************************************************************************
+//	// ENDING SECTION 		---->			PROPERTIES
+//	// ****************************************************************************************
+//
+//
+//	// ****************************************************************************************
+//	// BEGINNING SECTION 	---->			CONSTRUCTORS
+//	// ****************************************************************************************
+//	public SendSupervisorTicketOperation(TicketReportDataDTO selectedTicket, Long vendorId, String vendorName, EnumTicketOperation ticketOperation) 
+//	{
+//		this.selectedTicket 	= selectedTicket;
+//		this.vendorId 			= vendorId;
+//		this.vendorName			= vendorName;
+//		this.ticketOperation 	= ticketOperation;
+//	}
+//	// ****************************************************************************************
+//	// ENDING SECTION 		---->			CONSTRUCTORS
+//	// ****************************************************************************************
+//
+//	// ****************************************************************************************
+//	// BEGINNING SECTION 	---->			OVERRIDDEN METHODS
+//	// ****************************************************************************************
+//	public void initializeView() 
+//	{
+//		if(this.selectedTicket != null)
+//		{
+//			Label lblValue = new Label(I18NManager.getI18NString(BbrUtilsResources.RES_MODULES_TICKETS, "analyst"));
+//			lblValue.setWidth("80px");
+//
+//			cbx_Users = this.getUserComboBox();
+//			
+//			HorizontalLayout pnlAnalyst = new HorizontalLayout(); 
+//			pnlAnalyst.addStyleName("bbr-panel-space");
+//			pnlAnalyst.addComponents(lblValue, cbx_Users);
+//			
+//			HorizontalLayout pnlTicketLayout = this.getTicketUserInfoLayout(this.getUser());
+//
+//			//Accept Button
+//			Button btn_Create = new Button(I18NManager.getI18NString(BbrUtilsResources.RES_GENERIC, "send"));
+//			btn_Create.setStyleName("primary");
+//			btn_Create.addStyleName("btn-login");
+//			btn_Create.setWidth("140px");
+//			btn_Create.addClickListener((ClickListener & Serializable) e -> btnDoOperation_clickHandler(e));
+//
+//			//Cancel Button
+//			Button btn_Cancel = new Button(I18NManager.getI18NString(BbrUtilsResources.RES_GENERIC, "cancel"));
+//			btn_Cancel.setStyleName("primary");
+//			btn_Cancel.addStyleName("btn-login");
+//			btn_Cancel.setWidth("140px");
+//			btn_Cancel.addClickListener((ClickListener & Serializable) e -> btnClose_clickHandler(e));
+//
+//			HorizontalLayout buttonsPanel = new HorizontalLayout(btn_Create, btn_Cancel);
+//			buttonsPanel.addStyleName("bbr-buttons-panel");
+//
+//			
+//			buttonsPanel.setSpacing(true);
+//
+//			//Vertical Layout for Components
+//			VerticalLayout mainLayout = new VerticalLayout();
+//			mainLayout.addComponents(pnlAnalyst, pnlTicketLayout,buttonsPanel);
+//			mainLayout.setExpandRatio(pnlTicketLayout, 1F);
+//			mainLayout.setComponentAlignment(buttonsPanel, Alignment.BOTTOM_CENTER);
+//			mainLayout.setSizeFull();
+//			mainLayout.addStyleName("bbr-win-container");
+//
+//			//Main Windows
+//			this.setWidth(800,Unit.PIXELS);
+//			this.setHeight(400,Unit.PIXELS);
+//			this.setResizable(false);
+//			this.setContent(mainLayout);
+//			this.setCaption(this.getWinTitle() + " - ID: " + this.selectedTicket.getTicketnumber());
+//		}
+//		
+//	}
+//	
+//
+//	// ****************************************************************************************
+//	// ENDING SECTION 		---->			OVERRIDDEN METHODS
+//	// ****************************************************************************************
+//
+//
+//	// ****************************************************************************************
+//	// BEGINNING SECTION 	---->			EVENTS HANDLERS
+//	// ****************************************************************************************
+//	private void btnClose_clickHandler(ClickEvent e) 
+//	{
+//		this.close();
+//	}
+//
+//	private void btnDoOperation_clickHandler(ClickEvent e) 
+//	{
+//		SupervisorTicketOperationInfo vendorTicketInfo = new SupervisorTicketOperationInfo(this.selectedTicket, this.vendorId, 
+//				this.vendorName, this.ckEditorTextField.getValue(),this.ticketOperation, this.cbx_Users.getSelectedValue());
+//		//Create
+//		this.doTicketOperation(vendorTicketInfo);
+//	}
+//
+//	private void doTicketOperation(SupervisorTicketOperationInfo supervisorTicketOperationInfo) 
+//	{
+//		String message = "";
+//		TicketReportResultDTO 	ticketResult = null ;
+//		try 
+//		{
+//			if(supervisorTicketOperationInfo != null)
+//			{
+//				message = supervisorTicketOperationInfo.validateCreateData();
+//				if(message == null || message.length() == 0)
+//				{
+//
+//					SupervisorTicketInitParamDTO initParams = supervisorTicketOperationInfo.toSupervisorTicketInitParamDTO();
+//
+//					switch (this.ticketOperation) 
+//					{
+//					case REASSIGN:
+//						ticketResult 	= EJBFactory.getTicketsEJBFactory().getTicketReportManagerLocal().doReAsignTicketToAnalyst(initParams);
+//						break;
+//				
+//					default:
+//						break;
+//					}
+//			
+//					if(ticketResult != null)
+//					{
+//						message = I18NManager.getErrorMessageBaseResult(ticketResult, ticketResult.getParams()); // <-- Obtiene el mensaje de error. "" si no hay errores.
+//					}
+//					else
+//					{
+//						// -> Error companyResult = null
+//						message = I18NManager.getI18NString(BbrUtilsResources.RES_SYSTEM, "U1");
+//					}
+//				}
+//			}
+//
+//		} 
+//		catch (Exception e) //Error no controlado
+//		{
+//			message = I18NManager.getI18NString(BbrUtilsResources.RES_SYSTEM, "U1");
+//		}
+//
+//		if(message.length() > 0)
+//		{
+//			this.showErrorMessage(I18NManager.getI18NString(BbrUtilsResources.RES_GENERIC, "windows_title_error"), message);
+//		}
+//		else
+//		{
+//			
+//			if(ticketResult.getReport() != null && ticketResult.getReport().length>0)
+//			{
+//				BbrEvent createEvent = new BbrEvent(BbrEvent.ITEM_CREATED);
+//				createEvent.setResultObject(ticketResult.getReport()[0]);
+//				this.dispatchBbrEvent(createEvent);
+//				this.close();
+//			}
+//			
+//			
+//		}
+//	}
+//
+//	// ****************************************************************************************
+//	// ENDING SECTION 		---->			EVENTS HANDLERS
+//	// ****************************************************************************************
+//
+//
+//
+//
+//	// ****************************************************************************************
+//	// BEGINNING SECTION 	---->			PRIVATE METHODS
+//	// ****************************************************************************************
+//	private HorizontalLayout getTicketUserInfoLayout(BbrUser user)
+//	{
+//		//Details
+//		Label lblDetails = new Label(I18NManager.getI18NString(BbrUtilsResources.RES_MODULES_TICKETS, "ticket_details"));
+//		lblDetails.setWidth("80px");
+//		HorizontalLayout detailsLayout = this.getTicketsLayout();
+//		HorizontalLayout pnlDetails = new HorizontalLayout();
+//		pnlDetails.setWidth("100%");
+//		pnlDetails.setHeight("100%");
+//		pnlDetails.addComponents(lblDetails,detailsLayout);
+//		pnlDetails.setExpandRatio(detailsLayout, 1F);
+//		pnlDetails.addStyleName("bbr-panel-space");
+//
+//
+//		VerticalLayout pnlMessageArea = new VerticalLayout();
+//		pnlMessageArea.addComponents(pnlDetails);
+//		pnlMessageArea.setHeight("100%");
+//		pnlMessageArea.setExpandRatio(pnlDetails, 1F);
+//
+//
+//		HorizontalLayout result = new HorizontalLayout();
+//		result.setSizeFull();
+//		result.addComponents(pnlMessageArea);
+//		result.setExpandRatio(pnlMessageArea, 1F);
+//
+//		return result;
+//	}
+//
+//	private HorizontalLayout getTicketsLayout()
+//	{
+//		HorizontalLayout result = new HorizontalLayout();
+//
+//		//TEXT AREA
+//		config = new CKEditorConfig();
+//		config.useCompactTags();
+//		config.disableElementsPath();
+//		config.setResizeDir(CKEditorConfig.RESIZE_DIR.HORIZONTAL);
+//		config.disableSpellChecker();
+//		config.setWidth("100%");
+//		config.setHeight("100%");
+//		config.setFilebrowserUploadUrl(BbrPublishingConstants.FILE_UPLOAD_URL);
+//		config.setFilebrowserImageUploadUrl(BbrPublishingConstants.IMAGE_UPLOAD_URL);
+//
+//		ckEditorTextField = new CKEditorTextField(config);
+//		ckEditorTextField.setHeight("100%");
+//
+//		
+//		result.setWidth("100%");
+//		result.setHeight("100%");
+//		result.addComponents(ckEditorTextField);
+//		result.setExpandRatio(ckEditorTextField, 1F);
+//
+//		result.addStyleName("bbr-panel-space");
+//
+//		result.setSizeFull();
+//		return result;
+//	}
+//
+//	
+//	private String getWinTitle() 
+//	{
+//		String result = "";
+//		switch (this.ticketOperation) 
+//		{
+//		
+//		case REASSIGN:
+//			result = I18NManager.getI18NString(BbrUtilsResources.RES_MODULES_TICKETS, "reassign_to_analyst_win_title");
+//			break;
+//
+//		default:
+//			break;
+//		}
+//		
+//		return result;
+//	}
+//	
+//	private BbrComboBox<CustomUserDTO> getUserComboBox() 
+//	{
+//		BbrComboBox<CustomUserDTO> result = null;
+//
+//		try 
+//		{
+//			if(users == null || users.length == 0)
+//			{
+//				UsersResultDTO usersResult = EJBFactory.getUserEJBFactory().getUserReportManagerLocal().getUsersByProfile("SOLV_TICKET");
+//				UserDTO[] usersdtos = usersResult.getUserDTOs();
+//				if(usersdtos != null && usersdtos.length>0)
+//				{
+//					users = new CustomUserDTO[usersdtos.length];
+//					for (int i = 0; i < usersdtos.length; i++) 
+//					{
+//						CustomUserDTO user = new CustomUserDTO();
+//						try 
+//						{
+//							BeanExtenderFactory.copyProperties(usersdtos[i],user);
+//							user.setCaption(usersdtos[i].getName() + " " + usersdtos[i].getLastname());
+//						} 
+//						catch (OperationFailedException e) 
+//						{
+//							e.printStackTrace();
+//						}
+//
+//						users[i] = user;
+//					}
+//
+//				}
+//			}
+//
+//			result = new BbrComboBox<CustomUserDTO>((CustomUserDTO[]) users);
+//			result.setItemCaptionMode(ItemCaptionMode.PROPERTY);
+//			result.setItemCaptionPropertyId("caption");
+//			result.setTextInputAllowed(false);
+//			result.setPageLength(0);
+//			result.setNullSelectionAllowed(false);
+//			result.setInputPrompt(I18NManager.getI18NString(BbrUtilsResources.RES_MODULES_TICKETS, "select_analyst"));
+//
+//			result.setWidth(240F, Unit.PIXELS);
+//		} 
+//		catch (BbrUserException e) 
+//		{
+//			AppUtils.getInstance().doLogOut(e.getMessage());
+//		} 
+//		catch (BbrSystemException e) 
+//		{
+//			e.printStackTrace();
+//		}
+//
+//		return result;
+//	}
+//	// ****************************************************************************************
+//	// ENDING SECTION 		---->			PRIVATE METHODS
+//	// ****************************************************************************************
+//
+//
+//
+//}

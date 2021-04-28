@@ -1,0 +1,19 @@
+@mixin bbr_table
+{
+	.v-table-small{
+		font-size: 12px;
+	}
+	.v-table-compact .v-table-header-wrap, .irsb2blinkportalweb .v-table-compact .v-table-footer-wrap, .irsb2blinkportalweb .v-table-compact .v-table-header-drag, .irsb2blinkportalweb .v-table-small .v-table-header-wrap, .irsb2blinkportalweb .v-table-small .v-table-footer-wrap, .irsb2blinkportalweb .v-table-small .v-table-header-drag {
+		font-size: 13px;
+		font-weight: bold;
+	}
+	.v-table-compact .v-table-cell-content, .irsb2blinkportalweb .v-table-small .v-table-cell-content{
+		height: 25px;
+	}
+	.v-table-caption-container{
+		min-height: 0;
+	}
+	.v-table-header-wrap, .irsb2blinkportalweb .v-table-footer-wrap, .irsb2blinkportalweb .v-table-header-drag{
+		background-color:#ff0000;
+	}
+}

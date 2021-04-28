@@ -1,0 +1,343 @@
+// Global variable overrides. Must be declared before importing Valo.
+
+// Defines the plaintext font size, weight and family. Font size affects general component sizing.
+$v-font-size: 11px;
+//$v-font-weight: 300;
+//$v-font-family: "Open Sans", sans-serif;
+
+// Defines the border used by all components.
+$v-border: 1px solid (v-shade 0.7);
+$v-border-radius: 4px;
+
+// Affects the color of some component elements, e.g Button, Panel title, etc
+$v-background-color: hsl(210, 0%, 98%);
+// Affects the color of content areas, e.g  Panel and Window content, TextField input etc
+//$v-app-background-color: $v-background-color;
+
+// Affects the visual appearance of all components
+$v-gradient: v-linear 8%;
+$v-bevel-depth: 30%;
+$v-shadow-opacity: 5%;
+
+// Defines colors for indicating status (focus, success, failure)
+//$v-focus-color: valo-focus-color(); // Calculates a suitable color automatically
+//$v-friendly-color: #2c9720;
+//$v-error-indicator-color: #ed473b;
+
+// For more information, see: https://vaadin.com/book/-/page/themes.valo.html
+// Example variants can be copy/pasted from https://vaadin.com/wiki/-/wiki/Main/Valo+Examples
+
+@import "../valo/valo.scss";
+
+@mixin soa_general_webtheme {
+  @include valo;
+
+  /*Insert your own theme rules here*/
+  
+  .pnl-main {
+  	background-image: url(../soa_general_webtheme/assets/images/basic/bg_bbr-link.jpg);
+  	background-repeat: no-repeat;
+  	background-size: cover;
+  	}  	
+  
+	.v-context-menu {
+	    font-family: Arial;
+	    font-size: 12px;
+	    background: white;
+	}
+	
+	.stepper>*:nth-child(1) {
+		@include valo-textfield-style($v-unit-size--small);
+  		max-width: 75px;
+	}
+	.stepper-updown {
+  		top: 25% !important;
+	}
+	.logo-header {
+		width: 172px;
+		height: 78px;
+		margin-top: 10px;
+		margin-left: 10px;
+	}
+
+	.logoRetail {
+		z-index:100;
+	}
+
+	.logoEnv {
+		z-index:-1;
+		margin-top: 0px;
+		margin-left: 0px;
+	}
+	
+	.border {
+		border: thin;
+		border-style: solid;
+		border-color: #8dcdff;
+	}
+	
+	.main-header {
+		background-color: #fff;	  	
+	}
+	
+	.main-panel{
+		background-image: url(../soa_general_webtheme/assets/images/basic/header_b2blink.jpg);
+		background-repeat: no-repeat;
+		margin-top: 180px;	
+		
+	}
+
+	.user-panel {
+		background-color: #F1F1F1;
+		border-top: thin dashed #dadada;	
+	    border-bottom: thin dashed #dadada;
+	    height: 40px !important;
+	    overflow: hidden;	
+	}
+	
+	/*.v-button {
+	    position: relative;
+	    text-align: center;
+	    white-space: nowrap;
+	    outline: none;
+	    -webkit-tap-highlight-color: transparent;
+	    -webkit-touch-callout: none;
+	    cursor: pointer;
+	    height: 28px;
+	    padding: 0 13px;
+	    color: #191919;
+	    font-weight: 400;
+	    border-radius: 4px;
+	    border: none;
+	    border-top-color: none;
+	    border-bottom-color: none;
+	    background-color: transparent;
+	    background-image: none;   */ 
+	    /*-webkit-box-shadow: inset 0 1px 0 white, inset 0 -1px 0 #e7e7e7, 0 2px 3px rgba(0, 0, 0, 0.05);
+	    box-shadow: inset 0 1px 0 white, inset 0 -1px 0 #e7e7e7, 0 2px 3px rgba(0, 0, 0, 0.05);
+	    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);*/
+	  /*  -webkit-box-shadow: none;
+	    box-shadow: none;
+	    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	}	*/
+
+	.v-button :hover:after {
+		background-color: transparent;
+	}
+	
+	.v-button :focus {
+		outline: none;
+		}
+	.v-button:focus:after {
+		box-shadow: none;
+		-webkit-box-shadow: none;
+		}
+		
+	.btnLogin{
+		background-color: #197de1;
+		color:#fff;
+		}
+	
+	.commandButton {
+	    float: right;
+		background-color: #3498db !important;
+		font-family: Arial;
+		color: #ffffff;
+		font-size: 12px;
+		/*padding: 10px 20px 20px 20px;*/
+		text-decoration: none;		
+		border: none;
+	    border-top-color: none;
+	    border-bottom-color: none;
+	    background-color: transparent;
+	    background-image: none; 
+	    -webkit-box-shadow: none;
+	    box-shadow: none;
+	    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);	    
+	}
+	
+	.commandButton:hover {
+		background: #3cb0fd;
+		text-decoration: none;
+	}
+	
+	.command-layout{
+		
+	}	
+	
+		
+	.btn-close-session {
+		background-color: #d50303 !important;
+		font-family: Arial;
+		color: #ffffff;		
+		position: fixed;
+	    right: 10px;
+	    margin-top: 5px;
+	    border: none;
+	    border-top-color: none;
+	    border-bottom-color: none;
+	    background-color: transparent;
+	    background-image: none; 
+	    -webkit-box-shadow: none;
+	    box-shadow: none;
+	    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	}
+	
+	.btn-refresh, .btn-download-report{		
+		border: none;
+	    border-top-color: none;
+	    border-bottom-color: none;
+	    background-color: transparent;
+	    background-image: none;
+	    padding: inherit;
+        height: auto; 
+	    -webkit-box-shadow: none;
+	    box-shadow: none;
+	    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	}
+	
+	.label-user {
+		color: #000;
+	    font-weight: bold;
+	    margin-right: 10px;
+	    margin-top: 10px;
+	    float: right;
+	    width: inherit !important;
+	    position: absolute;
+	    right: 40px;
+	}
+	
+	.label-session {
+		color: #000;
+	    font-weight: bold;
+	    margin-right: 10px;
+	    margin-top: 10px;
+	    float: right;
+	    width: inherit !important;
+	    position: absolute;
+	    left: 10px;
+	}
+
+	.v-tabsheet-tabitem {
+		border: none;
+		/*height: 20px;
+		border-top: 1px solid #c8c9ca;
+		border-bottom: 1px solid #c8c9ca;
+		padding: 4px;*/
+	}
+	.v-panel {
+		/*background: white;*/
+		color: #000000;
+		font-weight: bold;
+		/*border-radius: 4px;*/
+		border: none;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		overflow: visible !important;
+	}	
+	
+	.v-table {
+	    /*position: relative;	        
+	    overflow: hidden;*/
+	    background: #ffffff !important;
+	    color: #000000;
+	    font-weight: bold;
+	    font-size: 11px;
+	} 
+	
+	.header-panel{
+		background-color: #fff !important;
+	}
+	.v-tabsheet-tabitemcell .v-caption {    
+    font-size: 12px;
+    font-weight: bold;    
+	}
+	
+	.v-table-header-wrap, .soa_general_webtheme .v-table-footer-wrap, .soa_general_webtheme .v-table-header-drag {
+	    border: 1px solid #d4d4d4;
+	    background-color: #fafafa;
+	    background-image: -webkit-linear-gradient(top, #fafafa 2%, #efefef 98%);
+	    background-image: linear-gradient(to bottom,#fafafa 2%, #efefef 98%);
+	    white-space: nowrap;
+	    font-size: 12x;
+	    font-weight:bold;
+	    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	}
+	
+	.v-table-header-wrap, .soa_general_webtheme .soa_general_webtheme .v-table-footer-wrap, .soa_general_webtheme .soa_general_webtheme .v-table-header-drag{
+		border: 1px solid #d4d4d4;
+	    background-color: #fafafa;
+	    background-image: -webkit-linear-gradient(top, #F4FAFF 2%, #BADDF5 98%);
+	    background-image: linear, to bottom, #fafafa 2%, #efefef 98%;
+	    white-space: nowrap;
+	    font-size: 12x;
+	    font-weight: bold;
+	    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);	
+	}
+	
+	.v-grid-header .v-grid-cell {
+		 background-image: -webkit-linear-gradient(top, #F4FAFF 2%, #BADDF5 98%);
+	}
+	
+	.v-tabsheet-tabitemcell .v-tabsheet-tabitem-selected .v-caption.v-caption {
+    border-bottom-color: #197de1;
+    color: #fff;
+    background-color: #3E8DDC;
+	}
+	
+	.v-window-outerheader{
+		background: #5992C7;
+	}
+	
+	.v-window-header{
+		color:#fff !important;
+		font-weight: bold;
+	}
+	
+	/*.v-window-maximizebox, .soa_general_webtheme .v-window-restorebox{
+		background: #7FA6D4;
+		color:#fff;
+	}
+	.v-window-maximizebox + .v-window-closebox, .soa_general_webtheme .v-window-restorebox + .v-window-closebox{
+		background: #7FA6D4;
+		color:#fff;
+	}*/
+	
+	/*.soa_general_webtheme .v-window-closebox:hover, .soa_general_webtheme .v-window-maximizebox:hover, .soa_general_webtheme .v-window-restorebox:hover{
+		color:#fff;
+		back
+	}*/
+	
+	.v-window-closebox, .soa_general_webtheme .v-window-maximizebox, .soa_general_webtheme .v-window-restorebox{
+		background-color: white;
+	}
+	
+	.v-treetable [class*="caption-container"]{
+		font-size: 11px;	
+	}	
+	
+	.v-has-caption, .v-has-caption > .v-caption{
+		padding-top:0px !important;
+	}
+
+	.v-grid-header th {
+		font-size: 11px;
+		font-weight: bold;
+	}
+	
+	.v-grid-cell{
+		font-size: 10px;
+	}
+	
+	.v-app {		
+		background-color: #ffffff !important;		
+	}
+	.frm_login {
+		width: 60% !important;
+		margin-top: 100px;
+	}
+	.pnl-footer{
+		background-color: #317b9d;
+		color:#fff;
+	}
+}

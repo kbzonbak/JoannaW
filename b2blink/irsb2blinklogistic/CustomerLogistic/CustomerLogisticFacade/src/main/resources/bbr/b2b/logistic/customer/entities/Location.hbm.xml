@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="bbr.b2b.logistic.customer.entities.Location" table="LOCATION"
+		entity-name="bbr.b2b.logistic.customer.entities.Location" schema="LOGISTICA">
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="identity">
+				<param name="sequence">LOCATION_SEQUENCE</param>
+				<param name="parameters">AS BIGINT CACHE 100</param>
+			</generator>
+		</id>
+		<property name="code" type="java.lang.String" unique="true" not-null="true"></property>		
+		<property name="name" type="java.lang.String"></property>
+		<!-- <property name="gln" type="java.lang.String"></property> -->
+		<property name="ean13" type="java.lang.String"></property>
+		<property name="address" type="java.lang.String"></property>
+		<many-to-one name="buyer"
+			class="bbr.b2b.logistic.customer.entities.Buyer" column="BUYER_ID"
+			not-null="true" />
+	</class>	
+</hibernate-mapping>
+
+
+
+

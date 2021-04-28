@@ -1,0 +1,145 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+     <xs:element name="Message">
+     	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="origen" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="accion" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="tipo" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="id_compania" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="capacidades" maxOccurs="1" minOccurs="1"></xs:element>    					
+    		</xs:sequence>
+    	</xs:complexType>   
+ 	</xs:element>
+ 	
+    <!-- Origen del mensaje -->
+    <xs:element name="origen">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Acción -->
+    <xs:element name="accion">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Tipo de mensaje en EOM -->
+    <xs:element name="tipo">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Identificador de compañía -->
+    <xs:element name="id_compania">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>   
+    
+    <!-- Listado de destinos y sus tiempos de entrega -->  
+    <xs:element name="capacidades">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    			<xs:element ref="capacidad" />
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>    
+    
+    <xs:element name="capacidad">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element ref="cod_zona" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="cap_lunes" maxOccurs="1" minOccurs="1"></xs:element> 
+    			<xs:element ref="cap_martes" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="cap_miercoles" maxOccurs="1" minOccurs="1"></xs:element> 
+    			<xs:element ref="cap_jueves" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="cap_viernes" maxOccurs="1" minOccurs="1"></xs:element> 
+    			<xs:element ref="cap_sabado" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="cap_domingo" maxOccurs="1" minOccurs="1"></xs:element> 
+    			<xs:element ref="jerarquia" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="fecha_inicio" maxOccurs="1" minOccurs="1"></xs:element> 
+    			<xs:element ref="fecha_termino" maxOccurs="1" minOccurs="1"></xs:element>    			   			   			    			
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+ 
+ 	<!-- Código identificador de zona (zonaAgendaID que viene en la respuesta a la consulta INT1884) -->  
+    <xs:element name="cod_zona">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Capacidad día Lunes -->  
+    <xs:element name="cap_lunes">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>  
+    
+    <!-- Capacidad día Martes -->  
+    <xs:element name="cap_martes">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element> 
+    
+     <!-- Capacidad día Miercoles -->  
+    <xs:element name="cap_miercoles">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element> 
+    
+     <!-- Capacidad día Jueves -->  
+    <xs:element name="cap_jueves">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element> 
+    
+     <!-- Capacidad día Viernes -->  
+    <xs:element name="cap_viernes">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element> 
+    
+    <!-- Capacidad día Sabado -->  
+    <xs:element name="cap_sabado">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+     <!-- Capacidad día Domingo -->  
+    <xs:element name="cap_domingo">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element> 
+    
+    <!-- Valor de campo "rank" que viene en la respuesta a consulta (INT1884) -->  
+    <xs:element name="jerarquia">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>   
+    
+    <!-- Valor de campo "startDTTM" que viene en la respuesta a consulta (INT1884) -->  
+    <xs:element name="fecha_inicio">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>   
+    
+    <!-- Valor de campo "endDTTM" que viene en la respuesta a consulta (INT1884) -->  
+    <xs:element name="fecha_termino">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>       
+</xs:schema>

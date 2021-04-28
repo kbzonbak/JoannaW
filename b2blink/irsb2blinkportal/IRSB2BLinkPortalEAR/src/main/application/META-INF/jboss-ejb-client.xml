@@ -1,0 +1,30 @@
+<jboss-ejb-client xmlns="urn:jboss:ejb-client:1.2">
+	<client-context invocation-timeout="1800000">
+		<ejb-receivers local-receiver-pass-by-value="true">
+			<remoting-ejb-receiver outbound-connection-ref="remote-ejb-connection-user" />
+			<remoting-ejb-receiver outbound-connection-ref="remote-ejb-connection-cus" />
+			<remoting-ejb-receiver outbound-connection-ref="remote-ejb-connection-fep" />
+		</ejb-receivers>
+		<clusters>
+			<cluster name="ejb" security-realm="ejb-security-realm-user" username="remoteejb">
+				<connection-creation-options>
+					<property name="org.xnio.Options.SSL_ENABLED" value="false" />
+					<property name="org.xnio.Options.SASL_POLICY_NOANONYMOUS" value="true" />
+				</connection-creation-options>
+			</cluster>
+			<cluster name="ejb" security-realm="ejb-security-realm-cus" username="remoteejb">
+				<connection-creation-options>
+					<property name="org.xnio.Options.SSL_ENABLED" value="false" />
+					<property name="org.xnio.Options.SASL_POLICY_NOANONYMOUS" value="true" />
+				</connection-creation-options>
+			</cluster>			
+			<cluster name="ejb" security-realm="ejb-security-realm-fep" username="remoteejb">
+				<connection-creation-options>
+					<property name="org.xnio.Options.SSL_ENABLED" value="false" />
+					<property name="org.xnio.Options.SASL_POLICY_NOANONYMOUS" value="true" />
+				</connection-creation-options>
+			</cluster>
+		</clusters>
+	</client-context>
+	
+</jboss-ejb-client>

@@ -1,0 +1,66 @@
+package bbr.b2b.extractors.hites.manager.classes;
+
+public class EdiOrderManager {
+
+	private static String getCredentials(String sitename, String service){
+		// WS ACTUALIZAR DESPACHOS
+		String endpoint = "http://10.200.3.99:8180/SOA_GENERAL_Web/ServiceManagerServer?wsdl";
+		IUpdateDODeliveryWS service = new IUpdateDODeliveryWSService(new URL(endpoint)).getIUpdateDODeliveryWSPort();
+		Client client = ClientProxy.getClient(service);
+		HTTPConduit http = (HTTPConduit) client.getConduit();
+		
+		HTTPClientPolicy httpClientPolicy = new HTTPClientPolicy();
+
+		httpClientPolicy.setConnectionTimeout(30000);
+		httpClientPolicy.setAllowChunking(false);
+		httpClientPolicy.setReceiveTimeout(120000);
+		
+		http.setClient(httpClientPolicy);
+		
+		// Se agrega un Interceptor de Entrada para recuperar los archivos adjuntos desde la respuesta
+		Client cxfClient1 = ClientProxy.getClient(service);
+		Endpoint cxfEndpoint1 = cxfClient1.getEndpoint();
+
+		Map<String, Object> outProps = new HashMap<String, Object>();
+		outProps.put(WSHandlerConstants.ACTION, WSHandlerConstants.USERNAME_TOKEN);
+		outProps.put(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
+		outProps.put(WSHandlerConstants.USER, user.getRut());
+		outProps.put(WSHandlerConstants.PW_CALLBACK_REF, new UTPasswordCallbackNew(user));
+
+		// Se agrega un Interceptor de Salida para agregar Headers de Seguridad
+		WSS4JOutInterceptor wssOut = new WSS4JOutInterceptor(outProps);
+		cxfEndpoint1.getOutInterceptors().add(wssOut);
+
+		// LLAMADA WS PARA ENVIAR ARCHIVOS
+		UpdateDODeliveryWSInitParamDTO initParamw = new UpdateDODeliveryWSInitParamDTO();
+		initParamw.setRutproveedor(accesscode);
+		//initParamw.setActaentrega("Foto Data");
+		initParamw.setCodigoportal(sitename);
+		//initParamw.setComentario("Sin Stock. Se agrega nueva fecha (TEST)");
+		initParamw.setFechaEntrega("04092018");
+		initParamw.setNombrereceptor("Mayra Patino");
+		initParamw.setNuevoestado("1");
+		initParamw.setNumeroOrden(575176L);
+		//initParamw.setRutreceptor("12345");
+				
+		DirectOrderDetailsWSInitParamDTO details =  new DirectOrderDetailsWSInitParamDTO();
+		
+		details.setCantidad(1L);
+		details.setSku("17184580");
+		
+		initParamw.getDetalles().add(details);
+		
+		UpdateDODeliveryWSResultDTO resultWS = service.doUpdateDODeliveryWS(sitename, initParamw);
+		if (resultWS != null) {
+
+			if (resultWS.getStatuscode().equals("0")) {
+				System.out.println("Resultado: " + resultWS.getStatusmessage());
+			}
+
+		}
+		System.out.println("Código: " + resultWS.getStatuscode());
+		System.out.println("Descripción: " + resultWS.getStatusmessage());			
+		
+		return resultWS;
+	}
+}

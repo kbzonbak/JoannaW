@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/NotificacionInventario" elementFormDefault="qualified">
+<!-- Versión 1.2 -->
+  <element name="NotificacionInventario">
+    <complexType>
+      <sequence minOccurs="1" maxOccurs="1">
+        <element name="nombreportal" type="string" />
+        <element name="codproveedor" type="string" minOccurs="0"/>	<!-- Agregado en 1.1 -->
+        <element name="numorden" type="string" minOccurs="0"/>	<!-- Agregado en 1.2 -->
+      </sequence>
+    </complexType>
+  </element>
+</schema>

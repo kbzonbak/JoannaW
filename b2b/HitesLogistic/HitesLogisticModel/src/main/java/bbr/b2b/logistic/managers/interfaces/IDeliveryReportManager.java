@@ -1,0 +1,78 @@
+package bbr.b2b.logistic.managers.interfaces;
+
+import bbr.b2b.common.adtclasses.classes.BaseResultDTO;
+import bbr.b2b.common.adtclasses.classes.BaseResultsDTO;
+import bbr.b2b.logistic.ddcdeliveries.report.classes.AddDODeliveryOfDirectOrdersWSInitParamDTO;
+import bbr.b2b.logistic.ddcdeliveries.report.classes.AddDODeliveryOfDirectOrdersWSResultDTO;
+import bbr.b2b.logistic.ddcdeliveries.report.classes.DdcDeliveryStateTypeArrayResultDTO;
+import bbr.b2b.logistic.ddcdeliveries.report.classes.DdcDeliveryStateUpdateInitParamDTO;
+import bbr.b2b.logistic.ddcdeliveries.report.classes.UpdateDODeliveryWSInitParamDTO;
+import bbr.b2b.logistic.ddcdeliveries.report.classes.UpdateDODeliveryWSResultDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.ASNUploadResultDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.CheckDataToDatingRequestInitParamDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DatingRequestDetailDataResultDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DatingRequestInitParamDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DatingRequestResultDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DocumentDeleteInitParamDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DocumentUpdateInitParamDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DvrDeliveryDatingDocumentDetailInitParamDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DvrDeliveryDatingDocumentDetailResultDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DvrDeliveryDatingDocumentInitParamDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DvrDeliveryDatingDocumentResultDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DvrDeliveryDeleteInitParamDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DvrDeliveryDetailExcelReportResultDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DvrDeliveryDetailInitParamDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DvrDeliveryDetailReportResultDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DvrDeliveryIdInitParamDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DvrDeliveryInitParamDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DvrDeliveryReportInitParamDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DvrDeliveryReportResultDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DvrDeliveryStateTypeResultDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DvrOrderDeliveryAdjustResultDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DvrOrderDeliveryAdjustUnitsInitParamDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DvrOrderDeliveryUnitsInitParamDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DvrOrderToDeliveryUnitsResultDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.InactiveDaysResultDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.PackingListDeleteResultDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.PackingListReportResultDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.TimeModuleReportDataDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.UploadASNInitParamDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.UploadPackingListInitParamDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.UploadPackingListResultDTO;
+import bbr.b2b.logistic.report.classes.UserLogDataDTO;
+
+public interface IDeliveryReportManager {
+
+//	public LgfData doCreateASNMessageLgf(ASNDataToMessageDTO asndata) throws OperationFailedException, NotFoundException;
+//	public WSResultDTO doSendMessageToWS(String xmlcontent, String messageid) throws IOException;
+	public InactiveDaysResultDTO getInactiveDaysToDatingRequest();
+	public TimeModuleReportDataDTO getTimeModuleReportData();
+	public DvrDeliveryStateTypeResultDTO getDvrDeliveryStateTypes();
+	public BaseResultsDTO doCheckDataToDatingRequest(CheckDataToDatingRequestInitParamDTO initParamDTO, Boolean byDelivery);
+	public DatingRequestResultDTO doAddDatingRequest(DatingRequestInitParamDTO initParamDTO, UserLogDataDTO userdataDTO, Boolean byDelivery);
+	public DvrDeliveryReportResultDTO getDvrDeliveryReportData(DvrDeliveryReportInitParamDTO initParamDTO, boolean withTotals, boolean isPaginated);
+	public DvrDeliveryReportResultDTO getDvrDeliveryReportDataById(DvrDeliveryIdInitParamDTO initParamDTO);
+	public DvrDeliveryDetailReportResultDTO getDvrDeliveryDetailReport(DvrDeliveryDetailInitParamDTO initParamDTO, boolean withTotals, boolean isPaginated);
+	public DvrDeliveryDetailExcelReportResultDTO getDvrDeliveryDetailExcelReportByDelivery(DvrDeliveryDetailInitParamDTO initParamDTO);
+	public DatingRequestDetailDataResultDTO getDatingRequestDetailDataReport(DvrDeliveryInitParamDTO initParamDTO);
+	public DvrOrderToDeliveryUnitsResultDTO getDvrOrderDeliveryUnits(DvrOrderDeliveryUnitsInitParamDTO initParamDTO);
+	public DvrOrderDeliveryAdjustResultDTO doAdjustDvrOrderDeliveryUnits(DvrOrderDeliveryAdjustUnitsInitParamDTO initParamDTO, UserLogDataDTO userdataDTO);
+	public BaseResultsDTO doUploadDvrOrderDeliveryAdjustUnits(DvrOrderDeliveryAdjustUnitsInitParamDTO initParamDTO, UserLogDataDTO userdataDTO);
+	public BaseResultDTO doDeleteDvrDelivery(DvrDeliveryDeleteInitParamDTO initParamDTO, UserLogDataDTO userdataDTO);
+	public PackingListReportResultDTO getPackingListReport(DvrDeliveryDetailInitParamDTO initParamDTO, boolean withTotals, boolean isPaginated);
+	public UploadPackingListResultDTO doUploadPackingList(UploadPackingListInitParamDTO initParamDTO, UserLogDataDTO userdataDTO);
+	public PackingListDeleteResultDTO doDeletePackingList(DvrDeliveryInitParamDTO initParamDTO, UserLogDataDTO userdataDTO);
+	public DvrDeliveryDatingDocumentResultDTO getDvrDeliveryDatingDocumentReportData(DvrDeliveryDatingDocumentInitParamDTO initParamDTO, boolean withTotals, boolean ispaginated);
+	public DvrDeliveryDatingDocumentDetailResultDTO getDvrDeliveryDatingDocumentDetailReportData(DvrDeliveryDatingDocumentDetailInitParamDTO initParamDTO, boolean withTotals);
+	public ASNUploadResultDTO doUploadASN(UploadASNInitParamDTO initParamDTO, UserLogDataDTO userdataDTO);
+	public BaseResultDTO doCheckValidatedDocumentsToASN(UploadASNInitParamDTO initParamDTO);
+	public BaseResultDTO doUpdateDocuments(DocumentUpdateInitParamDTO initParamDTO, UserLogDataDTO userdataDTO);
+	public BaseResultDTO doDeleteDocuments(DocumentDeleteInitParamDTO initParamDTO, UserLogDataDTO userdataDTO);
+		
+	public DdcDeliveryStateTypeArrayResultDTO getSelectableDdcDeliveryStateTypes();
+	public BaseResultDTO doUpdateDdcDeliveryStateByDelivery(DdcDeliveryStateUpdateInitParamDTO initParamDTO, UserLogDataDTO userDataDTO);
+	
+	public AddDODeliveryOfDirectOrdersWSResultDTO doAddDODeliveryOfDirectOrdersWS(AddDODeliveryOfDirectOrdersWSInitParamDTO initParamDTO);
+	public UpdateDODeliveryWSResultDTO doUpdateDODeliveryWS(UpdateDODeliveryWSInitParamDTO initParamDTO);
+}
+

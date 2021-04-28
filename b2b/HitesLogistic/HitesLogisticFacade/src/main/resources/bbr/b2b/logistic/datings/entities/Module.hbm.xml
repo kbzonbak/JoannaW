@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 17-08-2017 15:31:17 by Hibernate Tools 3.5.0.Final -->
+
+<hibernate-mapping>
+    <class name="bbr.b2b.logistic.datings.entities.Module" table="MODULE"
+    	entity-name="bbr.b2b.logistic.datings.entities.Module" schema="LOGISTICA">
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="identity">
+				<param name="sequence">MODULE_SEQUENCE</param>
+				<param name="parameters">AS BIGINT CACHE 100</param>
+			</generator>
+		</id>
+
+		<property name="name" type="java.lang.String" column="NAME" length="250" not-null="true"/>
+		<property name="starts" type="java.time.LocalDateTime" not-null="true"/>
+		<property name="ends" type="java.time.LocalDateTime" not-null="true"/>
+		<property name="visualorder" type="java.lang.Integer" not-null="true"/>
+
+		<sql-query name="getModulesActiveByLocation">
+			<![CDATA[
+			    SELECT DISTINCT
+			    mod.id,
+				mod.name, 
+				mod.starts as starts, 
+				mod.ends as ends, 
+				dr.visualorder
+				FROM logistica.module as mod
+				JOIN logistica.datingresource AS dr
+				ON dr.module_id = mod.id
+				JOIN logistica.dock as dk
+				ON dr.dock_id = dk.id
+				WHERE dk.location_id = :locationid
+				AND dr.active = TRUE
+				ORDER BY dr.visualorder
+			]]>
+		</sql-query>
+
+
+    </class>
+</hibernate-mapping>

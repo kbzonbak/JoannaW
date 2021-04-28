@@ -1,0 +1,11 @@
+/BadFormatException.class
+/Format.class
+/Parser.class
+/ParserException.class
+/ParserState.class
+/ParserStateFactory.class
+/ParserStateInsideField.class
+/ParserStateInsideQuotedField.class
+/ParserStateWaitingForField.class
+/Serializer.class
+/Table.class

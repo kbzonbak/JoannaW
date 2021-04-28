@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:schemas-microsoft-com:office:spreadsheet" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="asnunimarc2.xsd" namespace="urn:schemas-microsoft-com:office:office" />
+  <xs:import schemaLocation="asnunimarc3.xsd" namespace="urn:schemas-microsoft-com:office:excel" />
+  <xs:element name="Workbook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="o:DocumentProperties" />
+        <xs:element ref="x:ExcelWorkbook" />
+        <xs:element name="Styles">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="Style">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="Alignment">
+                      <xs:complexType>
+                        <xs:attribute ref="ss:Vertical" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Borders">
+                      <xs:complexType>
+                        <xs:sequence minOccurs="0">
+                          <xs:element maxOccurs="unbounded" name="Border">
+                            <xs:complexType>
+                              <xs:attribute ref="ss:Position" use="required" />
+                              <xs:attribute ref="ss:LineStyle" use="required" />
+                              <xs:attribute ref="ss:Weight" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Font">
+                      <xs:complexType>
+                        <xs:attribute ref="ss:FontName" use="optional" />
+                        <xs:attribute ref="x:Family" use="optional" />
+                        <xs:attribute ref="ss:Size" use="optional" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Interior">
+                      <xs:complexType>
+                        <xs:attribute ref="ss:Color" use="optional" />
+                        <xs:attribute ref="ss:Pattern" use="optional" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="NumberFormat">
+                      <xs:complexType>
+                        <xs:attribute ref="ss:Format" use="optional" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Protection" />
+                  </xs:sequence>
+                  <xs:attribute ref="ss:ID" use="required" />
+                  <xs:attribute ref="ss:Name" use="optional" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element maxOccurs="unbounded" name="Worksheet">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Table">
+                <xs:complexType>
+                  <xs:sequence minOccurs="0">
+                    <xs:element maxOccurs="unbounded" name="Column">
+                      <xs:complexType>
+                        <xs:attribute ref="ss:StyleID" use="required" />
+                        <xs:attribute ref="ss:Width" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element maxOccurs="unbounded" name="Row">
+                      <xs:complexType>
+                        <xs:sequence minOccurs="0">
+                          <xs:element maxOccurs="unbounded" name="Cell">
+                            <xs:complexType>
+                              <xs:sequence minOccurs="0">
+                                <xs:element name="Data">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute ref="ss:Type" use="required" />
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute ref="ss:StyleID" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute ref="x:FullColumns" use="required" />
+                  <xs:attribute ref="x:FullRows" use="required" />
+                  <xs:attribute ref="ss:StyleID" use="optional" />
+                  <xs:attribute ref="ss:DefaultColumnWidth" use="required" />
+                  <xs:attribute ref="ss:DefaultRowHeight" use="optional" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element ref="x:WorksheetOptions" />
+              <xs:element minOccurs="0" ref="x:PageBreaks" />
+            </xs:sequence>
+            <xs:attribute ref="ss:Name" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:attribute name="ID" type="xs:string" />
+  <xs:attribute name="Name" type="xs:string" />
+  <xs:attribute name="Vertical" type="xs:string" />
+  <xs:attribute name="FontName" type="xs:string" />
+  <xs:attribute name="Size" type="xs:decimal" />
+  <xs:attribute name="Position" type="xs:string" />
+  <xs:attribute name="LineStyle" type="xs:string" />
+  <xs:attribute name="Weight" type="xs:unsignedByte" />
+  <xs:attribute name="Color" type="xs:string" />
+  <xs:attribute name="Pattern" type="xs:string" />
+  <xs:attribute name="Format" type="xs:unsignedByte" />
+  <xs:attribute name="StyleID" type="xs:string" />
+  <xs:attribute name="DefaultColumnWidth" type="xs:unsignedByte" />
+  <xs:attribute name="DefaultRowHeight" type="xs:decimal" />
+  <xs:attribute name="Width" type="xs:decimal" />
+  <xs:attribute name="Type" type="xs:string" />
+</xs:schema>

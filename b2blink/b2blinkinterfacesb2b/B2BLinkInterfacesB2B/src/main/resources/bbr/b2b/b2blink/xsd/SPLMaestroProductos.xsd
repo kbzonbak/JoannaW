@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.bbr.cl/SPLMaestroProductos"
+	elementFormDefault="qualified"
+	xmlns:oc="http://www.bbr.cl/SPLMaestroProductos">
+	<element name="SPLMaestroProductos">
+		<complexType>
+			<sequence>
+				<element name="vendor" minOccurs="1" type="string" />
+				<element name="buyer" minOccurs="1" type="string"/>
+				<element name="productos" minOccurs="1">
+					<complexType>
+						<sequence minOccurs="1" maxOccurs="unbounded">
+							<element name="producto">
+								<complexType>
+									<sequence>
+										<element name="fecha_solicitud" type="date" />
+										<element name="id_requerimiento" type="string" />
+										<element name="tipo_solicitud" type="string" />
+										<element name="vendedor" type="string" />
+										<element name="sku" type="string" />
+										<element name="descripcion" type="string" />
+										<element name="marca" type="string" />
+										<element name="stock_critico" type="int" />
+										<element name="variacion" type="int" />
+									</sequence>
+								</complexType>
+							</element>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enterprise-project
+  version="1.0.0"
+  name="SOA_GENERAL_EAR"
+  id="myeclipse.1227538758968"
+  j2ee-spec="5.0"
+  archive="SOA_GENERAL_EAR.ear">
+  <project-modules>
+    <project-module
+      type="WEB"
+      name="SOA_GENERAL_WS"
+      id="myeclipse.1242852025180"
+      context-root="/SOAGENERALWS"
+      j2ee-spec="5.0"
+      archive="SOA_GENERAL_WS.war">
+      <attributes>
+        <attribute name="webrootdir" value="/WebRoot" />
+      </attributes>
+    </project-module>
+    <project-module
+      type="EJB"
+      name="SOA_GENERAL_Facade"
+      id="myeclipse.1227538758859"
+      j2ee-spec="5.0"
+      archive="SOA_GENERAL_Facade.jar" />
+    <project-module
+      type="EJB"
+      name="SOA_GENERAL_Manager"
+      id="myeclipse.1227551266203"
+      j2ee-spec="5.0"
+      archive="SOA_GENERAL_Manager.jar" />
+  </project-modules>
+</enterprise-project>
+

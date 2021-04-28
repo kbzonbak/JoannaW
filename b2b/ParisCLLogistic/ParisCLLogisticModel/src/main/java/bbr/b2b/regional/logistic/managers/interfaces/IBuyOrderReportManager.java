@@ -1,0 +1,122 @@
+package bbr.b2b.regional.logistic.managers.interfaces;
+
+import bbr.b2b.common.adtclasses.classes.FileDownloadInfoResultDTO;
+import bbr.b2b.common.adtclasses.classes.PageRangeDTO;
+import bbr.b2b.common.adtclasses.exceptions.AccessDeniedException;
+import bbr.b2b.common.adtclasses.exceptions.NotFoundException;
+import bbr.b2b.common.adtclasses.exceptions.OperationFailedException;
+import bbr.b2b.regional.logistic.buyorders.data.wrappers.OrderW;
+import bbr.b2b.regional.logistic.buyorders.report.classes.BlockedOrderArrayResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.BlockedOrderInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.CSVOrderVeVReportInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.DetailDiscountArrayResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.DetailDiscountInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.DetailDiscountReportResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.DownloadOrderReportInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.ExcelOrderReportResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.OrderDetailReportInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.OrderDetailReportResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.OrderDiscountArrayResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.OrderIdsByPagesW;
+import bbr.b2b.regional.logistic.buyorders.report.classes.OrderReportInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.OrderReportResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.OrderTypesResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.PreDeliveryDetailReportResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.PredeliveryDetailArrayResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.SchedulePendingOrderArrayResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.SchedulePendingOrderInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.UpdateVeVAvailableStockInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.UpdateVeVAvailableStockWSResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.UpdateVeVDeliveryCapacityByZoneInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.UpdateVeVDeliveryTimesInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.UpdateVeVLeadTimeInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.UploadVeVAvailableStockInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.UploadVeVDeliveryCapacitiesByZoneInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.UploadVeVDeliveryTimesInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.UploadVeVLeadTimeInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.VeVAvailableStockReportResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.VeVCDDataArrayResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.VeVCDDataChangeInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.VeVCDExcelOrderReportResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.VeVCDMassDataChangeArrayDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.VeVCDOrderDetailReportInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.VeVCDOrderDetailReportResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.VeVCDOrderReportInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.VeVCDOrderReportResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.VeVCDUnitaryDataChangeInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.VeVDeliveryCapacitiesByZoneReportResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.VeVDeliveryTimesReportResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.VeVLeadTimeReportResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.VeVUpdateAuditDetailReportArrayResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.VeVUpdateAuditDetailReportInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.VeVUpdateAuditReportArrayResultDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.VeVUpdateAuditReportInitParamDTO;
+import bbr.b2b.regional.logistic.buyorders.report.classes.VeVUpdateTypeArrayResultDTO;
+import bbr.b2b.regional.logistic.report.classes.BaseResultsDTO;
+
+
+
+public interface IBuyOrderReportManager {
+	
+	OrderW doCalculateTotalOfOrder(Long orderid) throws NotFoundException, AccessDeniedException, OperationFailedException;
+	OrderW[] doAcceptOrders(Long... orderids) throws AccessDeniedException, OperationFailedException, NotFoundException;
+	OrderDiscountArrayResultDTO getOrderDiscountByOrders(Long[] orderids) throws OperationFailedException, NotFoundException ;
+	DetailDiscountArrayResultDTO getDetailDiscountByOrders(Long[] orderids) throws OperationFailedException, NotFoundException;
+	PredeliveryDetailArrayResultDTO getPredeliveryDetailByOrders(Long[] orderids) throws OperationFailedException, NotFoundException;
+	
+	OrderTypesResultDTO getOrderTypes();
+		
+	OrderReportResultDTO getOrdersByVendorLocationAndValidCriterium(OrderReportInitParamDTO initParamW, boolean byFilter);
+	OrderReportResultDTO getOrdersByVendorLocationAndSoonToBeValidCriterium(OrderReportInitParamDTO initParamW, boolean byFilter);
+	OrderReportResultDTO getOrdersByVendorLocationAndNumber(OrderReportInitParamDTO initParamW, boolean byFilter);
+	OrderReportResultDTO getOrdersByVendorLocationAndShowableOrderStateType(OrderReportInitParamDTO initParamW, boolean byFilter);
+	OrderReportResultDTO getOrdersByVendorLocationAndEmittedRange(OrderReportInitParamDTO initParamW, boolean byFilter);
+	OrderReportResultDTO getOrdersByVendorLocationAndValidRange(OrderReportInitParamDTO initParamW, boolean byFilter);
+	OrderReportResultDTO getOrdersByVendorLocationAndExpirationRange(OrderReportInitParamDTO initParamW, boolean byFilter);
+	OrderDetailReportResultDTO getOrdersDetailByOrder(OrderDetailReportInitParamDTO initParams, boolean providerUser, boolean byFilter);
+	PreDeliveryDetailReportResultDTO getPreDeliveryDetailByOrder(OrderDetailReportInitParamDTO initParamDTO, boolean byFilter);
+	ExcelOrderReportResultDTO getExcelOrdersReportByOrders(DownloadOrderReportInitParamDTO initParamW, boolean providerUser, boolean byPages);
+	OrderIdsByPagesW getExcelOrdersReportByPages(OrderReportInitParamDTO initParamDTO, PageRangeDTO[] pageranges);
+	SchedulePendingOrderArrayResultDTO getSchedulePendingOrdersByValidStateDate(SchedulePendingOrderInitParamDTO initParamDTO);
+	BlockedOrderArrayResultDTO getBlockedOrdersByBlockingDate(BlockedOrderInitParamDTO initParamDTO);
+	FileDownloadInfoResultDTO getCSVOrderVeVReport(CSVOrderVeVReportInitParamDTO initParamDTO, Long userId);
+	
+	VeVCDOrderReportResultDTO getVeVCDOrdersByVendorLocationAndValidCriterium(VeVCDOrderReportInitParamDTO initParams, boolean byFilter);
+	VeVCDOrderReportResultDTO getVeVCDOrdersByVendorLocationAndSoonToBeValidCriterium(VeVCDOrderReportInitParamDTO initParams, boolean byFilter) ;
+	VeVCDOrderReportResultDTO getVeVCDOrdersByVendorLocationAndNumber(VeVCDOrderReportInitParamDTO initParams, boolean byFilter);
+	VeVCDOrderReportResultDTO getVeVCDOrdersByVendorLocationAndShowableOrderStateType(VeVCDOrderReportInitParamDTO initParams, boolean byFilter) ;
+	VeVCDOrderReportResultDTO getVeVCDOrdersByVendorLocationAndEmittedRange(VeVCDOrderReportInitParamDTO initParams, boolean byFilter);
+	VeVCDOrderReportResultDTO getVeVCDOrdersByVendorLocationAndValidRange(VeVCDOrderReportInitParamDTO initParams, boolean byFilter);
+	VeVCDOrderReportResultDTO getVeVCDOrdersByVendorLocationAndExpirationRange(VeVCDOrderReportInitParamDTO initParams, boolean byFilter);
+	VeVCDOrderReportResultDTO getVeVCDOrdersByVendorLocationAndCommittedRange(VeVCDOrderReportInitParamDTO initParams, boolean byFilter);
+	VeVCDOrderReportResultDTO getVeVCDOrdersByVendorLocationAndValidCriteriums(VeVCDOrderReportInitParamDTO initParams, boolean byFilter);
+	VeVCDOrderReportResultDTO getVeVCDOrdersByVendorLocationAndRequestNumber(VeVCDOrderReportInitParamDTO initParams, boolean byFilter);
+	VeVCDOrderDetailReportResultDTO getVeVCDOrdersDetailByOrder(VeVCDOrderDetailReportInitParamDTO initParams, boolean providerUser, boolean byFilter);
+	VeVCDExcelOrderReportResultDTO getExcelVeVCDOrdersReportByOrders(DownloadOrderReportInitParamDTO initParamW, boolean providerUser, boolean byPages);
+	OrderIdsByPagesW getExcelVeVCDOrdersReportByPages(VeVCDOrderReportInitParamDTO initParamDTO, PageRangeDTO[] pageranges);
+	
+	DetailDiscountReportResultDTO getDetailDiscountsOfOrderDetail(DetailDiscountInitParamDTO initParamDTO);
+	
+	VeVDeliveryTimesReportResultDTO getVeVDeliveryTimesReport(String vendorcode);
+	VeVDeliveryTimesReportResultDTO doUpdateVeVDeliveryTimes(UpdateVeVDeliveryTimesInitParamDTO initParams);
+	BaseResultsDTO doUploadVeVDeliveryTimes(UploadVeVDeliveryTimesInitParamDTO initParams);
+	VeVDeliveryCapacitiesByZoneReportResultDTO getVeVDeliveryCapacitiesByZoneReport(String vendorcode);
+	VeVDeliveryCapacitiesByZoneReportResultDTO doUpdateVeVDeliveryCapacityByZone(UpdateVeVDeliveryCapacityByZoneInitParamDTO initParams);
+	BaseResultsDTO doUploadVeVDeliveryCapacitiesByZone(UploadVeVDeliveryCapacitiesByZoneInitParamDTO initParams);
+	VeVAvailableStockReportResultDTO getVeVAvailableStockReport(String vendorcode);
+	VeVAvailableStockReportResultDTO doUpdateVeVAvailableStock(UpdateVeVAvailableStockInitParamDTO initParams);
+	UpdateVeVAvailableStockWSResultDTO doUpdateVeVAvailableStockWS(UpdateVeVAvailableStockInitParamDTO initParamDTO);
+	BaseResultsDTO doUploadVeVAvailableStock(UploadVeVAvailableStockInitParamDTO initParams);
+	VeVLeadTimeReportResultDTO getVeVLeadTimeReport(String vendorcode);
+	VeVLeadTimeReportResultDTO doUpdateVeVLeadTime(UpdateVeVLeadTimeInitParamDTO initParams);
+	BaseResultsDTO doUploadVeVLeadTime(UploadVeVLeadTimeInitParamDTO initParams);
+	VeVUpdateTypeArrayResultDTO getVeVUpdateType();
+	VeVUpdateAuditReportArrayResultDTO getVeVUpdateAuditReportByVendorDateTypeAndSearchText(VeVUpdateAuditReportInitParamDTO initParams, boolean isByFilter, boolean isPaginated);
+	VeVUpdateAuditDetailReportArrayResultDTO getVeVUpdateAuditDetailReport(VeVUpdateAuditDetailReportInitParamDTO initParams);
+	VeVUpdateAuditDetailReportArrayResultDTO getExcelVeVUpdateAuditReportData(VeVUpdateAuditReportInitParamDTO initParams);
+		
+	VeVCDDataArrayResultDTO doValidateVeVCDUnitaryDataChange(VeVCDUnitaryDataChangeInitParamDTO initparams);
+	VeVCDDataArrayResultDTO doValidateVeVCDMassDataChange(VeVCDMassDataChangeArrayDTO initparams);
+	VeVCDDataArrayResultDTO doChangeVeVCDData(VeVCDDataChangeInitParamDTO initparams);
+}
+

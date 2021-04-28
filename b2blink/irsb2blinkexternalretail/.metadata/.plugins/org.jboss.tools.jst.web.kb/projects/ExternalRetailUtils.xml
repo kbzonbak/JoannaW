@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kb-project>
+ <depends-on-projects/>
+ <used-by-projects/>
+ <paths>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/javax/json/javax.json-api/1.0/javax.json-api-1.0.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/org/jboss/logmanager/jboss-logmanager/1.5.2.Final/jboss-logmanager-1.5.2.Final.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/org/jboss/logmanager/log4j-jboss-logmanager/1.1.2.Final/log4j-jboss-logmanager-1.1.2.Final.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/bbr/b2b/common/base/BaseModel/1.0.0/BaseModel-1.0.0.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/javax/javaee-api/6.0/javaee-api-6.0.jar">
+   <libraries>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/c-1_0-rt.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/c-1_0.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/c.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/fmt-1_0-rt.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/fmt-1_0.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/fmt.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/fn.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/html_basic.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/jsf_core.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/mojarra_ext.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/permittedtaglibs.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/scriptfree.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/sql-1_0-rt.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/sql-1_0.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/sql.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/x-1_0-rt.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/x-1_0.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/x.tld" project="ExternalRetailUtils"/>
+    </library>
+   </libraries>
+  </path>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/bbr/b2b/common/base/BaseUtils/1.0.0/BaseUtils-1.0.0.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/com/jcraft/jsch/0.1.55/jsch-0.1.55.jar"/>
+ </paths>
+ <validation>
+  <el>
+   <linked-el length="14" name="%0" offset="428" path="%1"/>
+   <linked-el length="24" name="%0" offset="764" path="%1"/>
+   <linked-el length="24" name="%0" offset="952" path="%1"/>
+   <linked-el length="24" name="%2" offset="764" path="%1"/>
+   <linked-el length="24" name="%3" offset="952" path="%1"/>
+   <linked-el length="24" name="%4" offset="764" path="%1"/>
+   <linked-el length="14" name="%5" offset="428" path="%1"/>
+   <linked-el length="24" name="%6" offset="952" path="%1"/>
+  </el>
+ </validation>
+ <aliases>
+  <alias path="b2b" value="%0"/>
+  <alias path="/ExternalRetailUtils/pom.xml" value="%1"/>
+  <alias path="b2b.basemodel" value="%2"/>
+  <alias path="b2b.baseutils.version" value="%3"/>
+  <alias path="b2b.basemodel.version" value="%4"/>
+  <alias path="b2b.version" value="%5"/>
+  <alias path="b2b.baseutils" value="%6"/>
+ </aliases>
+ <includes/>
+ <uris/>
+</kb-project>

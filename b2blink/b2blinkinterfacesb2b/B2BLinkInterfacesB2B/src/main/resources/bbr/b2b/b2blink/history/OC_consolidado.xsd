@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/bbr/OCConsolidado" elementFormDefault="qualified"
+  xmlns:occ="http://www.bbr.cl/bbr/OCConsolidado">
+	<!-- Versión Consolidado 1.6 -->
+	<element name="consolidado">
+    	<complexType>
+      		<sequence>      			
+      			<element name="numeroconsolidado" type="string" />
+		        <element name="nombreportal" type="string" />
+		        <element name="ticket" type="string" minOccurs="0"/>   
+		        <element name="shipto" type="string" />
+				<element name="fecha" type="date" />
+		        <element name="edi_data"> 
+					<complexType>
+						<sequence>
+							<element name="senderIdentification" type="string" />
+							<element name="recipientIdentification" type="string" />              
+						<element name="buyerLocationCode" type="string" />
+					</sequence>
+        </complexType>
+	</element>
+	
+    <element name="comprador">
+        <complexType>
+            <sequence>
+	            <element name="rut" type="string" />
+	            <element name="razon_social" type="string" />
+	            <element name="unidad_negocio" type="string" />
+            </sequence>
+        </complexType>
+    </element>
+    
+    <element name="vendedor">
+        <complexType>
+        	<sequence>
+	            <element name="rut" type="string" />
+	            <element name="digito_verificador" type="string" />  <!--  1.6 -->
+				<element name="razon_social" type="string" />
+	            <element name="contacto" type="string" />
+	            <element name="direccion" type="string" />
+	            <element name="telefono" type="string" />
+            </sequence>
+     	</complexType>
+    </element>
+    
+    <element name="clientes" >
+      	<complexType> 
+	      	<sequence minOccurs="0" maxOccurs="unbounded">
+			    <element name="cliente" minOccurs="0">
+			     	<complexType>
+			        	<sequence>
+				            <element name="id" type="string" />
+				            <element name="nombre" type="string" />				            
+				            <element name="rut" type="string" />
+				            <element name="telefono" type="string" />
+							<element name="telefono_alternativo" type="string" minOccurs="0"/>
+				            <element name="direccion" type="string" />
+				            <element name="numcalle" type="string" />
+				            <element name="numdepto" type="string" />
+				            <element name="numcasa" type="string" />
+				            <element name="region" type="string" />
+				            <element name="comuna" type="string" />
+				            <element name="ciudad" type="string" />
+				            <element name="comentario" type="string" />
+							<element name="localidad" type="string" minOccurs="0"/>
+			            </sequence>
+			         </complexType>
+			    </element>    
+			</sequence>  
+    	</complexType>
+  	</element>
+  	
+    <element name="locales">
+      	<complexType>
+        	<sequence minOccurs="1" maxOccurs="unbounded">
+            	<element name="local">
+              		<complexType>
+              			<sequence>
+				            <element name="cod" type="string" />
+				            <element name="nombre" type="string" />
+				            <element name="direccion" type="string" />
+				            <element name="ean" type="string" minOccurs="0" />
+				         </sequence>
+                	</complexType>
+              	</element>
+          	</sequence>
+       	</complexType>
+  	</element>
+                
+    <element name="ordenes">
+    	<complexType>
+        	<sequence maxOccurs="unbounded">
+            	<element name="orden">
+                	<complexType>
+                  		<sequence>
+							<element name="digito_verificador_oc" type="int"/>
+							<element name="item" type="int"/>
+							<element name="estado_oc" type="string"/>
+		                    <element name="tipo_oc" type="string"/>
+		                    <element name="num_oc" type="string"/>
+							<element name="nosolicitud" type="string" minOccurs="0"/>
+		                    <element name="f12" type="string" minOccurs="0"/>
+		                    <element name="seccion" type="string" minOccurs="0"/>
+							<element name="cod_seccion" type="string" minOccurs="0"/>
+							<element name="nro_boleta" type="string" minOccurs="0"/>														
+							<element name="id_cliente" type="string" minOccurs="0"/>				
+		                    <element name="fecha_emision" type="date" />
+		        			<element name="fecha_vigencia" type="date" />
+							<element name="codigo_local_venta" type="string" minOccurs="0"/>
+							<element name="cod_local_entrega" type="string"/>
+							<element name="fecha_compromiso" type="date"  />
+							<element name="total" type="double"/>
+		        			<element name="fecha_vto" type="date" />
+		                    <element name="forma_pago" type="string" minOccurs="0"/>
+		                    <element name="responsable" type="string" />
+							 <element name="detalles">
+								<complexType>
+									<sequence minOccurs="0" maxOccurs="unbounded">
+										<element name="detalle">
+											<complexType>
+												<sequence>
+													<element name="sku" type="string"/>	<!--  en oc se llama cod_prod_comp-->
+													<element name="cod_prod_vendedor" type="string" />
+													<element name="prod_empaque" type="float" />
+													<element name="cantidad_empaque" type="int" />
+													<element name="innerpack" type="int" minOccurs="0"/>
+													<element name="desc_empaque" type="string" minOccurs="0"/>
+													<element name="desc_um_unidad" type="string" minOccurs="0"/>
+													<element name="dv_codigo_etiq" type="string" />
+													<element name="codigo_etiq" type="string" />
+													<element name="costo_lista" type="string" />
+													<element name="cant_sol" type="string" />
+													<element name="cant_des" type="string" minOccurs="0"/>
+													<element name="costo_final" type="string" />
+													<element name="precio_lista" type="double" minOccurs="0"/>
+													<element name="ean13" type="string" />	
+													<element name="rubro" type="string" minOccurs="0"/>
+													<element name="ean1" type="string" minOccurs="0"/>
+													<element name="ean2" type="string" minOccurs="0"/>
+													<element name="ean3" type="string" minOccurs="0"/>
+													<element name="cod_estilo" type="string" minOccurs="0"/>
+													<element name="desc_estilo" type="string" minOccurs="0"/>
+													<element name="marca_estilo" type="string" minOccurs="0"/>
+													<element name="desc_producto">
+														<complexType>
+																<sequence minOccurs="0" maxOccurs="unbounded">
+																	<element name="descuento" type="occ:cargo_descuento" />
+																</sequence>
+															</complexType>
+														</element>         		
+														<element name="cargos_prod">
+															<complexType>
+																<sequence minOccurs="0" maxOccurs="unbounded">
+																	<element name="cargo" type="occ:cargo_descuento" />
+																</sequence>
+															</complexType>
+														</element>							 
+													</sequence>
+												</complexType>
+											</element>
+										</sequence>
+									</complexType>
+								</element>							
+                  		</sequence>
+                	</complexType>
+              	</element>
+            </sequence>
+    	</complexType>
+	</element>
+    <element name="predistribuciones">
+    	<complexType>
+        	<sequence minOccurs="0" maxOccurs="unbounded">
+            	<element name="predistribucion">
+                	<complexType>
+                  		<sequence>
+		                    <element name="cod_local" type="string" />	
+							<element name="num_oc" type="string" />							
+		                    <element name="sku" type="string" />
+		                    <element name="cantidad" type="string" />
+                  		</sequence>
+                	</complexType>
+              	</element>
+            </sequence>
+  		</complexType>
+ 	</element>
+	</sequence>
+  </complexType>
+</element>
+
+
+  <complexType name="cargo_descuento">
+    <sequence>
+      <element name="monto" type="float" />
+      <element name="porcentaje" type="float" />
+      <element name="tipo" type="occ:tipo_cargo_descuento" />
+      <element name="glosa" type="string" minOccurs="0" />
+      <element name="codigo" type="string" />
+    </sequence>
+  </complexType>
+
+  <simpleType name="tipo_cargo_descuento">
+    <restriction base="string">
+      <enumeration value="monto"></enumeration>
+      <enumeration value="porcentaje"></enumeration>
+    </restriction>
+  </simpleType>
+</schema>

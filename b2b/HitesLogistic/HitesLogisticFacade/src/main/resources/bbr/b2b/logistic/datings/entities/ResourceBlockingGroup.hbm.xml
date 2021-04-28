@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 17-08-2017 15:31:17 by Hibernate Tools 3.5.0.Final -->
+
+<hibernate-mapping>
+    <class name="bbr.b2b.logistic.datings.entities.ResourceBlockingGroup" table="RESOURCEBLOCKINGGROUP"
+    	entity-name="bbr.b2b.logistic.datings.entities.ResourceBlockingGroup" schema="LOGISTICA">
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="identity">
+				<param name="sequence">RESOURCEBLOCKINGGROUP_SEQUENCE</param>
+				<param name="parameters">AS BIGINT CACHE 100</param>
+			</generator>
+		</id>
+
+		<property name="comment" type="java.lang.String" column="COMMENT" length="250"/>
+		<property name="created" type="java.time.LocalDateTime" column="CREATED"/>		
+		<property name="reason" type="java.lang.String" column="REASON" length="250"/>
+		<property name="recurrence" type="java.lang.Integer" column="RECURRENCE"/>
+		<property name="since" type="java.time.LocalDateTime" column="SINCE"/>
+		<property name="until" type="java.time.LocalDateTime" column="UNTIL"/>
+		<property name="who" type="java.lang.String" column="WHO" length="250"/>		
+					
+		<many-to-one name="location"
+			class="bbr.b2b.logistic.locations.entities.Location" column="LOCATION_ID" 
+			not-null="false" />	
+
+    </class>
+</hibernate-mapping>

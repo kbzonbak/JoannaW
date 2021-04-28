@@ -1,0 +1,69 @@
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+	<xs:element name="VENDOR_DWH">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="VS" maxOccurs="1" minOccurs="1"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="VS">
+		<xs:complexType>
+			<xs:sequence minOccurs="1" maxOccurs="unbounded">
+				<xs:element ref="V"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="V">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Field1" maxOccurs="1" minOccurs="1"></xs:element>
+				<xs:element ref="Field2" maxOccurs="1" minOccurs="1"></xs:element>
+				<xs:element ref="Field3" maxOccurs="1" minOccurs="1"></xs:element>
+				<xs:element ref="Field4" maxOccurs="1" minOccurs="1"></xs:element>
+				<xs:element ref="Field5" maxOccurs="1" minOccurs="1"></xs:element>
+				<xs:element ref="Field6" maxOccurs="1" minOccurs="1"></xs:element>
+				<xs:element ref="Field7" maxOccurs="1" minOccurs="1"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="Field1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Field2">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Field3">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Field4">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Field5">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Field6">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Field7">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+</xs:schema>

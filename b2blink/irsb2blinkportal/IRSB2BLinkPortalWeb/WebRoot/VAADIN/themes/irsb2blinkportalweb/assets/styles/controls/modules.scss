@@ -1,0 +1,351 @@
+@mixin modules 
+{	
+
+	.report-layout{
+		padding-bottom: 45px;
+		overflow: hidden;
+		/*margin-bottom: 5px;
+		padding-right: 5px;*/
+	}
+
+	.report-layout-no-filter{
+		background : white;
+		padding-bottom: 5px;
+		overflow: hidden;
+	}
+	
+	.report-grid{
+		.v-grid-column-header-content{
+			text-align: center;
+		}
+	}
+	
+	.text-editor-limited{
+		.gwt-RichTextToolbar-bottom{
+			display: none;
+		}
+		.gwt-PushButton {
+    		display: inline-block;
+    		line-height: 20px;
+    		width: 20px;
+    		text-align: center;
+    		outline: none;
+    	}
+	}
+	
+	.form-vertical-container
+	{
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-bottom: 20px;
+	}
+
+	.buttons-layout
+	{
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+	
+	.buttons-layout-formats
+	{
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+
+	.toolbar-layout
+	{
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	
+	.toolbar-button{
+		padding: 1px;
+		border-width: 0px;
+		width: 30px;
+		height: 30px;
+	}
+	.toolbar-button:focus:after {
+	    box-shadow: none;
+	}
+	
+    .v-button.toolbar-button {
+        background-color: transparent !important;
+        background-image: none;
+        background-image: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }	
+	
+	.tab-module-style
+	{
+		top: 0px;
+	}
+	
+	.bbr-text-field {
+		height:28px;
+		font-size:12px;
+		width:100%;
+	}
+
+	.bbr-text-field-read-only {
+		height:28px;
+		font-size:12px;
+		width:100%;
+		background-color: #e6e6fa;
+		&.background > input{
+			background: #e6e6fa !important;
+		}
+	}
+	
+	/*FORM FIELDS TEXTFIELD, COMBOBOX, ITEMSELECTFIELD */
+   	.bbr-fields{
+		height:28px !important;
+		font-size:12px;
+		width:100%;
+	}
+
+	.bbr-buttons-panel {
+		margin: 10px;
+	}
+
+	.bbr-win-form-panel {
+		margin-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.bbr-details-grid-field-label{
+		font-weight: bold;
+		margin-left: 0px;
+		margin-right: 10px;
+	}
+	
+	.bbr-number-field-value{
+		text-align : right;
+		width: 80px;
+	}
+	
+	.bbr-win-container
+	{
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-bottom: 20px;
+		padding-top: 20px;
+	}
+	.bbr-container
+	{
+		padding-left: 5px;
+		padding-top: 5px;
+	    margin-right: 5px;
+    	margin-bottom: 5px;
+	}
+
+	.bbr-container-space
+	{
+		padding: 5px;
+	}
+
+	.bbr-module-top
+	{
+		padding-top: 10px;
+	}
+	
+	.panel-item-editor{
+		border: 1px solid #c5c5c5;
+	}
+	.v-panel-caption-panel-item-editor{
+		font-weight: bold;
+	    background: #34b2d8;
+	    color:white;
+	}
+
+
+	.panel-mini-button{
+	    border-width: 0px;
+	    width: 15px;
+	    height: 15px;
+	    padding-left: 1px;
+	    right: 0px;
+	    bottom: 3px;
+	}
+	.panel-mini-button:focus:after {
+	    box-shadow: none;
+	    position: relative;
+	}
+	
+	.v-button.panel-mini-button{
+		background-color: #fff;
+		background-image: none;
+		background-image: none;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+	}
+
+	.data-panel{
+		background-color: #e2e2e2;
+	    border-style: solid;
+	    border-width: thin;
+	    border-color: #cecece;
+	    border-top-left-radius: 5px;
+	    border-top-right-radius: 5px;
+	    padding-left: 15px;
+	    padding-top: 3px;
+	}
+
+	.data-panel-name-label{
+	  font-weight: bolder;
+    	padding-left : 10px;
+	}
+
+	.data-panel-name-value{
+	    border-left-width: thin;
+    	border-left-color: #c2c2c2;
+    	border-left-style: solid;
+    	font-weight: bolder;
+    	padding-left : 10px;
+	}
+	
+	.data-panel-name-value-blue{
+    	border-left-width: thin;
+    	border-left-color: #c2c2c2;
+    	color: #1b1bf5;
+    	border-left-style: solid;
+    	font-weight: bold;
+    	padding-left : 10px;
+	}
+
+	.data-panel-row{
+		border-style: solid;
+    	border-width: thin;
+    	border-color: #c2c2c2;
+    	border-top: none;
+	}
+
+	.data-panel-image{
+		max-width: 100%;
+    	max-height: 200px;
+    	width: auto !important;
+    	height: auto !important;
+	}
+
+	.bbr-panel-sections{
+		color: black;
+	    padding: 15px;
+	    border-radius: 10px;
+	    background-color: lightgrey;
+	}
+	
+	/* CHART PANEL CONTROL */
+	
+	.panel-right-chart{
+		background:#ffffff;		
+	}
+	
+	.right-chart{
+		min-width:450px;
+		max-width:100%;
+		height:100%;		
+		position:absolute;
+		top:0;		
+		
+		.highcharts-title{
+			font-size:14px!important;
+			text-transform: uppercase;
+			font-weight: bold!important;
+			dominant-baseline: text-after-edge;			
+		}
+	}
+	
+	.left-chart{
+		.highcharts-title{
+			font-size:14px!important;
+			text-transform: uppercase;
+			font-weight: bold!important;
+			dominant-baseline: text-after-edge;
+		}
+	}
+	
+	.v-caption-lbl-products-availability-client{
+		color: #197DE1;
+		font-size: 14px;
+		font-weight: 600;
+		margin-top: 10px;
+		text-transform: uppercase;
+	}
+	
+	 .stats-title{
+         margin-top: -20px;
+         font-size: 12px;
+         line-height: 0px;
+         font-weight: bold;
+         display: flex;
+    	 justify-content: center;
+                  
+    }
+    
+    /*END CHART PANEL CONTROL*/
+    
+    /*MARKETPLACE*/
+    
+    .marketplace-panel-main{
+    	background-color:#ffffff;
+    	display: flex;
+    	flex-wrap: wrap;
+    	justify-content: space-evenly;
+    	overflow: auto;
+    	padding-top: 40px;
+    }
+    
+    .panel-meli, .panel-linio, .panel-falabella, .panel-ripley, .panel-paris{
+    	margin:10px;
+    	
+    }
+    
+    .bbr-action-panel-enabled-image{
+       	opacity: 1;
+    	filter: grayscale(0);
+    	cursor: pointer; 	
+    }
+    
+    .bbr-action-panel-disabled-image{
+    	opacity: 0.5;
+    	filter: grayscale(1);
+    }
+    
+    .mp-panel-main{
+    	background-color:#ffffff;    	
+    }
+    
+    .mp-panelLogo{
+    	margin-top: -25px;
+    }
+    
+    .mp-message-text{
+    	font-size:20px;
+    	color: #664d03;
+    	background-color: #fff3cd;
+    	border-radius: 5px;    	  
+    	border: 1px solid #ffecb5;     	
+    }
+    
+    .mp-btn-redirect{
+    	font-size:18px;
+    	color: #084298;
+    	background-color: #cfe2ff;
+    	border-radius: 5px;    	  
+    	border: 1px solid #b6d4fe;
+    	padding:10px;
+    	height:auto;
+    }
+    
+    /*END MARKETPLACE*/
+    
+	.label-product-detail-limit{
+        line-height: 40px;
+    	font-weight: bold;
+    	margin-left:10px;
+	}
+
+}
+
+
+

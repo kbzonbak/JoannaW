@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="EJB"
+  name="SOA_GENERAL_Manager"
+  id="myeclipse.1227551266203"
+  j2ee-spec="5.0"
+  archive="SOA_GENERAL_Manager.jar" />
+

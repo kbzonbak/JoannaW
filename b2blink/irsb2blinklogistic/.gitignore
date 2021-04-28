@@ -1,0 +1,17 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
+#JOSE
+.metadata/
+RemoteSystemsTempFiles/
+.recommenders/
+/bin/

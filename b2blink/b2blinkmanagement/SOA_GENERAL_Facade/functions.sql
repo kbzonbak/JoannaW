@@ -1,0 +1,5 @@
+CREATE FUNCTION "SOA"."TOSTR"
+("ADATE" TIMESTAMP
+)
+RETURN
+TO_CHAR(adate, 'yyyy-MM-dd HH24:mi:ss') || ' -03:00';

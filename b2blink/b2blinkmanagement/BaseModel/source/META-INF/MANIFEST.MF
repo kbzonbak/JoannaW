@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Dependencies: org.apache.commons.beanutils, org.apache.commons.lang, o
+ rg.hibernate, org.slf4j
+

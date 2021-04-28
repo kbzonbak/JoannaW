@@ -1,0 +1,293 @@
+@mixin bbr_grid
+{
+	.v-grid{
+	 	height: 100% !important;
+	}
+	.v-grid-header th {
+		position: relative;
+		background-color: #fafafa;
+		font-size: 13px !important;
+		font-weight: bold !important;
+		border-left: 1px solid #d4d4d4;
+		border-bottom: 1px solid #d4d4d4;	
+		text-align: left;
+		height: 40px;
+	}
+	.v-grid-header{
+		height: 40px;
+	}
+	.v-grid-cell {    
+	    height:30px;   
+    	line-height: 30px;
+	    font-size: 13px !important;
+	    color:#000;
+	   
+	}
+	.title-and-subtitle{
+		.v-grid-cell{
+			&.is-title{
+	   	 		height: 35px !important;
+				line-height: 35px !important;
+	   		}
+	    	&.is-subtitle{
+				height: 20px !important;
+				line-height: 20px !important;
+				font-size: 11px !important;
+				.v-grid-column-header-content{
+					line-height: 20px !important;
+				}
+			}
+		}
+	}
+	
+	
+	.height-30{
+		height:30px;
+	}
+	
+	/*PARA PANEL DE LASTLOADS PANEL*/ 
+	.v-grid-lastloads{
+		.v-grid-header{
+			height: 0px !important;
+		}
+		.v-grid-cell{
+			padding-left:12px;
+			padding-right:12px;
+		}
+	}
+	/*PARA CREAR UNA COLUMNA DE CARDVIEW*/ 
+	.v-grid-card{
+		.v-grid-cell {    
+	   	 	height:60px;   
+    		line-height: 30px;
+	    	font-size: 13px !important;
+	    	color:#000;
+		}
+		.v-grid-row-selected > .v-grid-cell {
+    		background-color: #FFFFFF;    
+    		background: #34b2d8;
+    		color: #FFFFFF;
+    		text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+    		border-color: #1d69b4;
+		}
+		.v-grid-cell-focused:before {
+			border: 2px solid transparent;
+		}
+		.v-grid-header{
+			height:0px;
+		}
+		.v-grid-card-title{
+			font-weight: bold;
+		}
+	}
+	
+	
+	.bbr-grid-header{
+		height: auto !important;
+    	line-height: normal;
+    	font-size: 13px;
+	}
+	.v-grid-column-header-content{
+		vertical-align: middle;
+	}
+	
+	 .v-grid-column-header-content, .irsb2blinkportalweb .v-grid-column-footer-content {
+    	line-height: 30px;
+	}
+	.v-grid-row-selected > .v-grid-cell {
+    background-color: #FFFFFF;    
+    background: #34b2d8;
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+    border-color: #1d69b4;
+	}
+	
+	
+	.irsb2blinkportalweb .v-grid-cell-focused:before{
+		border: 2px solid #83b9ef;
+	}
+	
+	/*.v-grid-tablewrapper{    
+    	height: 100% !important;
+	}*/
+	
+	.bbr-user-details-header-label{
+		font-weight: bold;
+	}
+	.bbr-user-details-field-label{
+		font-weight: bold;
+		margin-left: 50px;
+		margin-right: 10px;
+	}
+
+	.bbr-user-details-field-value{
+		margin-left: 10px;
+	}
+	
+	.right-aligned-cell{
+		text-align: right;
+	}
+	
+	.right-aligned-green-text-cell{
+		text-align: right;
+		color: #6BC444;
+	}
+	
+	.right-aligned-red-text-cell{
+		text-align: right;
+		color: #FF0000;
+	}
+	
+	.bbr-grid-header{
+		height:40px;
+	}
+	
+	.bbr-grid-header .v-grid-cell{
+		height:40px !important;
+	}
+
+	.bbr-grid-header .v-grid-cell .v-grid-column-header-content{
+		line-height:18px !important;
+	}
+
+	.bbr-grid-header-corner
+	{
+		position : absolute;
+		right : 1px;
+		top : 1px;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 0 8px 8px 0;
+		border-color: transparent #FF0000 transparent transparent;
+	}
+	
+	.bbr-grid-multi-header .v-grid-body{
+		margin-top :40px !important;
+	}
+	
+	/*PARA SOLUCIONAR COMBOBOX DE LA GRILLA*/ 
+	.bbr-multi-grid .v-grid-header th:first-child{ 
+		width: 57px !important;
+	}
+	
+	
+	.grid-link-button-blue {
+		height : 28px;
+	   	border: none;
+	    box-shadow: none;
+	    background: transparent;
+	    cursor: pointer;
+	    color: #059ae5;
+	    text-decoration: underline;
+	    transition: color 140ms;
+	    padding:0;
+	    display: inline;
+	}	
+	
+	.grid-link-button-blue:hover {
+	    color: #12b0ff;
+	}
+		
+	.grid-link-button-blue:hover:after {
+		background-color: transparent;
+	}
+		
+	.grid-link-button-blue:focus {
+	    outline: none;
+	}
+	
+	.grid-link-button-blue:focus:after {
+	    box-shadow: none;
+	}
+
+	.grid-link-button {
+		height : 28px;
+	   	border: none;
+	    box-shadow: none;
+	    background: transparent;
+	    cursor: pointer;
+	    color: #000000;
+	    text-decoration: underline;
+	    transition: color 140ms;
+	    padding:0;
+	    display: inline;
+	}	
+	
+	.grid-link-button:hover {
+	    color: #7A7A7A;
+	}
+		
+	.grid-link-button:hover:after {
+		background-color: transparent;
+	}
+		
+	.grid-link-button:focus {
+	    outline: none;
+	}
+	
+	.grid-link-button:focus:after {
+	    box-shadow: none;
+	}
+
+	.grid-footer-total{
+		font-weight: bold !important; 
+		background: #d4e2ef !important;
+	}
+
+	.grid-footer-right{
+		font-weight: bold !important;
+    	text-align: right !important;
+	}
+
+	.grid-footer-red-right{
+		font-weight: bold !important;
+    	text-align: right !important;
+    	color: #FF0000 !important;
+	}
+
+	.grid-footer-green-right{
+		font-weight: bold !important;
+    	text-align: right !important;
+    	color: #6BC444 !important;
+  	}
+	
+	.grid-footer-left{
+		font-weight: bold !important;
+    	text-align: left !important;
+	}
+	.grid-footer-center{
+		font-weight: bold !important;
+    	text-align: center !important;
+	}
+	.grid-element-counts-label{
+		margin-top:-20px;
+	}
+
+/*-----------------------------------------*/
+	.grid-cell-corner-triangle{
+		position: relative;
+	}
+	.grid-cell-corner-triangle::before,
+	.grid-cell-corner-triangle::after {
+	    content: '';
+	    position: absolute;
+	    top: 0;
+	    right: 0;
+	    border-color: transparent;
+	    border-style: solid;
+	}
+	
+	.grid-cell-corner-triangle::before {
+	    border-width: 0px;
+	    border-right-color: #FF0000;
+	    border-top-color: #FF0000;
+	}
+	
+	.grid-cell-corner-triangle::after {
+	    border-radius: 1px;
+	    border-width: 3px;
+	    border-right-color: #FF0000;
+	    border-top-color: #FF0000;
+	}
+}

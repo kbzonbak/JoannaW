@@ -1,0 +1,185 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="QPRODUCTO">
+		<xs:complexType>
+			<xs:sequence minOccurs="1" maxOccurs="1">
+				<xs:element ref="secuencia" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="cod_producto" maxOccurs="1"
+					minOccurs="1" />
+				<xs:element ref="descripcion" maxOccurs="1"
+					minOccurs="1" />
+				<xs:element ref="codclase" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="descclase" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="codigobarraparis" maxOccurs="1"
+					minOccurs="1" />
+				<xs:element ref="cod_prov" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="cod_prod_prov" maxOccurs="1"
+					minOccurs="0" />
+				<xs:element ref="capacidad" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="lead_time" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="dimensiones" maxOccurs="1"
+					minOccurs="0" />
+				<xs:element ref="tipodeflujo" maxOccurs="1"
+					minOccurs="1" />
+				<xs:element ref="vev" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="innerpack" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="casepack" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="lista_ean" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="atc" maxOccurs="1" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--   Número de secuencia  -->
+	<xs:element name="secuencia">
+		<xs:simpleType>
+			<xs:restriction base="xs:long" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  SKU  -->
+	<xs:element name="cod_producto">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Descripción  -->
+	<xs:element name="descripcion">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Código Clase  -->
+	<xs:element name="codclase">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Descripción Clase  -->
+	<xs:element name="descclase">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Código Barras Paris  -->
+	<xs:element name="codigobarraparis">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Código Proveedor  -->
+	<xs:element name="cod_prov">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Código Producto Proveedor  -->
+	<xs:element name="cod_prod_prov">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Capacidad  -->
+	<xs:element name="capacidad">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Lead Time  -->
+	<xs:element name="lead_time">
+		<xs:simpleType>
+			<xs:restriction base="xs:long" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Dimensiones  -->
+	<xs:element name="dimensiones">
+		<xs:complexType>
+			<xs:sequence minOccurs="1" maxOccurs="unbounded">
+				<xs:element ref="dimension" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="dimension">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tipodim" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="coddim" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="valor" maxOccurs="1" minOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--  Tipo Dimensión  -->
+	<xs:element name="tipodim">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Código Dimensión  -->
+	<xs:element name="coddim">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Valor Dimensión  -->
+	<xs:element name="valor">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Tipo de Flujo  -->
+	<xs:element name="tipodeflujo">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!-- VeV  -->
+	<xs:element name="vev">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Innerpack  -->
+	<xs:element name="innerpack">
+		<xs:simpleType>
+			<xs:restriction base="xs:int" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Casepack  -->
+	<xs:element name="casepack">
+		<xs:simpleType>
+			<xs:restriction base="xs:int" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Lista de Códigos de Barra  -->
+	<xs:element name="lista_ean">
+		<xs:complexType>
+			<xs:sequence minOccurs="1" maxOccurs="unbounded">
+				<xs:element ref="ean" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--  Códigos de Barra  -->
+	<xs:element name="ean">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Bloque ATC  -->
+	<xs:element name="atc">
+		<xs:complexType>
+			<xs:sequence minOccurs="0" maxOccurs="1">
+				<xs:element ref="cod_atc" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="curva" maxOccurs="1" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--  Código ATC  -->
+	<xs:element name="cod_atc">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Valor Curva  -->
+	<xs:element name="curva">
+		<xs:simpleType>
+			<xs:restriction base="xs:int" />
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,10 @@
+package bbr.b2b.extractors.timers.manager.interfaces;
+
+import javax.ejb.Local;
+
+import bbr.b2b.connector.timers.managers.interfaces.ITimerManager;
+
+@Local
+public interface WalmartEdiManagerLocal {
+
+}

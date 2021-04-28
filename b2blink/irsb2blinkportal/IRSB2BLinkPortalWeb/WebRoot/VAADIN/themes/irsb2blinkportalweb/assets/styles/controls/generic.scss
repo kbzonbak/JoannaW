@@ -1,0 +1,82 @@
+@mixin generic {
+
+    .generic-text-field {
+        height: 25px;
+        font-size: 12px;
+    }
+    .btn-generic {
+        color: #000;
+        height: 30px;
+        font-size: 12px;
+        font-weight: normal;
+        box-shadow: unset;
+        border-radius: 5px;
+        border: 1px solid #d4d4d4;
+        border-top-color: #d4d4d4;
+        border-bottom-color: #d4d4d4;
+        background-color: #e1e1e1;
+        background-image: -webkit-linear-gradient(top, #e1e1e1 2%, #e1e1e1 98%);
+        background-image: -moz-linear-gradient(to bottom, #e1e1e1 2%, #e1e1e1 98%);
+        text-transform: uppercase;
+    }
+    div.lbl_red_underline{
+    	color: red !important;
+    	text-decoration: underline !important;
+    }
+    .generic-form {
+        [class*="spacing"]>tbody>[class*="row"]>td {
+            padding-top: 1px !important;
+        }
+    }
+     ::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
+        color: grey;
+        font-style: italic;
+    }
+     ::-moz-placeholder {
+        /* Firefox 19+ */
+        color: grey;
+        font-style: italic;
+    }
+     :-ms-input-placeholder {
+        /* IE 10+ */
+        color: grey;
+        font-style: italic;
+    }
+     :-moz-placeholder {
+        /* Firefox 18- */
+        color: grey;
+        font-style: italic;
+    }
+    @for $i from 1 through 20 {
+     	.margin-#{$i} {
+            margin: #{$i}px !important;
+        }
+        .padding-#{$i} {
+            padding: #{$i}px !important;
+        }
+        .margin-top-#{$i} {
+            margin-top: #{$i}px !important;
+        }
+        .margin-left-#{$i} {
+            margin-left: #{$i}px !important;
+        }
+        .margin-bottom-#{$i} {
+            margin-bottom: #{$i}px !important;
+        }
+        .padding-bottom-#{$i} {
+            padding-bottom: #{$i}px !important;
+        }
+        .padding-top-#{$i} {
+            padding-top: #{$i}px !important;
+        }
+        .padding-right-#{$i} {
+            padding-right: #{$i}px !important;
+        }
+        .padding-left-#{$i} {
+            padding-right: #{$i}px !important;
+        }
+    }
+    
+
+}

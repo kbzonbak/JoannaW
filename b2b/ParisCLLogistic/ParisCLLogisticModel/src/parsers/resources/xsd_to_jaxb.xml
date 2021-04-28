@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<project name="XJC" default="generar-clases">
+	
+	<taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask" classpath="${compile_classpath}" />
+				
+	<target name="generar-clases">				
+			
+		<!--ASN -->
+		<!--<xjc schema="src/parsers/resources/bbr/b2b/logistic/xml/main/asn.xsd" destdir="src/parsers/java" package="bbr.b2b.logistic.xml.asn" />-->
+		
+		<!-- ASN ParisCL-->
+		<!--<xjc schema="src/parsers/resources/bbr/b2b/logistic/xml/main/lgf_ib_shipment.xsd" destdir="src/parsers/java" package="bbr.b2b.logistic.xml.lib_shipment"/>-->
+		
+		<!-- Interfaz Citas -->
+		<xjc schema="src/parsers/resources/bbr/b2b/logistic/xml/main/lgf_appointment-19C.xsd" destdir="src/parsers/java" package="bbr.b2b.logistic.xml.lib_appointment"/>
+		
+	</target>
+</project>

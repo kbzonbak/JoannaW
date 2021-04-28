@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1567442652784_0" label="SOAConnector" name="SOAConnector">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/ExternalRetail" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1567448096525_1" label="ExternalRetail" name="ExternalRetail">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/ExternalRetailEAR" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/ExternalRetailFacade" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/ExternalRetailManager" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/ExternalRetailQueue" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/ExternalRetailModel" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/ExternalRetailUtils" type="4"/>
+</workingSet>
+</workingSetManager>

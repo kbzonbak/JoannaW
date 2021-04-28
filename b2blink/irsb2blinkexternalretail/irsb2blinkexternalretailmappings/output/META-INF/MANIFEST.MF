@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Created-By: MapForce 2011r3sp1
+Main-Class: bbr.b2b.extractors.mappings.externalretailmappingsConsole
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema id="cetiqueta" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://test.b2b.paris.cl/ParisLogisticaWeb/xsd/cetiqueta/etiqueta.xsd" xmlns:etiqueta="http://test.b2b.paris.cl/ParisLogisticaWeb/xsd/cetiqueta/etiqueta.xsd">
+	<element name="cetiqueta">
+		<complexType>
+			<sequence minOccurs="1" maxOccurs="unbounded">
+				<element name="etiqueta">
+					<complexType>
+						<sequence>
+							<element name="numeroOrden" type="string"></element>
+							<element name="coddep" type="string"></element>
+							<element name="codbarraparis" type="string"></element>
+							<element name="codsku" type="string"></element>
+							<element name="codproveedor" type="string"></element>
+							<element name="nombreproducto" type="string"></element>
+							<element name="color" type="string"></element>
+							<element name="dimension" type="string"></element>
+							<element name="talla" type="string"></element>
+							<element name="cantidad" type="float"></element>
+							<element name="precionormal" type="float"></element>
+							<element name="preciooferta" type="float"></element>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

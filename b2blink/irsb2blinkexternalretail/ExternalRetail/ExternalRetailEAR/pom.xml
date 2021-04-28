@@ -1,0 +1,272 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>bbr.b2b.extractors</groupId>
+		<artifactId>ExternalRetail</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>ExternalRetailEAR</artifactId>
+	<version>${b2b.version}</version>
+	<packaging>ear</packaging>
+
+	<name>ExternalRetail</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>bbr.b2b.common.base</groupId>
+			<artifactId>BaseModel</artifactId>
+			<version>${b2b.basemodel.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>bbr.b2b.extractors</groupId>
+			<artifactId>ExternalRetailManager</artifactId>
+			<version>${b2b.version}</version>
+			<type>ejb</type>
+		</dependency>
+
+
+		<dependency>
+			<groupId>bbr.b2b.extractors</groupId>
+			<artifactId>ExternalRetailQueue</artifactId>
+			<version>${b2b.version}</version>
+			<type>ejb</type>
+		</dependency>
+
+		<dependency>
+			<groupId>bbr.b2b.common.base</groupId>
+			<artifactId>BaseUtils</artifactId>
+			<version>${b2b.baseutils.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>bbr.b2b.extractors</groupId>
+			<artifactId>ExternalRetailUtils</artifactId>
+			<version>${b2b.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>bbr.b2b.extractors</groupId>
+			<artifactId>ExternalRetailModel</artifactId>
+			<version>${b2b.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>bbr.b2b.extractors</groupId>
+			<artifactId>ExternalRetailScheduleApi</artifactId>
+			<version>${b2b.version}</version>
+			<type>war</type>
+		</dependency>
+		
+	</dependencies>
+	
+	<profiles>
+		<profile>
+			<id>developer</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+
+		<profile>
+			<id>single-server-publisher</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.wildfly.plugins</groupId>
+						<artifactId>wildfly-maven-plugin</artifactId>
+						<version>2.0.1.Final</version>
+						<inherited>true</inherited>
+						<configuration>
+							<id>wildfly-credentials</id>
+							<force>true</force>
+							<filename>${artifactId}.ear</filename>
+							<modules-path>/opt/wildfly/modules</modules-path>
+							<serverConfig>${wildfly-profile-file}</serverConfig>
+							<hostname>${wildfly-hostname}</hostname>
+							<port>${wildfly-port}</port>
+						</configuration>
+						<executions>
+							<execution>
+								<id>Despliegue en Server</id>
+								<phase>install</phase>
+								<goals>
+									<goal>undeploy</goal>
+									<goal>execute-commands</goal>
+									<goal>deploy</goal>
+								</goals>
+								<configuration>
+									<fail-on-error>true</fail-on-error>
+									<commands>
+										<!-- COMANDOS PARA MANEJAR LAS SYSTEM-PROPERTIES -->
+										<!-- AGREGAR -->
+										<!-- <command>/system-property=test:add(value=prueba)</command> -->
+										<!-- ELIMINAR -->
+										<!-- <command>/system-property=test:remove()</command> -->
+										<!-- ACTUALIZAR -->
+										<!-- <command>/system-property=test:write-attribute(name=value, 
+											value=OtraPrueba)</command> -->
+									</commands>
+								</configuration>
+							</execution>
+						</executions>
+						<dependencies>
+							<dependency>
+								<groupId>org.wildfly.core</groupId>
+								<artifactId>wildfly-cli</artifactId>
+								<version>6.0.2.Final</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>multiple-server-publisher</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.wildfly.plugins</groupId>
+						<artifactId>wildfly-maven-plugin</artifactId>
+						<version>2.0.1.Final</version>
+						<inherited>true</inherited>
+						<configuration>
+							<id>wildfly-credentials</id>
+							<force>true</force>
+							<modules-path>/opt/wildfly/modules</modules-path>
+							<filename>${artifactId}.ear</filename>
+							<serverConfig>${wildfly-profile-file}</serverConfig>
+						</configuration>
+						<executions>
+							<execution>
+								<id>Despliegue en Server 1</id>
+								<phase>install</phase>
+								<goals>
+									<goal>undeploy</goal>
+									<goal>execute-commands</goal>
+									<goal>deploy</goal>
+								</goals>
+								<configuration>
+									<fail-on-error>true</fail-on-error>
+									<hostname>${wildfly-hostname-1}</hostname>
+									<port>${wildfly-port-1}</port>
+									<commands>
+										<!-- COMANDOS PARA MANEJAR LAS SYSTEM-PROPERTIES -->
+										<!-- AGREGAR -->
+										<!-- <command>/system-property=test:add(value=prueba)</command> -->
+										<!-- ELIMINAR -->
+										<!-- <command>/system-property=test:remove()</command> -->
+										<!-- ACTUALIZAR -->
+										<!-- <command>/system-property=test:write-attribute(name=value, 
+											value=OtraPrueba)</command> -->
+									</commands>
+								</configuration>
+							</execution>
+							<execution>
+								<id>Despliegue en Server 2</id>
+								<phase>install</phase>
+								<goals>
+									<goal>undeploy</goal>
+									<goal>execute-commands</goal>
+									<goal>deploy</goal>
+								</goals>
+								<configuration>
+									<fail-on-error>true</fail-on-error>
+									<hostname>${wildfly-hostname-2}</hostname>
+									<port>${wildfly-port-2}</port>
+									<commands>
+										<!-- COMANDOS PARA MANEJAR LAS SYSTEM-PROPERTIES -->
+										<!-- AGREGAR -->
+										<!-- <command>/system-property=test:add(value=prueba)</command> -->
+										<!-- ELIMINAR -->
+										<!-- <command>/system-property=test:remove()</command> -->
+										<!-- ACTUALIZAR -->
+										<!-- <command>/system-property=test:write-attribute(name=value, 
+											value=OtraPrueba)</command> -->
+									</commands>
+								</configuration>
+							</execution>
+						</executions>
+						<dependencies>
+							<dependency>
+								<groupId>org.wildfly.core</groupId>
+								<artifactId>wildfly-cli</artifactId>
+								<version>6.0.2.Final</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<version>6</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<finalName>ExternalRetailEAR</finalName>
+					<fileNameMapping>no-version</fileNameMapping>
+					<archive>
+						<manifestEntries>
+							<Dependencies>org.jboss.msc, org.wildfly.clustering.singleton,
+								org.jboss.as.server</Dependencies>
+						</manifestEntries>
+					</archive>
+					<modules>
+						<ejbModule>
+							<groupId>bbr.b2b.extractors</groupId>
+							<artifactId>ExternalRetailManager</artifactId>
+							<bundleFileName>ExternalRetailManager.jar</bundleFileName>
+						</ejbModule>
+						<ejbModule>
+							<groupId>bbr.b2b.extractors</groupId>
+							<artifactId>ExternalRetailQueue</artifactId>
+							<bundleFileName>ExternalRetailQueue.jar</bundleFileName>
+						</ejbModule>
+						<jarModule>
+							<groupId>bbr.b2b.extractors</groupId>
+							<artifactId>ExternalRetailModel</artifactId>
+							<bundleFileName>ExternalRetailModel.jar</bundleFileName>
+						</jarModule>
+						<jarModule>
+							<groupId>bbr.b2b.extractors</groupId>
+							<artifactId>ExternalRetailUtils</artifactId>
+							<bundleFileName>ExternalRetailUtils.jar</bundleFileName>
+						</jarModule>
+						<jarModule>
+							<groupId>bbr.b2b.common.base</groupId>
+							<artifactId>BaseModel</artifactId>
+							<bundleFileName>BaseModel.jar</bundleFileName>
+						</jarModule>
+						<jarModule>
+							<groupId>bbr.b2b.common.base</groupId>
+							<artifactId>BaseUtils</artifactId>
+							<bundleFileName>BaseUtils.jar</bundleFileName>
+						</jarModule>
+						<webModule>
+							<groupId>bbr.b2b.extractors</groupId>
+							<artifactId>ExternalRetailScheduleApi</artifactId>
+							<bundleFileName>ExternalRetailScheduleApi.war</bundleFileName>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

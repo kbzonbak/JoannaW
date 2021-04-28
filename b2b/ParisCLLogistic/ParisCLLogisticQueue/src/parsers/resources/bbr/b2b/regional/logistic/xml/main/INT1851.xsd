@@ -1,0 +1,89 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+     <xs:element name="Message">
+     	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="origen" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="accion" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="tipo" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="id_compania" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="loc" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="listado_productos" maxOccurs="1" minOccurs="1"></xs:element>    					
+    		</xs:sequence>
+    	</xs:complexType>   
+ 	</xs:element>
+ 	
+    <!-- Origen del mensaje -->
+    <xs:element name="origen">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Acción -->
+    <xs:element name="accion">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+
+	<!-- Tipo de mensaje en EOM -->
+    <xs:element name="tipo">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Identificador de compañía -->
+    <xs:element name="id_compania">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Time zone -->
+    <xs:element name="loc">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Detalles de Recepción -->  
+    <xs:element name="listado_productos">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    			<xs:element ref="producto" />
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>    
+    
+    <xs:element name="producto">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element ref="cod_producto" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="cod_proveedor" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="lead_time" maxOccurs="1" minOccurs="1"></xs:element>    			
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+ 
+ 	<!-- Código SKU -->  
+    <xs:element name="cod_producto">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Código Paris de proveedor -->  
+    <xs:element name="cod_proveedor">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- LEADTIME en Horas -->  
+    <xs:element name="lead_time">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>   
+</xs:schema>

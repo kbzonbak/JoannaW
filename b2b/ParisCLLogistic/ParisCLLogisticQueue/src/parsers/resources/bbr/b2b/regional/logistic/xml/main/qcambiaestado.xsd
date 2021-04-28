@@ -1,0 +1,29 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="QCAMBIOESTADO">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element ref="secuencia" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="norden" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="nuevoestado" maxOccurs="1" minOccurs="1"></xs:element>    			
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+
+    <xs:element name="secuencia">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <xs:element name="norden">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <xs:element name="nuevoestado">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>    
+</xs:schema>

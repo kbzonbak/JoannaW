@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema id="PackingList2" xmlns="http://www.w3.org/2001/XMLSchema" >
+	<element name="PackingList">
+		<complexType>
+			<sequence minOccurs="1" maxOccurs="unbounded">
+				<element name="detalle">
+					<complexType>
+						<sequence>
+							<element name="delivery" type="long"></element>							
+							<element name="palletid" type="string"></element>
+							<element name="bulkid" type="string"></element>
+							<element name="tipoflujo" type="string"></element>
+							<element name="codlocal" type="string"></element>
+							<element name="local" type="string"></element>
+							<element name="departamento" type="string"></element>
+							<element name="numdoctributario" type="string"></element>
+							<element name="numorden" type="string"></element>
+							<element name="sku" type="string"></element>
+							<element name="codigoproveedor" type="string"></element>
+							<element name="nombreproducto" type="string"></element>
+							<element name="cantidad" type="int"></element>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>
+
+

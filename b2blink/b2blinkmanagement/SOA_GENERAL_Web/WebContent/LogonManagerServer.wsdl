@@ -1,0 +1,389 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://facade.webservices.services.esb.bbr/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="LogonManagerServerService" targetNamespace="http://facade.webservices.services.esb.bbr/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://facade.webservices.services.esb.bbr/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://facade.webservices.services.esb.bbr/">
+  <xs:element name="doChangePassword" type="tns:doChangePassword"/>
+  <xs:element name="doChangePasswordResponse" type="tns:doChangePasswordResponse"/>
+  <xs:element name="doChangeQuestionAndAnswerChallenge" type="tns:doChangeQuestionAndAnswerChallenge"/>
+  <xs:element name="doChangeQuestionAndAnswerChallengeResponse" type="tns:doChangeQuestionAndAnswerChallengeResponse"/>
+  <xs:element name="doLogonUser" type="tns:doLogonUser"/>
+  <xs:element name="doLogonUserResponse" type="tns:doLogonUserResponse"/>
+  <xs:element name="doValidateQuestionChallengeAnswer" type="tns:doValidateQuestionChallengeAnswer"/>
+  <xs:element name="doValidateQuestionChallengeAnswerResponse" type="tns:doValidateQuestionChallengeAnswerResponse"/>
+  <xs:element name="getFunctionalitiesByUserType" type="tns:getFunctionalitiesByUserType"/>
+  <xs:element name="getFunctionalitiesByUserTypeResponse" type="tns:getFunctionalitiesByUserTypeResponse"/>
+  <xs:element name="getQuestionChallengeByUser" type="tns:getQuestionChallengeByUser"/>
+  <xs:element name="getQuestionChallengeByUserResponse" type="tns:getQuestionChallengeByUserResponse"/>
+  <xs:element name="getUserBySession" type="tns:getUserBySession"/>
+  <xs:element name="getUserBySessionResponse" type="tns:getUserBySessionResponse"/>
+  <xs:complexType name="getUserBySession">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUserBySessionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:logonResultDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logonResultDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseResultDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="user" type="tns:userDTO"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="baseResultDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="statuscode" type="xs:string"/>
+      <xs:element minOccurs="0" name="statusmessage" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="userDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:elementDTO">
+        <xs:sequence>
+          <xs:element name="active" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="answer" type="xs:string"/>
+          <xs:element minOccurs="0" name="blocked" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="checkvolatile" type="xs:int"/>
+          <xs:element minOccurs="0" name="email" type="xs:string"/>
+          <xs:element minOccurs="0" name="lastaccess" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="lastlogon" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="lastname" type="xs:string"/>
+          <xs:element minOccurs="0" name="lastpasschange" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="question" type="xs:string"/>
+          <xs:element minOccurs="0" name="rut" type="xs:string"/>
+          <xs:element minOccurs="0" name="sessionid" type="xs:string"/>
+          <xs:element minOccurs="0" name="triescount" type="xs:int"/>
+          <xs:element minOccurs="0" name="usertypeid" type="xs:long"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="elementDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doValidateQuestionChallengeAnswer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element name="arg2" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doValidateQuestionChallengeAnswerResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:baseResultDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doChangeQuestionAndAnswerChallenge">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:int"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg3" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doChangeQuestionAndAnswerChallengeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:baseResultDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doLogonUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doLogonUserResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:logonResultDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getQuestionChallengeByUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getQuestionChallengeByUserResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:questionChallengeResultDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="questionChallengeResultDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseResultDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="question" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="doChangePassword">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doChangePasswordResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:baseResultDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getFunctionalitiesByUserType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getFunctionalitiesByUserTypeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:functionalityArrayResultDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="functionalityArrayResultDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseResultDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="functionalities" nillable="true" type="tns:functionalityDTO"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="functionalityDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:elementDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AccessDeniedException" type="tns:AccessDeniedException"/>
+  <xs:complexType name="AccessDeniedException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="friendlymessage" type="xs:string"/>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OperationFailedException" type="tns:OperationFailedException"/>
+  <xs:complexType name="OperationFailedException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="friendlymessage" type="xs:string"/>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NotFoundException" type="tns:NotFoundException"/>
+  <xs:complexType name="NotFoundException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="friendlymessage" type="xs:string"/>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getUserBySession">
+    <wsdl:part element="tns:getUserBySession" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doValidateQuestionChallengeAnswer">
+    <wsdl:part element="tns:doValidateQuestionChallengeAnswer" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doChangeQuestionAndAnswerChallengeResponse">
+    <wsdl:part element="tns:doChangeQuestionAndAnswerChallengeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AccessDeniedException">
+    <wsdl:part element="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doChangePasswordResponse">
+    <wsdl:part element="tns:doChangePasswordResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserBySessionResponse">
+    <wsdl:part element="tns:getUserBySessionResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doLogonUser">
+    <wsdl:part element="tns:doLogonUser" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getQuestionChallengeByUser">
+    <wsdl:part element="tns:getQuestionChallengeByUser" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getQuestionChallengeByUserResponse">
+    <wsdl:part element="tns:getQuestionChallengeByUserResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doValidateQuestionChallengeAnswerResponse">
+    <wsdl:part element="tns:doValidateQuestionChallengeAnswerResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="OperationFailedException">
+    <wsdl:part element="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="NotFoundException">
+    <wsdl:part element="tns:NotFoundException" name="NotFoundException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doChangeQuestionAndAnswerChallenge">
+    <wsdl:part element="tns:doChangeQuestionAndAnswerChallenge" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFunctionalitiesByUserTypeResponse">
+    <wsdl:part element="tns:getFunctionalitiesByUserTypeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doChangePassword">
+    <wsdl:part element="tns:doChangePassword" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doLogonUserResponse">
+    <wsdl:part element="tns:doLogonUserResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFunctionalitiesByUserType">
+    <wsdl:part element="tns:getFunctionalitiesByUserType" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="LogonManagerServer">
+    <wsdl:operation name="getUserBySession">
+      <wsdl:input message="tns:getUserBySession" name="getUserBySession">
+    </wsdl:input>
+      <wsdl:output message="tns:getUserBySessionResponse" name="getUserBySessionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doValidateQuestionChallengeAnswer">
+      <wsdl:input message="tns:doValidateQuestionChallengeAnswer" name="doValidateQuestionChallengeAnswer">
+    </wsdl:input>
+      <wsdl:output message="tns:doValidateQuestionChallengeAnswerResponse" name="doValidateQuestionChallengeAnswerResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doChangeQuestionAndAnswerChallenge">
+      <wsdl:input message="tns:doChangeQuestionAndAnswerChallenge" name="doChangeQuestionAndAnswerChallenge">
+    </wsdl:input>
+      <wsdl:output message="tns:doChangeQuestionAndAnswerChallengeResponse" name="doChangeQuestionAndAnswerChallengeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doLogonUser">
+      <wsdl:input message="tns:doLogonUser" name="doLogonUser">
+    </wsdl:input>
+      <wsdl:output message="tns:doLogonUserResponse" name="doLogonUserResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQuestionChallengeByUser">
+      <wsdl:input message="tns:getQuestionChallengeByUser" name="getQuestionChallengeByUser">
+    </wsdl:input>
+      <wsdl:output message="tns:getQuestionChallengeByUserResponse" name="getQuestionChallengeByUserResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doChangePassword">
+      <wsdl:input message="tns:doChangePassword" name="doChangePassword">
+    </wsdl:input>
+      <wsdl:output message="tns:doChangePasswordResponse" name="doChangePasswordResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFunctionalitiesByUserType">
+      <wsdl:input message="tns:getFunctionalitiesByUserType" name="getFunctionalitiesByUserType">
+    </wsdl:input>
+      <wsdl:output message="tns:getFunctionalitiesByUserTypeResponse" name="getFunctionalitiesByUserTypeResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NotFoundException" name="NotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LogonManagerServerServiceSoapBinding" type="tns:LogonManagerServer">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getUserBySession">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUserBySession">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUserBySessionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doValidateQuestionChallengeAnswer">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="doValidateQuestionChallengeAnswer">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="doValidateQuestionChallengeAnswerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doChangeQuestionAndAnswerChallenge">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="doChangeQuestionAndAnswerChallenge">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="doChangeQuestionAndAnswerChallengeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doLogonUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="doLogonUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="doLogonUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQuestionChallengeByUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getQuestionChallengeByUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getQuestionChallengeByUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doChangePassword">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="doChangePassword">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="doChangePasswordResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFunctionalitiesByUserType">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getFunctionalitiesByUserType">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getFunctionalitiesByUserTypeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedException">
+        <soap:fault name="AccessDeniedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedException">
+        <soap:fault name="OperationFailedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotFoundException">
+        <soap:fault name="NotFoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LogonManagerServerService">
+    <wsdl:port binding="tns:LogonManagerServerServiceSoapBinding" name="LogonManagerServerPort">
+      <soap:address location="http://Borne-PC:8080/SOA_GENERAL_Web/LogonManagerServer"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

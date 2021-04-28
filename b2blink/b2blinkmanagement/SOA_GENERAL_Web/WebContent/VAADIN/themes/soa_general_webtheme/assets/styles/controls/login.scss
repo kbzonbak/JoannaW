@@ -1,0 +1,61 @@
+@mixin login 
+{
+	.panelMain {        
+	    background-color:#ffffff;	    
+	}
+	.pnlLogin {
+		margin-top:30px;
+	}
+	.pnlFooter{
+		background-color:#0069B1;
+		color:#FFFFFF;
+		font-size:11px;
+		font-weight:bold;
+	}
+	.lblFooter{
+		text-align:center;
+	}
+	.lblInfo{
+		font-size:14px;
+		text-align:justify;
+		padding:20px;
+	}
+	.emailLink{
+		
+	}
+	.loginInputText {
+		height:28px;
+		font-size:12px;
+		width:90%;
+	}
+	.btnLogin {
+		height:30px;
+		font-size:15px;
+	}	
+	.linkButton {
+	   	font-size:12px;
+	   	border: none;
+	    box-shadow: none;
+	    background: transparent;
+	    cursor: pointer;
+	    color: #059ae5;
+	    text-decoration: underline;
+	    transition: color 140ms;
+	    padding:0;
+	}	
+	.linkButton:hover {
+	    color: #12b0ff;
+	}	
+	.linkButton:hover:after {
+		background-color: transparent;
+	}	
+	.linkButton:focus {
+	    outline: none;
+	}
+	.linkButton:focus:after {
+	    box-shadow: none;
+	}		
+}
+
+
+

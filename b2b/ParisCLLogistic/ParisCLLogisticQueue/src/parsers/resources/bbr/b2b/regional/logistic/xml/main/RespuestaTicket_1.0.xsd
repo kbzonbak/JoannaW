@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/RespuestaTicket" elementFormDefault="qualified">
+  <element name="RespuestaTicket">
+    <complexType>
+      <sequence minOccurs="1" maxOccurs="1">
+        <element name="ticketnumber" type="long" />
+        <element name="nombreportal" type="string" />
+		<element name="servicename" type="string" />		
+		<element name="codproveedor" type="string" />
+		<element name="estado" type="string" />		
+		<element name="descripcion" type="string"/>		
+	</sequence>
+    </complexType>
+  </element>
+</schema>

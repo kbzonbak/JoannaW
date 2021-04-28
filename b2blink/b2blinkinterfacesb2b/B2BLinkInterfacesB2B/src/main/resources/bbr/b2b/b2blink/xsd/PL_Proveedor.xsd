@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/PLProveedor" elementFormDefault="qualified">
+	<element name="PLProveedor">
+		<complexType>
+			<sequence minOccurs="1" maxOccurs="1">
+				<element name="ticket" type="string" minOccurs="0" />
+				<element name="nombreportal" type="string" />
+				<element name="cod_proveedor" type="string" />               
+				<element name="cod_cliente" type="string" />             
+				<element name="nro_cita" type="string" />                
+				<element name="fecha_cita" type="string" minOccurs="0" />              
+				<element name="hora_inicio" type="string" minOccurs="0" />             
+				<element name="hora_termino" type="string" minOccurs="0" />                
+				<element name="nro_entrega" type="string" minOccurs="0" />             
+				<element name="cod_local_entrega" type="string" minOccurs="0" />               
+				<element name="total_totes" type="string" minOccurs="0" />             
+				<element name="total_bultos" type="string" minOccurs="0" />                
+				<element name="total_colgados" type="string" minOccurs="0" />              
+				<element name="total_unidades" type="string" minOccurs="0" />              
+				<element name="total_cajas" type="string" minOccurs="0" />             
+				<element name="numref1" type="string" minOccurs="0" />             
+				<element name="numref2" type="string" minOccurs="0" />             
+				<element name="numref3" type="string" minOccurs="0" />             
+				<element name="numref4" type="string" minOccurs="0" />             
+				<element name="numref5" type="string" minOccurs="0" />             
+				<element name="doc_valido" type="string" minOccurs="0" />
+				<element name="vendedor">
+					<complexType>
+						<sequence>
+							<element name="codigo" type="string" />
+							<element name="razon_social" type="string" minOccurs="0" />
+							<element name="contacto" type="string" minOccurs="0" />
+							<element name="direccion" type="string" minOccurs="0" />
+							<element name="telefono" type="string" minOccurs="0" />
+						</sequence>
+					</complexType>
+				</element>           
+				<element name="bultos">
+					<complexType>
+						<sequence maxOccurs="unbounded">
+							<element name="bulto">
+								<complexType>
+									<sequence>
+										<element name="nro_bulto" type="string" minOccurs="0" />        
+										<element name="tipo_bulto" type="string" minOccurs="0" />       
+										<element name="nro_pallet" type="string" minOccurs="0" />
+										<element name="cod_local_entrega" type="string" minOccurs="0" />       
+										<element name="descripcion_local_entrega" type="string" minOccurs="0" />
+										<element name="cod_local_destino" type="string" minOccurs="0" />        
+										<element name="descripcion_local_destino" type="string" minOccurs="0" />
+										<element name="fecha_despacho" type="string" minOccurs="0" />
+										<element name="hora_despacho" type="string" minOccurs="0" />
+										<element name="fecha_bulto" type="string" minOccurs="0" />
+										<element name="tipo_embalaje" type="string" minOccurs="0" />        
+										<element name="cantidad" type="string" minOccurs="0" />
+										<element name="nro_bulto_externo" type="string" minOccurs="0" />     
+										<element name="detalles">
+											<complexType>
+												<sequence maxOccurs="unbounded">
+													<element name="detalle">
+														<complexType>
+															<sequence>   
+																<element name="item" type="string" minOccurs="0" />
+																<element name="entrega" type="string" minOccurs="0" />
+																<element name="noc" type="string" minOccurs="0" />
+																<element name="tipo_noc" type="string" minOccurs="0" />
+																<element name="no_doc_tributario" type="string" minOccurs="0" />
+																<element name="cod_prod_proveedor" type="string" minOccurs="0" />
+																<element name="cod_prod_cliente" type="string" minOccurs="0" />
+																<element name="descripcion_prod" type="string" minOccurs="0" />
+																<element name="ean13" type="string" minOccurs="0" />
+																<element name="dun14" type="string" minOccurs="0" />
+																<element name="cantidad_unidades" type="string" minOccurs="0" />
+																<element name="cantidad_cajas" type="string" minOccurs="0" />
+																<element name="costo_unitario" type="string" minOccurs="0" />
+																<element name="costo_final" type="string" minOccurs="0" />
+																<element name="desc_producto" type="string" minOccurs="0" />
+																<element name="porcentaje_desc" type="string" minOccurs="0" />
+																<element name="guia_despacho" type="string" minOccurs="0" />
+																<element name="numref1" type="string" minOccurs="0" />
+																<element name="numref2" type="string" minOccurs="0" />
+																<element name="numref3" type="string" minOccurs="0" />
+																<element name="numref4" type="string" minOccurs="0" />
+																<element name="numref5" type="string" minOccurs="0" />
+															</sequence>
+														</complexType>
+													</element>
+												</sequence>
+											</complexType>
+										</element>
+									</sequence>
+								</complexType>
+							</element>
+						</sequence>
+					</complexType>
+				</element>
+				<element name="docs_tributario" >
+					<complexType>
+						<sequence maxOccurs="unbounded">
+							<element name="doc_tributario">
+								<complexType>
+									<sequence>
+										<element name="rut" type="string" minOccurs="0" />
+										<element name="no_doc_tributario" type="string" minOccurs="0" />       
+										<element name="nro_serie_doc_tributario" type="string" minOccurs="0" />        
+										<element name="fecha_doc_tributario" type="string" minOccurs="0" />        
+										<element name="tipo_doc_tributario" type="string" minOccurs="0" />     
+										<element name="neto_doc_tributario" type="string" minOccurs="0" />     
+										<element name="iva_doc_tributario" type="string" minOccurs="0" />      
+										<element name="total_doc_tributario" type="string" minOccurs="0" /> 
+										<element name="numref1" type="string" minOccurs="0" />
+										<element name="numref2" type="string" minOccurs="0" />
+										<element name="detalles_doc_tributario" >
+											<complexType>
+												<sequence maxOccurs="unbounded">
+													<element name="detalle_doc_tributario">
+														<complexType>
+															<sequence>
+																<element name="cod_prod_proveedor" type="string" minOccurs="0" /> 
+																<element name="cod_prod_cliente" type="string" minOccurs="0" /> 
+																<element name="desc_producto" type="string" minOccurs="0" /> 
+																<element name="cantidad" type="string" minOccurs="0" /> 
+																<element name="costo_unitario" type="string" minOccurs="0" /> 
+																<element name="porc_descto" type="string" minOccurs="0" /> 
+																<element name="costo_final" type="string" minOccurs="0" /> 
+															</sequence>
+														</complexType>
+													</element>
+												</sequence>
+											</complexType>
+										</element>
+									</sequence>
+								</complexType>
+							</element>
+						</sequence>
+					</complexType>
+				</element>
+				<element name="entregas">
+					<complexType>
+						<sequence maxOccurs="unbounded">
+							<element name="entrega">
+								<complexType>
+									<sequence>
+										<element name="numero" type="string" minOccurs="0" />
+										<element name="total_bultos" type="string" minOccurs="0" />
+										<element name="total_pedido" type="string" minOccurs="0" />
+										<element name="total_unidades" type="string" minOccurs="0" />
+										<element name="total_cajas" type="string" minOccurs="0" />
+										<element name="consolidado" type="string" minOccurs="0" />
+										<element name="detalles">
+											<complexType>
+												<sequence maxOccurs="unbounded">
+													<element name="detalle">
+														<complexType>
+															<sequence>
+																<element name="cod_prod_proveedor" type="string" minOccurs="0" />
+																<element name="peso" type="string" minOccurs="0" />
+																<element name="saldo" type="string" minOccurs="0" />
+															</sequence>
+														</complexType>
+													</element>
+												</sequence>
+											</complexType>
+										</element>
+									</sequence>
+								</complexType>
+							</element>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>
+
+
+
+
+
+
+
+

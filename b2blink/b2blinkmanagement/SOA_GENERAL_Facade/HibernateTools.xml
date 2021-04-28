@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="HibernateTools" default="schemaexport" basedir=".">
+
+	<!-- Global properties for this build -->
+	<property name="src.java.dir" value="source" />
+	<property name="lib.dir" value="lib" />
+	<property name="build.dir" value="classes" />
+	<property name="src.etc.dir" value="etc" />
+
+	<!-- Classpath declaration -->
+	<path id="project.classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+			<include name="**/*.zip" />
+		</fileset>
+	</path>
+
+	<patternset id="meta.files">
+		<include name="**/*.xml" />
+		<include name="**/*.properties" />
+	</patternset>
+
+	<taskdef name="hibernatetool" classname="org.hibernate.tool.ant.HibernateToolTask" classpathref="project.classpath" />
+
+	<target name="schemaexport" description="Exports a generated schema to DB and file">
+		<hibernatetool destdir="${basedir}">
+			<classpath path="${build.dir}"  />
+			<configuration configurationfile="${build.dir}/META-INF/hibernate.cfg.xml" />
+			<hbm2ddl export="false" drop="true" create="true" outputfilename="ddl_postgresql.sql" delimiter=";" format="true" />
+		</hibernatetool>
+	</target>
+	
+	<target name="schema-document" description="Generate a html description of the mappings">
+		<hibernatetool destdir="${basedir}/html">
+			<classpath path="${build.dir}"  />
+			<configuration configurationfile="${build.dir}/META-INF/hibernate.cfg.xml" />
+			<hbm2doc/>
+		</hibernatetool>
+	</target>
+	
+
+	<target name="copymetafiles">
+		<!-- Copy metadata to build -->
+		<copy todir="${build.dir}">
+			<fileset dir="${src.java.dir}">
+				<patternset refid="meta.files" />
+			</fileset>
+		</copy>
+		<!-- Copy configuration files from etc/ -->
+		<copy todir="${build.dir}">
+			<fileset dir="${src.etc.dir}">
+				<patternset refid="meta.files" />
+			</fileset>
+		</copy>
+	</target>
+</project>
+

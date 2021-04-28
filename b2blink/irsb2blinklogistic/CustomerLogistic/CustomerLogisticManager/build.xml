@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE xml>
+<project name="makeMC" default="makejar" basedir=".">
+	<property name="manager.class" value="target/classes/" />
+	<property name="model.class" value="../Be2020LogisticModel/target/classes/" />
+	<property name="dest" value="../../../../workspace/Be2020/Be2020Portal/Be2020PortalEAR/lib" />
+	<property name="jar.name" value="Be2020LogisticInterfaces.jar" />
+	<target name="makejar">
+		<jar jarfile="${dest}/${jar.name}">
+			<fileset dir="${manager.class}">
+				<include name="bbr/b2b/logistic/managers/interfaces/*.class" />
+			</fileset>
+			<fileset dir="${manager.class}">
+				<include name="bbr/b2b/logistic/buyorders/managers/interfaces/*.class" />
+			</fileset>
+			<fileset dir="${manager.class}">
+				<include name="bbr/b2b/logistic/datings/managers/interfaces/*.class" />
+			</fileset>
+			<fileset dir="${manager.class}">
+				<include name="bbr/b2b/logistic/deliveries/managers/interfaces/*.class" />
+			</fileset>
+			<fileset dir="${manager.class}">
+				<include name="bbr/b2b/logistic/managers/notifications/interfaces/*.class" />
+			</fileset>
+			<fileset dir="${manager.class}">
+				<include name="bbr/b2b/logistic/managers/scheduler/interfaces/*.class" />
+			</fileset>
+			<fileset dir="${model.class}">
+				<include name="**/*.class" />
+			</fileset>
+		</jar>
+	</target>
+</project>

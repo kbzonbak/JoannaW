@@ -1,0 +1,72 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+     <xs:element name="Message">
+     	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="origen" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="accion" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="tipo" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="id_compania" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="tipo_entidad" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="num_ordencompra" maxOccurs="1" minOccurs="1"></xs:element>    	
+    			<xs:element ref="tipo_nota" maxOccurs="1" minOccurs="1"></xs:element>    	
+    			<xs:element ref="nueva_fecha" maxOccurs="1" minOccurs="1"></xs:element>    			    					
+    		</xs:sequence>
+    	</xs:complexType>   
+ 	</xs:element>
+ 	
+    <!-- Origen del mensaje -->
+    <xs:element name="origen">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Acción -->
+    <xs:element name="accion">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+
+	<!-- Tipo de mensaje en EOM -->
+    <xs:element name="tipo">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+
+ 	<!-- Identificador de compañía -->
+    <xs:element name="id_compania">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+	<!-- Tipo entidad -->
+    <xs:element name="tipo_entidad">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>   
+   
+    <!-- Número de orden de compra VeV PD -->
+    <xs:element name="num_ordencompra">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element> 
+    
+    <!-- Tipo de nota  -->
+    <xs:element name="tipo_nota">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element> 
+    
+    <!-- Valor de la nueva fecha de despacho -->
+    <xs:element name="nueva_fecha">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>  
+</xs:schema>

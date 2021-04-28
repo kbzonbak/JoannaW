@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="SOLVENTACL" version="3.1">
+  <display-name>IRSB2BLinkPortalWeb</display-name>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>IRSB2BLinkPortalWeb</web-resource-name>
+      <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>app</role-name>
+    </auth-constraint>
+  </security-constraint>
+  <login-config>
+    <auth-method>KEYCLOAK</auth-method>
+    <realm-name>${keycloak.clientid}</realm-name>
+  </login-config>
+  <security-role>
+    <role-name>app</role-name>
+  </security-role>
+  <context-param>
+    <param-name>disable-xsrf-protection</param-name>
+    <param-value>false</param-value>
+  </context-param>
+  <servlet>
+    <description>Servlet para Publicaciones</description>
+    <display-name>PublishingServlet</display-name>
+    <servlet-name>PublishingServlet</servlet-name>
+    <servlet-class>bbr.b2b.portal.servlets.publishing.PublishingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PublishingServlet</servlet-name>
+    <url-pattern>/b2b/news/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet para CKEditor</description>
+    <display-name>CkDownloadServlet</display-name>
+    <servlet-name>CkDownloadServlet</servlet-name>
+    <servlet-class>bbr.b2b.portal.servlets.publishing.CkDownloadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CkDownloadServlet</servlet-name>
+    <url-pattern>/files/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet para Correos</description>
+    <display-name>EmailAttachmentDownloadServlet</display-name>
+    <servlet-name>EmailAttachmentDownloadServlet</servlet-name>
+    <servlet-class>bbr.b2b.portal.servlets.publishing.EmailAttachmentDownloadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmailAttachmentDownloadServlet</servlet-name>
+    <url-pattern>/email/*</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <filter-name>CKImagesFilter</filter-name>
+    <filter-class>bbr.b2b.portal.servlets.publishing.CkImagesFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>CKImagesFilter</filter-name>
+    <url-pattern>/ckimagesupload</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>CKFilesFilter</filter-name>
+    <filter-class>bbr.b2b.portal.servlets.publishing.CkFilesFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>CKFilesFilter</filter-name>
+    <url-pattern>/ckfilesupload</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>FileDownloadFilter</filter-name>
+    <filter-class>bbr.b2b.portal.servlets.files.FileDownloadFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>FileDownloadFilter</filter-name>
+    <url-pattern>/download/b2b_files/*</url-pattern>
+  </filter-mapping>
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
+  <servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>/faces/*</url-pattern>
+  </servlet-mapping>
+</web-app>

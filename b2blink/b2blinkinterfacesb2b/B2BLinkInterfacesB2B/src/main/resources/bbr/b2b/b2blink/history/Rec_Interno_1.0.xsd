@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/cencosud/RecInterno" elementFormDefault="qualified"
+  xmlns:oc="http://www.bbr.cl/cencosud/RecInterno">
+<!-- Versión 1.0 -->
+  <element name="recepcion">
+    <complexType>
+      <sequence>
+        <element name="nombreportal" type="string" />
+        <element name="norecepcion" type="long" />
+        <element name="norden" type="long" />
+        <element name="tipo_oc" type="string" />
+        <element name="fecha_recepcion" type="date" />
+        <element name="total" type="double" />
+        <element name="cod_local_entrega" type="string" />
+        <element name="forma_pago" type="string" />
+        <element name="comentarios" type="string" />
+        <element name="responsable" type="string" />
+        <element name="edi_data">
+          <complexType>
+            <sequence>
+              <element name="senderIdentification" type="string" />
+              <element name="recipientIdentification" type="string" />
+              <element name="correlativeVendor" type="string" />
+              <element name="messageReferenceNumber" type="string" />
+              <element name="countrycode" type="string" />
+              <element name="buyerCode" type="string" />
+              <element name="buyerLocationCode" type="string" />
+            </sequence>
+          </complexType>
+        </element>
+        <element name="comprador">
+          <complexType>
+            <sequence>
+              <element name="rut" type="string" />
+              <element name="razon_social" type="string" />
+              <element name="unidad_negocio" type="string" />
+            </sequence>
+          </complexType>
+        </element>
+        <element name="vendedor">
+          <complexType>
+            <sequence>
+              <element name="rut" type="string" />
+              <element name="razon_social" type="string" />
+              <element name="contacto" type="string" />
+              <element name="direccion" type="string" />
+              <element name="telefono" type="string" />
+            </sequence>
+          </complexType>
+        </element>
+        <element name="locales">
+          <complexType>
+            <sequence minOccurs="1" maxOccurs="unbounded">
+              <element name="local">
+                <complexType>
+                  <sequence>
+                    <element name="cod" type="string" />
+                    <element name="nombre" type="string" />
+                    <element name="direccion" type="string" />
+                    <element name="ean" type="string" />
+                  </sequence>
+                </complexType>
+              </element>
+            </sequence>
+          </complexType>
+        </element>
+        <element name="detalles">
+          <complexType>
+            <sequence maxOccurs="unbounded">
+              <element name="detalle">
+                <complexType>
+                  <sequence>
+                    <element name="item" type="int" />
+                    <element name="cod_prod_comp" type="string" />
+                    <element name="cod_prod_vendedor" type="string" />
+                    <element name="ean13" type="string" />
+                    <element name="descripcion_prod" type="string" />
+                    <element name="cod_empaque" type="string" />
+                    <element name="desc_empaque" type="string" />
+                    <element name="desc_um_unidad" type="string" />
+                    <element name="prod_empaque" type="float" />
+                    <element name="cantidad_recepcionada" type="float" />
+                    <element name="costo_lista" type="double" />
+                    <element name="costo_final" type="double" />
+                  </sequence>
+                </complexType>
+              </element>
+            </sequence>
+          </complexType>
+        </element>
+      </sequence>
+    </complexType>
+  </element>
+</schema>

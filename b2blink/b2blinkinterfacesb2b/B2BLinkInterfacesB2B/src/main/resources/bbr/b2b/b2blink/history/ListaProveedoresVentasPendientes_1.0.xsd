@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/ListaProveedoresVentasPendientes" elementFormDefault="qualified">
+  <!-- Versión 1.0 -->
+  <element name="ListaProveedoresVentasPendientes">
+    <complexType>
+      <sequence>
+        <element name="nombreportal" type="string" />
+        <element name="codcomprador" type="string" />
+        <element name="Proveedores">
+          <complexType>
+            <sequence minOccurs="1" maxOccurs="unbounded">
+              <element name="Proveedor">
+                <complexType>
+                  <sequence>
+                    <element name="codigo" type="string" />
+                    <element name="nombre" type="string" />
+                    <element name="numpendientes" type="int" />
+			        <element name="Detalles" minOccurs="0" maxOccurs="1">
+			          <complexType>
+			            <sequence minOccurs="1" maxOccurs="1">
+			              <element name="Detalle">
+			                <complexType>
+			                  <sequence>
+			                    <element name="fecha" type="string" />
+			                    <element name="motivo" type="string" />
+			                    <element name="estadoSoaVenta" type="string" />
+			                    <element name="ultimoCambioEstadoSOA" type="string" />
+			                  </sequence>
+			                </complexType>
+			              </element>
+			            </sequence>
+			          </complexType>
+			        </element>                    
+                    
+                  </sequence>
+                </complexType>
+              </element>
+            </sequence>
+          </complexType>
+        </element>
+      </sequence>
+    </complexType>
+  </element>
+</schema>

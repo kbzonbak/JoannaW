@@ -1,0 +1,230 @@
+package bbr.b2b.connector.soa.msgb2btosoa;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.zip.GZIPOutputStream;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
+import com.sun.xml.bind.marshaller.DataWriter;
+
+import bbr.b2b.b2blink.commercial.xml.ReporteInventario.ObjectFactory;
+import bbr.b2b.b2blink.commercial.xml.ReporteInventario.Inventario;
+import bbr.b2b.b2blink.commercial.xml.ReporteInventario.Inventario.Comprador;
+import bbr.b2b.b2blink.commercial.xml.ReporteInventario.Inventario.Vendedor;
+import bbr.b2b.common.adtclasses.exceptions.LoadDataException;
+import bbr.b2b.common.adtclasses.exceptions.NotFoundException;
+import bbr.b2b.common.adtclasses.exceptions.OperationFailedException;
+import bbr.b2b.connector.classes.EnvioProveedorServerLocal;
+import bbr.b2b.connector.classes.ProcessTypeServerLocal;
+import bbr.b2b.connector.classes.ProveedorServerLocal;
+import bbr.b2b.connector.classes.SoaStateTypeServerLocal;
+import bbr.b2b.connector.data.classes.InventarioEnvioProveedorW;
+import bbr.b2b.connector.data.classes.ProcessTypeW;
+import bbr.b2b.connector.data.classes.ProveedorW;
+import bbr.b2b.connector.data.classes.SoaStateTypeW;
+import bbr.b2b.connector.data.dto.InventoryDTO;
+import bbr.b2b.connector.managers.interfaces.SalesInventoryManagerLocal;
+import bbr.b2b.connector.managers.interfaces.SchedulerManagerLocal;
+import bbr.common.dataset.util.CSVConverter;
+import bbr.common.dataset.util.DataColumn;
+import bbr.common.dataset.util.DataRow;
+import bbr.common.dataset.util.DataTable;
+
+@Stateless(name = "handlers/InventoryToXml")
+@TransactionAttribute(TransactionAttributeType.REQUIRED)
+public class InventoryToXml implements InventoryToXmlLocal {
+
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	@EJB
+	SalesInventoryManagerLocal salesInventoryManagerLocal;
+
+	@EJB
+	ProveedorServerLocal proveedorServerLocal;
+
+	@EJB
+	SchedulerManagerLocal schedulermanager;
+
+	@EJB
+	EnvioProveedorServerLocal envioProveedorServerLocal;
+	
+	@EJB
+	ProcessTypeServerLocal processTypeServerLocal;
+	
+	@EJB
+	SoaStateTypeServerLocal soaStateTypeServerLocal;
+
+	private static JAXBContext jc = null;
+
+	private static JAXBContext getJCReportInventory() throws JAXBException {
+		if (jc == null)
+			jc = JAXBContext.newInstance("bbr.b2b.b2blink.commercial.xml.ReporteInventario");
+		return jc;
+	}
+
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public String processMessage(String vendorRut, String buyerRut) throws OperationFailedException, LoadDataException, NotFoundException {
+/*
+		ProveedorW proveedorW = null;
+		try {
+			proveedorW = proveedorServerLocal.getByPropertyAsSingleResult("pv_cod_prov", vendorRut);
+		} catch (NotFoundException e) {
+			e.printStackTrace();
+		}
+		InventoryDTO[] inventory = salesInventoryManagerLocal.getInventoryReport(proveedorW.getId());
+
+		// ------- Creación de CSV -------
+
+		// Listado de campos que incluye CSV:
+		// - Fecha (aaaa-mm-dd)
+		// - Cod. Prod retail (texto)
+		// - Cod. Prod. Prov (texto)
+		// - EAN principal (texto)
+		// - Descripción del Producto (texto)
+		// - Código del Local (texto)
+		// - Descripción del Local (texto)
+		// - Unidades (numérico)
+		// - Monto a costo (numérico)
+		// - Monto a venta (numérico)
+
+		DataRow row = null;
+
+		DataTable dt0 = new DataTable("REPORTE_INVENTARIO");
+		DataColumn col01 = new DataColumn("pe_dia_cal", String.class);
+		DataColumn col02 = new DataColumn("cl_cod_prov", String.class);
+		DataColumn col03 = new DataColumn("pr_codigo1", String.class);
+		DataColumn col04 = new DataColumn("lo_codigo", String.class);
+		DataColumn col05 = new DataColumn("id_ustock", Double.class);
+		DataColumn col06 = new DataColumn("id_mstock", Double.class);
+		DataColumn col07 = new DataColumn("id_transito", Double.class);
+		DataColumn col08 = new DataColumn("id_quiebre", Integer.class);
+		DataColumn col09 = new DataColumn("id_instock", Integer.class);
+		DataColumn col10 = new DataColumn("id_mix", Integer.class);
+		DataColumn col11 = new DataColumn("id_dias_venta", Double.class);
+		
+		
+		dt0.addColumns(col01, col02, col03, col04, col05, col06, col07, col08, col09, col10, col11);
+		dt0.setShowcolumnheaders(false);
+		for (InventoryDTO item : inventory) {
+			row = dt0.newRow();
+
+			row.setCellValue("pe_dia_cal", item.getPe_dia_cal().format(formatter));
+			row.setCellValue("cl_cod_prov", item.getCl_cod_prov());
+			row.setCellValue("pr_codigo1", item.getPr_codigo1());
+			row.setCellValue("lo_codigo", item.getLo_codigo());
+			row.setCellValue("id_ustock", item.getId_ustock());
+			row.setCellValue("id_mstock", item.getId_mstock());
+			row.setCellValue("id_transito", item.getId_transito());
+			row.setCellValue("id_quiebre", item.getId_quiebre());
+			row.setCellValue("id_instock", item.getId_instock());
+			row.setCellValue("id_mix", item.getId_mix());
+			row.setCellValue("id_dias_venta", item.getId_dias_venta());
+
+			dt0.addRow(row);
+		}
+
+		//CSVConverter converter = new CSVConverter();
+		String csvResult = converter.getCSVString(dt0, null);
+
+		// ------- Creación de XML -------
+		String result = "";
+		try {
+			JAXBContext jc = getJCReportInventory();
+			ObjectFactory objFactory = new ObjectFactory();
+			Inventario inventoryRequest = objFactory.createInventario();
+
+			inventoryRequest.setNombreportal("CUSTOMER_COMERCIAL");
+			inventoryRequest.setFormato("CSV 1");
+			Comprador comprador = objFactory.createInventarioComprador();
+			comprador.setRut("1");
+			comprador.setRazonSocial("BBR S.A");
+			comprador.setUnidadNegocio(" ");
+			inventoryRequest.setComprador(comprador);
+
+			Vendedor vendedor = objFactory.createInventarioVendedor();
+			vendedor.setRut(vendorRut);
+			vendedor.setRazonSocial(proveedorW.getPv_rz_social());
+			inventoryRequest.setVendedor(vendedor);
+
+			// salesrequest.setData(csvResult);
+
+			ByteArrayOutputStream outstream = new ByteArrayOutputStream();
+			GZIPOutputStream gzipstream = new GZIPOutputStream(outstream);
+			byte[] databytes = csvResult.getBytes("UTF-8");
+			gzipstream.write(databytes);
+			gzipstream.close();
+			sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
+			String data_compressed = encoder.encode(outstream.toByteArray());
+			inventoryRequest.setData(data_compressed);
+
+			// Obtiene string XML para enviarlo a la cola
+			Marshaller m = jc.createMarshaller();
+			m.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+
+			// The below code will take care of avoiding the conversion of < to
+			// &lt;
+			// and > to &gt; etc
+			StringWriter stringWriter = new StringWriter();
+			PrintWriter printWriter = new PrintWriter(stringWriter);
+			DataWriter dataWriter = new DataWriter(printWriter, "UTF-8", new MyCharacterEscapeHandler());
+
+			m.marshal(inventoryRequest, dataWriter);
+			result = stringWriter.toString();
+
+			// System.out.println(result);
+			// ENVIA EL MENSAJE A LA COLA
+			//schedulermanager.doAddMessageQueue("jboss/qcf_soa", "jboss/activemq/queue/q_esbgrl", "ReporteInv", "Reporte inventario", result, Charset.forName("UTF-8"));
+			/*
+			List<InventoryDTO> clientes = Arrays.asList(inventory).stream()
+					.filter(distinctByKey(pr -> Arrays.asList(pr.getCl_key(), pr.getPe_key())))
+					.collect(Collectors.toList());
+			Date now = new Date();
+			for (InventoryDTO cliente : clientes) {
+				InventarioEnvioProveedorW inventarioEnvioProveedorW = new InventarioEnvioProveedorW(now, proveedorW.getId(),
+						cliente.getCl_key(), cliente.getPe_key());
+				inventarioEnvioProveedorServerLocal.addIdentifiable(inventarioEnvioProveedorW);
+			}
+			*/
+			/*ProcessTypeW processTypeW = processTypeServerLocal.getByPropertyAsSingleResult("code", "inventario");
+			SoaStateTypeW soaNotificadoW = soaStateTypeServerLocal.getByPropertyAsSingleResult("code", "NOTIFICADO");
+			SoaStateTypeW soaEnviadoW = soaStateTypeServerLocal.getByPropertyAsSingleResult("code", "ENVIADO");
+			envioProveedorServerLocal.doUpdateSoaState(proveedorW.getId(), processTypeW.getId(), soaNotificadoW.getId(), soaEnviadoW.getId());
+
+		} catch (JAXBException e2) {
+			e2.printStackTrace();
+			// LoggingUtil.error("Generación de XML de rechazo via JAXB fallo. "
+			// +
+			// e2.getMessage());
+			throw new OperationFailedException(e2.getMessage());
+		} catch (Exception e) {
+			throw new OperationFailedException(e.getMessage());
+		}
+
+		return result;*/
+		return null;
+	}
+
+	/*private static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
+		Map<Object, Boolean> seen = new ConcurrentHashMap<>();
+		return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+	}*/
+}

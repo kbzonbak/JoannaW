@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 17-08-2017 15:31:17 by Hibernate Tools 3.5.0.Final -->
+
+<hibernate-mapping>
+    <joined-subclass name="bbr.b2b.logistic.datings.entities.ResourceBlocking" table="RESOURCEBLOCKING" 
+    	entity-name="bbr.b2b.logistic.datings.entities.ResourceBlocking" 
+    	extends="bbr.b2b.logistic.datings.entities.Reserve" schema="LOGISTICA" 
+    	lazy="false">
+        <key column="ID" />
+
+		<property name="comment" type="java.lang.String" column="COMMENT" length="250"/>
+
+        <many-to-one name="blockinggroup" 
+        	class="bbr.b2b.logistic.datings.entities.ResourceBlockingGroup" column="BLOCKINGGROUP_ID" 
+        	not-null="false" />
+
+    </joined-subclass>
+</hibernate-mapping>

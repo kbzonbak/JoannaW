@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/SPLOrdenCompra"
+	elementFormDefault="qualified" xmlns:oc="http://www.bbr.cl/SPLOrdenCompra">
+	<element name="SPLOrdenCompra">
+		<complexType>
+			<sequence>
+				<element name="fecha_solicitud" type="string" />
+				<element name="tipo_solicitud" type="string" />
+				<element name="vendedor" type="string" />
+				<element name="comprador" type="string" />
+				<element name="num_oc" type="string" />
+				<element name="accion" type="string" />
+				<element name="tipo_oc_bbr" type="string" />
+				<element name="fecha_oc" type="date" />
+				<element name="productos" minOccurs="1">
+		          <complexType>
+		            <sequence minOccurs="1" maxOccurs="unbounded">
+		              <element name="producto">
+		                <complexType>
+		                  <sequence>
+		                   <element name="sku" type="string" />
+							<element name="descripcion" type="string" />
+							<element name="cantidad" type="int"/>
+		                  </sequence>
+		                </complexType>
+		              </element>
+		            </sequence>
+		          </complexType>
+		        </element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/SolicitudProveedoresOrdenesPendientes" elementFormDefault="qualified">
+  <!-- Versión 1.3 -->
+  <element name="SolicitudProveedoresOrdenesPendientes">
+    <complexType>
+      <sequence>
+        <element name="codcomprador" type="string" />
+        <element name="nombreportal" type="string" minOccurs="0"/> <!-- Se agrega en 1.3 -->
+        <element name="Proveedores">
+          <complexType>
+            <sequence minOccurs="1" maxOccurs="unbounded">
+              <element name="Proveedor">
+                <complexType>
+                  <sequence>
+                    <element name="codigo" type="string" />
+                    <element name="fecha_activacion" type="string" />
+                    <element name="tiempoMaximoFinFlujo" type="int" /> <!-- Se agrega en 1.2 -->
+                  </sequence>
+                </complexType>
+              </element>
+            </sequence>
+          </complexType>
+        </element>
+      </sequence>
+    </complexType>
+  </element>
+</schema>

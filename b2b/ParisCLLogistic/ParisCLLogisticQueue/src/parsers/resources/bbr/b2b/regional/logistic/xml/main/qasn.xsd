@@ -1,0 +1,684 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+     <xs:element name="QASN">
+     	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="A0" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="A1" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="A2" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="A3" maxOccurs="1" minOccurs="1"></xs:element>    			
+    		</xs:sequence>
+    	</xs:complexType>   
+ 	</xs:element>
+ 	
+    <!--  Message Id -->
+    <xs:element name="A0">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!--  Secuencia -->
+    <xs:element name="A1">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+
+	<!-- Cita -->
+    <xs:element name="A2">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="B0" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="B1" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="B2" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="B3" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="B4" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="B5" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="B6" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="B7" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="B8" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="B9" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="B10" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="B11" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="B12" maxOccurs="1" minOccurs="1"></xs:element>
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+    
+    <!-- Shipment Type-->
+    <xs:element name="B0">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Shipment NBR -->
+    <xs:element name="B1">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Warehouse -->
+    <xs:element name="B2">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Expect Start Date -->
+    <xs:element name="B3">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Duration in Min -->
+    <xs:element name="B4">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Firma ppt indic -->
+    <xs:element name="B5">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Door sched type -->
+    <xs:element name="B6">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+     <!-- Sched Dock -->
+    <xs:element name="B7">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Sched Door -->
+    <xs:element name="B8">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Depart Date -->
+    <xs:element name="B9">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Appt Priority -->
+    <xs:element name="B10">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Status Code -->
+    <xs:element name="B11">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Appt NBR -->
+    <xs:element name="B12">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- ASN -->
+    <xs:element name="A3">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="C0" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="C1" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="C2" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="C3" maxOccurs="1" minOccurs="1"></xs:element>    			
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+    
+     <!-- Shipment NBR-->
+    <xs:element name="C0">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- To Location -->
+    <xs:element name="C1">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Manifest NBR -->
+    <xs:element name="C2">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Asn Order List-->
+    <xs:element name="C3">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    			<xs:element ref="D0" maxOccurs="1" minOccurs="1"></xs:element>    			    			
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+    
+    <!-- Asn Order Det -->
+    <xs:element name="D0">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="E0" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="E1" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="E2" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="E3" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="E4" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="E5" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="E6" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="E7" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="E8" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="E9" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="E10" maxOccurs="1" minOccurs="1"></xs:element>    	
+    			<xs:element ref="E11" maxOccurs="1" minOccurs="1"></xs:element>    	
+    			<xs:element ref="E12" maxOccurs="1" minOccurs="1"></xs:element>   
+    			<xs:element ref="E13" maxOccurs="1" minOccurs="1"></xs:element>    			    			
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+    
+    <!-- Work Order NBR -->
+    <xs:element name="E0">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Cut NBR -->
+    <xs:element name="E1">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Cases shipped -->
+    <xs:element name="E2">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Units shipped -->
+    <xs:element name="E3">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:double"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Shipped Date -->
+    <xs:element name="E4">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Sched Start rcvdate -->
+    <xs:element name="E5">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Sched end recv date -->
+    <xs:element name="E6">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+     <!-- Reference 1 -->
+    <xs:element name="E7">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Status Code -->
+    <xs:element name="E8">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Dock Door trailer type -->
+    <xs:element name="E9">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Asn Original Type -->
+    <xs:element name="E10">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Shipment Type -->
+    <xs:element name="E11">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Listas Details -->
+    <xs:element name="E12">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    			<xs:element ref="F0" maxOccurs="1" minOccurs="1"></xs:element>    					    			
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+    
+    <!-- Asn detail -->
+    <xs:element name="F0">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="G0" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="G1" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="G2" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="G3" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="G4" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="G5" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="G6" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="G7" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="G8" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="G9" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="G9_1" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="G10" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="G11" maxOccurs="1" minOccurs="1"></xs:element> 
+    			<xs:element ref="G12" maxOccurs="1" minOccurs="1"></xs:element> 
+    			<xs:element ref="G13" maxOccurs="1" minOccurs="1"></xs:element>      			   	
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+    
+    <!-- Shipment NBR -->
+    <xs:element name="G0">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Company -->
+    <xs:element name="G1">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Division -->
+    <xs:element name="G2">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Size Desc -->
+    <xs:element name="G3">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Batch Number -->
+    <xs:element name="G4">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Standard pack qty -->
+    <xs:element name="G5">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:double"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Cases shipped -->
+    <xs:element name="G6">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+     <!-- Process immd needs -->
+    <xs:element name="G7">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Vendor item number -->
+    <xs:element name="G8">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Po NBR -->
+    <xs:element name="G9">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Numero de factura -->
+    <xs:element name="G9_1">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Lista Loc -->
+    <xs:element name="G10">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    			<xs:element ref="H0" maxOccurs="1" minOccurs="1"></xs:element>    						   	
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+    
+    <!-- Asn detail -->
+    <xs:element name="H0">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="I0" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="I1" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="I2" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="I3" maxOccurs="1" minOccurs="1"></xs:element>    			    						   	
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+    
+    <!-- Cn try of orgn -->
+    <xs:element name="I0">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Poline NBR -->
+    <xs:element name="I1">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Units shipped -->
+    <xs:element name="I2">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Sequence NBR  -->
+    <xs:element name="I3">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Put away type -->
+    <xs:element name="G11">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Vendor id -->
+    <xs:element name="G12">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Action code -->
+    <xs:element name="G13">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Listas n cases -->  
+    <xs:element name="E13">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    			<xs:element ref="J0" />
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>    
+    
+    <!-- Asn Case -->
+    <xs:element name="J0">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element ref="K0" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="K1" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="K2" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="K3" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="K4" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="K5" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="K6" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="K7" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="K8" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="K9" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="K10" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="K11" maxOccurs="1" minOccurs="1"></xs:element>
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+ 
+ 	<!-- Case NBR -->  
+    <xs:element name="K0">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Distronbr -->  
+    <xs:element name="K1">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Warehouse -->  
+    <xs:element name="K2">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Original shipment NBR -->  
+    <xs:element name="K3">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Process immd needs -->  
+    <xs:element name="K4">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Po NBR -->  
+    <xs:element name="K5">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Status Code -->  
+    <xs:element name="K6">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Put away type -->  
+    <xs:element name="K7">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Vendor id -->  
+    <xs:element name="K8">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Company -->  
+    <xs:element name="K9">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Division -->  
+    <xs:element name="K10">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Listas n cases -->  
+    <xs:element name="K11">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    			<xs:element ref="L0" />
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element> 
+    
+     <!-- Asn Detail -->
+    <xs:element name="L0">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element ref="M0" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="M1" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="M2" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="M3" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="M4" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="M5" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="M6" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="M7" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="M8" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="M9" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="M10" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="M11" maxOccurs="1" minOccurs="1"></xs:element>
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+        
+    <!-- Case NBR -->  
+    <xs:element name="M0">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Sku Sequence NBR -->  
+    <xs:element name="M1">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Company -->  
+    <xs:element name="M2">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Division -->  
+    <xs:element name="M3">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Cn try of orgn1 -->  
+    <xs:element name="M4">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+       
+    <!-- Size desc -->
+    <xs:element name="M5">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Batch Number -->
+    <xs:element name="M6">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Original Quantity -->
+    <xs:element name="M7">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:double"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Shipped asn quantity -->
+    <xs:element name="M8">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:double"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Standard pack qty -->
+    <xs:element name="M9">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:double"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Vendor item number -->
+    <xs:element name="M10">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Poline NBR -->
+    <xs:element name="M11">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>   
+</xs:schema>

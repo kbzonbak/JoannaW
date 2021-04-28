@@ -1,0 +1,73 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+     <xs:element name="Message">
+     	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="origen" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="accion" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="tipo" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="id_compania" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="detalles" maxOccurs="1" minOccurs="1"></xs:element>    					
+    		</xs:sequence>
+    	</xs:complexType>   
+ 	</xs:element>
+ 	
+    <!-- Origen del mensaje -->
+    <xs:element name="origen">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Acción -->
+    <xs:element name="accion">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Tipo de mensaje en EOM -->
+    <xs:element name="tipo">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Identificador de compañía -->
+    <xs:element name="id_compania">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>   
+    
+    <!-- Listado de destinos y sus tiempos de entrega -->  
+    <xs:element name="detalles">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    			<xs:element ref="entrega_destino" />
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>    
+    
+    <xs:element name="entrega_destino">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element ref="cod_destino" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="tiempo_entrega" maxOccurs="1" minOccurs="1"></xs:element>    			   			    			
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+ 
+ 	<!-- Valor de campo laneID que viene en la respuesta a la consulta (INT1873) -->  
+    <xs:element name="cod_destino">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Tiempo de entrega al destino, en horas. -->  
+    <xs:element name="tiempo_entrega">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>       
+</xs:schema>

@@ -1,0 +1,662 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://facade.webservices.services.esb.bbr/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="ScoreCardManagerServerService" targetNamespace="http://facade.webservices.services.esb.bbr/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://facade.webservices.services.esb.bbr/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://facade.webservices.services.esb.bbr/">
+  <xs:element name="doAddServiceEventByContracted" type="tns:doAddServiceEventByContracted"/>
+  <xs:element name="doAddServiceEventByContractedResponse" type="tns:doAddServiceEventByContractedResponse"/>
+  <xs:element name="getAvailableSite" type="tns:getAvailableSite"/>
+  <xs:element name="getAvailableSiteResponse" type="tns:getAvailableSiteResponse"/>
+  <xs:element name="getCompanies" type="tns:getCompanies"/>
+  <xs:element name="getCompaniesResponse" type="tns:getCompaniesResponse"/>
+  <xs:element name="getRequestFilter" type="tns:getRequestFilter"/>
+  <xs:element name="getRequestFilterResponse" type="tns:getRequestFilterResponse"/>
+  <xs:element name="getScoreCardOfCompany" type="tns:getScoreCardOfCompany"/>
+  <xs:element name="getScoreCardOfCompanyResponse" type="tns:getScoreCardOfCompanyResponse"/>
+  <xs:element name="getScoreCardTableOfCompany" type="tns:getScoreCardTableOfCompany"/>
+  <xs:element name="getScoreCardTableOfCompanyResponse" type="tns:getScoreCardTableOfCompanyResponse"/>
+  <xs:element name="getServices" type="tns:getServices"/>
+  <xs:element name="getServicesResponse" type="tns:getServicesResponse"/>
+  <xs:element name="getSites" type="tns:getSites"/>
+  <xs:element name="getSitesResponse" type="tns:getSitesResponse"/>
+  <xs:element name="getTickesStates" type="tns:getTickesStates"/>
+  <xs:element name="getTickesStatesResponse" type="tns:getTickesStatesResponse"/>
+  <xs:element name="getTicketReport" type="tns:getTicketReport"/>
+  <xs:element name="getTicketReportResponse" type="tns:getTicketReportResponse"/>
+  <xs:complexType name="getSites">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getSitesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:sitesFilterDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sitesFilterDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseResultDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="sites" nillable="true" type="tns:siteDTO"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="baseResultDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="statuscode" type="xs:string"/>
+      <xs:element minOccurs="0" name="statusmessage" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="siteDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:elementDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="code" type="xs:string"/>
+          <xs:element minOccurs="0" name="created" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="retailname" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="elementDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTickesStates">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getTickesStatesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:ticketStateTypeFilterDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ticketStateTypeFilterDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseResultDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="ticketstatetype" nillable="true" type="tns:ticketStateTypeDTO"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ticketStateTypeDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:elementDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="code" type="xs:string"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getCompanies">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getCompaniesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:companyDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="companyDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:elementDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="as2id" type="xs:string"/>
+          <xs:element name="clientavaliable" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="dafaultmaxdelayendflow" type="xs:int"/>
+          <xs:element name="encrypt" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="encryptpassword" type="xs:string"/>
+          <xs:element minOccurs="0" name="lastclientcheck" type="xs:dateTime"/>
+          <xs:element name="monitoreable" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="rut" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="doAddServiceEventByContracted">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:documentsToResendInitParamDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="documentsToResendInitParamDTO">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="documents" nillable="true" type="tns:documentToResendInitParamDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="documentToResendInitParamDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="companyid" type="xs:string"/>
+      <xs:element minOccurs="0" name="document" type="xs:string"/>
+      <xs:element minOccurs="0" name="serviceid" type="xs:string"/>
+      <xs:element minOccurs="0" name="siteid" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doAddServiceEventByContractedResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:baseResultDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAvailableSite">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:long"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAvailableSiteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:scoreCardSiteFilterDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="scoreCardSiteFilterDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseResultDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="sites" nillable="true" type="tns:siteDTO"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getTicketReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:ticketReportInitParamDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ticketReportInitParamDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:pageInitParamDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="companyrut" type="xs:string"/>
+          <xs:element minOccurs="0" name="filterType" type="xs:int"/>
+          <xs:element minOccurs="0" name="filterTypeSol" type="xs:int"/>
+          <xs:element minOccurs="0" name="numdoc" type="xs:long"/>
+          <xs:element minOccurs="0" name="queryToCount" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="reference" type="xs:string"/>
+          <xs:element minOccurs="0" name="serviceid" type="xs:string"/>
+          <xs:element minOccurs="0" name="since" type="xs:string"/>
+          <xs:element minOccurs="0" name="siteid" type="xs:long"/>
+          <xs:element minOccurs="0" name="statusid" type="xs:string"/>
+          <xs:element minOccurs="0" name="until" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="pageInitParamDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="needPageInfo" type="xs:boolean"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="orderBy" nillable="true" type="tns:orderCriteriaDTO"/>
+      <xs:element minOccurs="0" name="pageNumber" type="xs:int"/>
+      <xs:element minOccurs="0" name="rows" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="orderCriteriaDTO">
+    <xs:sequence>
+      <xs:element name="ascending" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="propertyname" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTicketReportResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:ticketReportResultDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ticketReportResultDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseResultDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pageInfoDTO" type="tns:pageInfoDTO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="tickets" nillable="true" type="tns:ticketReportDataResultDTO"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="pageInfoDTO">
+    <xs:sequence>
+      <xs:element name="pagenumber" type="xs:int"/>
+      <xs:element name="rows" type="xs:int"/>
+      <xs:element name="totalpages" type="xs:int"/>
+      <xs:element name="totalrows" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ticketReportDataResultDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="adjunto" type="xs:string"/>
+      <xs:element minOccurs="0" name="adjunto2" type="xs:string"/>
+      <xs:element minOccurs="0" name="cliente" type="xs:string"/>
+      <xs:element minOccurs="0" name="estado" type="xs:string"/>
+      <xs:element minOccurs="0" name="fechaadjunto" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="fechaproceso" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="fechasolicitud" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="nrosolicitud" type="xs:long"/>
+      <xs:element minOccurs="0" name="referencia" type="xs:string"/>
+      <xs:element minOccurs="0" name="tiposolicitud" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getScoreCardTableOfCompany">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:scoreCardTableOfCompanyInitParamDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="scoreCardTableOfCompanyInitParamDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:pageInitParamDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="companyrut" type="xs:string"/>
+          <xs:element minOccurs="0" name="filterType" type="xs:int"/>
+          <xs:element minOccurs="0" name="numdoc" type="xs:long"/>
+          <xs:element minOccurs="0" name="queryToCount" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="retailname" type="xs:string"/>
+          <xs:element minOccurs="0" name="servicename" type="xs:string"/>
+          <xs:element minOccurs="0" name="since" type="xs:string"/>
+          <xs:element minOccurs="0" name="sitename" type="xs:string"/>
+          <xs:element minOccurs="0" name="status" type="xs:string"/>
+          <xs:element minOccurs="0" name="until" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getScoreCardTableOfCompanyResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:scoreCardTableOfCompanyReturnDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="scoreCardTableOfCompanyReturnDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseResultDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pageInfoDTO" type="tns:pageInfoDTO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="scorecards" nillable="true" type="tns:scoreCardTableDTO"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="scoreCardTableDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:elementDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="companyid" type="xs:long"/>
+          <xs:element minOccurs="0" name="estado" type="xs:string"/>
+          <xs:element minOccurs="0" name="fecha" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="numdoc" type="xs:long"/>
+          <xs:element minOccurs="0" name="retail" type="xs:string"/>
+          <xs:element minOccurs="0" name="serviceid" type="xs:long"/>
+          <xs:element minOccurs="0" name="siteid" type="xs:long"/>
+          <xs:element minOccurs="0" name="sitio" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getServices">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getServicesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:serviceFilterDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serviceFilterDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseResultDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="serviceforfilterArray" nillable="true" type="tns:serviceDTO"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="serviceDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:elementDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="code" type="xs:string"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getRequestFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element name="arg1" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getRequestFilterResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:requestFilterForTicketDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="requestFilterForTicketDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseResultDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ids" type="xs:long"/>
+          <xs:element minOccurs="0" name="values" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getScoreCardOfCompany">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getScoreCardOfCompanyResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:scoreCardDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="scoreCardDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseResultDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="siteprogressarray" nillable="true" type="tns:siteProgress"/>
+          <xs:element minOccurs="0" name="totalerror" type="xs:int"/>
+          <xs:element minOccurs="0" name="totalinprogress" type="xs:int"/>
+          <xs:element minOccurs="0" name="totalsucess" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="siteProgress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="error" type="xs:int"/>
+      <xs:element minOccurs="0" name="inprogress" type="xs:int"/>
+      <xs:element minOccurs="0" name="retailname" type="xs:string"/>
+      <xs:element minOccurs="0" name="sitename" type="xs:string"/>
+      <xs:element minOccurs="0" name="success" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccessDeniedException" type="tns:AccessDeniedException"/>
+  <xs:complexType name="AccessDeniedException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="friendlymessage" type="xs:string"/>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OperationFailedException" type="tns:OperationFailedException"/>
+  <xs:complexType name="OperationFailedException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="friendlymessage" type="xs:string"/>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NotFoundException" type="tns:NotFoundException"/>
+  <xs:complexType name="NotFoundException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="friendlymessage" type="xs:string"/>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getRequestFilterResponse">
+    <wsdl:part element="tns:getRequestFilterResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AccessDeniedException">
+    <wsdl:part element="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getScoreCardOfCompanyResponse">
+    <wsdl:part element="tns:getScoreCardOfCompanyResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTickesStatesResponse">
+    <wsdl:part element="tns:getTickesStatesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCompaniesResponse">
+    <wsdl:part element="tns:getCompaniesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTicketReport">
+    <wsdl:part element="tns:getTicketReport" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getScoreCardTableOfCompany">
+    <wsdl:part element="tns:getScoreCardTableOfCompany" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="OperationFailedException">
+    <wsdl:part element="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRequestFilter">
+    <wsdl:part element="tns:getRequestFilter" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="NotFoundException">
+    <wsdl:part element="tns:NotFoundException" name="NotFoundException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getScoreCardTableOfCompanyResponse">
+    <wsdl:part element="tns:getScoreCardTableOfCompanyResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAvailableSiteResponse">
+    <wsdl:part element="tns:getAvailableSiteResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSites">
+    <wsdl:part element="tns:getSites" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSitesResponse">
+    <wsdl:part element="tns:getSitesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTickesStates">
+    <wsdl:part element="tns:getTickesStates" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCompanies">
+    <wsdl:part element="tns:getCompanies" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doAddServiceEventByContracted">
+    <wsdl:part element="tns:doAddServiceEventByContracted" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAvailableSite">
+    <wsdl:part element="tns:getAvailableSite" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServicesResponse">
+    <wsdl:part element="tns:getServicesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTicketReportResponse">
+    <wsdl:part element="tns:getTicketReportResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServices">
+    <wsdl:part element="tns:getServices" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getScoreCardOfCompany">
+    <wsdl:part element="tns:getScoreCardOfCompany" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doAddServiceEventByContractedResponse">
+    <wsdl:part element="tns:doAddServiceEventByContractedResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ScoreCardManagerServer">
+    <wsdl:operation name="getSites">
+      <wsdl:input message="tns:getSites" name="getSites">
+    </wsdl:input>
+      <wsdl:output message="tns:getSitesResponse" name="getSitesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTickesStates">
+      <wsdl:input message="tns:getTickesStates" name="getTickesStates">
+    </wsdl:input>
+      <wsdl:output message="tns:getTickesStatesResponse" name="getTickesStatesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCompanies">
+      <wsdl:input message="tns:getCompanies" name="getCompanies">
+    </wsdl:input>
+      <wsdl:output message="tns:getCompaniesResponse" name="getCompaniesResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NotFoundException" name="NotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="doAddServiceEventByContracted">
+      <wsdl:input message="tns:doAddServiceEventByContracted" name="doAddServiceEventByContracted">
+    </wsdl:input>
+      <wsdl:output message="tns:doAddServiceEventByContractedResponse" name="doAddServiceEventByContractedResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableSite">
+      <wsdl:input message="tns:getAvailableSite" name="getAvailableSite">
+    </wsdl:input>
+      <wsdl:output message="tns:getAvailableSiteResponse" name="getAvailableSiteResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTicketReport">
+      <wsdl:input message="tns:getTicketReport" name="getTicketReport">
+    </wsdl:input>
+      <wsdl:output message="tns:getTicketReportResponse" name="getTicketReportResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getScoreCardTableOfCompany">
+      <wsdl:input message="tns:getScoreCardTableOfCompany" name="getScoreCardTableOfCompany">
+    </wsdl:input>
+      <wsdl:output message="tns:getScoreCardTableOfCompanyResponse" name="getScoreCardTableOfCompanyResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServices">
+      <wsdl:input message="tns:getServices" name="getServices">
+    </wsdl:input>
+      <wsdl:output message="tns:getServicesResponse" name="getServicesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRequestFilter">
+      <wsdl:input message="tns:getRequestFilter" name="getRequestFilter">
+    </wsdl:input>
+      <wsdl:output message="tns:getRequestFilterResponse" name="getRequestFilterResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getScoreCardOfCompany">
+      <wsdl:input message="tns:getScoreCardOfCompany" name="getScoreCardOfCompany">
+    </wsdl:input>
+      <wsdl:output message="tns:getScoreCardOfCompanyResponse" name="getScoreCardOfCompanyResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ScoreCardManagerServerServiceSoapBinding" type="tns:ScoreCardManagerServer">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getSites">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getSites">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSitesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTickesStates">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getTickesStates">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTickesStatesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCompanies">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCompanies">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCompaniesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedException">
+        <soap:fault name="AccessDeniedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedException">
+        <soap:fault name="OperationFailedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotFoundException">
+        <soap:fault name="NotFoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="doAddServiceEventByContracted">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="doAddServiceEventByContracted">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="doAddServiceEventByContractedResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableSite">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAvailableSite">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAvailableSiteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTicketReport">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getTicketReport">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTicketReportResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getScoreCardTableOfCompany">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getScoreCardTableOfCompany">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getScoreCardTableOfCompanyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServices">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getServices">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getServicesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRequestFilter">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRequestFilter">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRequestFilterResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getScoreCardOfCompany">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getScoreCardOfCompany">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getScoreCardOfCompanyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ScoreCardManagerServerService">
+    <wsdl:port binding="tns:ScoreCardManagerServerServiceSoapBinding" name="ScoreCardManagerServerPort">
+      <soap:address location="http://localhost:8180/SOA_GENERAL_Web/ScoreCardManagerServer"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

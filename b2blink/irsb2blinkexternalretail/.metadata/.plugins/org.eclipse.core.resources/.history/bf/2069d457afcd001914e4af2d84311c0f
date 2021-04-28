@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>bbr.b2b.extractors</groupId>
+	<artifactId>ExternalRetail</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+	
+	<name>ExternalRetail</name>
+
+	<properties>
+		<b2b.version>1.0.0</b2b.version>
+		<b2b.basemodel.version>1.0.0</b2b.basemodel.version>
+		<b2b.baseutils.version>1.0.0</b2b.baseutils.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+	<modules>		
+		<module>SOAConnectorEAR</module>
+		<module>SOAConnectorFacade</module>
+		<module>SOAConnectorManager</module>
+		<module>SOAConnectorQueue</module>
+		<module>SOAConnectorModel</module>
+		<module>SOAConnectorUtils</module>
+	</modules>
+
+	<repositories>
+		<repository>
+			<id>jfrogserver</id>
+			<url>http://jfrogserver:8081/artifactory/bbr-repository/</url>
+		</repository>
+	</repositories> 
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.wildfly</groupId>
+				<artifactId>wildfly-parent</artifactId>
+				<version>10.1.0.Final</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>			
+		</dependencies>
+	</dependencyManagement>
+
+	<distributionManagement>
+		<repository>
+			<id>jfrogserver</id>
+			<url>http://jfrogserver:8081/artifactory/bbr-repository/</url>
+		</repository>
+	</distributionManagement>			
+	
+</project>

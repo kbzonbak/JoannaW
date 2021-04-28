@@ -1,0 +1,5 @@
+package bbr.b2b.logistic.utils;
+
+public class SFTPClient {
+
+}

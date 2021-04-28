@@ -1,0 +1,45 @@
+@mixin bbr_wizard
+{
+	.bbr-wizard-info-panel{
+	    border-top-style: solid;
+    	border-bottom-style: solid;
+    	border-left-style: solid;
+		border-width: 1px;
+		border-color: #cacaca;
+		background-color: #f7f7f7;
+   }
+	.bbr-wizard-buttons-panel{
+		border-width: 1px;
+		border-top-style: solid;
+		padding-bottom: 4px;
+		padding-top: 4px;
+		background-color: white;
+		border-color: #cacaca;
+		
+   }
+	.bbr-wizard-step-panel{
+		border-style: solid;
+		border-width: 1px;
+		border-color: #cacaca;
+   }
+	.bbr-wizard-progress-step-selected{
+		font-size: 16px;		
+    	font-weight: bold;
+    	margin-left: 10px;
+    	margin-top: 10px;
+    	
+   }
+	.bbr-wizard-progress-step-normal{
+		font-size: 12px;
+		margin-left: 10px;
+    	margin-top: 10px;
+   }
+   
+ 	.icon-wizard-email{
+ 		width: 175px;
+ 		margin-left:12px; 	
+ 	}		
+}
+
+
+

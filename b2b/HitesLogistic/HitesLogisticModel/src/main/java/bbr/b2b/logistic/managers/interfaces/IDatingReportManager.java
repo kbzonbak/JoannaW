@@ -1,0 +1,60 @@
+package bbr.b2b.logistic.managers.interfaces;
+
+import bbr.b2b.common.adtclasses.classes.BaseResultDTO;
+import bbr.b2b.logistic.datings.report.classes.AddDatingAndDetailsInitParamDTO;
+import bbr.b2b.logistic.datings.report.classes.AssignedDatingInitParamDTO;
+import bbr.b2b.logistic.datings.report.classes.AssignedDatingResultDTO;
+import bbr.b2b.logistic.datings.report.classes.BlockingTypeArrayResultDTO;
+import bbr.b2b.logistic.datings.report.classes.CheckExistsVendorReserveInitParamDTO;
+import bbr.b2b.logistic.datings.report.classes.DatingInformationResultDTO;
+import bbr.b2b.logistic.datings.report.classes.DatingRequestRejectInitParamDTO;
+import bbr.b2b.logistic.datings.report.classes.DatingRequestReportInitParamDTO;
+import bbr.b2b.logistic.datings.report.classes.DatingRequestReportResultDTO;
+import bbr.b2b.logistic.datings.report.classes.DeleteAllPreDatingResourceGroupInitParamDTO;
+import bbr.b2b.logistic.datings.report.classes.DeleteAllResourceBlockingGroupInitParamDTO;
+import bbr.b2b.logistic.datings.report.classes.DeleteDatingInitParamDTO;
+import bbr.b2b.logistic.datings.report.classes.DeletePreDatingResourceGroupDetailInitParamDTO;
+import bbr.b2b.logistic.datings.report.classes.DeleteResourceBlockingGroupDetailInitParamDTO;
+import bbr.b2b.logistic.datings.report.classes.DocksArrayResultDTO;
+import bbr.b2b.logistic.datings.report.classes.ExcelDatingReportInitParamDTO;
+import bbr.b2b.logistic.datings.report.classes.ExcelDatingReportResultDTO;
+import bbr.b2b.logistic.datings.report.classes.ModulesArrayResultDTO;
+import bbr.b2b.logistic.datings.report.classes.PreDatingReserveDetailInitParamDTO;
+import bbr.b2b.logistic.datings.report.classes.PreDatingReserveDetailArrayResultDTO;
+import bbr.b2b.logistic.datings.report.classes.PreDatingResourceGroupInitParamDTO;
+import bbr.b2b.logistic.datings.report.classes.PreDatingResourceGroupResultDTO;
+import bbr.b2b.logistic.datings.report.classes.ReceptionCloseResultDTO;
+import bbr.b2b.logistic.datings.report.classes.ReserveDetailBlockingReportDTO;
+import bbr.b2b.logistic.datings.report.classes.ResourceBlockingGroupDetailDataInitParamDTO;
+import bbr.b2b.logistic.datings.report.classes.ResourceBlockingGroupInitParamDTO;
+import bbr.b2b.logistic.datings.report.classes.ResourceBlockingGroupResultDTO;
+import bbr.b2b.logistic.dvrdeliveries.report.classes.DvrDeliveryInitParamDTO;
+import bbr.b2b.logistic.report.classes.BooleanResultDTO;
+import bbr.b2b.logistic.report.classes.UserLogDataDTO;
+
+public interface IDatingReportManager {
+
+	public BaseResultDTO doAddDatingResourceByLocation(String nameInitialModule, String nameFinalModule, String locationcode, boolean hasChangeDay);
+	public DatingInformationResultDTO getDatingInformationData(DvrDeliveryInitParamDTO initParamDTO);
+	public DatingRequestReportResultDTO getDatingRequestReport(DatingRequestReportInitParamDTO initParamDTO, boolean withTotals, boolean isPaginated);
+	public BaseResultDTO doRejectDatingRequest(DatingRequestRejectInitParamDTO initParamDTO, UserLogDataDTO userdataDTO);
+	public BooleanResultDTO checkExistsVendorReserveByLocationAndDate(CheckExistsVendorReserveInitParamDTO initParamDTO) ;
+	public BaseResultDTO doAddDatingandDetails(AddDatingAndDetailsInitParamDTO initParamDTO, UserLogDataDTO userdataDTO);
+	public AssignedDatingResultDTO getAssignedDatingByDate(AssignedDatingInitParamDTO initParamDTO);
+	public ModulesArrayResultDTO getModulesByLocation(String locationcode);
+	public DocksArrayResultDTO getDocksOfLocation(String locationcode);
+	public ExcelDatingReportResultDTO getExcelDatingReport(ExcelDatingReportInitParamDTO initParamDTO);
+	public BaseResultDTO doMarkDatingAsNotAttend(DvrDeliveryInitParamDTO initParamDTO, UserLogDataDTO userdataDTO);
+	public BaseResultDTO doDeleteDating(DeleteDatingInitParamDTO initParamDTO, UserLogDataDTO userdataDTO);
+	public ReceptionCloseResultDTO doCloseReception(DvrDeliveryInitParamDTO initParamDTO, UserLogDataDTO userdataDTO);
+	public BaseResultDTO doDeleteReserveDetailsOfResourceBlockingGroup(DeleteResourceBlockingGroupDetailInitParamDTO initParamDTO, UserLogDataDTO userdataDTO);
+	public BaseResultDTO doDeleteReserveDetailsOfPreDatingResourceGroup(DeletePreDatingResourceGroupDetailInitParamDTO initParamDTO, UserLogDataDTO userdataDTO);
+
+	public BlockingTypeArrayResultDTO getBlockingTypes();
+	public PreDatingReserveDetailArrayResultDTO getPreDatingReserveDetailByLocationAndDate(PreDatingReserveDetailInitParamDTO initParamDTO);
+	public PreDatingResourceGroupResultDTO doAddPreDatingResourceGroupAndDetails(PreDatingResourceGroupInitParamDTO initParamDTO, UserLogDataDTO userdataDTO);
+	public ResourceBlockingGroupResultDTO doAddResourceBlockingGroupAndDetails(ResourceBlockingGroupInitParamDTO initParamDTO, UserLogDataDTO userdataDTO);
+	public ReserveDetailBlockingReportDTO getReserveDetailDataOfBlockingGroup(ResourceBlockingGroupDetailDataInitParamDTO initParamDTO);
+	public BaseResultDTO doDeleteAllReserveDetailsOfPreDatingResourceGroup(DeleteAllPreDatingResourceGroupInitParamDTO initParamDTO, UserLogDataDTO userdataDTO);
+	public BaseResultDTO doDeleteAllReserveDetailsOfResourceBlockingGroup(DeleteAllResourceBlockingGroupInitParamDTO initParamDTO, UserLogDataDTO userdataDTO);
+}

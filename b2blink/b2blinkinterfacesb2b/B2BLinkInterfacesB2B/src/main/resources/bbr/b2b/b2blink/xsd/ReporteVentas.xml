@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Ventas xmlns="http://www.bbr.cl/cencosud/ReporteVentas" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bbr.cl/cencosud/ReporteVentas ReporteVentas.xsd ">
+  <nombreportal>nombreportal</nombreportal>
+  <fechaarchivo></fechaarchivo>
+  <comprador>
+    <rut>rut</rut>
+    <razon_social>razon_social</razon_social>
+    <unidad_negocio>unidad_negocio</unidad_negocio>
+  </comprador>
+  <vendedor>
+    <rut>rut</rut>
+    <razon_social>razon_social</razon_social>
+  </vendedor>
+  <formato>formato</formato>
+  <data>adsfsadfasdfasdfsdafasdfasdfsad</data>
+</Ventas>

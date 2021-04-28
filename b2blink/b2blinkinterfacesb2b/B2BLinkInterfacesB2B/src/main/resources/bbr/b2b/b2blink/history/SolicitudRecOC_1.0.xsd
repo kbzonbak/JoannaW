@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/SolicitudRecOC" elementFormDefault="qualified">
+  <!-- Versión 1.1 -->
+  <element name="SolicitudRecOC">
+    <complexType>
+      <sequence minOccurs="1" maxOccurs="1">
+        <element name="codproveedor" type="string" />
+        <element name="codcomprador" type="string" />
+        <element name="fecha_activacion" type="string" minOccurs="0"/>  <!-- se agrega en 1.1 -->
+      </sequence>
+    </complexType>
+  </element>
+</schema>

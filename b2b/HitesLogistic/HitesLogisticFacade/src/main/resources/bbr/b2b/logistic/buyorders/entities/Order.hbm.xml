@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<class name="bbr.b2b.logistic.buyorders.entities.Order" table="ORDER" 
+		entity-name="bbr.b2b.logistic.buyorders.entities.Order" schema="LOGISTICA">
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="identity">
+				<param name="sequence">ORDER_SEQUENCE</param>
+				<param name="parameters">AS BIGINT CACHE 100</param>
+			</generator>
+		</id>
+
+		<property name="number" type="java.lang.Long" column="NUMBER" update="false" unique="true"/>
+		<property name="emitted" type="java.time.LocalDateTime" column="EMITTED" update="false"/>
+		<property name="creationdate" type="java.time.LocalDateTime"/>
+		<property name="currentsoastatetypedate" type="java.time.LocalDateTime" column="CURRENTSOASTATETYPEDATE" />
+
+		<many-to-one name="responsable"
+			class="bbr.b2b.logistic.buyorders.entities.Responsable" column="RESPONSABLE_ID"
+			not-null="true"/>
+
+		<many-to-one name="retailer"
+			class="bbr.b2b.logistic.buyorders.entities.Retailer" column="RETAILER_ID"
+			not-null="true"/>
+			
+		<many-to-one name="vendor"
+			class="bbr.b2b.logistic.vendors.entities.Vendor" column="VENDOR_ID"
+			not-null="true"/>
+			
+		<many-to-one name="section"
+			class="bbr.b2b.logistic.buyorders.entities.Section" column="SECTION_ID"
+			not-null="false"/>
+
+		<many-to-one name="ordertype"
+			class="bbr.b2b.logistic.buyorders.entities.OrderType" column="ORDERTYPE_ID" 
+			not-null="true" /> 
+
+		<many-to-one name="client"
+			class="bbr.b2b.logistic.buyorders.entities.Client" column="CLIENT_ID"
+			not-null="false" />	
+			
+		<many-to-one name="currentsoastatetype"
+			class="bbr.b2b.logistic.soa.entities.SOAStateType" column="CURRENTSOASTATETYPE_ID"
+			not-null="false" />		
+			
+		<sql-query name="getPendingSOAOrdersByVendor">
+			<![CDATA[
+				SELECT
+					distinct OC.NUMBER AS ORDERNUMBER, OC.EMITTED, V.DNI AS VENDOR, SST.CODE AS CURRENTSOASTATE
+				FROM
+					LOGISTICA.ORDER AS OC RIGHT JOIN
+					LOGISTICA.DVRORDER AS DVR ON OC.ID = DVR.ID JOIN 
+					LOGISTICA.VENDOR AS V ON (OC.VENDOR_ID = V.ID) JOIN
+					LOGISTICA.SOASTATETYPE AS SST ON SST.ID = OC.CURRENTSOASTATETYPE_ID
+				WHERE 
+					SST.ID <> :soastatetype AND
+					OC.CURRENTSOASTATETYPEDATE <= :soapendingtime AND
+					V.ID = :vendorid AND
+					OC.EMITTED >= :activationdate AND
+					DVR.expiration >= CURRENT_DATE	
+			]]>
+		</sql-query>
+		
+		
+		<sql-query name="getPendingSOAODdcOrdersByVendor">
+			<![CDATA[
+				SELECT
+					distinct OC.NUMBER AS ORDERNUMBER, OC.EMITTED, V.DNI AS VENDOR, SST.CODE AS CURRENTSOASTATE
+				FROM
+					LOGISTICA.ORDER AS OC RIGHT JOIN
+					LOGISTICA.DDCORDER DDC ON DDC.ID = OC.ID JOIN
+					LOGISTICA.VENDOR AS V ON (OC.VENDOR_ID = V.ID) JOIN
+					LOGISTICA.SOASTATETYPE AS SST ON SST.ID = OC.CURRENTSOASTATETYPE_ID
+				WHERE 
+					SST.ID <> :soastatetype AND
+					OC.CURRENTSOASTATETYPEDATE <= :soapendingtime AND
+					V.ID = :vendorid AND
+					OC.EMITTED >= :activationdate AND
+					DDC.expiration >= CURRENT_DATE	
+			]]>
+		</sql-query>
+
+	</class>
+</hibernate-mapping>

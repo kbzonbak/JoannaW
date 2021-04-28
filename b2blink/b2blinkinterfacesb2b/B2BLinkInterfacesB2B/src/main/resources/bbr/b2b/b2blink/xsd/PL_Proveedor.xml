@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PLProveedor xmlns="http://www.bbr.cl/PLProveedor" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bbr.cl/PLProveedor PL_Proveedor.xsd ">
+  <ticket>ticket</ticket>
+  <nombreportal>nombreportal</nombreportal>
+  <cod_proveedor>cod_proveedor</cod_proveedor>
+  <cod_cliente>cod_cliente</cod_cliente>
+  <nro_cita>nro_cita</nro_cita>
+  <fecha_cita>fecha_cita</fecha_cita>
+  <hora_inicio>hora_inicio</hora_inicio>
+  <hora_termino>hora_termino</hora_termino>
+  <nro_entrega>nro_entrega</nro_entrega>
+  <cod_local_entrega>cod_local_entrega</cod_local_entrega>
+  <total_totes>total_totes</total_totes>
+  <total_bultos>total_bultos</total_bultos>
+  <total_colgados>total_colgados</total_colgados>
+  <total_unidades>total_unidades</total_unidades>
+  <total_cajas>total_cajas</total_cajas>
+  <numref1>numref1</numref1>
+  <numref2>numref2</numref2>
+  <numref3>numref3</numref3>
+  <numref4>numref4</numref4>
+  <numref5>numref5</numref5>
+  <doc_valido>doc_valido</doc_valido>
+  <vendedor>
+    <codigo>codigo</codigo>
+    <razon_social>razon_social</razon_social>
+    <contacto>contacto</contacto>
+    <direccion>direccion</direccion>
+    <telefono>telefono</telefono>
+  </vendedor>
+  <bultos>
+    <bulto>
+      <detalles>
+        <detalle/>
+      </detalles>
+    </bulto>
+  </bultos>
+  <docs_tributario>
+    <doc_tributario>
+      <detalles_doc_tributario>
+        <detalle_doc_tributario/>
+      </detalles_doc_tributario>
+    </doc_tributario>
+  </docs_tributario>
+</PLProveedor>

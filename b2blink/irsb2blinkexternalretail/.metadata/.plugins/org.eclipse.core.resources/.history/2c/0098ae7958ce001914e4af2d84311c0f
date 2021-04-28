@@ -1,0 +1,246 @@
+package bbr.b2b.connector.soa.msgb2btosoa;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.zip.GZIPOutputStream;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
+import com.sun.xml.bind.marshaller.DataWriter;
+import bbr.b2b.b2blink.commercial.xml.ReporteLocales.*;
+import bbr.b2b.b2blink.commercial.xml.ReporteLocales.Locales;
+import bbr.b2b.b2blink.commercial.xml.ReporteLocales.Locales.Vendedor;
+import bbr.b2b.common.adtclasses.exceptions.LoadDataException;
+import bbr.b2b.common.adtclasses.exceptions.NotFoundException;
+import bbr.b2b.common.adtclasses.exceptions.OperationFailedException;
+import bbr.b2b.connector.classes.EnvioProveedorServerLocal;
+import bbr.b2b.connector.classes.ProcessTypeServerLocal;
+import bbr.b2b.connector.classes.ProveedorServerLocal;
+import bbr.b2b.connector.classes.SoaStateTypeServerLocal;
+import bbr.b2b.connector.data.dto.LocationDTO;
+import bbr.b2b.connector.data.classes.ProcessTypeW;
+import bbr.b2b.connector.data.classes.ProveedorW;
+import bbr.b2b.connector.data.classes.SoaStateTypeW;
+import bbr.b2b.connector.data.classes.VentaEnvioProveedorW;
+import bbr.b2b.connector.managers.interfaces.SchedulerManagerLocal;
+import bbr.common.dataset.util.CSVConverter;
+import bbr.common.dataset.util.DataColumn;
+import bbr.common.dataset.util.DataRow;
+import bbr.common.dataset.util.DataTable;
+
+@Stateless(name = "handlers/LocationsToXml")
+@TransactionAttribute(TransactionAttributeType.REQUIRED)
+public class LocationsToXml implements LocationsToXmlLocal {
+
+	@EJB
+	SchedulerManagerLocal schedulermanager;
+
+	@EJB
+	EnvioProveedorServerLocal envioProveedorServerLocal;
+	
+	@EJB
+	ProveedorServerLocal proveedorServerLocal;
+	
+	@EJB
+	ProcessTypeServerLocal processTypeServerLocal;
+	
+	@EJB
+	SoaStateTypeServerLocal soaStateTypeServerLocal;
+	
+
+	private static JAXBContext jc = null;
+
+	private static JAXBContext getJCReportLocations() throws JAXBException {
+		if (jc == null)
+			jc = JAXBContext.newInstance("bbr.b2b.b2blink.commercial.xml.ReporteLocales");
+		return jc;
+	}
+
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public String processMessage(String nombrePortal, String codProveedor, String formato, String codComprador)
+			throws OperationFailedException, LoadDataException {
+		
+		ProveedorW proveedorW = null;
+		try {
+			proveedorW = proveedorServerLocal.getByPropertyAsSingleResult("pv_cod_prov", codProveedor);
+		} catch (NotFoundException e) {
+			e.printStackTrace();
+		}
+
+		LocationDTO[] locations = null;
+		if (nombrePortal.equals("CUSTOMER_COMERCIAL")){
+			// Se obtienen todos los locales
+			locations = envioProveedorServerLocal.getAllLocations(codProveedor);
+		} else {
+			locations = envioProveedorServerLocal.getLocationsByPortal(codProveedor, nombrePortal);
+		}
+
+		if (locations == null || locations.length == 0)
+			throw new OperationFailedException("No se encontró información para reporte de locales.");
+
+		
+		DataTable dt0 = new DataTable("REPORTE_LOCALES");
+		if (formato.equals("CSV 1")) {
+
+			// ------- Creación de CSV 1-------
+
+			// Listado de campos que incluye CSV:
+			// - Rut Proveedor
+			// - Cod. Local. Proveedor
+			// - Nombre Cliente
+			// - Codigo Cliente BBR
+			// - Cod. Local Cliente
+			// - Nombre Local
+			// - Región
+			// - Ciudad
+			// - Comuna
+			// - Estado
+			// - Tipo
+			// - Dirección
+			// - Atributo (1-10)
+
+			DataRow row = null;
+
+			DataColumn col01 = new DataColumn("rut_proveedor", String.class);
+			DataColumn col02 = new DataColumn("cod_local_proveedor", String.class);
+			DataColumn col03 = new DataColumn("nombre_cliente", String.class);
+			DataColumn col04 = new DataColumn("codcliente_bbr", String.class);
+			DataColumn col05 = new DataColumn("codlocal_cliente", String.class);
+			DataColumn col06 = new DataColumn("nombre_local", String.class);
+			DataColumn col07 = new DataColumn("region", String.class);
+			DataColumn col08 = new DataColumn("ciudad", String.class);
+			DataColumn col09 = new DataColumn("comuna", String.class);
+			DataColumn col10 = new DataColumn("estado", String.class);
+			DataColumn col11 = new DataColumn("tipo", String.class);
+			DataColumn col12 = new DataColumn("direccion", String.class);
+			DataColumn col13 = new DataColumn("Atributo1", String.class);
+			DataColumn col14 = new DataColumn("Atributo2", String.class);
+			DataColumn col15 = new DataColumn("Atributo3", String.class);
+			DataColumn col16 = new DataColumn("Atributo4", String.class);
+			DataColumn col17 = new DataColumn("Atributo5", String.class);
+			DataColumn col18 = new DataColumn("Atributo6", String.class);
+			DataColumn col19 = new DataColumn("Atributo7", String.class);
+			DataColumn col20 = new DataColumn("Atributo8", String.class);
+			DataColumn col21 = new DataColumn("Atributo9", String.class);
+			DataColumn col22 = new DataColumn("Atributo10", String.class);
+			
+			
+			//DataColumn col23 = new DataColumn("Atributo11", String.class);
+
+			dt0.addColumns(col01, col02, col03, col04, col05, col06, col07, col08, col09, col10, col11, col12, col13,
+					col14, col15, col16, col17, col18, col19, col20, col21, col22);
+
+			for (int i = 0; i < locations.length; i++) {
+				LocationDTO location = locations[i];
+				row = dt0.newRow();
+
+				row.setCellValue("rut_proveedor", location.getPv_cod_prov());
+				row.setCellValue("cod_local_proveedor", location.getLo_codigo());
+				row.setCellValue("nombre_cliente", location.getCl_nombre());
+				row.setCellValue("codcliente_bbr", location.getCl_cod_prov());
+				row.setCellValue("codlocal_cliente", location.getLc_codigo());
+				row.setCellValue("nombre_local", location.getLo_nombre());
+				row.setCellValue("region", location.getLo_region());
+				row.setCellValue("ciudad", location.getLo_ciudad());
+				row.setCellValue("comuna", location.getLo_comuna());
+				row.setCellValue("estado", location.getLo_estado());
+				row.setCellValue("tipo", location.getLo_tipo());
+				row.setCellValue("direccion", location.getLo_direccion());
+				row.setCellValue("Atributo1", location.getLo_atrib1());
+				row.setCellValue("Atributo2", location.getLo_atrib2());
+				row.setCellValue("Atributo3", location.getLo_atrib3());
+				row.setCellValue("Atributo4", location.getLo_atrib4());
+				row.setCellValue("Atributo5", location.getLo_atrib5());
+				row.setCellValue("Atributo6", location.getLo_atrib6());
+				row.setCellValue("Atributo7", location.getLo_atrib7());
+				row.setCellValue("Atributo8", location.getLo_atrib8());
+				row.setCellValue("Atributo9", location.getLo_atrib9());
+				row.setCellValue("Atributo10", location.getLo_atrib10());
+				
+				
+				
+				//row.setCellValue("Atributo11", location.getLo_atrib11());
+
+				dt0.addRow(row);
+			}
+		}
+		
+		CSVConverter converter = new CSVConverter();
+		converter.setSeparator('|');
+		String csvResult = converter.getCSVString(dt0, null);
+
+		//System.out.println(csvResult);
+
+		// ------- Creación de XML -------
+		String result = "";
+		try {
+			JAXBContext jc = getJCReportLocations();
+			ObjectFactory objFactory = new ObjectFactory();
+
+			Locales locationsrequest = objFactory.createLocales();
+			Vendedor vendedor = objFactory.createLocalesVendedor();
+
+			vendedor.setRazonSocial(proveedorW.getPv_rz_social());
+			vendedor.setRut(codProveedor);
+
+			locationsrequest.setNombreportal(nombrePortal);
+			locationsrequest.setVendedor(vendedor);
+			locationsrequest.setFormato(formato);
+			locationsrequest.setIdMsge(String.valueOf(System.nanoTime()));
+			locationsrequest.setCodcomprador(codComprador);
+
+			ByteArrayOutputStream outstream = new ByteArrayOutputStream();
+			GZIPOutputStream gzipstream = new GZIPOutputStream(outstream);
+			byte[] databytes = csvResult.getBytes("UTF-8");
+			gzipstream.write(databytes);
+			gzipstream.close();
+			sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
+			String data_compressed = encoder.encode(outstream.toByteArray());
+			locationsrequest.setData(data_compressed);
+
+			// Obtiene string XML para enviarlo a la cola
+			Marshaller m = jc.createMarshaller();
+			m.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+
+			// The below code will take care of avoiding the conversion of < to
+			// &lt; and > to &gt; etc
+			StringWriter stringWriter = new StringWriter();
+			PrintWriter printWriter = new PrintWriter(stringWriter);
+			DataWriter dataWriter = new DataWriter(printWriter, "UTF-8", new MyCharacterEscapeHandler());
+
+			m.marshal(locationsrequest, dataWriter);
+			result = stringWriter.toString();
+
+			// System.out.println(result);
+
+			// ENVIA EL MENSAJE A LA COLA
+			//schedulermanager.doAddMessageQueue("jboss/qcf_soa", "jboss/activemq/queue/q_esbgrl", "ReporteLocales",					"locales", result, Charset.forName("UTF-8"));
+			
+			ProcessTypeW processTypeW = processTypeServerLocal.getByPropertyAsSingleResult("code", "locales");
+			SoaStateTypeW soaNotificadoW = soaStateTypeServerLocal.getByPropertyAsSingleResult("code", "NOTIFICADO");
+			SoaStateTypeW soaEnviadoW = soaStateTypeServerLocal.getByPropertyAsSingleResult("code", "ENVIADO");
+			envioProveedorServerLocal.doUpdateSoaState(proveedorW.getId(), processTypeW.getId(), soaNotificadoW.getId(), soaEnviadoW.getId());
+			
+//			System.out.println("reporte enviado");
+		} catch (JAXBException e2) {
+			e2.printStackTrace();
+			// LoggingUtil.error("Generación de XML de rechazo via JAXB fallo. "
+			// + e2.getMessage());
+			throw new OperationFailedException(e2.getMessage());
+		} catch (Exception e) {
+			throw new OperationFailedException(e.getMessage());
+		}
+
+		return result;
+	}
+}

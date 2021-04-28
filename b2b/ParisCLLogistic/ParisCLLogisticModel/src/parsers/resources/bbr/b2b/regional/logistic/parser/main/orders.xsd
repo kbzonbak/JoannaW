@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema id="Orden" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://test.b2b.paris.cl/ParisLogisticaWeb/xsd/corden" xmlns:ordenes="http://test.b2b.paris.cl/ParisLogisticaWeb/xsd/corden">
+	<xsd:element name="Ordenes">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded">
+				<xsd:element name="Orden">				
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="norden" type="xsd:string" />
+							<xsd:element name="datos_generales">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="f_emision" type="xsd:string" />
+										<xsd:element name="f_vigencia" type="xsd:string" />
+										<xsd:element name="f_vencimiento" type="xsd:string" />
+										<xsd:element name="observaciones" type="xsd:string" />
+										<xsd:element name="tipo_de_orden" type="xsd:string" />
+										<xsd:element name="nombre_depto" type="xsd:string" />
+										<xsd:element name="cod_local_entrega" type="xsd:string" />
+										<xsd:element name="local_entrega" type="xsd:string" />
+										<xsd:element name="datos_proveedor">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="rut" type="xsd:string" />
+													<xsd:element name="razon_social" type="xsd:string" />
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+										<xsd:element name="desc_generales">
+											<xsd:complexType>
+												<xsd:sequence maxOccurs="unbounded">
+													<xsd:element name="descuento_general">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="valor" type="xsd:float" />
+																<xsd:element name="glosa" type="xsd:string" />
+																<xsd:element name="codigo_desc" type="xsd:string" />
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+										<xsd:element name="responsable">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="nombre" type="xsd:string" />
+													<xsd:element name="apellidos" type="xsd:string" />
+													<xsd:element name="email" type="xsd:string" />
+													<xsd:element name="telefono" type="xsd:string" />
+													<xsd:element name="cargo" type="xsd:string" />
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="detalles">
+								<xsd:complexType>
+									<xsd:sequence maxOccurs="unbounded">
+										<xsd:element name="detalle">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="sku_paris" type="xsd:string" />
+													<xsd:element name="descripcion" type="xsd:string" />
+													<xsd:element name="cod_prod_proveedor" type="xsd:string" />													
+													<xsd:element name="unidad_medida" type="xsd:string" />
+													<xsd:element name="costo_lista" type="xsd:float" />
+													<xsd:element name="costo_final" type="xsd:float" />
+													<xsd:element name="precio_normal" type="xsd:long" />
+													<xsd:element name="precio_oferta" type="xsd:float" />													
+													<xsd:element name="tipoflujo" type="xsd:string" />
+													<xsd:element name="orden_visual" type="xsd:int" />	
+													<xsd:element name="distribucion">
+														<xsd:complexType>
+															<xsd:sequence maxOccurs="unbounded">
+																<xsd:element name="det_distr">
+																	<xsd:complexType>
+																		<xsd:sequence>
+																			<xsd:element name="cantidad_solicitada" type="xsd:float" />
+																			<xsd:element name="cantidad_pendiente" type="xsd:float" />
+																			<xsd:element name="codigo_local" type="xsd:string" />
+																		</xsd:sequence>
+																	</xsd:complexType>
+																</xsd:element>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>												
+													<xsd:element name="descuentos">
+														<xsd:complexType>
+															<xsd:sequence maxOccurs="unbounded">
+																<xsd:element name="descuento">
+																	<xsd:complexType>
+																		<xsd:sequence>
+																			<xsd:element name="valor" type="xsd:float" />
+																			<xsd:element name="glosa" type="xsd:string" />
+																			<xsd:element name="codigo_desc" type="xsd:string" />
+																		</xsd:sequence>
+																	</xsd:complexType>
+																</xsd:element>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

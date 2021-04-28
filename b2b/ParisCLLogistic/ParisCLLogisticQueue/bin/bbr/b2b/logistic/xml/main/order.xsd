@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:element name="orden">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="maestro_locales" minOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="local" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="codigo" type="xs:string" minOccurs="1" />
+										<xs:element name="nombre" type="xs:string" minOccurs="1" />
+										<xs:element name="direccion" type="xs:string" minOccurs="0" />
+										<xs:element name="nombre_encargado" type="xs:string" minOccurs="0" />
+										<xs:element name="email_encargado" type="xs:string" minOccurs="0" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+                <xs:element name="encabezado" minOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="accion" type="xs:string" minOccurs="1" />
+							<xs:element name="num_oc" type="xs:long" minOccurs="1" />
+							<xs:element name="tipo_oc" type="xs:string" minOccurs="1" />
+							<xs:element name="monto_neto" type="xs:decimal" minOccurs="1" />
+							<xs:element name="impuesto" type="xs:decimal" minOccurs="0" />
+							<xs:element name="monto_orden" type="xs:decimal" minOccurs="0" />
+                            <xs:element name="comprador" minOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="codigo" type="xs:string" minOccurs="1" />
+                                        <xs:element name="rut" type="xs:string" minOccurs="1" />
+										<xs:element name="razon_social" type="xs:string" minOccurs="1" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="responsable" minOccurs="0" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="nombre" type="xs:string" minOccurs="1" />
+										<xs:element name="correo" type="xs:string" minOccurs="1" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+                            <xs:element name="proveedor" minOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="codigo" type="xs:string" minOccurs="1" />
+                                        <xs:element name="rut" type="xs:string" minOccurs="1" />
+                                        <xs:element name="razon_social" type="xs:string" minOccurs="1" />
+										<xs:element name="direccion" type="xs:string" minOccurs="0" />
+										<xs:element name="ciudad" type="xs:string" minOccurs="0" />
+                                        <xs:element name="tipo" type="xs:string" minOccurs="0" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+                            <xs:element name="fecha_emision" type="xs:string" minOccurs="1" />
+                            <xs:element name="fecha_entrega" type="xs:string" minOccurs="1" />
+                            <xs:element name="fecha_vencimiento" type="xs:string" minOccurs="1" />
+                            <xs:element name="condicion_pago" type="xs:string" minOccurs="0" />
+                            <xs:element name="local_entrega" type="xs:string" minOccurs="1" />
+                            <xs:element name="observaciones" type="xs:string" minOccurs="0" />
+                            <xs:element name="otros_atributos_orden" minOccurs="1">                                        
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="atributo" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="tipo_atributo" type="xs:string" minOccurs="1" />
+                                                    <xs:element name="codigo" type="xs:string" minOccurs="1" />
+                                                    <xs:element name="valor" type="xs:string" minOccurs="1" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="datos_vev" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="rut_cliente" type="xs:string" minOccurs="1"/>
+                                        <xs:element name="nombre_cliente" type="xs:string" minOccurs="1" />
+                                        <xs:element name="direccion_cliente" type="xs:string" minOccurs="1" />
+                                        <xs:element name="comuna_cliente" type="xs:string" minOccurs="1" />
+                                        <xs:element name="ciudad_cliente" type="xs:string" minOccurs="0" />
+                                        <xs:element name="comentario" type="xs:string" minOccurs="0" />
+                                        <xs:element name="referencia_venta" type="xs:string" minOccurs="1" />
+                                        <xs:element name="cod_local_venta" type="xs:string" minOccurs="0" />
+                                        <xs:element name="telefono_cliente" type="xs:string" minOccurs="0" />
+                                        <xs:element name="mail_cliente" type="xs:string" minOccurs="0" />
+                                        <xs:element name="fecha_despacho_cliente" type="xs:string" minOccurs="0" />
+                                        <xs:element name="guia_despacho" type="xs:long" minOccurs="0" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="descuentos_generales" minOccurs="0" >                        
+                    <xs:complexType>
+						<xs:sequence>
+                            <xs:element name="descuento" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+                                        <xs:element name="tipo_descuento" type="xs:string" minOccurs="1" />
+                                        <xs:element name="descripcion_descuento" type="xs:string" minOccurs="0" />
+                                        <xs:element name="valor_descuento_porc" type="xs:decimal" minOccurs="1" />
+                                        <xs:element name="valor_descuento_monto" type="xs:decimal" minOccurs="0" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="listado_productos " minOccurs="1">                        
+                    <xs:complexType>
+						<xs:sequence>	
+                            <xs:element name="producto" minOccurs="1" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="accion" type="xs:string" minOccurs="1" />
+										<xs:element name="posicion" type="xs:int" minOccurs="1" />
+										<xs:element name="cod_producto" type="xs:string" minOccurs="1" />
+										<xs:element name="cod_proveedor" type="xs:string" minOccurs="0" />
+										<xs:element name="descripcion" type="xs:string" minOccurs="1" />
+										<xs:element name="cod_barra1" type="xs:string" minOccurs="1" />
+										<xs:element name="cod_barra2" type="xs:string" minOccurs="0" />
+                                        <xs:element name="otros_atributos_producto" minOccurs="1">                                        
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="atributo" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="tipo_atributo" type="xs:string" minOccurs="1" />
+                                                                <xs:element name="codigo" type="xs:string" minOccurs="1" />
+                                                                <xs:element name="valor" type="xs:string" minOccurs="1" />
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="unidad_medida_base" type="xs:string" minOccurs="1" />
+                                        <xs:element name="unidad_medida_compra" type="xs:string" minOccurs="1" />
+                                        <xs:element name="contenido" type="xs:decimal" minOccurs="1" />
+                                        <xs:element name="cantidad_solicitadas_umc" type="xs:decimal" minOccurs="1" />
+                                        <xs:element name="tolerancia" type="xs:decimal" minOccurs="0" />
+                                        <xs:element name="fecha_entrega" type="xs:string" minOccurs="0" />
+                                        <xs:element name="observaciones" type="xs:string" minOccurs="0" />                                    
+                                        <xs:element name="costo_lista" type="xs:decimal" minOccurs="0" />
+                                        <xs:element name="costo_compra" type="xs:decimal" minOccurs="1" />
+                                        <xs:element name="precio_normal" type="xs:decimal" minOccurs="0" />
+                                        <xs:element name="precio_oferta" type="xs:decimal" minOccurs="0" />
+                                        <xs:element name="descuentos" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="descuento" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="tipo_descuento" type="xs:string" minOccurs="1" />
+                                                                <xs:element name="descripcion_descuento" type="xs:string" minOccurs="0" />
+                                                                <xs:element name="valor_descuento_porc" type="xs:decimal" minOccurs="1" />
+                                                                <xs:element name="valor_descuento_monto" type="xs:decimal" minOccurs="0" />                                                                    
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="cargos" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="cargo" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="tipo_cargo" type="xs:string" minOccurs="1" />
+                                                                <xs:element name="descripcion_cargo" type="xs:string" minOccurs="0" />
+                                                                <xs:element name="valor_cargo_porc" type="xs:decimal" minOccurs="1" />
+                                                                <xs:element name="valor_cargo_monto" type="xs:decimal" minOccurs="0" />                                                                    
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>	                                
+                                    </xs:sequence>
+                                </xs:complexType>
+                        	</xs:element>        
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="predistribuciones" minOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="predistribucion" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+                                        <xs:element name="posicion" type="xs:int" minOccurs="1" />
+										<xs:element name="cod_local" type="xs:string" minOccurs="1" />
+										<xs:element name="cod_producto" type="xs:string" minOccurs="1" />
+										<xs:element name="unidades_solicitadas_umc" type="xs:decimal" minOccurs="1" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>      

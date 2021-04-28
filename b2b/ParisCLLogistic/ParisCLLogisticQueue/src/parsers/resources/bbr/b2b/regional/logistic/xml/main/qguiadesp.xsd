@@ -1,0 +1,44 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="QGUIADESPACHO">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element ref="secuencia" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="nrecepcion" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="nasn" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="detalles" maxOccurs="1" minOccurs="1"></xs:element>    			
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+
+    <xs:element name="secuencia">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <xs:element name="nrecepcion">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <xs:element name="nasn">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>    
+  
+    <xs:element name="detalles">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    			<xs:element ref="n_doc" />
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element> 
+    
+    <xs:element name="n_doc">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>    
+</xs:schema>

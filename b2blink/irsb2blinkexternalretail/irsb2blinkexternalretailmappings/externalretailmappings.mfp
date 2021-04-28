@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  MapForce Project File  -->
+<Project Expanded="Yes" Type="Root" language="java" OutputDir="output\" Title="externalretailmappings" JavaPackageName="bbr.b2b.extractors.mappings" OutputName="externalretailmappings" Version="6">
+	<Folder FolderName="Mapping Folder" Expanded="Yes" Type="MappingFolder">
+		<File Type="Mapping" FilePath="01_walmart_edi_to_customer.mfd"/>
+	</Folder>
+</Project>

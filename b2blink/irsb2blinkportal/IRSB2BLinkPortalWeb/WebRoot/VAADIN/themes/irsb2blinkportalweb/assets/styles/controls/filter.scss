@@ -1,0 +1,128 @@
+@mixin filter 
+{
+	.label-criteria {
+	    font-weight: bold;
+	    margin-top: -4px;
+	    color: #000;
+	}
+	
+	.filter-toolbar{
+		width: 100%;
+		background:#fff;
+		height: 45px !important;
+		border-style: solid;
+		border-width: 1px;
+		border-color: #cecece;
+		padding-left: 5px;
+	}	
+	.filter-buttons{
+		vertical-align: middle;
+	}
+	
+	.v-filterselect{
+		height: 28px !important;
+	}
+	.bbr-filter-fields{
+		height: 26px !important;
+		width: 100%;
+	}
+	.bbr-filter-date-fields{
+		height: 28px !important;
+	}
+	.bbr-bbrfilter-content .v-caption {
+	    font-size: 12px;
+	    color: black;	
+	}
+	
+	.btn-filter-search{
+		color: #127CB1;
+		background-image: -webkit-linear-gradient(top, #E5F9FF 2%, #DBEFFF 98%);
+		background-image: linear-gradient(to bottom, #E5F9FF 2%, #DBEFFF 98%);	
+		height: 30px;	
+	}
+	
+	.btn-filter-search:hover{
+		color: #005A88;		
+		background-image: -webkit-linear-gradient(top, #60cdff 2%, #60cdff 98%);
+		background-image: linear-gradient(to bottom, #60cdff 2%, #60cdff 98%);			
+	}	
+	
+	.bbr-filter-label{
+		color: black;
+		font-size: 12px;
+		font-weight: 400;
+  }
+
+	.bbr-filter-label-header{
+		color: black;
+    	font-weight: bold;
+    	border-bottom-style: groove;
+    	border-bottom-width: 1px;
+	}
+	
+	.bbr-filter-sections{
+		color: black;
+    	padding: 3px;
+    	border-radius: 10px;
+    	background-color: lightgrey;
+	}
+
+	.bbr-filter-sections-no-back{
+		color: black;
+    	padding: 5px;
+	}
+
+	.bbr-panel-space{
+		margin-top: 2px;
+    	margin-bottom: 2px;
+	}
+	
+	.bbr-panel-dates{
+		margin-top: 10px;
+    	margin-left: 9px;
+    	width:98% !important;
+	}
+	
+	.bbr-panel-publishing{	
+    	margin-left: 9px;
+    	width:98% !important;
+	}
+	
+	.pnl-atachment-area{
+		margin:0 0 0 10px;
+	}
+	
+	.link-filter-button {
+		height : 28px;
+	   	font-size:10px;
+	   	border: none;
+	    box-shadow: none;
+	    background: transparent;
+	    cursor: pointer;
+	    color: #059ae5;
+	    text-decoration: underline;
+	    transition: color 140ms;
+	    padding:0;
+	}	
+	.link-filter-button:hover {
+	    color: #12b0ff;
+	}	
+	.link-filter-button:hover:after {
+		background-color: transparent;
+	}	
+	.link-filter-button:focus {
+	    outline: none;
+	}
+	.link-filter-button:focus:after {
+	    box-shadow: none;
+	}
+	
+	.search-panel{
+		text-align: right;
+		padding-right: 2px;
+	}
+	
+}
+
+
+

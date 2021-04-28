@@ -1,0 +1,97 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+     <xs:element name="QRECEPCION">
+     	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="secuencia" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="nrecepcion" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="nasn" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="warehouse" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="f_recepcion" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="detalles" maxOccurs="1" minOccurs="1"></xs:element>    					
+    		</xs:sequence>
+    	</xs:complexType>   
+ 	</xs:element>
+ 	
+    <!--  Número de Secuencia -->
+    <xs:element name="secuencia">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!--  Número de Recepción -->
+    <xs:element name="nrecepcion">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+
+	<!-- Número de ASN -->
+    <xs:element name="nasn">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Código Local de Entrega -->
+    <xs:element name="warehouse">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Fecha de Recepción -->
+    <xs:element name="f_recepcion">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Detalles de Recepción -->  
+    <xs:element name="detalles">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    			<xs:element ref="detalle" />
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>    
+    
+    <xs:element name="detalle">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element ref="codloc" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="norden" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="cod_producto" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="cantidad" maxOccurs="1" minOccurs="1"></xs:element>
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+ 
+ 	<!-- Código de local de destino -->  
+    <xs:element name="codloc">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Número de Orden -->  
+    <xs:element name="norden">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Código de Producto -->  
+    <xs:element name="cod_producto">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Cantidad -->  
+    <xs:element name="cantidad">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:double"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>     
+</xs:schema>

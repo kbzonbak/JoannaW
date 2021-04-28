@@ -1,0 +1,745 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="QORDEN">
+		<xs:complexType>
+			<xs:sequence minOccurs="1" maxOccurs="1">
+				<xs:element ref="A0" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="A1" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="A2" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="A3" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="A4" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="A5" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="A6" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="A7" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="A8" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="A9" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="A10" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="A11" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="A12" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="A13" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="A14" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="A15" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="A16" maxOccurs="1" minOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--   Número de secuencia  -->
+	<xs:element name="A0">
+		<xs:simpleType>
+			<xs:restriction base="xs:long" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Número de Orden de compra  -->
+	<xs:element name="A1">
+		<xs:simpleType>
+			<xs:restriction base="xs:long" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Bloque Venta en Verde  -->
+	<xs:element name="A2">
+		<xs:complexType>
+			<xs:sequence minOccurs="1" maxOccurs="1">
+				<xs:element ref="B0" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="B1" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="B2" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="B3" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="B4" maxOccurs="1" minOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--  Número de Solicitud  -->
+	<xs:element name="B0">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Valor agregado  -->
+	<xs:element name="B1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Cliente  -->
+	<xs:element name="B2">
+		<xs:complexType>
+			<xs:sequence minOccurs="1" maxOccurs="1">
+				<xs:element ref="CL0" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="CL1" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="CL2" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="CL3" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="CL4" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="CL5" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="CL6" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="CL7" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="CL8" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="CL9" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="CL10" maxOccurs="1" minOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--  Nombre Cliente  -->
+	<xs:element name="CL0">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  RUT Cliente -->
+	<xs:element name="CL1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Teléfono Cliente  -->
+	<xs:element name="CL2">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Dirección Cliente  -->
+	<xs:element name="CL3">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Número de Calle Cliente  -->
+	<xs:element name="CL4">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Número Departamento Cliente  -->
+	<xs:element name="CL5">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Número Casa Cliente  -->
+	<xs:element name="CL6">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Nombre Región Cliente  -->
+	<xs:element name="CL7">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Nombre Comuna Cliente  -->
+	<xs:element name="CL8">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Nombre Ciudad Cliente  -->
+	<xs:element name="CL9">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Comentario Cliente  -->
+	<xs:element name="CL10">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Remitente  -->
+	<xs:element name="B3">
+		<xs:complexType>
+			<xs:sequence minOccurs="1" maxOccurs="1">
+				<xs:element ref="R0" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="R1" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="R2" maxOccurs="1" minOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--  Nombre Remitente  -->
+	<xs:element name="R0">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  RUT Remitente  -->
+	<xs:element name="R1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Teléfono Remitente  -->
+	<xs:element name="R2">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Fecha Comprometida  -->
+	<xs:element name="B4">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Comprador  -->
+	<xs:element name="A3">
+		<xs:complexType>
+			<xs:sequence minOccurs="1" maxOccurs="1">
+				<xs:element ref="C0" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="C1" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="C2" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="C3" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="C4" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="C5" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="C6" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="C7" maxOccurs="1" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--  Código Comprador  -->
+	<xs:element name="C0">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Nombre Comprador  -->
+	<xs:element name="C1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Apellidos Comprador  -->
+	<xs:element name="C2">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Teléfono Comprador  -->
+	<xs:element name="C3">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Fax Comprador  -->
+	<xs:element name="C4">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Email Comprador  -->
+	<xs:element name="C5">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  RUT Comprador  -->
+	<xs:element name="C6">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Cargo Comprador  -->
+	<xs:element name="C7">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Proveedor  -->
+	<xs:element name="A4">
+		<xs:complexType>
+			<xs:sequence minOccurs="1" maxOccurs="1">
+				<xs:element ref="P0" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="P1" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="P2" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="P3" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="P4" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="P5" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="P6" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="P7" maxOccurs="1" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--  Código Proveedor  -->
+	<xs:element name="P0">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Razón Social Proveedor  -->
+	<xs:element name="P1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Nombre Corto Proveedor  -->
+	<xs:element name="P2">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  RUT Proveedor  -->
+	<xs:element name="P3">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Tipo Proveedor  -->
+	<xs:element name="P4">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Dirección Proveedor  -->
+	<xs:element name="P5">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Comuna Proveedor  -->
+	<xs:element name="P6">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Ciudad Proveedor  -->
+	<xs:element name="P7">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Fecha Emisión  -->
+	<xs:element name="A5">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Fecha Vigencia  -->
+	<xs:element name="A6">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Fecha Vencimiento  -->
+	<xs:element name="A7">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Observaciones  -->
+	<xs:element name="A8">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Tipo de Orden  -->
+	<xs:element name="A9">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Departamento  -->
+	<xs:element name="A10">
+		<xs:complexType>
+			<xs:sequence minOccurs="1" maxOccurs="1">
+				<xs:element ref="D0" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="D1" maxOccurs="1" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--  Código Departamento  -->
+	<xs:element name="D0">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Descripción Departamento  -->
+	<xs:element name="D1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Bloque de locales  -->
+	<xs:element name="A11">
+		<xs:complexType>
+			<xs:sequence minOccurs="1" maxOccurs="unbounded">
+				<xs:element ref="LS" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LS">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="L0" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="L1" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="L2" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="L3" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="L4" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="L5" maxOccurs="1" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--  Código de local  -->
+	<xs:element name="L0">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Descripción Corta Local  -->
+	<xs:element name="L1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Descripción Local  -->
+	<xs:element name="L2">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Dirección Local  -->
+	<xs:element name="L3">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Comuna Local  -->
+	<xs:element name="L4">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Ciudad Local  -->
+	<xs:element name="L5">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Bloque Productos  -->
+	<xs:element name="A12">
+		<xs:complexType>
+			<xs:sequence minOccurs="1" maxOccurs="unbounded">
+				<xs:element ref="PRS" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PRS">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="PR0" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="PR1" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="PR2" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="PR3" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="PR4" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="PR5" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="PR6" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="PR7" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="PR8" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="PR9" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="PR10" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="PR11" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="PR12" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="PR13" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="PR14" maxOccurs="1" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--  SKU Producto  -->
+	<xs:element name="PR0">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Descripción Producto  -->
+	<xs:element name="PR1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Código Clase  -->
+	<xs:element name="PR2">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Descripción Clase  -->
+	<xs:element name="PR3">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Código Barras Paris  -->
+	<xs:element name="PR4">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Código Producto Proveedor  -->
+	<xs:element name="PR5">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Capacidad  -->
+	<xs:element name="PR6">
+		<xs:simpleType>
+			<xs:restriction base="xs:int" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Lead Time  -->
+	<xs:element name="PR7">
+		<xs:simpleType>
+			<xs:restriction base="xs:long" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Dimensiones  -->
+	<xs:element name="PR8">
+		<xs:complexType>
+			<xs:sequence minOccurs="1" maxOccurs="unbounded">
+				<xs:element ref="DIS" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DIS">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="DI0" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="DI1" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="DI2" maxOccurs="1" minOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--  Tipo Dimensión  -->
+	<xs:element name="DI0">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Código Dimensión  -->
+	<xs:element name="DI1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Valor Dimensión  -->
+	<xs:element name="DI2">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  EAN Homologado  -->
+	<xs:element name="PR9">
+		<xs:complexType>
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="E0" maxOccurs="1" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--  Código EAN  -->
+	<xs:element name="E0">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Tipo de Flujo  -->
+	<xs:element name="PR10">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Innerpack  -->
+	<xs:element name="PR11">
+		<xs:simpleType>
+			<xs:restriction base="xs:int" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Casepack  -->
+	<xs:element name="PR12">
+		<xs:simpleType>
+			<xs:restriction base="xs:int" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Bloque ATC  -->
+	<xs:element name="PR13">
+		<xs:complexType>
+			<xs:sequence minOccurs="0" maxOccurs="1">
+				<xs:element ref="ATC0" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="ATC1" maxOccurs="1" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--  Código ATC  -->
+	<xs:element name="ATC0">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Valor Curva  -->
+	<xs:element name="ATC1">
+		<xs:simpleType>
+			<xs:restriction base="xs:int" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Marca  -->
+	<xs:element name="PR14">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Código Local Entrega  -->
+	<xs:element name="A13">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Descuentos Generales  -->
+	<xs:element name="A14">
+		<xs:complexType>
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="DCS" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DCS">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="DC0" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="DC1" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="DC2" maxOccurs="1" minOccurs="0" />
+				<xs:element ref="DC3" maxOccurs="1" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--  Valor Descuento  -->
+	<xs:element name="DC0">
+		<xs:simpleType>
+			<xs:restriction base="xs:double" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Tipo Descuento  -->
+	<xs:element name="DC1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Glosa Descuento  -->
+	<xs:element name="DC2">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Código Descuento  -->
+	<xs:element name="DC3">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Detalle de Orden  -->
+	<xs:element name="A15">
+		<xs:complexType>
+			<xs:sequence minOccurs="1" maxOccurs="unbounded">
+				<xs:element ref="DTS" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DTS">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="DT0" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="DT1" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="DT2" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="DT3" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="DT4" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="DT5" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="DT6" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="DT7" maxOccurs="1" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--  Código SKU Producto  -->
+	<xs:element name="DT0">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Cantidad Detalle  -->
+	<xs:element name="DT1">
+		<xs:simpleType>
+			<xs:restriction base="xs:double" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Unidad Medida  -->
+	<xs:element name="DT2">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Costo Lista  -->
+	<xs:element name="DT3">
+		<xs:simpleType>
+			<xs:restriction base="xs:double" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Costo Final  -->
+	<xs:element name="DT4">
+		<xs:simpleType>
+			<xs:restriction base="xs:double" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Precio Normal  -->
+	<xs:element name="DT5">
+		<xs:simpleType>
+			<xs:restriction base="xs:double" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Precio Oferta  -->
+	<xs:element name="DT6">
+		<xs:simpleType>
+			<xs:restriction base="xs:double" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Descuentos  -->
+	<xs:element name="DT7">
+		<xs:complexType>
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="DCS" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--  Detalle de Orden  -->
+	<xs:element name="A16">
+		<xs:complexType>
+			<xs:sequence minOccurs="1" maxOccurs="unbounded">
+				<xs:element ref="PDS" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PDS">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="PD0" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="PD1" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="PD2" maxOccurs="1" minOccurs="1" />
+				<xs:element ref="PD3" maxOccurs="1" minOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--  Código Tienda Destino  -->
+	<xs:element name="PD0">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  SKU  -->
+	<xs:element name="PD1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  Cantidad  -->
+	<xs:element name="PD2">
+		<xs:simpleType>
+			<xs:restriction base="xs:double" />
+		</xs:simpleType>
+	</xs:element>
+	<!--  secpred  -->
+	<xs:element name="PD3">
+		<xs:simpleType>
+			<xs:restriction base="xs:long" />
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

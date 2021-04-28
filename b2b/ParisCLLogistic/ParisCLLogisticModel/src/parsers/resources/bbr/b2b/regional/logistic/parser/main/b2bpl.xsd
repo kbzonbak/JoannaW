@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema id="PackingList2" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://b2b.paris.cl/ParisLogisticaWeb/xsd/cpackinglist" xmlns:packinglist="http://b2b.paris.cl/ParisLogisticaWeb/xsd/cpackinglist">
+	<element name="PL">
+		<complexType>
+			<sequence minOccurs="1" maxOccurs="unbounded">
+				<element name="detalle">
+					<complexType>
+						<sequence>
+							<element name="no_orden" type="int"></element>							
+							<element name="cod_local" type="string"></element>
+							<element name="cod_prod" type="string"></element>
+							<element name="no_bulto" type="string"></element>
+							<element name="no_pallet" type="string"></element>
+							<element name="cantidad" type="float"></element>
+							<element name="no_doc_tributario" type="long"></element>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>
+
+

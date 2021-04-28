@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+RHQ-Sha256: b2df8a357988e179f0aad9d09760bbaba5c619111c4efecf25467ed63e
+ f1114d
+Class-Path: 
+

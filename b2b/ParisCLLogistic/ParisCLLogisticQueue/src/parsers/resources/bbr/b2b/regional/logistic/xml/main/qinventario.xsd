@@ -1,0 +1,60 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+     <xs:element name="QINVENTARIO">
+     	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    			<xs:element ref="inv_prov" />    						
+    		</xs:sequence>
+    	</xs:complexType>   
+ 	</xs:element>
+ 	
+    <xs:element name="inv_prov">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element ref="cod_proveedor" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="productos" maxOccurs="1" minOccurs="1"></xs:element>
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>    
+ 	 	
+    <xs:element name="cod_proveedor">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <xs:element name="productos">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    			<xs:element ref="producto" />    			
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>  
+    
+    <xs:element name="producto">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element ref="cod_producto" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="stock" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="f_actualizacion" maxOccurs="1" minOccurs="1"></xs:element>    			
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+    
+    <xs:element name="cod_producto">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <xs:element name="stock">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:double"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <xs:element name="f_actualizacion">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>    
+</xs:schema>

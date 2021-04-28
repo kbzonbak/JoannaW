@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 17-08-2017 15:31:17 by Hibernate Tools 3.5.0.Final -->
+
+<hibernate-mapping>
+    <class name="bbr.b2b.logistic.datings.entities.DatingResource" table="DATINGRESOURCE"
+    	entity-name="bbr.b2b.logistic.datings.entities.DatingResource" schema="LOGISTICA">
+    	
+		<composite-id name="id" class="bbr.b2b.logistic.datings.entities.DatingResourceId">
+			<key-property name="dockid" type="java.lang.Long" access="field" column="DOCK_ID" />
+			<key-property name="moduleid" type="java.lang.Long" access="field" column="MODULE_ID" />			
+		</composite-id>
+    	
+        <property name="active" type="java.lang.Boolean"/>
+        <property name="visualorder" type="java.lang.Integer"></property>
+
+        <many-to-one name="dock" 
+        	class="bbr.b2b.logistic.datings.entities.Dock" column="DOCK_ID"
+        	not-null="true" insert="false" update="false"/>
+
+        <many-to-one name="module" 
+        	class="bbr.b2b.logistic.datings.entities.Module" column="MODULE_ID"
+        	not-null="true" insert="false" update="false"/>
+
+    </class>
+</hibernate-mapping>

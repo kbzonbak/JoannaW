@@ -1,0 +1,175 @@
+package bbr.b2b.extractors.api.manager.classes;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPatch;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.log4j.Logger;
+
+import bbr.b2b.common.adtclasses.classes.BaseResultDTO;
+import bbr.b2b.logistic.api.classes.AcknowledgeRequest;
+import bbr.b2b.logistic.api.classes.AcknowledgeResponse;
+import bbr.b2b.logistic.api.classes.ListStockUpdateResponse;
+import bbr.b2b.logistic.api.classes.LoginResponse;
+import bbr.b2b.logistic.api.classes.OrderResponse;
+import bbr.b2b.logistic.api.classes.StockUpdateRequest;
+import bbr.b2b.logistic.crawler.managers.classes.CrawlerManager;
+import bbr.b2b.logistic.utils.B2BSystemPropertiesUtil;
+import sun.misc.BASE64Encoder;
+
+public class RESTManager {
+
+	Logger logger = Logger.getLogger(RESTManager.class);
+	private static RESTManager _myInstance = null;
+	private Map<String, Object> params = null;
+
+	private RESTManager() {
+	}
+
+	public static synchronized RESTManager getInstance() {
+		if (_myInstance == null)
+			_myInstance = new RESTManager();
+		return _myInstance;
+	}
+
+	public LoginResponse doLogin(String username, String password) {
+		LoginResponse loginResponse = new LoginResponse();
+
+		try {
+			// CONVIERTE OBJETO A JSON
+			// String initiParamJson = JsonUtils.getJsonFromObject(user,
+			// UserDTO.class);
+			String baseUrl = B2BSystemPropertiesUtil.getProperty("BASEURL");
+			String method = B2BSystemPropertiesUtil.getProperty("LOGIN");
+			String url = baseUrl + method; // "http://staging.sellercenter.ripleylabs.com/api/v1/auth/login/vendor";
+
+			// SE REALIZA UNA OPERACION POST
+			String authString = username + ":" + password;
+			String accessToken = new BASE64Encoder().encode(authString.getBytes());
+
+			HttpPost httpPost = RESTConnection.getInstance().getHttpPostEndpoint(url, accessToken, true);
+			GenericResponseResultDTO responseResult = RESTConnection.getInstance().executeRequest(httpPost);
+
+			if (!responseResult.getStatuscode().equals("0")) {
+				logger.error("Código: " + responseResult.getStatuscode() + " Mensaje: " + responseResult.getStatusmessage());
+			} else {
+				// CONVIERTE RESPUESTA JSON A OBJETO
+				loginResponse = JsonUtils.getObjectFromJson(responseResult.getJsonResponse(), LoginResponse.class);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return loginResponse;
+	}
+
+	public OrderResponse getOrden(String token) {
+
+		OrderResponse result = new OrderResponse();
+
+		try {
+
+			String baseUrl = B2BSystemPropertiesUtil.getProperty("BASEURL");
+			String method = B2BSystemPropertiesUtil.getProperty("GETORDERMETHOD");
+			String url =  baseUrl + method; //"http://staging.sellercenter.ripleylabs.com/api/v1/b2b/document/orders";
+
+			// REEMPLAZAR PARÁMETROS
+			// params = new HashMap<String, Object>(){
+			// {
+			// put("fecha", email);
+			// }
+			// };
+
+			// HACE LA LLAMADA REST
+			HttpGet httpGet = RESTConnection.getInstance().getHttpGetEndpoint(url, null, token);
+			GenericResponseResultDTO responseResult = RESTConnection.getInstance().executeRequest(httpGet);
+
+			if (!responseResult.getStatuscode().equals("0")) {
+				logger.error("Código: " + responseResult.getStatuscode() + " Mensaje: " + responseResult.getStatusmessage());
+			} else {
+				logger.info(responseResult.getJsonResponse());
+				// CONVIERTE RESPUESTA JSON A OBJETO
+				//CIC
+				//String response = "{\"status_code\":200,\"purchase_order_list\":[{\"_id\":\"5c924b95e01f5b00106e06cb\",\"client_purchase_order\":{\"order_id\":\"0121061902280483014569\",\"order_type\":\"DVO\",\"order_ticket_number\":\"\",\"dispatch_order_number\":\"\",\"order_sale_date\":\"\",\"order_delivery_date\":\"\",\"order_delivery_place\":\"OPL\",\"order_delivery_address\":\"ELENA PUELMA 2729 CASA\",\"order_store_code\":\"10012\",\"order_client_obs\":\"\"},\"vendor\":{\"vendor_fis\":\"93830000\",\"vendor_name\":\"COMPAÑIAS CIC S.A.\",\"vendor_country\":\"CL\",\"vendor_warehouse\":\"\"},\"client\":{\"client_name\":\"CLAUDIA VERGARA\",\"client_fis \":\"6799341-1\",\"client_phone\":\"977393267\",\"client_mail\":\"\",\"client_address\":\"ELENA PUELMA 2729 CASA\",\"client_region\":\"\",\"client_county\":\"CL\",\"client_city\":\"\",\"client_delivery_place_obs\":\"\"},\"purchase_order\":{\"po_number\":\"9357755\",\"po_status\":\"Recepcion Completa\",\"po_type\":\"Almacenaje Proveedor\",\"po_issued_date\":\"2019-02-28T00:00:00.000Z\",\"po_effective_date\":\"2019-03-01T00:00:00.000Z\",\"po_expiration_date\":\"2019-06-30T00:00:00.000Z\",\"po_payment_method\":\"CHQ 60\",\"po_obs\":\"\",\"po_total_base_cost\":null,\"po_total_net_cost\":null,\"po_total_quantity\":null,\"po_total_charges\":null,\"po_total_discounts\":null,\"details\":[{\"item\":\"\",\"ripley_sku\":\"34755194\",\"vendor_product_code\":\"780642754522-2\",\"ripley _ean13\":\"2000347551942\",\"vendedor_ean13\":\"\",\"item_description\":\"COLCHON NTO 1 PZA\",\"item_base_cost\":1790811,\"item_sale_price\":\"\",\"item_quantity\":\"\",\"item_net_cost\":1790811,\"item_charge\":\"\",\"item_discount\":\"\",\"item_lpn\":\"21012106190228048369\",\"item_obs\":\"\"}]},\"_vendor_id\":\"B2B_CL_200\"},{\"_id\":\"5c924b95e01f5b00106e06cc\",\"client_purchase_order\":{\"order_id\":\"0121061902280483014570\",\"order_type\":\"DVO\",\"order_ticket_number\":\"\",\"dispatch_order_number\":\"\",\"order_sale_date\":\"\",\"order_delivery_date\":\"\",\"order_delivery_place\":\"OPL\",\"order_delivery_address\":\"ELENA PUELMA 2729 CASA\",\"order_store_code\":\"10012\",\"order_client_obs\":\"\"},\"vendor\":{\"vendor_fis\":\"93830000\",\"vendor_name\":\"COMPAÑIAS CIC S.A.\",\"vendor_country\":\"CL\",\"vendor_warehouse\":\"\"},\"client\":{\"client_name\":\"CLAUDIA VERGARA\",\"client_fis \":\"6799341-1\",\"client_phone\":\"977393267\",\"client_mail\":\"\",\"client_address\":\"ELENA PUELMA 2729 CASA\",\"client_region\":\"\",\"client_county\":\"CL\",\"client_city\":\"\",\"client_delivery_place_obs\":\"\"},\"purchase_order\":{\"po_number\":\"9357756\",\"po_status\":\"Recepcion Completa\",\"po_type\":\"Almacenaje Proveedor\",\"po_issued_date\":\"2019-02-28T00:00:00.000Z\",\"po_effective_date\":\"2019-03-01T00:00:00.000Z\",\"po_expiration_date\":\"2019-06-30T00:00:00.000Z\",\"po_payment_method\":\"CHQ 60\",\"po_obs\":\"\",\"po_total_base_cost\":null,\"po_total_net_cost\":null,\"po_total_quantity\":null,\"po_total_charges\":null,\"po_total_discounts\":null,\"details\":[{\"item\":\"\",\"ripley_sku\":\"34755195\",\"vendor_product_code\":\"780642754523-9\",\"ripley _ean13\":\"2000347551959\",\"vendedor_ean13\":\"\",\"item_description\":\"COLCHON NTO 11/2 PZA\",\"item_base_cost\":792113,\"item_sale_price\":\"\",\"item_quantity\":\"\",\"item_net_cost\":792113,\"item_charge\":\"\",\"item_discount\":\"\",\"item_lpn\":\"21012106190228048370\",\"item_obs\":\"\"}]},\"_vendor_id\":\"B2B_CL_200\"},{\"_id\":\"5c924b95e01f5b00106e06cd\",\"client_purchase_order\":{\"order_id\":\"0121061902280483014571\",\"order_type\":\"DVO\",\"order_ticket_number\":\"\",\"dispatch_order_number\":\"\",\"order_sale_date\":\"\",\"order_delivery_date\":\"\",\"order_delivery_place\":\"OPL\",\"order_delivery_address\":\"ELENA PUELMA 2729 CASA\",\"order_store_code\":\"10012\",\"order_client_obs\":\"\"},\"vendor\":{\"vendor_fis\":\"93830000\",\"vendor_name\":\"COMPAÑIAS CIC S.A.\",\"vendor_country\":\"CL\",\"vendor_warehouse\":\"\"},\"client\":{\"client_name\":\"CLAUDIA VERGARA\",\"client_fis \":\"6799341-1\",\"client_phone\":\"977393267\",\"client_mail\":\"\",\"client_address\":\"ELENA PUELMA 2729 CASA\",\"client_region\":\"\",\"client_county\":\"CL\",\"client_city\":\"\",\"client_delivery_place_obs\":\"\"},\"purchase_order\":{\"po_number\":\"9357757\",\"po_status\":\"On Order\",\"po_type\":\"Almacenaje Proveedor\",\"po_issued_date\":\"2019-02-28T00:00:00.000Z\",\"po_effective_date\":\"2019-03-01T00:00:00.000Z\",\"po_expiration_date\":\"2019-06-30T00:00:00.000Z\",\"po_payment_method\":\"CHQ 60\",\"po_obs\":\"\",\"po_total_base_cost\":null,\"po_total_net_cost\":null,\"po_total_quantity\":null,\"po_total_charges\":null,\"po_total_discounts\":null,\"details\":[{\"item\":\"\",\"ripley_sku\":\"34755196\",\"vendor_product_code\":\"780642754524-6\",\"ripley _ean13\":\"2000347551966\",\"vendedor_ean13\":\"\",\"item_description\":\"COLCHON NTO 2 PZA\",\"item_base_cost\":277790,\"item_sale_price\":\"\",\"item_quantity\":\"\",\"item_net_cost\":277790,\"item_charge\":\"\",\"item_discount\":\"\",\"item_lpn\":\"21012106190228048371\",\"item_obs\":\"\"}]},\"_vendor_id\":\"B2B_CL_200\"},{\"_id\":\"5c924b95e01f5b00106e06ce\",\"client_purchase_order\":{\"order_id\":\"0390050000840867270102\",\"order_type\":\"DVO\",\"order_ticket_number\":\"\",\"dispatch_order_number\":\"\",\"order_sale_date\":\"\",\"order_delivery_date\":\"\",\"order_delivery_place\":\"OPL\",\"order_delivery_address\":\"DIAGONAL PSJE MATTE,957,716\",\"order_store_code\":\"10039\",\"order_client_obs\":\"\"},\"vendor\":{\"vendor_fis\":\"93830000\",\"vendor_name\":\"COMPAÑIAS CIC S.A.\",\"vendor_country\":\"CL\",\"vendor_warehouse\":\"\"},\"client\":{\"client_name\":\"PATRICIA ANABALON\",\"client_fis \":\"7543181-3\",\"client_phone\":\"0993694820\",\"client_mail\":\"\",\"client_address\":\"DIAGONAL PSJE MATTE,957,716\",\"client_region\":\"\",\"client_county\":\"CL\",\"client_city\":\"\",\"client_delivery_place_obs\":\"\"},\"purchase_order\":{\"po_number\":\"9359060\",\"po_status\":\"Recepcion Completa\",\"po_type\":\"Almacenaje Proveedor\",\"po_issued_date\":\"2019-03-02T00:00:00.000Z\",\"po_effective_date\":\"2019-03-05T00:00:00.000Z\",\"po_expiration_date\":\"2019-07-03T00:00:00.000Z\",\"po_payment_method\":\"CHQ 60\",\"po_obs\":\"\",\"po_total_base_cost\":null,\"po_total_net_cost\":null,\"po_total_quantity\":null,\"po_total_charges\":null,\"po_total_discounts\":null,\"details\":[{\"item\":\"\",\"ripley_sku\":\"34732310\",\"vendor_product_code\":\"780642754328-0\",\"ripley _ean13\":\"2000347323105\",\"vendedor_ean13\":\"\",\"item_description\":\"COLCHON ESSENCE 3 1 PZA\",\"item_base_cost\":151529,\"item_sale_price\":\"\",\"item_quantity\":\"\",\"item_net_cost\":151529,\"item_charge\":\"\",\"item_discount\":\"\",\"item_lpn\":\"21039000840867270102\",\"item_obs\":\"\"}]},\"_vendor_id\":\"B2B_CL_200\"},{\"_id\":\"5c924b95e01f5b00106e06cf\",\"client_purchase_order\":{\"order_id\":\"0390050000841032260101\",\"order_type\":\"DVO\",\"order_ticket_number\":\"\",\"dispatch_order_number\":\"\",\"order_sale_date\":\"\",\"order_delivery_date\":\"\",\"order_delivery_place\":\"OPL\",\"order_delivery_address\":\"San Nicolas,1020,1401\",\"order_store_code\":\"10039\",\"order_client_obs\":\"\"},\"vendor\":{\"vendor_fis\":\"93830000\",\"vendor_name\":\"COMPAÑIAS CIC S.A.\",\"vendor_country\":\"CL\",\"vendor_warehouse\":\"\"},\"client\":{\"client_name\":\"MARIA ANGELICA Malhue Tapia\",\"client_fis \":\"15086910-2\",\"client_phone\":\"0952683555\",\"client_mail\":\"\",\"client_address\":\"San Nicolas,1020,1401\",\"client_region\":\"\",\"client_county\":\"CL\",\"client_city\":\"\",\"client_delivery_place_obs\":\"\"},\"purchase_order\":{\"po_number\":\"9359557\",\"po_status\":\"Recepcion Completa\",\"po_type\":\"Almacenaje Proveedor\",\"po_issued_date\":\"2019-03-02T00:00:00.000Z\",\"po_effective_date\":\"2019-03-05T00:00:00.000Z\",\"po_expiration_date\":\"2019-07-03T00:00:00.000Z\",\"po_payment_method\":\"CHQ 60\",\"po_obs\":\"\",\"po_total_base_cost\":null,\"po_total_net_cost\":null,\"po_total_quantity\":null,\"po_total_charges\":null,\"po_total_discounts\":null,\"details\":[{\"item\":\"\",\"ripley_sku\":\"34732313\",\"vendor_product_code\":\"780642754329-7\",\"ripley _ean13\":\"2000347323136\",\"vendedor_ean13\":\"\",\"item_description\":\"COLCHON ESSENCE 3 1 1/2 PZA\",\"item_base_cost\":247961,\"item_sale_price\":\"\",\"item_quantity\":\"\",\"item_net_cost\":247961,\"item_charge\":\"\",\"item_discount\":\"\",\"item_lpn\":\"21039000841032260101\",\"item_obs\":\"\"}]},\"_vendor_id\":\"B2B_CL_200\"},{\"_id\":\"5c924b96e01f5b00106e06d0\",\"client_purchase_order\":{\"order_id\":\"0390050000841036010101\",\"order_type\":\"DVO\",\"order_ticket_number\":\"\",\"dispatch_order_number\":\"\",\"order_sale_date\":\"\",\"order_delivery_date\":\"\",\"order_delivery_place\":\"OPL\",\"order_delivery_address\":\"SIMON BOLIVAR,2641,CONSERJERIA\",\"order_store_code\":\"10039\",\"order_client_obs\":\"\"},\"vendor\":{\"vendor_fis\":\"93830000\",\"vendor_name\":\"COMPAÑIAS CIC S.A.\",\"vendor_country\":\"CL\",\"vendor_warehouse\":\"\"},\"client\":{\"client_name\":\"Georges Heloue\",\"client_fis \":\"14515968-7\",\"client_phone\":\"0992781094\",\"client_mail\":\"\",\"client_address\":\"SIMON BOLIVAR,2641,CONSERJERIA\",\"client_region\":\"\",\"client_county\":\"CL\",\"client_city\":\"\",\"client_delivery_place_obs\":\"\"},\"purchase_order\":{\"po_number\":\"9359558\",\"po_status\":\"Recepcion Completa\",\"po_type\":\"Almacenaje Proveedor\",\"po_issued_date\":\"2019-03-02T00:00:00.000Z\",\"po_effective_date\":\"2019-03-05T00:00:00.000Z\",\"po_expiration_date\":\"2019-07-03T00:00:00.000Z\",\"po_payment_method\":\"CHQ 60\",\"po_obs\":\"\",\"po_total_base_cost\":null,\"po_total_net_cost\":null,\"po_total_quantity\":null,\"po_total_charges\":null,\"po_total_discounts\":null,\"details\":[{\"item\":\"\",\"ripley_sku\":\"34732317\",\"vendor_product_code\":\"780642754330-3\",\"ripley _ean13\":\"2000347323174\",\"vendedor_ean13\":\"\",\"item_description\":\"COLCHON ESSENCE 3 2 PZAS\",\"item_base_cost\":220409,\"item_sale_price\":\"\",\"item_quantity\":\"\",\"item_net_cost\":220409,\"item_charge\":\"\",\"item_discount\":\"\",\"item_lpn\":\"21039000841036010101\",\"item_obs\":\"\"}]},\"_vendor_id\":\"B2B_CL_200\"},{\"_id\":\"5c924b96e01f5b00106e06d1\",\"client_purchase_order\":{\"order_id\":\"0390050000841309690101\",\"order_type\":\"DVO\",\"order_ticket_number\":\"\",\"dispatch_order_number\":\"\",\"order_sale_date\":\"\",\"order_delivery_date\":\"\",\"order_delivery_place\":\"OPL\",\"order_delivery_address\":\"Avenida la Serena,945\",\"order_store_code\":\"10039\",\"order_client_obs\":\"\"},\"vendor\":{\"vendor_fis\":\"93830000\",\"vendor_name\":\"COMPAÑIAS CIC S.A.\",\"vendor_country\":\"CL\",\"vendor_warehouse\":\"\"},\"client\":{\"client_name\":\"Jocelyn  lvarez\",\"client_fis \":\"16710444-4\",\"client_phone\":\"0988882391\",\"client_mail\":\"\",\"client_address\":\"Avenida la Serena,945\",\"client_region\":\"\",\"client_county\":\"CL\",\"client_city\":\"\",\"client_delivery_place_obs\":\"\"},\"purchase_order\":{\"po_number\":\"9360053\",\"po_status\":\"Recepcion Completa\",\"po_type\":\"Almacenaje Proveedor\",\"po_issued_date\":\"2019-03-03T00:00:00.000Z\",\"po_effective_date\":\"2019-03-15T00:00:00.000Z\",\"po_expiration_date\":\"2019-07-13T00:00:00.000Z\",\"po_payment_method\":\"CHQ 60\",\"po_obs\":\"\",\"po_total_base_cost\":null,\"po_total_net_cost\":null,\"po_total_quantity\":null,\"po_total_charges\":null,\"po_total_discounts\":null,\"details\":[{\"item\":\"\",\"ripley_sku\":\"34732319\",\"vendor_product_code\":\"780642754331-0\",\"ripley _ean13\":\"2000347323198\",\"vendedor_ean13\":\"\",\"item_description\":\"COLCHON ESSENCE 3 0.9 x 2 MTS\",\"item_base_cost\":261737,\"item_sale_price\":\"\",\"item_quantity\":\"\",\"item_net_cost\":261737,\"item_charge\":\"\",\"item_discount\":\"\",\"item_lpn\":\"21039000841309690101\",\"item_obs\":\"\"}]},\"_vendor_id\":\"B2B_CL_200\"},{\"_id\":\"5c924b96e01f5b00106e06d2\",\"client_purchase_order\":{\"order_id\":\"0880471903024579015326\",\"order_type\":\"DVO\",\"order_ticket_number\":\"\",\"dispatch_order_number\":\"\",\"order_sale_date\":\"\",\"order_delivery_date\":\"\",\"order_delivery_place\":\"OPL\",\"order_delivery_address\":\"PASAJE ULMO 8694 VILLA COMERCIO 3\",\"order_store_code\":\"10088\",\"order_client_obs\":\"\"},\"vendor\":{\"vendor_fis\":\"93830000\",\"vendor_name\":\"COMPAÑIAS CIC S.A.\",\"vendor_country\":\"CL\",\"vendor_warehouse\":\"\"},\"client\":{\"client_name\":\"MONICA EGULUZ\",\"client_fis \":\"5711187-9\",\"client_phone\":\"987756346\",\"client_mail\":\"\",\"client_address\":\"PASAJE ULMO 8694 VILLA COMERCIO 3\",\"client_region\":\"\",\"client_county\":\"CL\",\"client_city\":\"\",\"client_delivery_place_obs\":\"\"},\"purchase_order\":{\"po_number\":\"9359559\",\"po_status\":\"Recepcion Completa\",\"po_type\":\"Almacenaje Proveedor\",\"po_issued_date\":\"2019-03-02T00:00:00.000Z\",\"po_effective_date\":\"2019-03-05T00:00:00.000Z\",\"po_expiration_date\":\"2019-07-03T00:00:00.000Z\",\"po_payment_method\":\"CHQ 60\",\"po_obs\":\"\",\"po_total_base_cost\":null,\"po_total_net_cost\":null,\"po_total_quantity\":null,\"po_total_charges\":null,\"po_total_discounts\":null,\"details\":[{\"item\":\"\",\"ripley_sku\":\"34732321\",\"vendor_product_code\":\"780642754332-7\",\"ripley _ean13\":\"2000347323211\",\"vendedor_ean13\":\"\",\"item_description\":\"COLCHON ESSENCE 3 1.05 x 2 MTS\",\"item_base_cost\":289289,\"item_sale_price\":\"\",\"item_quantity\":\"\",\"item_net_cost\":289289,\"item_charge\":\"\",\"item_discount\":\"\",\"item_lpn\":\"21088047190302457926\",\"item_obs\":\"\"}]},\"_vendor_id\":\"B2B_CL_200\"}],\"total\":172,\"limit\":50}";
+				//LG
+				//String response = "{\"status_code\":200,\"purchase_order_list\":[{\"_id\":\"5cc36a56e5f7056a49498789\",\"client_purchase_order\":{\"order_id\":\"0070561904110703001350\",\"order_type\":\"DDC\",\"order_ticket_number\":\"703\",\"dispatch_order_number\":null,\"order_sale_date\":\"2019-04-11T00:00:00.000Z\",\"order_delivery_date\":\"2019-05-04T00:00:00.000Z\",\"order_delivery_place\":\"CLIENTE\",\"order_delivery_address\":null,\"order_store_code\":\"10007\",\"order_client_obs\":\"\"},\"_available\":true,\"_vendor_id\":\"B2B_CL_76014610\",\"client\":{\"client_name\":\"GALIA MARTINEZ\",\"client_fis \":\"111111111-8\",\"client_phone\":\"555555555\",\"client_mail\":\"prueba@prueba.cl\",\"client_address\":\"CONDOMINIO LA VINITA BELLAVISTA 33 DEP 204\",\"client_region\":\"V REGION\",\"client_city\":\"VALPARAISO\",\"client_delivery_place_obs\":\"969196508 RODOLFO ARRATIA\",\"client_county\":\"LOS ANDES\"},\"created_on_utc\":\"2019-04-26T20:30:14.892Z\",\"purchase_order\":{\"po_number\":\"9403813\",\"po_status\":\"On Order\",\"po_type\":\"Almacenaje Proveedor\",\"po_issued_date\":\"2019-04-11T00:00:00.000Z\",\"po_effective_date\":\"2019-05-03T00:00:00.000Z\",\"po_expiration_date\":\"2019-04-11T00:00:00.000Z\",\"po_payment_method\":\"CHQ 60\",\"po_obs\":null,\"po_total_base_cost\":291400,\"po_total_net_cost\":291400,\"po_total_quantity\":1,\"po_total_charges\":0,\"po_total_discounts\":0,\"hours_range\":\"S\",\"departament_code\":\"D136\",\"negotiation_type\":\"PROPIO\",\"details\":[{\"item\":1,\"ripley_sku\":\"36538861\",\"vendor_product_code\":\"8801031704538\",\"ripley _ean13\":\"2000365388612\",\"vendedor_ean13\":null,\"item_description\":\"LAVADORA SECADORA LG 9KG/5KG WD9WB6\",\"item_base_cost\":291400,\"item_sale_price\":299990,\"item_quantity\":1,\"item_net_cost\":291400,\"item_charge\":0,\"item_discount\":0,\"item_lpn\":\"21007056190411070350\",\"item_obs\":\"\"}]},\"vendor\":{\"vendor_fis\":\"76014610\",\"vendor_name\":\"LG ELECTRONICS INC. CHILE LTDA.\",\"vendor_country\":\"CL\",\"vendor_warehouse\":\"2840\"}},{\"_id\":\"5cc36a56e5f7056a4949877a\",\"client_purchase_order\":{\"order_id\":\"0070551903307130000674\",\"order_type\":\"DDC\",\"order_ticket_number\":\"7130\",\"dispatch_order_number\":\"804613\",\"order_sale_date\":\"2019-03-30T00:00:00.000Z\",\"order_delivery_date\":\"2019-04-04T00:00:00.000Z\",\"order_delivery_place\":\"CLIENTE\",\"order_delivery_address\":null,\"order_store_code\":\"10007\",\"order_client_obs\":\"\"},\"_available\":true,\"_vendor_id\":\"B2B_CL_76014610\",\"client\":{\"client_name\":\"VIRGINIA RODRIGUEZ\",\"client_fis \":\"111111111-8\",\"client_phone\":\"555555555\",\"client_mail\":\"prueba@prueba.cl\",\"client_address\":\"AV CONSISTORIAL 6130 DPTO 55 A\",\"client_region\":\"REG.METROP.\",\"client_city\":\"SANTIAGO\",\"client_delivery_place_obs\":\"LLAMAR ANTES DE LA ENTREGA\",\"client_county\":\"PENALOLEN\"},\"created_on_utc\":\"2019-04-26T20:30:14.852Z\",\"purchase_order\":{\"po_number\":\"9389762\",\"po_status\":\"Recepcion Completa\",\"po_type\":\"Almacenaje Proveedor\",\"po_issued_date\":\"2019-03-30T00:00:00.000Z\",\"po_effective_date\":\"2019-04-04T00:00:00.000Z\",\"po_expiration_date\":\"2019-03-30T00:00:00.000Z\",\"po_payment_method\":\"CHQ 60\",\"po_obs\":null,\"po_total_base_cost\":247961,\"po_total_net_cost\":247961,\"po_total_quantity\":1,\"po_total_charges\":0,\"po_total_discounts\":0,\"hours_range\":\"S\",\"departament_code\":\"D136\",\"negotiation_type\":\"PROPIO\",\"details\":[{\"item\":1,\"ripley_sku\":\"36986953\",\"vendor_product_code\":\"6932135337253\",\"ripley _ean13\":\"2000369869537\",\"vendedor_ean13\":null,\"item_description\":\"LAVADORA SUPERIORL LG WT13VS6\",\"item_base_cost\":247961,\"item_sale_price\":359990,\"item_quantity\":1,\"item_net_cost\":247961,\"item_charge\":0,\"item_discount\":0,\"item_lpn\":\"21007055190330713074\",\"item_obs\":\"\"}]},\"vendor\":{\"vendor_fis\":\"76014610\",\"vendor_name\":\"LG ELECTRONICS INC. CHILE LTDA.\",\"vendor_country\":\"CL\",\"vendor_warehouse\":\"2840\"}}],\"total_returned\":50,\"total_found\":172,\"limit\":50}";
+				result = JsonUtils.getObjectFromJson(responseResult.getJsonResponse(), OrderResponse.class);
+				//result = JsonUtils.getObjectFromJson(response, OrderResponse.class);
+				
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+	
+	public AcknowledgeResponse doAckownledge(String token, AcknowledgeRequest acknowledgeRequest) {
+		AcknowledgeResponse acknowledgeResponse = null;
+		try {
+			// CONVIERTE OBJETO A JSON
+			String initiParamJson = JsonUtils.getJsonFromObject(acknowledgeRequest, AcknowledgeRequest.class);
+			System.out.println(initiParamJson);
+			String baseUrl = B2BSystemPropertiesUtil.getProperty("BASEURL");
+			String method = B2BSystemPropertiesUtil.getProperty("ACKMETHOD");
+			String url = baseUrl + method; //"http://staging.sellercenter.ripleylabs.com/api/v1/b2b/document/order";
+
+			// SE REALIZA UNA OPERACION POST
+			HttpPatch httpPatch = RESTConnection.getInstance().getHttpPatchEndpoint(url, initiParamJson, token, RESTContentType.JSON);
+			GenericResponseResultDTO responseResult = RESTConnection.getInstance().executeRequest(httpPatch);
+
+			if (!responseResult.getStatuscode().equals("0")) {
+				logger.error("Código: " + responseResult.getStatuscode() + " Mensaje: " + responseResult.getStatusmessage());
+				acknowledgeResponse = new AcknowledgeResponse(); 
+				acknowledgeResponse.setStatus_code(responseResult.getStatuscode());
+			} else {
+				// CONVIERTE RESPUESTA JSON A OBJETO
+				logger.info(responseResult.getJsonResponse());
+				acknowledgeResponse = JsonUtils.getObjectFromJson(responseResult.getJsonResponse(), AcknowledgeResponse.class);
+			}
+			
+
+		} catch (Exception e) {
+			logger.error(e);
+		}
+
+		return acknowledgeResponse;
+	}
+	
+	public ListStockUpdateResponse doStockUpdate(String token, StockUpdateRequest stockUpdateRequest) {
+		ListStockUpdateResponse listStockUpdateResponse = new ListStockUpdateResponse();
+		try {
+			// CONVIERTE OBJETO A JSON
+			String initiParamJson = JsonUtils.getJsonFromObject(stockUpdateRequest, StockUpdateRequest.class);
+			String baseUrl = B2BSystemPropertiesUtil.getProperty("BASEURL");
+			String method = B2BSystemPropertiesUtil.getProperty("STOCKUPDATEMETHOD");
+			String url =  baseUrl + method; //"http://staging.sellercenter.ripleylabs.com/api/v1/inventory/stock";
+
+			System.out.println(initiParamJson);// SE REALIZA UNA OPERACION POST
+			/*
+			HttpPatch httpPatch = RESTConnection.getInstance().getHttpPatchEndpoint(url, initiParamJson, token, RESTContentType.JSON);
+			GenericResponseResultDTO responseResult = RESTConnection.getInstance().executeRequest(httpPatch);
+
+			if (!responseResult.getStatuscode().equals("0")) {
+				System.out.println("Código: " + responseResult.getStatuscode() + " Mensaje: " + responseResult.getStatusmessage());
+			} else {
+				// CONVIERTE RESPUESTA JSON A OBJETO
+				logger.info(responseResult.getJsonResponse());
+				listStockUpdateResponse = JsonUtils.getObjectFromJson(responseResult.getJsonResponse(), ListStockUpdateResponse.class);
+			}
+			*/
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return listStockUpdateResponse;
+	}
+
+}

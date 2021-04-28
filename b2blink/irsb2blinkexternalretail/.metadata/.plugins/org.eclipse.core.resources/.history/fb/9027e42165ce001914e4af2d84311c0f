@@ -1,0 +1,59 @@
+package bbr.b2b.connector.managers.classes;
+
+import java.nio.charset.Charset;
+import java.time.LocalDateTime;
+import java.util.Date;
+
+import javax.annotation.Resource;
+import javax.ejb.EJB;
+import javax.ejb.SessionContext;
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+
+import org.apache.commons.codec.binary.Base64;
+import org.apache.log4j.Logger;
+
+import bbr.b2b.common.adtclasses.exceptions.AccessDeniedException;
+import bbr.b2b.common.adtclasses.exceptions.NotFoundException;
+import bbr.b2b.common.adtclasses.exceptions.OperationFailedException;
+import bbr.b2b.connector.data.classes.PendingMessageTypeW;
+import bbr.b2b.connector.data.classes.PendingMessageW;
+import bbr.b2b.connector.managers.interfaces.SchedulerManagerLocal;
+import bbr.b2b.connector.managers.interfaces.SchedulerManagerRemote;
+import bbr.b2b.logistic.utils.QSender;
+
+@Stateless(name = "managers/SchedulerManager")
+@TransactionAttribute(TransactionAttributeType.REQUIRED)
+public class SchedulerManager implements SchedulerManagerLocal, SchedulerManagerRemote {
+	
+	private static Logger logger = Logger.getLogger(SchedulerManager.class);
+	
+	@Resource
+	private SessionContext mySessionCtx;
+
+	public void setCtx(SessionContext mySessionCtx) {
+		this.mySessionCtx = mySessionCtx;
+	}
+	
+	public void doSendMessageQueue(String companyName, String accesscode, String code, String content, String charset) throws OperationFailedException {
+		String queue = "jboss/activemq/queue/q_esbgrl";
+		String factory = "jboss/qcf_soa";
+		String contenttoput = new String(Base64.decodeBase64(content.getBytes()));
+		// put del mensaje
+		try {
+			if(charset == null || "".equals(charset))
+				QSender.getInstance().putMessage(factory, queue, contenttoput);
+			else
+				QSender.getInstance().putMessage(factory, queue, contenttoput,  Charset.forName(charset));
+			logger.info("Enviando mensaje empresa:" + companyName + " access code:" + accesscode + "message code: " + code);
+		} catch (Exception ex) {
+			logger.error("Enviando mensaje empresa:" + companyName + " access code:" + accesscode + " message code: " + code + " error: " + ex.getMessage());
+		}
+	}
+
+	
+	
+}
+
+

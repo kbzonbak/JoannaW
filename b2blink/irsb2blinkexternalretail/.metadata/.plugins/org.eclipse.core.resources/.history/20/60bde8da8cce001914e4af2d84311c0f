@@ -1,0 +1,386 @@
+package bbr.b2b.extractors.timers.manager.classes;
+
+import java.io.StringWriter;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+
+import javax.annotation.Resource;
+import javax.ejb.EJB;
+import javax.ejb.SessionContext;
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
+
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPatch;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.log4j.Logger;
+
+import bbr.b2b.b2blink.logistic.xml.OC_customer.DiscountCharge;
+import bbr.b2b.b2blink.logistic.xml.OC_customer.Local;
+import bbr.b2b.b2blink.logistic.xml.OC_customer.ObjectFactory;
+import bbr.b2b.b2blink.logistic.xml.OC_customer.Order;
+import bbr.b2b.b2blink.logistic.xml.OC_customer.Order.Client;
+import bbr.b2b.b2blink.logistic.xml.OC_customer.Order.Details;
+import bbr.b2b.b2blink.logistic.xml.OC_customer.Order.Details.Detail;
+import bbr.b2b.b2blink.logistic.xml.OC_customer.Order.Details.Detail.Charges;
+import bbr.b2b.b2blink.logistic.xml.OC_customer.Order.Details.Detail.Discounts;
+import bbr.b2b.b2blink.logistic.xml.OC_customer.Order.Section;
+import bbr.b2b.common.adtclasses.exceptions.ServiceException;
+import bbr.b2b.connector.managers.classes.PendingMessageManager;
+import bbr.b2b.connector.managers.interfaces.SchedulerManagerLocal;
+import bbr.b2b.extractors.api.manager.classes.GenericResponseResultDTO;
+import bbr.b2b.extractors.api.manager.classes.JsonUtils;
+import bbr.b2b.extractors.api.manager.classes.RESTConnection;
+import bbr.b2b.extractors.api.manager.classes.RESTContentType;
+import bbr.b2b.extractors.ripley.dto.Ack;
+import bbr.b2b.extractors.ripley.dto.AcknowledgeOrdenDTO;
+import bbr.b2b.extractors.ripley.dto.AcknowledgeRequestDTO;
+import bbr.b2b.extractors.ripley.dto.AcknowledgeResponseDTO;
+import bbr.b2b.extractors.ripley.dto.ClientDTO;
+import bbr.b2b.extractors.ripley.dto.DetailsDTO;
+import bbr.b2b.extractors.ripley.dto.LoginResponseDTO;
+import bbr.b2b.extractors.ripley.dto.OrderAckDTO;
+import bbr.b2b.extractors.ripley.dto.OrderResponseDTO;
+import bbr.b2b.extractors.ripley.dto.PurchaseOrderDTO;
+import bbr.b2b.extractors.timers.manager.interfaces.RipleyApiOrderManagerLocal;
+import bbr.b2b.extractors.utils.WsSoaService;
+import bbr.b2b.logistic.utils.B2BSystemPropertiesUtil;
+import bbr.b2b.logistic.utils.JsonParser;
+import bbr.esb.services.webservices.facade.InitParamCSDTO;
+import sun.misc.BASE64Encoder;
+
+@Stateless(name = "managers/RipleyApiOrderManager")
+@TransactionAttribute(TransactionAttributeType.REQUIRED)
+public class WalmartWebSalesManager  implements RipleyApiOrderManagerLocal {
+	
+	private static Logger logger = Logger.getLogger(PendingMessageManager.class);
+	private static JAXBContext jc = null;
+	static SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd"); 
+	private static final String SITECODE= "CL1301";
+	private static final String SITENAME = "RIPLEY";
+	
+	
+	@EJB
+	SchedulerManagerLocal schmanager;
+	
+	@Resource
+	private SessionContext ctx;
+	
+	public void setCtx(SessionContext ctx) {
+		this.ctx = ctx;
+	}
+	
+	
+	private static JAXBContext getJC() throws JAXBException {
+		if (jc == null)
+			jc = JAXBContext.newInstance("bbr.b2b.b2blink.logistic.xml.OC_customer");
+		return jc;
+	}
+	
+	public void execute() {
+		try {
+			String service = "LOC";
+			WsSoaService wsSoaService = new WsSoaService(); 
+			List<InitParamCSDTO> credentials = wsSoaService.getCredentials(SITECODE, service);
+			for (InitParamCSDTO credential : credentials) {
+				try {
+					JsonParser jsonParser = new JsonParser(); 
+					HashMap<String, String> keys = jsonParser.JsonToHashMap(credential.getCredenciales(), "user", "password");
+					LoginResponseDTO loginResponseDTO = doLogin(keys.get("user"), keys.get("password"));
+					if(loginResponseDTO.getAccess_token() != null){
+						OrderResponseDTO orderResponseDTO = getOrders(loginResponseDTO.getAccess_token());
+						AcknowledgeRequestDTO acknowledgeRequest = new AcknowledgeRequestDTO();
+						List<AcknowledgeOrdenDTO> order_list = new ArrayList<AcknowledgeOrdenDTO>();
+						for(PurchaseOrderDTO purchaseOrderDTO : orderResponseDTO.getPurchase_order_list()){
+							try {
+								doTransform(credential, purchaseOrderDTO);
+								order_list.add(new AcknowledgeOrdenDTO(purchaseOrderDTO.getClient_purchase_order().getOrder_id()));
+							} catch(Exception ex){
+								logger.error("Empresa: " + credential.getCompanyname() + " Proveedor: " + credential.getAccesscode() + " Error: " + ex.getMessage() );
+							}
+						}
+						if(order_list.size() > 0){
+							acknowledgeRequest.setOrder_list(order_list);
+							//doAckownledge(credential, loginResponseDTO.getAccess_token(), acknowledgeRequest);
+						}
+					}
+				} catch (Exception ex){
+					logger.error("Empresa: " + credential.getCompanyname() + " Proveedor: " + credential.getAccesscode() + " Error: " + ex.getMessage() );
+				}
+				
+			} 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	@SuppressWarnings("restriction")
+	public LoginResponseDTO doLogin(String username, String password) throws Exception {
+		LoginResponseDTO loginResponse = new LoginResponseDTO();
+
+		try {
+			String baseUrl = B2BSystemPropertiesUtil.getProperty("BASEURL");
+			String method = B2BSystemPropertiesUtil.getProperty("LOGIN");
+			String url = baseUrl + method; // "http://staging.sellercenter.ripleylabs.com/api/v1/auth/login/vendor";
+
+			// SE REALIZA UNA OPERACION POST
+			String authString = username + ":" + password;
+			String accessToken = new BASE64Encoder().encode(authString.getBytes());
+
+			HttpPost httpPost = RESTConnection.getInstance().getHttpPostEndpoint(url, accessToken, true);
+			GenericResponseResultDTO responseResult = RESTConnection.getInstance().executeRequest(httpPost);
+
+			if (!responseResult.getStatuscode().equals("0")) {
+				logger.error("Código: " + responseResult.getStatuscode() + " Mensaje: " + responseResult.getStatusmessage());
+			} else {
+				// CONVIERTE RESPUESTA JSON A OBJETO
+				loginResponse = JsonUtils.getObjectFromJson(responseResult.getJsonResponse(), LoginResponseDTO.class);
+			}
+
+		} catch (Exception e) {
+			throw new Exception("Ha ocurrido un error al realizar login " + e.getMessage());
+		}
+
+		return loginResponse;
+	}
+	
+	public OrderResponseDTO getOrders(String token) throws Exception {
+
+		OrderResponseDTO result = new OrderResponseDTO();
+		try {
+			String baseUrl = B2BSystemPropertiesUtil.getProperty("BASEURL");
+			String method = B2BSystemPropertiesUtil.getProperty("GETORDERMETHOD");
+			String url =  baseUrl + method; //"http://staging.sellercenter.ripleylabs.com/api/v1/b2b/document/orders";
+			// HACE LA LLAMADA REST
+			HttpGet httpGet = RESTConnection.getInstance().getHttpGetEndpoint(url, null, token);
+			GenericResponseResultDTO responseResult = RESTConnection.getInstance().executeRequest(httpGet);
+			if (!responseResult.getStatuscode().equals("0")) {
+				logger.error("Código: " + responseResult.getStatuscode() + " Mensaje: " + responseResult.getStatusmessage());
+			} else {
+				logger.info(responseResult.getJsonResponse());
+				result = JsonUtils.getObjectFromJson(responseResult.getJsonResponse(), OrderResponseDTO.class);
+			}
+		} catch (Exception e) {
+			throw new Exception("Ha ocurrido un error al obtener órdenes " + e.getMessage());
+		}
+		return result;
+	}
+	
+	public AcknowledgeResponseDTO doAckownledge(InitParamCSDTO credential, String token, AcknowledgeRequestDTO acknowledgeRequest) {
+		AcknowledgeResponseDTO acknowledgeResponse = null;
+		try {
+			// CONVIERTE OBJETO A JSON
+			String initiParamJson = JsonUtils.getJsonFromObject(acknowledgeRequest, AcknowledgeRequestDTO.class);
+			System.out.println(initiParamJson);
+			String baseUrl = B2BSystemPropertiesUtil.getProperty("BASEURL");
+			String method = B2BSystemPropertiesUtil.getProperty("ACKMETHOD");
+			String url = baseUrl + method; //"http://staging.sellercenter.ripleylabs.com/api/v1/b2b/document/order";
+
+			// SE REALIZA UNA OPERACION POST
+			HttpPatch httpPatch = RESTConnection.getInstance().getHttpPatchEndpoint(url, initiParamJson, token, RESTContentType.JSON);
+			GenericResponseResultDTO responseResult = RESTConnection.getInstance().executeRequest(httpPatch);
+
+			if (!responseResult.getStatuscode().equals("0")) {
+				logger.error("Empresa: " + SITENAME + " Proveedor: " + credential.getCompanyname() + " Código: " + responseResult.getStatuscode() + " Mensaje: " + responseResult.getStatusmessage());
+				logger.error("Empresa: " + SITENAME + " Proveedor: " + credential.getCompanyname() + " Response: " + responseResult.getJsonResponse());
+			} else {
+				// CONVIERTE RESPUESTA JSON A OBJETO
+				logger.info("Empresa: " + SITENAME + " Proveedor: " + credential.getCompanyname() + " Se ha enviado acknowlegde correctamente");
+				logger.info("Empresa: " + SITENAME + " Proveedor: " + credential.getCompanyname() + " Response: " + responseResult.getJsonResponse());
+				acknowledgeResponse = JsonUtils.getObjectFromJson(responseResult.getJsonResponse(), AcknowledgeResponseDTO.class);
+			}
+			
+
+		} catch (Exception e) {
+			logger.error(e);
+		}
+
+		return acknowledgeResponse;
+	}
+	
+	public void doTransform(InitParamCSDTO credential, PurchaseOrderDTO purchaseOrderDTO) throws DatatypeConfigurationException, JAXBException {
+		ObjectFactory objFactory = new ObjectFactory();
+		Order orderXML = objFactory.createOrder();
+		orderXML.setBuyer(SITECODE);
+		orderXML.setVendor(credential.getAccesscode());
+		orderXML.setNumber(purchaseOrderDTO.getPurchase_order().getPo_number());
+		orderXML.setStatus(purchaseOrderDTO.getPurchase_order().getPo_status());
+		orderXML.setOrdertype(purchaseOrderDTO.getClient_purchase_order().getOrder_type());
+		orderXML.setOrdertypename(purchaseOrderDTO.getClient_purchase_order().getOrder_type());
+		orderXML.setPreviousordertype("");
+		orderXML.setComplete(true);
+		//orderXML.setTicket("");
+		orderXML.setRequest(purchaseOrderDTO.getClient_purchase_order().getOrder_delivery_id());
+		orderXML.setIssuedate(StringToGregorianCalendar(purchaseOrderDTO.getPurchase_order().getPo_issued_date()));
+		orderXML.setEffectivdate(StringToGregorianCalendar(purchaseOrderDTO.getPurchase_order().getPo_effective_date()));
+		orderXML.setExpirationdate(StringToGregorianCalendar(purchaseOrderDTO.getPurchase_order().getPo_expiration_date()));
+		orderXML.setCommitmentdate(StringToGregorianCalendar(purchaseOrderDTO.getClient_purchase_order().getOrder_delivery_date()));
+		orderXML.setPaymentcondition(purchaseOrderDTO.getPurchase_order().getPo_payment_method());
+		orderXML.setObservation(purchaseOrderDTO.getPurchase_order().getPo_obs());
+		orderXML.setResponsible("");
+		orderXML.setResponsibleemail("");
+		orderXML.setNumref1(purchaseOrderDTO.getClient_purchase_order().getOrder_id());
+		orderXML.setDeliveryplace(setLocal(objFactory, purchaseOrderDTO.getClient_purchase_order().getOrder_delivery_place(), purchaseOrderDTO.getClient_purchase_order().getOrder_delivery_place()));
+		orderXML.setSaleplace(setLocal(objFactory, purchaseOrderDTO.getClient_purchase_order().getOrder_store_code(), purchaseOrderDTO.getClient_purchase_order().getOrder_store_code()));
+		orderXML.setClient(setCliente(objFactory, purchaseOrderDTO.getClient()));
+		//orderXML.setCharges(value);
+		//orderXML.setDiscounts(value);
+		orderXML.setDetails(setDetails(objFactory, purchaseOrderDTO.getPurchase_order().getDetails()));
+		
+		Section section = objFactory.createOrderSection();
+		section.setCode(purchaseOrderDTO.getPurchase_order().getDetails().get(0).getItem_department_code());
+		section.setName(purchaseOrderDTO.getPurchase_order().getDetails().get(0).getItem_department_code());
+		orderXML.setSection(section);
+		
+		JAXBContext jc = getJC();
+		Marshaller m = jc.createMarshaller();
+		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+		StringWriter sw = new StringWriter();
+		m.marshal(orderXML, sw);
+		String msg = sw.toString();
+		System.out.println(msg);
+		//schmanager.doSendMessageQueue(buyer, vendor, orderXML.getNumber(), msg, null);
+		logger.error("Empresa: " + SITENAME + " Proveedor: " + credential.getCompanyname() + " Order: " + orderXML.getNumber() + " enviada a MQ");
+	}
+	
+	public Ack createJSON(String number){
+		Ack ack = new Ack();
+		List<OrderAckDTO> listOrder = new ArrayList<>();
+		listOrder.add(new OrderAckDTO(number));
+		ack.setOrder_list(listOrder);
+		return ack;
+	}
+	
+	private Details setDetails(ObjectFactory objFactory, List<DetailsDTO> details) {
+		Details orderDetails = objFactory.createOrderDetails();
+		List<Detail> listDetail = orderDetails.getDetail();
+		for (DetailsDTO item : details){
+			Detail detail = objFactory.createOrderDetailsDetail();
+			detail.setPosition(Integer.parseInt(item.getItem()));
+			detail.setSkubuyer(item.getRipley_sku());
+			detail.setSkuvendor(item.getVendor_product_code());
+			detail.setEan13(item.getRipley_ean13());
+			detail.setEan13Buyer(item.getRipley_ean13());
+			detail.setProductdescription(item.getItem_description());
+			detail.setCodeumc(item.getItem_lpn());
+			detail.setCharges(setCharges(objFactory, item.getItem_charge()));
+			detail.setDiscounts(setDiscounts(objFactory, item.getItem_charge()));
+			detail.setListcost(Double.valueOf(item.getItem_base_cost()));
+			detail.setListprice(Double.valueOf(item.getItem_net_cost()));
+			detail.setFinalcost(Double.valueOf(item.getItem_sale_price()));
+			detail.setDescriptionumc("UN");
+			detail.setDescriptionumb("unidad");
+			detail.setQuantityumc(Integer.valueOf(item.getItem_quantity()));
+			detail.setUmbXUmc(1);
+			detail.setInnerpack(1);
+			detail.setEan1(item.getVendor_ean13());
+			/*
+			detail.setItem("");
+			
+			detail.setEan2("");
+			detail.setEan3("");
+			detail.setStylecode("");
+			detail.setStyledescription("");
+			detail.setStylebrand("");
+			detail.setTolerance("");
+			detail.setProductdeliverydate("");
+			detail.setFreightcost("");
+			detail.setFreightweight("");
+		 	*/
+			detail.setObservation(item.getItem_obs());
+			//detail.setPredistributions());
+			listDetail.add(detail);
+		}
+		return orderDetails;
+	}
+
+	private Charges setCharges(ObjectFactory objFactory, String value) {
+		if(!value.equals("0")){
+			Charges charges = objFactory.createOrderDetailsDetailCharges();
+			List<DiscountCharge> listDiscountCharge = charges.getCharge();
+			DiscountCharge discountCharge = objFactory.createDiscountCharge();
+			discountCharge.setCode("Fijo");
+			discountCharge.setDescription("");
+			discountCharge.setProcentaje(false);
+			discountCharge.setValue(Double.valueOf(value));
+			listDiscountCharge.add(discountCharge);
+			return charges;
+		}
+		return null;
+	}
+	
+	private Discounts setDiscounts(ObjectFactory objFactory, String value) {
+		if(!value.equals("0")){
+			Discounts discount = objFactory.createOrderDetailsDetailDiscounts();
+			List<DiscountCharge> listDiscountCharge = discount.getDiscount();
+			DiscountCharge discountCharge = objFactory.createDiscountCharge();
+			discountCharge.setCode("Fijo");
+			discountCharge.setDescription("");
+			discountCharge.setProcentaje(false);
+			discountCharge.setValue(Double.valueOf(value));
+			listDiscountCharge.add(discountCharge);
+			return discount;
+		}
+		return null;
+	}
+
+	public Local setLocal(ObjectFactory objFactory, String code, String name){
+		Local local = objFactory.createLocal();
+		local.setCode(code);
+		local.setName(name);
+		return local;
+	}
+	
+	private Client setCliente(ObjectFactory objFactory, ClientDTO clientDTO){
+		Client client = objFactory.createOrderClient();
+		client.setName(clientDTO.getClient_name());
+		if(clientDTO.getClient_fis() != null && !clientDTO.getClient_fis().isEmpty()){
+			String[] rut = clientDTO.getClient_fis().split("-");
+			client.setIdentity(rut[0]);
+			client.setCheckdigit(rut[1]);
+		}
+		
+		client.setPhone(clientDTO.getClient_phone());
+		//client.setPhone2("");
+		//TODO: email
+		//client.setEmail(clientDTO.getClient_email());
+		client.setAddress(clientDTO.getClient_address());
+		//client.setStreetnumber("");
+		//client.setDepartmetnumber("");
+		//client.setHousenumber("");
+		client.setRegion(clientDTO.getClient_region());
+		client.setCommune(clientDTO.getClient_county());
+		client.setCity(clientDTO.getClient_city());
+		//client.setLocation("");
+		client.setObservation(clientDTO.getClient_delivery_place_obs());
+		
+		return client;
+	}
+	
+	private XMLGregorianCalendar StringToGregorianCalendar(String stringDate) throws DatatypeConfigurationException{
+		if(stringDate != null && !stringDate.isEmpty()){
+		Date date = Date.from(Instant.parse(stringDate));
+		Locale locale = new Locale("es", "CL");
+		GregorianCalendar gcal = new GregorianCalendar(locale);
+		gcal.setTime(date);
+		return DatatypeFactory.newInstance().newXMLGregorianCalendar(gcal);
+		} 
+		return null;
+	}
+	
+	
+}

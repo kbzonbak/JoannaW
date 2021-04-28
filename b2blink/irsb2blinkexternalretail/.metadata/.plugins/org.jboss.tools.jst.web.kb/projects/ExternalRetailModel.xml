@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kb-project>
+ <depends-on-projects/>
+ <used-by-projects/>
+ <paths>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/3.141.59/selenium-edge-driver-3.141.59.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/bbr/b2b/common/base/BaseModel/1.0.0/BaseModel-1.0.0.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/javax/javaee-api/6.0/javaee-api-6.0.jar">
+   <libraries>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/c-1_0-rt.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/c-1_0.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/c.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/fmt-1_0-rt.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/fmt-1_0.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/fmt.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/fn.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/html_basic.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/jsf_core.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/mojarra_ext.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/permittedtaglibs.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/scriptfree.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/sql-1_0-rt.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/sql-1_0.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/sql.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/x-1_0-rt.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/x-1_0.tld" project="ExternalRetailUtils"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-api-6.0.jar/meta-inf/x.tld" project="ExternalRetailUtils"/>
+    </library>
+   </libraries>
+  </path>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/org/seleniumhq/selenium/selenium-api/3.141.59/selenium-api-3.141.59.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/3.141.59/selenium-remote-driver-3.141.59.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/com/google/guava/guava/25.0-jre/guava-25.0-jre.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/com/squareup/okhttp3/okhttp/3.11.0/okhttp-3.11.0.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/org/glassfish/javax.json/1.0.3/javax.json-1.0.3.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/net/bytebuddy/byte-buddy/1.8.15/byte-buddy-1.8.15.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/com/squareup/okio/okio/1.14.0/okio-1.14.0.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/org/seleniumhq/selenium/selenium-opera-driver/3.141.59/selenium-opera-driver-3.141.59.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/3.141.59/selenium-ie-driver-3.141.59.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/org/apache/httpcomponents/httpclient/4.5/httpclient-4.5.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/3.141.59/selenium-safari-driver-3.141.59.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/org/seleniumhq/selenium/selenium-support/3.141.59/selenium-support-3.141.59.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/org/apache/httpcomponents/httpcore/4.4.1/httpcore-4.4.1.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/org/seleniumhq/selenium/selenium-java/3.141.59/selenium-java-3.141.59.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/3.141.59/selenium-chrome-driver-3.141.59.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar"/>
+  <path value="C:/Users/FELIPE FUENTES/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/3.141.59/selenium-firefox-driver-3.141.59.jar"/>
+ </paths>
+ <validation>
+  <core validator-id="jboss.cdi.core"/>
+  <el>
+   <linked-el length="24" name="%0" offset="910" path="%1"/>
+   <linked-el length="14" name="%0" offset="428" path="%1"/>
+   <linked-el length="24" name="%2" offset="910" path="%1"/>
+   <linked-el length="24" name="%3" offset="910" path="%1"/>
+   <linked-el length="14" name="%4" offset="428" path="%1"/>
+  </el>
+ </validation>
+ <aliases>
+  <alias path="b2b" value="%0"/>
+  <alias path="b2b.basemodel" value="%2"/>
+  <alias path="b2b.basemodel.version" value="%3"/>
+  <alias path="/ExternalRetailModel/pom.xml" value="%1"/>
+  <alias path="b2b.version" value="%4"/>
+ </aliases>
+ <includes/>
+ <uris/>
+</kb-project>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<project name="XJC" default="generar-clases">
+
+	<target name="generar-clases">
+
+		<!-- ======================================================== -->
+		<!-- ======================== SOA =============================== -->
+		<!-- ======================================================== -->
+
+		<java classname="com.sun.tools.xjc.XJCFacade" classpath="${compile_classpath}">
+			<arg value="-d" />
+			<arg value="src/main/java" />
+			<arg value="-p" />
+			<arg value="bbr.b2b.b2blink.logistic.xml.NotificacionReciboRec" />
+			<arg value="src/main/resources/bbr/b2b/b2blink/xsd/NotificacionReciboRec.xsd" />
+		</java>
+		
+		<java classname="com.sun.tools.xjc.XJCFacade" classpath="${compile_classpath}">
+			<arg value="-d" />
+			<arg value="src/main/java" />
+			<arg value="-p" />
+			<arg value="bbr.b2b.b2blink.logistic.xml.Rec_Interno" />
+			<arg value="src/main/resources/bbr/b2b/b2blink/xsd/Rec_Interno.xsd" />
+		</java>
+		
+		<java classname="com.sun.tools.xjc.XJCFacade" classpath="${compile_classpath}">
+			<arg value="-d" />
+			<arg value="src/main/java" />
+			<arg value="-p" />
+			<arg value="bbr.b2b.b2blink.commercial.xml.ReporteVentasCustom" />
+			<arg value="src/main/resources/bbr/b2b/b2blink/xsd/ReporteVentasCustom.xsd" />
+		</java>
+		<java classname="com.sun.tools.xjc.XJCFacade" classpath="${compile_classpath}">
+				<arg value="-d" />
+				<arg value="src/main/java" />
+				<arg value="-p" />
+				<arg value="bbr.b2b.b2blink.commercial.xml.ReporteInventarioCustom" />
+				<arg value="src/main/resources/bbr/b2b/b2blink/xsd/ReporteInventarioCustom.xsd" />
+			</java>
+		
+		
+		<java classname="com.sun.tools.xjc.XJCFacade" classpath="${compile_classpath}">
+			<arg value="-d" />
+			<arg value="src/main/java" />
+			<arg value="-p" />
+			<arg value="bbr.b2b.b2blink.commercial.xml.SolicitudProveedoresInventarioPendientes" />
+			<arg value="src/main/resources/bbr/b2b/b2blink/xsd/SolicitudProveedoresInventarioPendientes.xsd" />
+		</java>
+		
+		<java classname="com.sun.tools.xjc.XJCFacade" classpath="${compile_classpath}">
+			<arg value="-d" />
+			<arg value="src/main/java" />
+			<arg value="-p" />
+			<arg value="bbr.b2b.b2blink.logistic.xml.SolicitudProveedoresOrdenesPendientes" />
+			<arg value="src/main/resources/bbr/b2b/b2blink/xsd/SolicitudProveedoresOrdenesPendientes.xsd" />
+		</java>
+		
+		<java classname="com.sun.tools.xjc.XJCFacade" classpath="${compile_classpath}">
+			<arg value="-d" />
+			<arg value="src/main/java" />
+			<arg value="-p" />
+			<arg value="bbr.b2b.b2blink.logistic.xml.SolicitudProveedoresRecPendientes" />
+			<arg value="src/main/resources/bbr/b2b/b2blink/xsd/SolicitudProveedoresRecPendientes.xsd" />
+		</java>
+		
+		<java classname="com.sun.tools.xjc.XJCFacade" classpath="${compile_classpath}">
+			<arg value="-d" />
+			<arg value="src/main/java" />
+			<arg value="-p" />
+			<arg value="bbr.b2b.b2blink.commercial.xml.SolicitudProveedoresVentasPendientes" />
+			<arg value="src/main/resources/bbr/b2b/b2blink/xsd/SolicitudProveedoresVentasPendientes.xsd" />
+		</java>
+		<java classname="com.sun.tools.xjc.XJCFacade" classpath="${compile_classpath}">
+			<arg value="-d" />
+			<arg value="src/main/java" />
+			<arg value="-p" />
+			<arg value="bbr.b2b.b2blink.logistic.xml.SolicitudRecOC" />
+			<arg value="src/main/resources/bbr/b2b/b2blink/xsd/SolicitudRecOC.xsd" />
+		</java>
+				
+		
+		
+		<java classname="com.sun.tools.xjc.XJCFacade" classpath="${compile_classpath}">
+			<arg value="-d" />
+			<arg value="src/main/java" />
+			<arg value="-p" />
+			<arg value="bbr.b2b.b2blink.logistic.xml.NotificacionReciboRec" />
+			<arg value="src/main/resources/bbr/b2b/b2blink/xsd/NotificacionReciboRec.xsd" />
+		</java>
+		
+		<java classname="com.sun.tools.xjc.XJCFacade" classpath="${compile_classpath}">
+			<arg value="-d" />
+			<arg value="src/main/java" />
+			<arg value="-p" />
+			<arg value="bbr.b2b.b2blink.logistic.xml.NotificacionOrden" />
+			<arg value="src/main/resources/bbr/b2b/b2blink/xsd/NotificacionOrden.xsd" />
+		</java>
+		
+		<java classname="com.sun.tools.xjc.XJCFacade" classpath="${compile_classpath}">
+			<arg value="-d" />
+			<arg value="src/main/java" />
+			<arg value="-p" />
+			<arg value="bbr.b2b.b2blink.logistic.xml.NotificacionReciboOrden" />
+			<arg value="src/main/resources/bbr/b2b/b2blink/xsd/NotificacionReciboOrden.xsd" />
+		</java>
+		<java classname="com.sun.tools.xjc.XJCFacade" classpath="${compile_classpath}">
+			<arg value="-d" />
+			<arg value="src/main/java" />
+			<arg value="-p" />
+			<arg value="bbr.b2b.b2blink.logistic.xml.OC_Interno" />
+			<arg value="src/main/resources/bbr/b2b/b2blink/xsd/OC_Interno.xsd" />
+		</java>
+		<java classname="com.sun.tools.xjc.XJCFacade" classpath="${compile_classpath}">
+			<arg value="-d" />
+			<arg value="src/main/java" />
+			<arg value="-p" />
+			<arg value="bbr.b2b.b2blink.logistic.xml.SolicitudOrdenes" />
+			<arg value="src/main/resources/bbr/b2b/b2blink/xsd/SolicitudOrdenes.xsd" />
+		</java>
+		
+		<java classname="com.sun.tools.xjc.XJCFacade" classpath="${compile_classpath}">
+			<arg value="-d" />
+			<arg value="src/main/java" />
+			<arg value="-p" />
+			<arg value="bbr.b2b.b2blink.commercial.xml.NotificacionReciboInventarioCustom" />
+			<arg value="src/main/resources/bbr/b2b/b2blink/xsd/NotificacionReciboInventarioCustom.xsd" />
+		</java>
+		
+		<java classname="com.sun.tools.xjc.XJCFacade" classpath="${compile_classpath}">
+			<arg value="-d" />
+			<arg value="src/main/java" />
+			<arg value="-p" />
+			<arg value="bbr.b2b.b2blink.commercial.xml.NotificacionReciboVentaCustom" />
+			<arg value="src/main/resources/bbr/b2b/b2blink/xsd/NotificacionReciboVentaCustom.xsd" />
+		</java>
+		
+
+		<java classname="com.sun.tools.xjc.XJCFacade" classpath="${compile_classpath}">
+			<arg value="-d" />
+			<arg value="src/main/java" />
+			<arg value="-p" />
+			<arg value="bbr.b2b.b2blink.commercial.xml.ReporteInventarioCustom" />
+			<arg value="src/main/resources/bbr/b2b/b2blink/xsd/ReporteInventarioCustom.xsd" />
+		</java>
+		
+		<java classname="com.sun.tools.xjc.XJCFacade" classpath="${compile_classpath}">
+			<arg value="-d" />
+			<arg value="src/main/java" />
+			<arg value="-p" />
+			<arg value="bbr.b2b.b2blink.commercial.xml.ReporteVentasCustom" />
+			<arg value="src/main/resources/bbr/b2b/b2blink/xsd/ReporteVentasCustom.xsd" />
+		</java>
+	</target>
+</project>

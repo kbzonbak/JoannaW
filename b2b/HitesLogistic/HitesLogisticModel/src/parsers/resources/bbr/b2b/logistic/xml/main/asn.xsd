@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:element name="asn">
+		<xs:complexType>
+			<xs:sequence>
+                <xs:element name="accion" type="xs:string" minOccurs="1" />
+                <xs:element name="num_cita_b2b" type="xs:int" minOccurs="1" />
+                <xs:element name="cod_proveedor" type="xs:string" minOccurs="1" />
+                <xs:element name="cod_local_entrega" type="xs:string" minOccurs="1" />
+                <xs:element name="fecha_cita" type="xs:string" minOccurs="1" />
+                <xs:element name="num_asn" type="xs:int" minOccurs="1" />
+                <xs:element name="bultos" minOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="detalle_bulto" minOccurs="1"  maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="num_oc" type="xs:int" minOccurs="1"/>
+                                        <xs:element name="posicion" type="xs:int" minOccurs="1"/>
+                                        <xs:element name="cod_producto" type="xs:string" minOccurs="1"/>
+                                        <xs:element name="cod_local_destino" type="xs:string" minOccurs="1"/>
+                                        <xs:element name="cod_lpn" type="xs:string" minOccurs="1"/>
+                                        <xs:element name="num_documento" type="xs:int" minOccurs="1"/>
+                                        <xs:element name="tipo_documento" type="xs:string" minOccurs="1"/>
+                                        <xs:element name="unidades_comprometidas" type="xs:decimal" minOccurs="1"/>
+                                    </xs:sequence>
+                            	</xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+        	</xs:sequence>                
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/NotificacionReciboInventario" elementFormDefault="qualified">
+  <!-- Versión 1.1 -->
+  <element name="NotificacionReciboInventario">
+    <complexType>
+      <sequence minOccurs="1" maxOccurs="1">
+        <element name="flowid" type="string" minOccurs="0" />   <!-- Versión 1.1 -->
+        <element name="nombreportal" type="string" />
+        <element name="codproveedor" type="string" />
+        <element name="codcomprador" type="string" />
+        <element name="fechaInventario" type="string" />
+        <element name="estado" type="string" />
+        <element name="fecha" type="dateTime" />
+      </sequence>
+    </complexType>
+  </element>
+</schema>

@@ -1,0 +1,106 @@
+@mixin bbr_main_menu_bar
+{
+	div.mainMenuBar{
+		position: relative;
+		text-align: center;
+		white-space: nowrap;
+		outline: none;
+		-webkit-tap-highlight-color: transparent;
+		-webkit-touch-callout: none;
+		cursor: pointer;
+		height: 56px;
+		padding: 0 16px;
+		color: #FFFFFF;
+		font-weight: 400;	
+		cursor: default;
+		border-radius: 0;	
+		border: none;	
+		border-bottom: none;
+		border-top: none;		
+		background-color: #ececec;
+		/*background-image: -webkit-linear-gradient(top, #fafafa 50%, #e2e2e2 98%);
+		background-image: linear-gradient(to bottom,#fafafa 50%, #e2e2e2 98%);*/	
+		background:#107ca9;		
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+		padding: 0;
+		text-align: left;
+		line-height: 56px;
+		
+		span.v-menubar-menuitem {
+		border-color : #cecece;
+		}	
+	}	
+
+	div.v-menubar-popup{
+		margin-top: 0 !important;
+		border-radius:0px ;
+		padding: 0px;		
+	}
+	div.v-menubar-popup .v-menubar-submenu{
+		background-color: #107ca9;
+		height: inherit;
+	}	
+	div.v-menubar-popup .v-menubar-menuitem{
+		border-radius:0px;
+		height: inherit;
+	}
+	
+	div.v-menubar-menuitem-caption{
+		color:#ff0000 !important;
+	}
+	
+	div.v-menubar-menuitem .v-menubar-menuitem-selected{
+		background:#548bff !important;
+	}
+	
+	div .v-menubar-menuitem{		
+		/*border-bottom: 1px solid;*/
+		border: none !important;
+	}
+	
+	div .v-menubar:focus:after{
+   		box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.5);
+	}
+	.logoHeader{
+		width:160px;
+		height:41px;
+		margin-top:8px;
+		margin-left:10px;				
+	}
+	.pnlHeader{		
+		/*background-image: -webkit-linear-gradient(top, #fafafa 50%, #e2e2e2  98%);
+		background-image: linear-gradient(to bottom,#fafafa 50%, #e2e2e2 98%);*/
+		background: #107ca9;
+		
+	}
+	
+	/*div .wall-diary-menubar{	
+	 	 background-color: green;	 	 
+	}*/
+	
+	.v-menubar-borderless .v-menubar-menuitem{
+		color:#fff !important;			
+	}
+	
+	div .v-menubar-menuitem-wall-diary-menubar:hover {
+    	background-image: none;
+    	background-color: #629bc9;
+  	}
+  	div .v-menubar-menuitem-wall-diary-menubar{
+		background-color: #FFFFFF;	
+	}
+	
+	div .v-menubar > .v-menubar-menuitem:hover:before{
+		/*background-color: rgba(0, 69, 138, 0.46);*/
+		color: #FFFFFF;
+		z-index: -1;
+    	border: none;
+	}	
+	
+	.bbr-main-menu{
+		color : blue;
+	}		
+		
+  }

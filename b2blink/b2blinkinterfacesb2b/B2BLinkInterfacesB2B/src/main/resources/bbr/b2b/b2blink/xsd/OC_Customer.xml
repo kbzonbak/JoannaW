@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<orden xmlns="http://www.bbr.cl/cencosud/OCInterno">
+    <ticket>6916</ticket>
+    <nombreportal>CUSTOMER_LOGISTICA</nombreportal>
+    <no>9509618</no>
+    <digito_verificador>8</digito_verificador>
+    <nosolicitud></nosolicitud>
+    <tipo_oc>DVO</tipo_oc>
+    <fecha_emision>2019-07-01-04:00</fecha_emision>
+    <fecha_vigencia>2019-07-08-04:00</fecha_vigencia>
+    <fecha_vto>2019-07-01-04:00</fecha_vto>
+    <fecha_compromiso>2019-07-12-04:00</fecha_compromiso>
+    <total>151590.0</total>
+    <cod_local_entrega>10078</cod_local_entrega>
+    <forma_pago>CHQ 60</forma_pago>
+    <comentarios></comentarios>
+    <responsable></responsable>
+    <email_responsable></email_responsable>
+    <seccion>
+        <cod_seccion></cod_seccion>
+        <seccion></seccion>
+    </seccion>
+    <edi_data>
+        <senderIdentification>123</senderIdentification>
+        <recipientIdentification>123</recipientIdentification>
+        <correlativeVendor></correlativeVendor>
+        <messageReferenceNumber></messageReferenceNumber>
+        <countrycode></countrycode>
+        <buyerCode>CL1201</buyerCode>
+        <buyerLocationCode>10078</buyerLocationCode>
+    </edi_data>
+    <comprador>
+        <rut>83382700</rut>
+        <digito_verificador>6</digito_verificador>
+        <razon_social>retail</razon_social>
+        <unidad_negocio>RETAIL</unidad_negocio>
+    </comprador>
+    <vendedor>
+        <rut>93830000</rut>
+        <razon_social>CIC</razon_social>
+        <contacto>EMAIL@EMAIL.COM</contacto>
+        <direccion>CALLE 1</direccion>
+        <telefono>123456789</telefono>
+    </vendedor>
+    <cliente>
+        <nombre>NELA ANCAPICHUN 65039439</nombre>
+        <rut>12345678</rut>
+        <telefono>12345678</telefono>
+        <telefono_alternativo></telefono_alternativo>
+        <direccion>Direccion de prueba 123</direccion>
+        <numcalle></numcalle>
+        <numdepto></numdepto>
+        <numcasa></numcasa>
+        <region>X REGION</region>
+        <comuna>PUERTO MONTT</comuna>
+        <ciudad>PTO. MONTT</ciudad>
+        <comentario>LLAMAR ANTES DE ENTREGA</comentario>
+        <localidad></localidad>
+    </cliente>
+    <locales>
+        <local>
+            <cod>OPL</cod>
+            <nombre>OPL</nombre>
+            <direccion></direccion>
+            <ean></ean>
+        </local>
+        <local>
+            <cod>10078</cod>
+            <nombre>10078</nombre>
+            <direccion></direccion>
+            <ean></ean>
+        </local>
+    </locales>
+    <desc_generales/>
+    <cargos_generales/>
+    <detalles>
+        <detalle>
+            <item>1</item>
+            <cod_prod_comp>37222291</cod_prod_comp>
+            <cod_prod_vendedor>780642760173-7</cod_prod_vendedor>
+            <ean13></ean13>
+            <descripcion_prod>DIVAN NEW ORTOPEDIC BLACK SOLO</descripcion_prod>
+            <cod_empaque>21078037190702691672</cod_empaque>
+            <desc_empaque>UN</desc_empaque>
+            <desc_um_unidad>unidad</desc_um_unidad>
+            <prod_empaque>1.0</prod_empaque>
+            <cantidad_empaque>1</cantidad_empaque>
+            <innerpack>1</innerpack>
+            <costo_lista>151590.0</costo_lista>
+            <costo_final>199990.0</costo_final>
+            <precio_lista>151590.0</precio_lista>
+            <observacion></observacion>
+            <desc_producto/>
+            <cargos_prod/>
+        </detalle>
+    </detalles>
+    <predistribuciones/>
+</orden>

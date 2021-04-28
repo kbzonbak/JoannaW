@@ -1,0 +1,92 @@
+@mixin bbr_uploader {
+    .bbr-upload-button .v-button,
+    bbr-upload-button .v-button .v-button-wrap {
+        background-image: url("/BBRe-commerce/VAADIN/themes/irsb2blinkportalweb/assets/images/buttons/icon_Add2.png")!important;
+        background-repeat: no-repeat;
+        border-width: 0px;
+        cursor: pointer;
+        border: none;
+        padding: 1px;
+        width: 30px;
+        height: 30px;
+        box-shadow: none;
+        background-color: #ffffff;
+    }
+    .bbr-upload-button image {
+        padding-left: 3px;
+    }
+    .bbr-upload-button .v-button .v-button-wrap {
+        display: none
+    }
+    .bbr-upload-button .v-button:focus:after {
+        border: none;
+        box-shadow: none !important;
+    }
+    .bbr-upload-button .v-button:focus {
+        border: none;
+        box-shadow: none;
+    }
+    .bbr-uploader-footer-label {
+        font-size: x-small;
+        color: red;
+    }
+    .bbr-uploader-size-label {
+        font-size: x-small;
+        color: black;
+    }
+    .bbr-uploader-size-error-label {
+        font-size: x-small;
+        color: red;
+    }
+    .bbr-uploader-name-label {
+        font-size: x-small;
+        color: black;
+    }
+    .bbr-uploader-name-error-label {
+        font-size: x-small;
+        color: black;
+        text-decoration: line-through;
+    }
+    .bbr-drop-panel-area {}
+    /* customized uploader butoon*/
+    .bbr-upload-alternative-button .v-button,
+    bbr-upload-alternative-button .v-button .v-button-wrap {
+        background-image: url(/BBRe-commerce/VAADIN/themes/irsb2blinkportalweb/assets/images/buttons/icon_AddAlternative.png) !important;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+        border: none !important;
+        padding: 1px;
+        margin-top: 1px;
+        width: 30px;
+        height: 30px;
+        box-shadow: none;
+        background-color: #ffffff;
+    }
+    .bbr-upload-alternative-button .v-button:focus:after {
+        border: none;
+        box-shadow: none !important;
+    }
+    /* customized image*/
+    .image-width-auto {
+        width: auto;
+    }
+    .image-height-auto {
+        height: auto !important;
+    }
+    .image-full-auto {
+        width: auto;
+        height: auto !important;
+    }
+    .image-layout {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    /*customize paragraph*/
+    p {
+        margin: 0px;
+        padding: 0px;
+    }
+}

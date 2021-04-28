@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<project name="externalretailmappings" default="test" basedir=".">
+	<property name="build.sysclasspath" value="last"/>
+
+	<target name="compile">
+		<javac srcdir="." classpath="." />
+	</target>
+	<target name="test" depends="compile">
+		<java classpath="D:\workspace\CustomerService\IRSB2BLinkExternalRetail\maven.1567691497090\irsb2blinkexternalretailmappings\output" classname="bbr.b2b.extractors.mappings.externalretailmappingsConsole" fork="true" failonerror="true">
+			<arg line="${cmdline}"/>
+		</java>
+	</target>
+	<target name="clean">
+		<delete>
+			<fileset dir=".">
+				<include name="**/*.class"/>
+				<include name="*.jar"/>
+			</fileset>
+		</delete>
+	</target>
+	<target name="jar" depends="compile">
+		<jar destfile="externalretailmappings.jar" manifest="D:\workspace\CustomerService\IRSB2BLinkExternalRetail\maven.1567691497090\irsb2blinkexternalretailmappings\output/META-INF/MANIFEST.MF" basedir="." includes="**/*.xml **/*.class **/*.wsdl **/MANIFEST.MF" excludes="**/*.java"/>
+	</target>
+</project>

@@ -1,0 +1,1385 @@
+@mixin core_styles 
+{
+
+	/******************************************************/
+	/************* Beginning Waiting Styles ***************/
+	/******************************************************/
+	
+	.waitingStyle
+	{
+		position: fixed;
+	    top: 50%;
+	    left: 50%;
+	    margin-top: -16px;
+	    margin-left: -16px;
+	    
+	}
+	
+	.waitingTabStyle
+	{
+		position: relative;
+	    top: 50%;
+	    left: 50%;
+	    margin-top: -16px;
+	    margin-left: -16px;
+	}
+	
+	.waitingModulesStyle
+	{
+		position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    margin-top: -16px;
+	    margin-left: -16px;
+	}   
+
+	.waitingTitleWindowStyle
+	{
+		position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    margin-top: -16px;
+	    margin-left: -16px;
+	}  
+	
+	
+	/******************************************************/
+	/************* Ending Waiting Styles ******************/
+	/******************************************************/
+	
+	/*filter*/
+	.bbr-bbrfilter-content {			
+    	background: #EFEFEF;
+    	/*background-image:url("/BBRe-commerce/VAADIN/themes/irsb2blinkportalweb/assets/images/basic/bg_title_filter.png");
+    	background-repeat:no-repeat;*/
+    	border: solid 1px #D6D6D6;
+    	-webkit-box-shadow: 10px 10px 10px -5px rgba(191,191,191,0.7);
+		-moz-box-shadow: 10px 10px 10px -5px rgba(191,191,191,0.7);
+		box-shadow: 10px 10px 10px -5px rgba(191,191,191,0.7);
+	}	
+	.bbr-bbrfilter-tab {
+	    background: #107ca9;	    
+	}  
+	.bbr-bbrfilter-content {
+  		.v-caption{
+  			font-size: 12px;
+  		}
+  	}
+  	
+  	/*BBRSEPARATOR*/
+  	.bbr-separator{
+  		border-color: white;
+		border-bottom: 1px solid white;
+  	}
+  	.v-slot-bbr-separator{
+  		height : 1px;
+  	}
+  	
+  	/* FORM */ 
+  	
+	[class*="spacing"] > tbody > [class*="row"] > td {
+	padding-top: 12px;
+	}
+
+	[class*="spacing"] > tbody > [class*="firstrow"] > td {
+		padding-top: 0;
+	}
+	
+	[class*="margin-top"] > tbody > [class*="firstrow"] > td {
+		padding-top: 10px !important;
+	}
+	
+	[class*="margin-bottom"] > tbody > [class*="lastrow"] > td {
+		padding-bottom: 10px;
+	}
+	
+	[class*="margin-left"] > tbody > [class*="row"] > [class*="captioncell"] {
+		padding-left: 10px;
+	}
+	
+	[class*="margin-left"] > tbody > [class*="row"] > [class*="contentcell"]  > .v-label-h2, .irsb2blinkportalweb [class*="margin-left"] > tbody > [class*="row"] > [class*="contentcell"]  > .v-label-h3, .irsb2blinkportalweb [class*="margin-left"] > tbody > [class*="row"] > [class*="contentcell"]  > .v-label-h4 {
+		left: 10px;
+	}
+	
+	[class*="margin-right"] > tbody > [class*="row"] > [class*="contentcell"] {
+		padding-right: 10px;
+	}
+	
+	[class*="margin-right"] > tbody > [class*="row"] > [class*="contentcell"]  > .v-label-h2, .irsb2blinkportalweb [class*="margin-right"] > tbody > [class*="row"] > [class*="contentcell"]  > .v-label-h3, .irsb2blinkportalweb [class*="margin-right"] > tbody > [class*="row"] > [class*="contentcell"]  > .v-label-h4 {
+		right: 10px;
+	} 
+	
+	/* MAIN-TAB-SHEET */
+	
+	.main-tab-sheet{	
+		.v-tabsheet-content{
+			margin-top: 5px;
+		}	
+		.v-tabsheet-tabitemcell .v-tabsheet-tabitem-selected .v-caption.v-caption {
+			border-bottom-color: #197de1;
+	    	color: #FFFFFF;
+	    	background: #107ca9;
+	    	border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			border-right-color: white;
+	    	border-right-style: outset;
+	    	border-right-width: 2px;
+	    	padding-right: 20px;
+	    	padding-left: 20px; 
+		}
+		
+	 	.v-tabsheet-tabitemcell .v-tabsheet-tabitem-selected .v-tabsheet-caption-close{
+	 		color: #d3d3d3;
+	 	}
+	 	
+		.v-tabsheet-tabcontainer{
+			background: #ffffff;
+		}
+		.v-tabsheet-tabcontainer:before{		
+		    height: 0;
+		    border-top: 2px solid #107ca9;
+		    z-index: 1;	   
+		}
+		.v-tabsheet-tabitemcell .v-caption{
+			font-size: 12px;
+			margin-left: 0px;
+			padding: 0 20px;
+			height: 30px;
+			line-height: 30px;
+			font-weight: 500;
+	    	color: #166ed5;	    	
+	    }		
+		.v-tabsheet-tabitemcell .v-tabsheet-tabitem{
+			background: #d4e2ef;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			border-right: white;
+		    border-right-style: inset;
+		    border-right-width: 2px;
+		}
+		.v-tabsheet-tabitemcell .v-tabsheet-tabitem:hover{
+			background: #b8d4ff;		
+		}	
+	}	
+
+	/*Area de trabajo, incluye Tabs y Módulos*/
+	.bbr-working-area{
+		padding-left: 10px;
+	    padding-top: 10px;
+	    padding-right: 10px;
+	    padding-bottom: 5px;
+	    background-color: #fafafa;	
+	}	
+
+	/* WALL-DIARY-TAB-SHEET */
+	
+	.wall-diary-tab-sheet{	
+		.v-tabsheet-tabitemcell .v-tabsheet-tabitem-selected .v-caption.v-caption {
+			border-bottom-color: #197de1;
+	    	color: #FFFFFF;
+	    	background: #107ca9;
+	    	border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			border-right-color: white;
+	    	border-right-style: outset;
+	    	border-right-width: 2px;
+	    	/*padding: 0 10px;*/	    		
+		}
+		.v-tabsheet-tabcontainer{
+			background: none;
+		}
+		.v-tabsheet-tabcontainer:before{		
+		    height: 0;
+		    border-top: 2px solid #107ca9;
+		    z-index: 1;	   
+		}
+		.v-tabsheet-tabitemcell .v-caption{
+			font-size: 12px;
+			margin-left: 0px;
+			padding: 0 10px;
+			height: 30px;
+			line-height: 30px;
+			font-weight: 500;
+	    	color: #166ed5;
+		}	 	
+		
+		.v-tabsheet-tabitemcell .v-tabsheet-tabitem{
+			background: #d4e2ef;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			border-right: white;
+		    border-right-style: inset;
+		    border-right-width: 2px;
+		}
+		.v-tabsheet-tabitemcell .v-tabsheet-tabitem:hover{
+			background: #b8d4ff;		
+		}	
+	}
+	/* PAGING MANAGER */
+	.bbr-paging-manager-previous-button {
+    	/*color: #127CB1 !important;*/
+	}
+
+	.bbr-paging-manager-next-button {
+    	/*color: #127CB1 !important;*/
+	}
+
+	.bbr-paging-manager-field-label {
+    	/*color: #127CB1 !important;*/
+	}
+	
+	.bbr-list-builder{
+		.v-table-table {
+   	 		box-shadow: none !important;
+		}
+	}
+	
+	.bbr-margin-windows{
+	    padding-right: 20px;
+	    padding-bottom: 20px;
+	    padding-left: 20px;
+	    padding-top: 20px;
+	}
+	
+	.bbr-margin-windows-10 {
+		padding-right: 10px;
+		padding-bottom: 10px;
+		padding-left: 10px;
+		padding-top: 10px;
+	}
+	
+	.bbr-margin-windows-zero-bottom
+	{
+	    padding-right: 20px;
+	    padding-bottom: 0px;
+	    padding-left: 20px;
+	    padding-top: 20px;
+	}
+
+	.bbr-margin-windows-zero-top
+	{
+	    padding-right: 20px;
+	    padding-bottom: 20px;
+	    padding-left: 20px;
+	    padding-top: 0px;
+	}
+	
+	.bbr-margin-windows-zero-top-bottom {
+		padding-right: 20px;
+		padding-bottom: 0px;
+		padding-left: 20px;
+		padding-top: 0px;
+	}
+	
+	/* Action Buttons */
+	
+	.action-button-fix {		
+		display: flex;    	
+		justify-content: center;
+    	align-items: flex-end;
+    	font-size: 28px!important;
+    	color: #000!important;
+    	text-decoration: underline;    	
+	}
+	
+	.action-button-fix-homolog {		
+		margin-top:-20px;
+		display: flex;    	
+		justify-content: center;
+    	align-items: flex-end;
+    	font-size: 28px!important;
+    	color: #000!important;
+		text-decoration: underline;   	
+	}
+	
+	.action-button {
+	   	font-size:12px;
+	   	height:25px;
+	   	border: none;
+	    box-shadow: none;
+	    background: transparent;
+	    cursor: pointer;
+	    color: #059ae5;	   
+	    transition: color 140ms;
+	    padding:0;
+	}	
+	.action-button:hover {
+	    color: #12b0ff;
+	}	
+	.action-button:hover:after {
+		background-color: transparent;
+	}	
+	.action-button:focus {
+	    outline: none;
+	}
+	.action-button:focus:after {
+	    box-shadow: none;
+	}
+	
+	.v-button.v-disabled.action-button {
+	    color:#000;
+	    text-decoration: none;
+	}
+	
+	.v-button.v-disabled {  		
+  		filter: grayscale(1);  		
+	}
+	
+	/* Upload Excel Buttons */
+	.bbr-upload-excel-button .v-button, bbr-upload-excel-button .v-button .v-button-wrap {
+	    background-image: url("/BBRe-commerce/VAADIN/themes/irsb2blinkportalweb/assets/images/buttons/icon_UploadAlternative.png")!important;
+	    background-repeat:no-repeat;
+	    background-position: center;
+	    border-width: 0px;
+	    cursor:pointer;
+	    border : none;
+	  	padding: 1px;
+		width: 30px;
+		height: 30px;		
+		-webkit-box-shadow: none;
+		box-shadow: none;
+        background-color: transparent;
+        top: 1px;
+	}	
+	
+	.bbr-upload-excel-button .v-button .v-button-wrap {
+		display: none
+	}
+	
+	.bbr-upload-excel-button .v-button:focus:after {
+	    border : none;
+	    box-shadow: none !important;
+	}
+
+		
+	.bbr-upload-excel-button .v-button:focus{
+	    border : none;
+	    box-shadow: none;
+	}
+
+	/* Upload Excel Buttons ACTIONS */
+     .bbr-upload-excel-action-button .v-button, bbr-upload-excel-action-button .v-button .v-button-wrap {
+         background-repeat: no-repeat;
+         background-position: center;
+         border-width: 0px;
+         cursor: pointer;
+         border: none;
+         padding: 1px;
+         width: 30px;
+         height: 30px;
+         -webkit-box-shadow: none;
+         box-shadow: none;
+         background-color: transparent;
+         top: 1px;
+    }
+     .bbr-upload-excel-action-button .v-button .v-button-wrap {
+         display: none 
+    }
+     .bbr-upload-excel-action-button .v-button:focus:after {
+         border: none;
+         box-shadow: none !important;
+    }
+     .bbr-upload-excel-action-button .v-button:focus {
+         border: none;
+         box-shadow: none;
+    }
+    /*-------------*/
+
+	.bbr-auto-scroll-layout
+	{
+	    overflow: auto !important;
+	}
+	
+	.bbr-forms-grid-layout{
+		background: white;
+	}
+	
+	.bbr-bold-label{
+		font-weight: bold;
+	}
+	
+	.ticket-tab-content{
+		padding: 5px;
+	}
+	.ticket-tab-sheet{
+	top : 5px;	
+		.v-tabsheet-tabitemcell .v-tabsheet-tabitem-selected .v-caption.v-caption {
+			border-bottom-color: #197de1;
+	    	color: #FFFFFF;
+	    	background: #107ca9;
+	    	border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			border-right-color: white;
+	    	border-right-style: outset;
+	    	border-right-width: 2px;
+	    	padding: 0 10px;	    		
+		}
+		.v-tabsheet-tabcontainer{
+			background: #eaeaea;
+		}
+		.v-tabsheet-tabcontainer:before{		
+		    height: 0;
+		    border-top: 2px solid #107ca9;
+		    z-index: 1;	   
+		}
+		.v-tabsheet-tabitemcell .v-caption{
+			font-size: 12px;
+			margin-left: 0px;
+			padding: 0 10px;
+			height: 30px;
+			line-height: 30px;
+			font-weight: 500;
+	    	color: #166ed5;
+		}	 	
+		
+		.v-tabsheet-tabitemcell .v-tabsheet-tabitem{
+			background: #d4e2ef;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			border-right: white;
+		    border-right-style: inset;
+		    border-right-width: 2px;
+		}
+		.v-tabsheet-tabitemcell .v-tabsheet-tabitem:hover{
+			background: #b8d4ff;		
+		}
+		
+			
+	}
+	
+	.ck-editor-reader{
+		border-style: solid;
+	    padding: 5px;
+	    border-width: 1px;
+	    border-color:#c0c0c0;
+	    overflow: auto !important;
+	}
+	
+	.win-details{
+		padding: 5px;
+	}
+	
+	.bold_style{
+		font-weight: bold;
+	}
+	.white-space_style{
+		white-space: normal !important; 
+	}
+
+	.bolder_style{
+		font-weight: bolder;
+	}
+	
+	.header_style{
+		font-size:14px;
+		font-weight: bold;
+	}
+	
+	.bbr-overflow-auto{
+		overflow: auto;
+		&.override{
+			overflow: auto !important;
+		}
+	}
+	
+	.v-app-loading {
+		width: 100%;
+		height: 100%;
+		background: url(/BBRe-commerce/main/VAADIN/themes/irsb2blinkportalweb/assets/images/basic/bg_load_irs.jpg) no-repeat;
+		background-size: cover;
+	}	
+	
+	 /* customized spinner*/	 
+	 .v-app-loading:before {
+	    width: 120px;
+	    height: 16px;
+	    background: url(/BBRe-commerce/main/VAADIN/themes/irsb2blinkportalweb/assets/images/basic/dot_spinner.gif) no-repeat 50%;	    
+	 	margin-left: -60px;
+    	top: 35%;
+	 }
+
+	.v-tree8-cell{
+		font-size: small;
+	}
+	
+	.bbr-vfield-container{
+		
+		.bbr-vfield-container-label	{
+			text-align: center;
+    		font-weight: bold;
+    		&.left{
+    			text-align: left !important;
+    			font-weight: bold;
+    		}
+    		
+    		&.with-background{
+    			background-color: #D4D4D4;
+    		}
+		}
+		.bbr-vfield-container-value{
+			
+		}
+	}	
+	
+	.left-text{
+		text-align: left;
+	}
+	.center-text{
+		text-align: center;
+	}
+	.right-text{
+		text-align: right;
+	}
+
+	.font-size-11{
+		font-size: 11px;
+	}
+	
+	.margin-top-5{
+		margin-top: 5px;
+	}
+	
+	.margin-top-10{
+		margin-top: 10px;
+	}
+	
+	.margin-top-none{
+		margin-top: 0px !important;
+	}
+
+	.margin-bottom-20{
+		margin-bottom: 20px;
+	}
+	
+	.negative-margin-left-20 {
+         margin-left: -20px;
+    }
+    
+    .padding-top-10 {
+         padding-top: 10px !important;
+    }
+    
+	.bold{
+		font-weight: bold;
+	}
+	
+	.italic{
+		font-style: italic;
+	}
+	
+	.red-words{
+		color:red;
+	}
+	.horizontal-layout-grid{
+		.v-grid-header {
+             height: 0px !important;
+        }
+		.v-caption{
+			font-size: 13px !important;
+    		font-weight: 300;
+		}
+		.red-words{
+			.v-caption{
+	    		font-weight: bold !important;
+			}
+		}
+	}
+	.negative-margin-left-20{
+		margin-left:-20px;
+	}
+	
+	.padding-top-10{
+		padding-top:10px !important;
+	}
+	
+	.well-action{
+		border: 1px solid black;
+		text-align:center;
+		text-style:bold;
+		margin-left:40px;
+		vertical-align: middle;
+		padding-top:10px;
+		padding-bottom:10px;
+		margin-bottom:5px;
+	}
+	.text-align-top{
+		text-align: top !important;
+	}
+	.float-right {
+		float: right;
+	}
+	
+	/*FORMS VALUES CONTAINER*/
+	.bbr-fc-label{
+		font-weight: bold;
+	}
+	
+	/*Columnas de detalle en grid*/
+	.colum-details{
+		.v-captiontext{
+			font-size: 13px !important;
+			color:#000 !important;
+			font-weight: 300 !important;
+		}
+	}
+	.cp-details-generator{
+		ul{
+			list-style-image: url("/BBRe-commerce/VAADIN/themes/irsb2blinkportalweb/assets/images/utils/icon-Arrow.png");
+			margin:0px;
+		}
+	}
+	
+	.float-right{
+		float:right;
+					
+				  
+	}
+	
+	.fixed-item-select-field-label{
+		.bbr-bbr-item-select-field-label{
+			    width: 225px !important;
+			    height: 26px !important;
+		}
+	}
+	
+	.bbr-bbr-item-select-field-button-error {
+		height: 28px;
+	}
+	
+	.red-text{
+		color: #FF0000;
+	}
+	
+	.red-positions-text{
+		color:red;
+	}
+	
+	.horizontal-layout-grid{
+		.v-caption{
+			font-size: 13px !important;
+    		font-weight: 300;
+							   
+		}
+		.red-positions-text{
+			.v-caption{
+	    		font-weight: bold !important;
+			}
+		}
+	}
+
+	.truncate{
+		white-space: nowrap;
+    	overflow: hidden;
+    	text-overflow: ellipsis;
+	}
+
+	/*---------- PDF VIEWER----------*/
+	
+	.bbr-pdf-viewer .bbr-pdf-viewer-button-bar{
+		display: -webkit-box;
+	    display: -webkit-flex;
+	    display: -ms-flexbox;
+	    display: flex;
+	    margin-bottom: 20px;
+	}
+	.bbr-pdf-viewer .pdf-viewer-button-bar div {
+		display: inline-block;
+	}
+	.bbr-pdf-viewer .bbr-pdf-viewer-counter-box,
+	.bbr-pdf-viewer .bbr-pdf-viewer-size-box,
+	.bbr-pdf-viewer .bbr-pdf-viewer-additional-box,
+	.bbr-pdf-viewer .bbr-pdf-viewer-angle-box{
+		margin-left:10px;
+	}
+	.bbr-pdf-viewer .bbr-pdf-viewer-select-size.v-select-select{
+		display:inline-block;
+		height:37px;
+	}
+	.bbr-pdf-viewer .bbr-pdf-viewer-navigation .v-widget:first-child,
+	.bbr-pdf-viewer .bbr-pdf-viewer-angle-box .v-widget:first-child,
+	.bbr-pdf-viewer .bbr-pdf-viewer-additional-box .v-widget:first-child,
+	.bbr-pdf-viewer	.bbr-pdf-viewer-size-box .v-widget:first-child{
+	    border-right: none;
+	    border-radius: 4px 0px 0px 4px;
+	}
+	.bbr-pdf-viewer .bbr-pdf-viewer-navigation .v-widget:last-child,
+	.bbr-pdf-viewer .bbr-pdf-viewer-angle-box .v-widget:last-child,
+	.bbr-pdf-viewer .bbr-pdf-viewer-additional-box .v-widget:last-child,
+	.bbr-pdf-viewer	.bbr-pdf-viewer-size-box .v-widget:last-child {
+	    border-radius: 0px 4px 4px 0px;
+	}
+	
+	.bbr-pdf-viewer	.bbr-pdf-viewer-size-box .v-button-increase{
+		border-right:none;
+		border-radius: 0px;
+	}
+	.bbr-pdf-viewer .bbr-pdf-viewer-counter-box{
+		line-height: 37px;
+	}
+	.bbr-pdf-viewer .bbr-pdf-viewer-counter-box input{
+		width: 60px;
+	}
+	.bbr-pdf-viewer .bbr-pdf-viewer-canvas.dragscroll{
+		pointer: move;
+	}	
+	
+	
+	/*---------- PDF VIEWER - BUTTON ----------*/
+	
+	.v-button-pdf-toolbar{
+		position: relative;
+	    text-align: center;
+	    white-space: nowrap;
+	    outline: none;
+	    -webkit-tap-highlight-color: transparent;
+	    -webkit-touch-callout: none;
+	    cursor: pointer;
+	    height: 37px;
+	    padding: 0 16px;
+	    color: #527baf;
+	    font-weight: 400;
+	    border-radius: 4px;
+	    border: none !important;
+	    border-top-color: #c5c5c5;
+	    border-bottom-color: #bcbcbc;
+	    background-color: inherit;
+	    background-image: none !important;   
+	    -webkit-box-shadow: none !important;
+	    box-shadow: none ;
+	    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	    }
+	    
+	   
+	.bbr-pdf-viewer .bbr-pdf-viewer-navigation .v-widget:first-child, .bbr-pdf-viewer .bbr-pdf-viewer-angle-box .v-widget:first-child, .bbr-pdf-viewer .bbr-pdf-viewer-additional-box .v-widget:first-child, .bbr-pdf-viewer	.bbr-pdf-viewer-size-box .v-widget:first-child {
+	    border-right: none;
+	    border-radius: 4px 0px 0px 4px;
+	    font-size:20px;
+		} 
+	.bbr-pdf-viewer .bbr-pdf-viewer-navigation .v-widget:last-child, .bbr-pdf-viewer .bbr-pdf-viewer-angle-box .v-widget:last-child, .bbr-pdf-viewer .bbr-pdf-viewer-additional-box .v-widget:last-child, .bbr-pdf-viewer	.bbr-pdf-viewer-size-box .v-widget:last-child {
+	    border-radius: 0px 4px 4px 0px;	
+	    font-size:20px;
+	    }
+	.bbr-pdf-viewer	.bbr-pdf-viewer-size-box .v-button-increase {
+	    border-right: none;
+	    border-radius: 0px;
+	    font-size:20px;
+		}
+	.bbr-pdf-viewer .bbr-pdf-viewer-select-size.v-select-select {
+	    display: inline-block;
+	    height: 37px;
+	    font-size: 12px !important;
+	    }
+	    
+	/*----FILTRO----*/
+	
+	.v-datefield {
+	    position: relative;
+	    width: 185px;
+	    height: 28px !important;
+	    border-radius: 4px;
+	}
+	
+	.v-app {    
+	    font-size: 12px !important;
+	}
+	
+	.v-spacing {
+	    height: 6px !important;
+	}
+	
+   /*FORM CONTACT PROVIDER*/
+   .bbr-bbr-item-select-field-button{
+	    position: relative;
+	    height: 100% !important;
+	    border-color: #bcbcbc !important;
+	    border-width: thin !important;
+	    border-top-style: solid !important;
+	    border-right-style: solid !important;
+	    border-bottom-style: solid !important;
+	    border-left-style: none !important;
+        background: #ffffff;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        box-shadow:none;
+   	} 
+   
+   
+   
+   
+   
+   /* Help Button */
+
+	
+	
+
+
+
+   /*----BOTÓN DE AYUDA----*/
+   .module-help-button{
+   	}
+
+	.bbr-help-button .v-button .v-button-wrap {
+		display: none
+	}
+	
+	.bbr-help-button:focus:after {
+	    border : none;
+	    box-shadow: none !important;
+	}
+
+		
+	.bbr-help-button .v-button:focus:after{
+	    border : none;
+	    box-shadow: none;
+	}
+
+   
+	.module-help-button-single:focus:after {
+	    box-shadow: none;
+	}
+	
+	.v-button.module-help-button-single{
+		background-image: none;
+		background-image: none;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+	}	
+
+	.module-help-button-single{
+		background-image: url("/BBRe-commerce/VAADIN/themes/irsb2blinkportalweb/assets/images/buttons/icon_Help.png")!important;
+	    background-repeat:no-repeat;
+	    background-position: center;
+	    border-width: 0px;
+	    cursor:pointer;
+	    border : none;
+		width: 30px;
+		height: 30px;		
+		-webkit-box-shadow: none;
+		box-shadow: none;
+	  	padding-right: 1px;
+	    padding-left: 1px;
+	    top: 1px;
+	    background-color: transparent !important;
+   	}
+	
+	.module-help-button-multi{
+		background-image: url("/BBRe-commerce/VAADIN/themes/irsb2blinkportalweb/assets/images/buttons/icon_Help.png")!important;
+	    background-repeat:no-repeat;
+	    background-position: center;
+	    border-width: 0px;
+	    cursor:pointer;
+	    border : none;
+		width: 30px;
+		height: 30px;		
+		-webkit-box-shadow: none;
+		box-shadow: none;
+	  	padding-right: 1px;
+	    padding-left: 1px;
+        top: 1px;
+        background-color: transparent !important;
+   	}
+
+	.module-help-button-disabled{
+         background-image: url("/BBRe-commerce/VAADIN/themes/irsb2blinkportalweb/assets/images/buttons/icon_Help.png") !important;
+         background-repeat: no-repeat;
+         background-position: center;
+         border-width: 0px;
+         cursor: not-allowed;
+         border: none;
+         width: 30px;
+         height: 30px;
+         -webkit-box-shadow: none;
+         box-shadow: none;
+         padding-right: 1px;
+         padding-left: 1px;
+         top: 1px;
+         background-color: transparent !important;
+   	}
+   
+	.module-help-action-button {
+	   	font-size:12px;
+	   	height:25px;
+	   	border: none;
+	    box-shadow: none;
+	    background: transparent;
+	    cursor: pointer;
+	    color: #059ae5;	   
+	    transition: color 140ms;
+	    padding:0;
+	}	
+	.module-help-action-button:hover {
+	    color: #12b0ff;
+	}	
+	.module-help-action-button:hover:after {
+		background-color: transparent;
+	}	
+	.module-help-action-button:focus {
+	    outline: none;
+	}
+	.module-help-action-button:focus:after {
+	    box-shadow: none;
+	}
+	
+	.v-button.v-disabled.module-help-action-button {
+	    color:#000;
+	    text-decoration: none;
+	}
+
+	.module-help-button-multi{
+		margin-right: 10px; 
+		.bbr-popup-indicator{
+			margin-left:26px;
+		}
+	}
+
+	.module-help-button-multi:focus:after{
+		box-shadow: none;
+	} 
+	/*Upload fixed*/
+	.v-slot-btn-upload-bottom-fixed {
+         padding-bottom: 1px;
+    }
+    
+    /*KPI-SALES*/
+    .kpi-card-background {
+		background-color: #ffffff;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.kpi-card-background-message {
+		background-color: #fdf7dc;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.kpi-card-title {
+		color: #107ca9;
+		font-weight: 400;
+		font-size: 1.8em;
+		margin-top: 10px !important;
+	}
+	.kpi-card-content {
+		.year-label {
+			font-weight: 400;
+		}
+	}
+	.kpi-card-footer {
+		.value-label {
+			margin-top: 10px !important;
+			font-weight: 400;
+			font-size: 1.8em;
+		}
+	}
+	/***********/
+	/*COLORS*/
+
+	.background-white{
+		background: white;
+	}
+	
+	.box-red-panel{
+		color:#842029;
+		background-color: #f8d7da;
+   		border-radius: 5px;    
+    	border: 1px solid #f5c2c7;
+    	
+	}
+	
+	.box-standard-panel{
+		color: #41464b;
+    	background-color: #e2e3e5;
+    	border-radius: 5px;    	  
+    	border: 1px solid #d3d6d8;    	
+	}
+	
+	.box-blue-panel{
+		color: #084298;
+    	background-color: #cfe2ff;
+    	border-radius: 5px;    	  
+    	border: 1px solid #b6d4fe;    	
+	}
+	
+	.box-yellow-panel{
+		color: #664d03;
+    	background-color: #fff3cd;
+    	border-radius: 5px;    	  
+    	border: 1px solid #ffecb5; 
+	}	
+	
+	.note-background-message {
+		background-color: #fdf7dc;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.note-background-message-orange {
+		background-color: #ff9966;
+		border-radius: 5px;
+	}
+	.note-background-message-yellow {
+		background-color: #ffe77b;
+		border-radius: 5px;
+	}
+	.note-background-message_short {
+		background-color: #fdf7dc;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 1px;
+		padding-right: 10px;
+	}
+	.note-background-message-orange_short {
+		background-color: #ff9966;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 1px;
+		padding-right: 10px;
+	}
+	.note-spl-message_yellow {
+	background-color: #fdf7dc;
+	}
+	.note-spl-message-orange {
+		background-color: #ff9966;
+	}
+ 	/***********/
+	.bg-red-excel{
+		background:#FF0000 !important;
+	}
+
+	.bg-yellow-excel{
+		background:#FFCC00 !important;
+	}
+
+	.bg-bluelight-excel{
+		background:#CCFFCC !important;
+	}
+
+	.bg-green-excel{
+		background:#99CC00 !important;
+	}
+
+	.bg-orange-excel{
+		background:#FF6600 !important;
+	}
+
+	.bg-gray-excel{
+		background:#C0C0C0 !important;
+	}
+
+	.bg-blue-excel{
+		background:#99CCFF !important;
+	}
+
+	
+	
+	/*Binder */
+	.bbr-binder-layout{
+		padding: 5px;
+	}
+
+	.bbr-binder-readonly-field{
+		height: 26px;
+		width: 100%;
+		background-color: #ececec;
+		cursor: not-allowed;
+		.bbr-bbr-item-select-field-read-only{
+			.bbr-bbr-item-select-field-label-read-only{
+				cursor: not-allowed !important;
+			}
+		}
+	}
+	
+	.v-caption-bbr-binder-readonly-field{
+		font-size: 13px;
+	}
+
+	.bbr-binder-field{
+		height: 26px;
+		width: 100%;
+		.bbr-bbr-item-select-field-read-only{
+			.bbr-bbr-item-select-field-label-read-only{
+				background-color : #FFFFFF !important;
+			}
+		}
+	}
+	
+	
+	.bbr-binder-field-right{
+		height: 26px;
+		width: 100%;
+		text-align: right !important;
+		.bbr-bbr-item-select-field-read-only{
+			.bbr-bbr-item-select-field-label-read-only{
+				background-color : #FFFFFF !important;
+			}
+		}
+	}
+	
+
+	.v-datefield-bbr-binder-readonly-field [class*="textfield"] {
+	    background-color: #ececec !important;
+	    cursor: not-allowed !important;
+	}
+
+	.v-filterselect-bbr-binder-readonly-datefield [class*="input"] {
+	    background-color: #ececec !important;
+	    cursor: not-allowed !important;
+	}
+
+	.v-caption-bbr-binder-field{
+		font-size: 13px;
+	}
+
+	.bbr-binder-checkbox{
+	    font-weight: 400;
+	}
+
+	.bbr-binder-caption{
+		font-size: 13px;
+	    font-weight: 400;
+	}
+
+	/*time field only*/
+	.time-only .v-inline-datefield-calendarpanel-header,
+	.time-only .v-inline-datefield-calendarpanel-body {
+	  display: none;
+	}
+
+
+    /*selector de categoria*/
+    .fixed-item-select-field-label {
+        .bbr-bbr-item-select-field-label {
+            width: 225px !important;
+            height: 26px !important;
+        }
+    }
+   
+   /*Gallery Item*/
+   .bbr-gallery-item{
+   	}
+   
+   .bbr-gallery-item-selected{
+   		border: 1px solid black;
+   	}
+   
+    .bbr-gallery-item:hover{
+   		background: rgba(0,0,0,0);
+		color: #3a7999;
+		box-shadow: inset 0 0 0 3px #3a7999;
+   	}
+   
+   .bbr-gallery-item-single{
+   }
+   .bbr-gallery-item-selector-single{
+   }
+   .v-slot-bbr-gallery-item-selector-single:hover{
+   		background: rgba(0,0,0,0);
+		color: #3a7999;
+		box-shadow: inset 0 0 0 3px #3a7999;
+   	}
+   .bbr-gallery-item-multi{
+   }
+   .bbr-gallery-item-selector-multi{
+   }
+   .v-slot-bbr-gallery-item-selector-multi:hover{
+   		background: rgba(0,0,0,0);
+		color: #3a7999;
+		box-shadow: inset 0 0 0 3px #3a7999;
+   	}
+   	
+   
+   .auto-height{
+   		height : auto !important;
+   	}
+   	
+   	
+   	.scrollable-layout{
+   		overflow: auto !important;
+   	}
+   	
+   	.scrollable-layout-hidden{
+   		overflow: hidden;
+   	}
+   	
+   	
+	.left-fixed-button{
+		position: fixed;
+	    top: 50%;
+	    left: 0px; 
+	    z-index:10000;
+		border-radius: 0px 0px 10px 10px;
+	    -ms-transform: rotate(-90deg);
+	    -webkit-transform: rotate(-90deg);
+	    transform: rotate(-90deg);
+	    margin: 0px 0px 0px -30px;
+	    color: #FFFFFF;
+	    background: #107ca9;
+	    font-size: 11px;
+	    padding: unset;
+	}
+	
+	/*POPUPS*/
+	
+	.popup-upload-image-button{
+		display: grid;
+    	align-content: center;
+    	justify-content: center;
+    	background-color: #f29d23 !important;
+    	background-image: -webkit-linear-gradient(top, #f29d23 2%, #f29d23 98%) !important;
+    	color: white !important;
+	}
+	
+	.center-content {
+		display: grid;
+		align-content: center;
+		justify-content: center;
+		&.bg-color-gray {
+			background-color: #f7f7f7;
+		}
+		&.bg-color-white {
+			background-color: #ffffff;
+		}
+	}
+	
+	/*SCORE CARD*/
+	
+	.score-card-action-title {
+		font-size:18px;
+	}
+	.score-card-action-button {
+		font-size:42px;
+	   	height:25px;
+	   	border: none;
+	    box-shadow: none;
+	    background: transparent;
+	    cursor: pointer;
+	    color: #000000;	   
+	    transition: color 140ms;
+	    text-decoration: underline;
+	    padding:0;
+	}
+	.score-card-action-button:hover {
+	    color: #12b0ff;
+	}	
+	.score-card-action-button:hover:after {
+		background-color: transparent;
+	}	
+	.score-card-action-button:focus {
+	    outline: none;
+	}
+	.score-card-action-button:focus:after {
+	    box-shadow: none;
+	}
+	
+	/*CONTROL-PANEL-GRID*/
+
+	.control-panel-grid {
+		padding: 0 25px 25px 25px;
+	  	display: grid;
+	  	grid-template-columns: 400px auto auto auto;
+	  	grid-template-rows: 50% 50%;
+	  	grid-template-areas: 'panel-a panel-1 panel-2 panel-3' 'panel-b panel-4 panel-5 .';
+	  	grid-gap: 1em;
+	}
+
+	.card-info-title {
+		font-weight: 400;
+		padding-left: 5%;
+	}
+	
+	.control-panel-action-button {
+	   	font-size:12px;
+	   	height:25px;
+	   	border: none;
+	    box-shadow: none;
+	    background: transparent;
+	    cursor: pointer;
+	    color: #059ae5;	   
+	    transition: color 140ms;
+	    text-decoration: underline;
+	    padding:0;
+	    &.total-control-panel-action-button{
+	    	color:white !important;
+	    }
+	}	
+	.control-panel-action-button:hover {
+	    color: #12b0ff;
+	}	
+	.control-panel-action-button:hover:after {
+		background-color: transparent;
+	}	
+	.control-panel-action-button:focus {
+	    outline: none;
+	}
+	.control-panel-action-button:focus:after {
+	    box-shadow: none;
+	}
+	
+	.v-button.v-disabled.action-button {
+	    color:#000;
+	    text-decoration: none;
+	}
+	
+	.card-info-total {
+	    background-color: #107ca9;
+	    padding: 5px 10px 10px 10px;
+	    &.total_with_scroll{
+	    	padding: 5px 25px 10px 10px;
+	    }
+	}
+
+	.card-info-content{
+		background-color: white;
+    	border: 1px solid black;
+		.v-slot-card-info-total{
+			color:white;
+			background-color: #107ca9;
+		}
+	}
+	
+	.card-info-dates-container {
+		border: 1px solid black;
+		background-color: white;
+	}
+	
+	.items-list-component {
+		padding: 10px;
+		.v-slot {
+			height: 20px !important;
+		}
+	}
+	
+	.item-label-left {
+	    margin-left: 5%;
+	    &.v-widget {
+	    	text-align:center;
+	    }
+	    &.late {
+	    	color: red;
+	    }
+	}
+	
+	@each $i in 'a' 'b' '1' '2' '3' '4' '5' {
+        .panel-#{$i} {
+        	grid-area: panel-#{$i};
+        	display: contents;
+        	border: 2px solid rgb(24,154,153);
+        }
+    }
+	
+	.panel-mastersload-content {
+	}
+	
+	.mastersload-content {
+		border: .5px solid #eaeaea;
+		font-size: 14px;
+		font-weight:400;
+	}
+	.sublabel{
+		color:red;
+		font-size:12px; 
+	}
+}

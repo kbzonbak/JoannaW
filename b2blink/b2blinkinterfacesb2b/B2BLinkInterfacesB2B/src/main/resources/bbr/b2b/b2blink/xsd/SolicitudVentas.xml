@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SolicitudVentas xmlns="http://www.bbr.cl/SolicitudVentas" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bbr.cl/SolicitudVentas SolicitudVentas.xsd ">
+  <nombreportal>nombreportal</nombreportal>
+  <codproveedor>codproveedor</codproveedor>
+  <codcomprador>codcomprador</codcomprador>
+  <formato>formato</formato>
+  <fecha_activacion>fecha_activacion</fecha_activacion>
+</SolicitudVentas>

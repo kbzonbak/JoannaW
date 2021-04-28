@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/OC_Cliente" elementFormDefault="qualified" xmlns:oc="http://www.bbr.cl/OC_Cliente">
+	<!-- Versión Cliente 1.0 -->
+	<element name="order">
+		<complexType>
+			<sequence>
+				<element name="buyer" type="string"/>
+				<element name="vendor" type="string"/>
+				<element name="number" type="string"/>
+				<element name="ordertype" type="string"/>
+				<element name="ordertypename" type="string" minOccurs="0" />
+				<element name="previousordertype" type="string"/>
+				<element name="complete" type="boolean"/>
+				<element name="ticket" type="string" minOccurs="0" />
+				<element name="receiptnumber" type="string" minOccurs="0" /> <!-- NRO BOLETA -->
+				<element name="status" type="string" minOccurs="0" />
+				<element name="numref1" type="string" minOccurs="0" />
+				<element name="numref2" type="string" minOccurs="0" />
+				<element name="numref3" type="string" minOccurs="0" />
+				<element name="request" type="string" minOccurs="0" />
+				<element name="issuedate" type="date" minOccurs="0" /> <!-- EMISIÓN -->
+				<element name="effectivdate" type="date" minOccurs="0" /><!-- VIGENCIA -->
+				<element name="expirationdate" type="date" minOccurs="0" />	<!-- VENCIMIENTO--> 
+				<element name="commitmentdate" type="date" minOccurs="0" /><!-- COMPROMISO -->
+				<element name="total" type="double" minOccurs="0" />
+				<element name="paymentcondition" type="string" minOccurs="0" />
+				<element name="observation" type="string" minOccurs="0" />
+				<element name="responsible" type="string" minOccurs="0" />
+				<element name="responsibleemail" type="string" minOccurs="0" />
+				<element name="currency" type="string" minOccurs="0" />
+				<element name="valid" type="string" minOccurs="0" />
+				<element name="deliveryplace" type="oc:local" minOccurs="0"/>
+				<element name="saleplace" type="oc:local" minOccurs="0"/>
+				<element name="section" minOccurs="0">
+					<complexType>
+						<sequence>
+							<element name="code" type="string" />
+							<element name="name" type="string" minOccurs="0" />
+						</sequence>
+					</complexType>
+				</element>
+		        <element name="action" minOccurs="0">
+					<complexType>
+						<sequence>             
+	                		<element name="code" type="string" minOccurs="0"/>             
+			            	<element name="description" type="string"  minOccurs="0" />
+			            </sequence>
+			        </complexType>
+		        </element>
+				<element name="client" minOccurs="0">
+					<complexType>
+						<sequence>
+							<element name="name" type="string" />
+							<element name="identity" type="string" />
+							<element name="checkdigit" type="string" minOccurs="0"/>
+							<element name="phone" type="string" minOccurs="0"/>
+							<element name="phone2" type="string" minOccurs="0"/>
+							<element name="address" type="string" minOccurs="0"/>
+							<element name="streetnumber" type="string" minOccurs="0"/>
+							<element name="apartment" type="string" minOccurs="0"/>
+							<element name="housenumber" type="string" minOccurs="0"/>
+							<element name="region" type="string" minOccurs="0"/>
+							<element name="commune" type="string" minOccurs="0"/>
+							<element name="city" type="string" minOccurs="0"/>
+							<element name="location" type="string" minOccurs="0"/>
+							<element name="observation" type="string" minOccurs="0"/>
+						</sequence>
+					</complexType>
+				</element>
+				<element name="discounts" minOccurs="0">
+					<complexType>
+						<sequence minOccurs="0" maxOccurs="unbounded">
+							<element name="discounts" type="oc:discount_charge" />
+						</sequence>
+					</complexType>
+				</element>
+				<element name="charges" minOccurs="0">
+					<complexType>
+						<sequence minOccurs="0" maxOccurs="unbounded">
+							<element name="charges" type="oc:discount_charge" />
+						</sequence>
+					</complexType>
+				</element>
+				<element name="details" minOccurs="0">
+					<complexType>
+						<sequence maxOccurs="unbounded">
+							<element name="detail" minOccurs="0">
+								<complexType>
+									<sequence>
+										<element name="position" type="int" />
+										<element name="skubuyer" type="string" />
+										<element name="skuvendor" type="string" minOccurs="0" />
+										<element name="ean13" type="string" minOccurs="0" />
+										<element name="ean13buyer" type="string" minOccurs="0" />
+										<element name="productdescription" type="string" minOccurs="0" />
+										<element name="codeumc" type="string" minOccurs="0" />
+										<!-- UNIDAD MEDIDA DE COMPRA (CAJA  sixpack de bebidas) -->
+										<element name="descriptionumc" type="string" minOccurs="0" />
+										<!-- DESCRIPCIÓN UNIDAD MEDICA DE COMPRA -->
+										<element name="codeumb" type="string" minOccurs="0" />
+										<!-- UNIDAD MEDIDA BASE (LATA) -->
+										<element name="descriptionumb" type="string" minOccurs="0" />
+										<!-- DESCRIPCIÓN UNIDAD MEDICA BASE -->
+										<element name="umb_x_umc" type="int" minOccurs="0" />
+										<!-- BASE POR COMPRA UNIDADES EN UNA CAJA (6) -->
+										<element name="quantityumc" type="int" minOccurs="0" />
+										<!-- CANTIDAD UMC -->
+										<element name="innerpack" type="int" minOccurs="0" />
+										<element name="listcost" type="double" minOccurs="0" />
+										<element name="finalcost" type="double" minOccurs="0" />
+										<element name="costaftertaxes" type="double" minOccurs="0" />
+										<element name="listprice" type="double" minOccurs="0" />
+										<element name="item" type="string" minOccurs="0" />
+										<!-- RUBRO -->
+										<element name="ean1" type="string" minOccurs="0" />            
+										<element name="ean2" type="string" minOccurs="0" />            
+										<element name="ean3" type="string" minOccurs="0" />            
+										<element name="stylecode" type="string" minOccurs="0" />       
+										<element name="styledescription" type="string" minOccurs="0" />
+										<element name="stylebrand" type="string" minOccurs="0" />
+										<element name="numref1" type="string" minOccurs="0" />
+										<element name="numref2" type="string" minOccurs="0" />
+										<element name="tolerance" type="string" minOccurs="0" />
+										<element name="productdeliverydate" type="date" minOccurs="0" />
+										<element name="observation" type="string" minOccurs="0"/>
+										<element name="freightcost" type="double" minOccurs="0" />
+										<!-- COSTO FLETE -->
+										<element name="freightweight" type="double" minOccurs="0" />
+										<!-- PESO FLETE -->
+										<element name="discounts" minOccurs="0">
+											<complexType>
+												<sequence minOccurs="0" maxOccurs="unbounded">
+													<element name="discount" type="oc:discount_charge" />
+												</sequence>
+											</complexType>
+										</element>
+										<element name="charges" minOccurs="0">
+											<complexType>
+												<sequence minOccurs="0" maxOccurs="unbounded">
+													<element name="charge" type="oc:discount_charge" />
+												</sequence>
+											</complexType>
+										</element>
+										<element name="predistributions" minOccurs="0">
+											<complexType>
+												<sequence minOccurs="0" maxOccurs="unbounded">
+													<element name="predistribution">
+														<complexType>
+															<sequence>
+																<element name="deliveryplace" type="oc:local" minOccurs="0"/>
+																<element name="quantity" type="int" />
+																 <element name="shipping_quantity" type="string" minOccurs="0"/>
+											                     <element name="received_quantity" type="string" minOccurs="0"/>
+											                     <element name="pending_quantity" type="string" minOccurs="0"/>
+															</sequence>
+														</complexType>
+													</element>
+												</sequence>
+											</complexType>
+										</element>
+									</sequence>
+								</complexType>
+							</element>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+	<complexType name="discount_charge">
+		<sequence>
+			<element name="code" type="string" />
+			<element name="description" type="string" />
+			<element name="percentage" type="boolean" />
+			<element name="value" type="double" />
+		</sequence>
+	</complexType>
+	<complexType name="local">
+		<sequence>
+			<element name="code" type="string" />
+			<element name="name" type="string" />
+			<element name="ean13" type="string" minOccurs="0"/>
+			<element name="address" type="string" minOccurs="0"/>
+		</sequence>
+	</complexType>
+</schema>

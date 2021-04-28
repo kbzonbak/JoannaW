@@ -1,0 +1,129 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>bbr.b2b.common.base</groupId>
+	<artifactId>B2BLinkInterfacesB2B</artifactId>
+	<version>1.2.3-SNAPSHOT</version>
+	
+	<repositories>
+		<repository>
+			<id>jfrogserver</id>
+			<url>http://jfrogserver:8081/artifactory/bbr-repository/</url>
+		</repository>
+	</repositories> 
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.wildfly</groupId>
+				<artifactId>wildfly-parent</artifactId>
+				<version>10.1.0.Final</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>			
+		</dependencies>
+	</dependencyManagement>
+	
+	
+	<dependencies>
+		<!-- DEPENDENCIAS PARA ANT -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.0</version>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>2.3.0.1</version>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-xjc</artifactId>
+			<version>2.3.0.1</version>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-core</artifactId>
+			<version>2.3.0.1</version>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- FIN DEPENDENCIAS PARA ANT -->
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>6.0</version>
+			<scope>provided</scope>
+		</dependency>		
+
+		<dependency>
+			<groupId>org.apache.ant</groupId>
+			<artifactId>ant</artifactId>
+			<version>1.9.4</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			
+			<!-- antrun:run PARA EJECUTAR TAREA ANT -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+
+				<configuration>
+					<failOnError>false</failOnError>			
+					<target>
+						<property name="compile_classpath" refid="maven.compile.classpath" />
+
+						<ant antfile="src/main/resources/xjc.xml">
+							<target name="generar-clases" />
+						</ant>
+					</target>
+
+				</configuration>
+			</plugin>			
+		</plugins>		
+	</build>
+	
+	<distributionManagement>
+		<repository>
+			<id>jfrogserver</id>
+			<url>http://jfrogserver:8081/artifactory/bbr-repository/</url>
+		</repository>
+	</distributionManagement>		
+	
+</project>

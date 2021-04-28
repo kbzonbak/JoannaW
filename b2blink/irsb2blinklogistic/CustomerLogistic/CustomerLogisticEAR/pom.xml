@@ -1,0 +1,324 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>bbr.b2b.customer</groupId>
+		<artifactId>CustomerLogistic</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>CustomerLogisticEAR</artifactId>
+	<version>${b2b.version}</version>
+	<packaging>ear</packaging>
+
+	<name>CustomerLogisticEAR</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>bbr.b2b.common.base</groupId>
+			<artifactId>BaseModel</artifactId>
+			<version>${b2b.basemodel.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>bbr.b2b.customer</groupId>
+			<artifactId>CustomerLogisticManager</artifactId>
+			<version>${b2b.version}</version>
+			<type>ejb</type>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>bbr.b2b.customer</groupId>
+			<artifactId>CustomerLogisticQueue</artifactId>
+			<version>${b2b.version}</version>
+			<type>ejb</type>
+		</dependency>
+
+		<dependency>
+			<groupId>bbr.b2b.common.base</groupId>
+			<artifactId>BaseUtils</artifactId>
+			<version>${b2b.baseutils.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>bbr.b2b.customer</groupId>
+			<artifactId>CustomerLogisticUtils</artifactId>
+			<version>${b2b.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>bbr.b2b.customer</groupId>
+			<artifactId>CustomerLogisticModel</artifactId>
+			<version>${b2b.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>bbr.b2b.customer</groupId>
+			<artifactId>CustomerLogisticFacade</artifactId>
+			<version>${b2b.version}</version>
+			<type>ejb</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>bbr.b2b.customer</groupId>
+			<artifactId>CustomerLogisticScheduleApi</artifactId>
+			<version>${b2b.version}</version>
+			<type>war</type>
+		</dependency>
+
+		<dependency>
+			<groupId>bbr.b2b.customer</groupId>
+			<artifactId>CustomerLogisticGeneralApi</artifactId>
+			<version>${b2b.version}</version>
+			<type>war</type>
+		</dependency>		
+		
+		<dependency>
+			<groupId>bbr.b2b.customer</groupId>
+			<artifactId>CustomerLogisticGeneralClient</artifactId>
+			<version>${b2b.version}</version>
+			<type>jar</type>
+		</dependency>	
+
+		
+		
+	</dependencies>
+	
+	<profiles>
+		<profile>
+			<id>developer</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+
+		<profile>
+			<id>single-server-publisher</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.wildfly.plugins</groupId>
+						<artifactId>wildfly-maven-plugin</artifactId>
+						<version>2.0.1.Final</version>
+						<inherited>true</inherited>
+						<configuration>
+							<id>wildfly-credentials</id>
+							<force>true</force>
+							<filename>${artifactId}.ear</filename>
+							<modules-path>/opt/wildfly/modules</modules-path>
+							<serverConfig>${wildfly-profile-file}</serverConfig>
+							<hostname>${wildfly-hostname}</hostname>
+							<port>${wildfly-port}</port>
+						</configuration>
+						<executions>
+							<execution>
+								<id>Despliegue en Server</id>
+								<phase>install</phase>
+								<goals>
+									<goal>undeploy</goal>
+									<goal>execute-commands</goal>
+									<goal>deploy</goal>
+								</goals>
+								<configuration>
+									<fail-on-error>true</fail-on-error>
+									<commands>
+										<!-- COMANDOS PARA MANEJAR LAS SYSTEM-PROPERTIES -->
+										<!-- AGREGAR -->
+										<!-- <command>/system-property=test:add(value=prueba)</command> -->
+										<!-- ELIMINAR -->
+										<!-- <command>/system-property=test:remove()</command> -->
+										<!-- ACTUALIZAR -->
+										<!-- <command>/system-property=test:write-attribute(name=value, 
+											value=OtraPrueba)</command> -->
+									</commands>
+								</configuration>
+							</execution>
+						</executions>
+						<dependencies>
+							<dependency>
+								<groupId>org.wildfly.core</groupId>
+								<artifactId>wildfly-cli</artifactId>
+								<version>6.0.2.Final</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>multiple-server-publisher</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.wildfly.plugins</groupId>
+						<artifactId>wildfly-maven-plugin</artifactId>
+						<version>2.0.1.Final</version>
+						<inherited>true</inherited>
+						<configuration>
+							<id>wildfly-credentials</id>
+							<force>true</force>
+							<modules-path>/opt/wildfly/modules</modules-path>
+							<filename>${artifactId}.ear</filename>
+							<serverConfig>${wildfly-profile-file}</serverConfig>
+						</configuration>
+						<executions>
+							<execution>
+								<id>Despliegue en Server 1</id>
+								<phase>install</phase>
+								<goals>
+									<goal>undeploy</goal>
+									<goal>execute-commands</goal>
+									<goal>deploy</goal>
+								</goals>
+								<configuration>
+									<fail-on-error>true</fail-on-error>
+									<hostname>${wildfly-hostname-1}</hostname>
+									<port>${wildfly-port-1}</port>
+									<commands>
+										<!-- COMANDOS PARA MANEJAR LAS SYSTEM-PROPERTIES -->
+										<!-- AGREGAR -->
+										<!-- <command>/system-property=test:add(value=prueba)</command> -->
+										<!-- ELIMINAR -->
+										<!-- <command>/system-property=test:remove()</command> -->
+										<!-- ACTUALIZAR -->
+										<!-- <command>/system-property=test:write-attribute(name=value, 
+											value=OtraPrueba)</command> -->
+									</commands>
+								</configuration>
+							</execution>
+							<execution>
+								<id>Despliegue en Server 2</id>
+								<phase>install</phase>
+								<goals>
+									<goal>undeploy</goal>
+									<goal>execute-commands</goal>
+									<goal>deploy</goal>
+								</goals>
+								<configuration>
+									<fail-on-error>true</fail-on-error>
+									<hostname>${wildfly-hostname-2}</hostname>
+									<port>${wildfly-port-2}</port>
+									<commands>
+										<!-- COMANDOS PARA MANEJAR LAS SYSTEM-PROPERTIES -->
+										<!-- AGREGAR -->
+										<!-- <command>/system-property=test:add(value=prueba)</command> -->
+										<!-- ELIMINAR -->
+										<!-- <command>/system-property=test:remove()</command> -->
+										<!-- ACTUALIZAR -->
+										<!-- <command>/system-property=test:write-attribute(name=value, 
+											value=OtraPrueba)</command> -->
+									</commands>
+								</configuration>
+							</execution>
+						</executions>
+						<dependencies>
+							<dependency>
+								<groupId>org.wildfly.core</groupId>
+								<artifactId>wildfly-cli</artifactId>
+								<version>6.0.2.Final</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<version>6</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<finalName>CustomerLogisticEAR</finalName>
+					<fileNameMapping>no-version</fileNameMapping>
+					<archive>
+						<manifestEntries>
+							<Dependencies>org.jboss.msc, org.wildfly.clustering.singleton,
+								org.jboss.as.server</Dependencies>
+						</manifestEntries>
+					</archive>
+					<modules>
+						<ejbModule>
+							<groupId>bbr.b2b.customer</groupId>
+							<artifactId>CustomerLogisticFacade</artifactId>
+							<bundleFileName>CustomerLogisticFacade.jar</bundleFileName>
+						</ejbModule>
+						
+						<ejbModule>
+							<groupId>bbr.b2b.customer</groupId>
+							<artifactId>CustomerLogisticManager</artifactId>
+							<bundleFileName>CustomerLogisticManager.jar</bundleFileName>
+						</ejbModule>
+						
+						<ejbModule>
+							<groupId>bbr.b2b.customer</groupId>
+							<artifactId>CustomerLogisticQueue</artifactId>
+							<bundleFileName>CustomerLogisticQueue.jar</bundleFileName>
+						</ejbModule>
+						<webModule>
+							<groupId>bbr.b2b.customer</groupId>
+							<artifactId>CustomerLogisticScheduleApi</artifactId>
+							<bundleFileName>CustomerLogisticScheduleApi.war</bundleFileName>
+						</webModule>
+						<webModule>
+							<groupId>bbr.b2b.customer</groupId>
+							<artifactId>CustomerLogisticGeneralApi</artifactId>
+							<bundleFileName>CustomerLogisticGeneralApi.war</bundleFileName>
+						</webModule>
+						<jarModule>
+							<groupId>bbr.b2b.customer</groupId>
+							<artifactId>CustomerLogisticGeneralClient</artifactId>
+							<bundleFileName>CustomerLogisticGeneralClient.jar</bundleFileName>
+						</jarModule>
+						<jarModule>
+							<groupId>bbr.b2b.customer</groupId>
+							<artifactId>CustomerLogisticModel</artifactId>
+							<bundleFileName>CustomerLogisticModel.jar</bundleFileName>
+						</jarModule>
+						<jarModule>
+							<groupId>bbr.b2b.customer</groupId>
+							<artifactId>CustomerLogisticUtils</artifactId>
+							<bundleFileName>CustomerLogisticUtils.jar</bundleFileName>
+						</jarModule>
+						<jarModule>
+							<groupId>bbr.b2b.common.base</groupId>
+							<artifactId>BaseModel</artifactId>
+							<bundleFileName>BaseModel.jar</bundleFileName>
+						</jarModule>
+						<jarModule>
+							<groupId>bbr.b2b.common.base</groupId>
+							<artifactId>BaseUtils</artifactId>
+							<bundleFileName>BaseUtils.jar</bundleFileName>
+						</jarModule>
+					</modules>
+				</configuration>
+			</plugin>
+			<!-- <plugin> <groupId>org.wildfly.plugins</groupId> <artifactId>wildfly-maven-plugin</artifactId> 
+				<version>1.0.2.Final</version> <inherited>true</inherited> <configuration> 
+				<id>wildfly-user</id> <force>true</force> <filename>RipleyUsersEAR.ear</filename> 
+				<modules-path>/opt/wildfly-10.1.0.Final2/modules</modules-path> <serverConfig>standalone-ha.xml</serverConfig> 
+				<hostname>10.200.22.239</hostname> <port>10090</port> <server-args> <server-arg>-Djboss.server.base.dir=/opt/wildfly-10.1.0.Final2/usuarios-keycloak/</server-arg> 
+				<server-arg>-Djboss.server.default.config=standalone-ha.xml</server-arg> 
+				<server-arg>-Djboss.bind.address.management=10.200.22.239</server-arg> <server-arg>-Djboss.bind.address.unsecure=10.200.22.239</server-arg> 
+				<server-arg>-Djboss.bind.address.private=10.200.22.239</server-arg> <server-arg>-Djboss.bind.address=10.200.22.239</server-arg> 
+				</server-args> </configuration> <dependencies> <dependency> <groupId>org.wildfly</groupId> 
+				<artifactId>wildfly-cli</artifactId> <version>8.1.0.Final</version> </dependency> 
+				</dependencies> </plugin> -->
+		</plugins>
+	</build>
+</project>

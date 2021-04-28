@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/NotificacionOrden" elementFormDefault="qualified">
+  <!-- Versión 1.1 -->
+  <element name="NotificacionOrden">
+    <complexType>
+      <sequence minOccurs="1" maxOccurs="1">
+        <element name="nombreportal" type="string" />
+        <element name="codproveedor" type="string" />
+        <element name="codcomprador" type="string" />
+        <element name="numorden" type="string" />
+        <element name="estado" type="string" />
+		<element name="estado_oc_bbr" type="string"  minOccurs="0"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>

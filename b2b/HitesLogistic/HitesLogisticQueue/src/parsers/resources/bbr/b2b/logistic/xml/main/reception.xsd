@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:element name="recepcion">
+		<xs:complexType>
+			<xs:sequence>
+                <xs:element name="num_cita" type="xs:int" minOccurs="0" />
+                <xs:element name="num_asn" type="xs:string" minOccurs="1" />
+                <xs:element name="num_recepcion" type="xs:int" minOccurs="0" />
+                <xs:element name="fecha_recepcion" type="xs:string" minOccurs="1" />
+                <xs:element name="estado" type="xs:int" minOccurs="1" />
+                <xs:element name="comentario" type="xs:string" minOccurs="0" />
+                <xs:element name="detalles" minOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="detalle" minOccurs="1"  maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="num_oc" type="xs:int" minOccurs="1"/>
+                                        <xs:element name="posicion" type="xs:int" minOccurs="1"/>
+                                        <xs:element name="cod_producto" type="xs:string" minOccurs="1"/>
+                                        <xs:element name="cod_local_destino" type="xs:string" minOccurs="1"/>
+                                        <xs:element name="cantidades_umc" type="xs:decimal" minOccurs="1"/>
+                                    </xs:sequence>
+                            	</xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+        	</xs:sequence>                
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

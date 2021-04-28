@@ -1,0 +1,15 @@
+package bbr.b2b.logistic.ddcorders.interfaces;
+
+import bbr.b2b.common.adtclasses.exceptions.AccessDeniedException;
+import bbr.b2b.common.adtclasses.exceptions.NotFoundException;
+import bbr.b2b.common.adtclasses.exceptions.OperationFailedException;
+import bbr.b2b.common.adtclasses.interfaces.IGenericServer;
+import bbr.b2b.logistic.ddcorders.data.wrappers.DdcOrderChargeDiscountDetailW;
+import bbr.b2b.logistic.ddcorders.entities.DdcOrderChargeDiscountDetail;
+import bbr.b2b.logistic.ddcorders.entities.DdcOrderChargeDiscountDetailId;
+public interface IDdcOrderChargeDiscountDetailServer extends IGenericServer<DdcOrderChargeDiscountDetail, DdcOrderChargeDiscountDetailId, DdcOrderChargeDiscountDetailW> {
+
+	DdcOrderChargeDiscountDetailW addDdcOrderChargeDiscountDetail(DdcOrderChargeDiscountDetailW ddcorderchargediscountdetail) throws AccessDeniedException, OperationFailedException, NotFoundException;
+	DdcOrderChargeDiscountDetailW[] getDdcOrderChargeDiscountDetails() throws AccessDeniedException, OperationFailedException, NotFoundException;
+	DdcOrderChargeDiscountDetailW updateDdcOrderChargeDiscountDetail(DdcOrderChargeDiscountDetailW ddcorderchargediscountdetail) throws AccessDeniedException, OperationFailedException, NotFoundException;
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_5.xsd" version="5">
+  <display-name>SOA_GENERAL_EAR</display-name>
+  <module id="myeclipse.1242852025180">
+    <web>
+      <web-uri>SOA_GENERAL_WS.war</web-uri>
+      <context-root>/SOAGENERALWS</context-root>
+    </web>
+  </module>
+  <module id="myeclipse.1227538758859">
+    <ejb>SOA_GENERAL_Facade.jar</ejb>
+  </module>
+  <module id="myeclipse.1227551266203">
+    <ejb>SOA_GENERAL_Manager.jar</ejb>
+  </module>
+</application>

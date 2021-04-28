@@ -1,0 +1,3043 @@
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+	<xs:element name='ABFTZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ABGRT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ABGRU'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ABLAD'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ABRVW'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ABRVW_BEZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ABTNR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ACTION'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ADDICLASS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ADDICLASS_TXT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ADDIFM'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ADDIFM_TXT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ADDIIDOC'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ADDIKLART'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ADDIKLART_TXT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ADDIMATNR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ADDINUMBER'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ADDIVKME'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ALC5463'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ALC7161'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ALCKZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ALREF'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ALTNO'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='AMENG'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ANETW'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ANRED'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ANTLF'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ANZSN'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ARCKEY'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='AUGRU'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='AUGRU_BEZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='AUSGB'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='AUTHOR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='AUTLF'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='BELNR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='BESTQ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='BETRG'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='BMNG2'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='BNAME'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='BONIF'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='BPUMN'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='BPUMZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='BREIT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='BRGEW'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='BSARK'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='BSART'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='BSTZD'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='BTVOL'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CCINS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CCINS_BEZEI'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CCNAME'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CCNUM'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CFGINFO'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CHARC'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CHARC_TXT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CHARG'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CIMTYP'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CLASS_TYPE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CNT6066'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CNT6069'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='COM3148'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='COM3155'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='COMPLETE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CONFIG_ID'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CONSISTENT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CONTENT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='COUNC'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CREDAT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CRETIM'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CTA3139'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CTA3412'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CUOBJ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CURCY'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CURTP'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CUSADD'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='CUSADD_BEZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='DATUM'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='DELCO'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='DIRECT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='DIRLOCAL'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='DOCNUM'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='DOCREL'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='DTM2005'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='DTM2379'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='E1ADDI1'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='ADDIMATNR' minOccurs='0' />
+				<xs:element ref='ADDINUMBER' minOccurs='0' />
+				<xs:element ref='ADDIVKME' minOccurs='0' />
+				<xs:element ref='ADDIFM' minOccurs='0' />
+				<xs:element ref='ADDIFM_TXT' minOccurs='0' />
+				<xs:element ref='ADDIKLART' minOccurs='0' />
+				<xs:element ref='ADDIKLART_TXT' minOccurs='0' />
+				<xs:element ref='ADDICLASS' minOccurs='0' />
+				<xs:element ref='ADDICLASS_TXT' minOccurs='0' />
+				<xs:element ref='ADDIIDOC' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1CUBLB'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='CONTENT' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1CUCFG'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='POSEX' minOccurs='0' />
+				<xs:element ref='CONFIG_ID' minOccurs='0' />
+				<xs:element ref='ROOT_ID' minOccurs='0' />
+				<xs:element ref='SCE' minOccurs='0' />
+				<xs:element ref='KBNAME' minOccurs='0' />
+				<xs:element ref='KBVERSION' minOccurs='0' />
+				<xs:element ref='COMPLETE' minOccurs='0' />
+				<xs:element ref='CONSISTENT' minOccurs='0' />
+				<xs:element ref='CFGINFO' minOccurs='0' />
+				<xs:element ref='E1CUINS' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1CUPRT' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1CUVAL' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1CUBLB' minOccurs='0' maxOccurs='unbounded' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1CUINS'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='INST_ID' minOccurs='0' />
+				<xs:element ref='OBJ_TYPE' minOccurs='0' />
+				<xs:element ref='CLASS_TYPE' minOccurs='0' />
+				<xs:element ref='OBJ_KEY' minOccurs='0' />
+				<xs:element ref='OBJ_TXT' minOccurs='0' />
+				<xs:element ref='QUANTITY' minOccurs='0' />
+				<xs:element ref='AUTHOR' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1CUPRT'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='PARENT_ID' minOccurs='0' />
+				<xs:element ref='INST_ID' minOccurs='0' />
+				<xs:element ref='PART_OF_NO' minOccurs='0' />
+				<xs:element ref='OBJ_TYPE' minOccurs='0' />
+				<xs:element ref='CLASS_TYPE' minOccurs='0' />
+				<xs:element ref='OBJ_KEY' minOccurs='0' />
+				<xs:element ref='AUTHOR' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1CUREF'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='POSEX' minOccurs='0' />
+				<xs:element ref='CONFIG_ID' minOccurs='0' />
+				<xs:element ref='INST_ID' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1CUVAL'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='INST_ID' minOccurs='0' />
+				<xs:element ref='CHARC' minOccurs='0' />
+				<xs:element ref='CHARC_TXT' minOccurs='0' />
+				<xs:element ref='VALUE' minOccurs='0' />
+				<xs:element ref='VALUE_TXT' minOccurs='0' />
+				<xs:element ref='AUTHOR' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDC01'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='SGTYP' minOccurs='0' />
+				<xs:element ref='ZLTYP' minOccurs='0' />
+				<xs:element ref='LVALT' minOccurs='0' />
+				<xs:element ref='ALTNO' minOccurs='0' />
+				<xs:element ref='ALREF' minOccurs='0' />
+				<xs:element ref='ZLART' minOccurs='0' />
+				<xs:element ref='POSEX' minOccurs='0' />
+				<xs:element ref='RANG' minOccurs='0' />
+				<xs:element ref='EXGRP' minOccurs='0' />
+				<xs:element ref='UEPOS' minOccurs='0' />
+				<xs:element ref='MATKL' minOccurs='0' />
+				<xs:element ref='MENGE' minOccurs='0' />
+				<xs:element ref='MENEE' minOccurs='0' />
+				<xs:element ref='BMNG2' minOccurs='0' />
+				<xs:element ref='PMENE' minOccurs='0' />
+				<xs:element ref='BPUMN' minOccurs='0' />
+				<xs:element ref='BPUMZ' minOccurs='0' />
+				<xs:element ref='VPREI' minOccurs='0' />
+				<xs:element ref='PEINH' minOccurs='0' />
+				<xs:element ref='NETWR' minOccurs='0' />
+				<xs:element ref='ANETW' minOccurs='0' />
+				<xs:element ref='SKFBP' minOccurs='0' />
+				<xs:element ref='CURCY' minOccurs='0' />
+				<xs:element ref='PREIS' minOccurs='0' />
+				<xs:element ref='ACTION' minOccurs='0' />
+				<xs:element ref='KZABS' minOccurs='0' />
+				<xs:element ref='UEBTO' minOccurs='0' />
+				<xs:element ref='UEBTK' minOccurs='0' />
+				<xs:element ref='LBNUM' minOccurs='0' />
+				<xs:element ref='AUSGB' minOccurs='0' />
+				<xs:element ref='FRPOS' minOccurs='0' />
+				<xs:element ref='TOPOS' minOccurs='0' />
+				<xs:element ref='KTXT1' minOccurs='0' />
+				<xs:element ref='KTXT2' minOccurs='0' />
+				<xs:element ref='PERNR' minOccurs='0' />
+				<xs:element ref='LGART' minOccurs='0' />
+				<xs:element ref='STELL' minOccurs='0' />
+				<xs:element ref='ZWERT' minOccurs='0' />
+				<xs:element ref='E1EDC02' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDC03' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDC04' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDC05' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDC06' minOccurs='0' />
+				<xs:element ref='E1EDC07' minOccurs='0' />
+				<xs:element ref='E1EDCA1' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDC19' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDC17' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDC18' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDCT1' minOccurs='0' maxOccurs='unbounded' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDC02'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='QUALF' minOccurs='0' />
+				<xs:element ref='BELNR' minOccurs='0' />
+				<xs:element ref='XLINE' minOccurs='0' />
+				<xs:element ref='DATUM' minOccurs='0' />
+				<xs:element ref='UZEIT' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDC03'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='IDDAT' minOccurs='0' />
+				<xs:element ref='DATUM' minOccurs='0' />
+				<xs:element ref='UZEIT' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDC04'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='MWSKZ' minOccurs='0' />
+				<xs:element ref='MSATZ' minOccurs='0' />
+				<xs:element ref='MWSBT' minOccurs='0' />
+				<xs:element ref='TXJCD' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDC05'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='ALCKZ' minOccurs='0' />
+				<xs:element ref='KSCHL' minOccurs='0' />
+				<xs:element ref='KOTXT' minOccurs='0' />
+				<xs:element ref='BETRG' minOccurs='0' />
+				<xs:element ref='KPERC' minOccurs='0' />
+				<xs:element ref='KRATE' minOccurs='0' />
+				<xs:element ref='UPRBS' minOccurs='0' />
+				<xs:element ref='MEAUN' minOccurs='0' />
+				<xs:element ref='KOBTR' minOccurs='0' />
+				<xs:element ref='MENGE' minOccurs='0' />
+				<xs:element ref='PREIS' minOccurs='0' />
+				<xs:element ref='MWSKZ' minOccurs='0' />
+				<xs:element ref='MSATZ' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDC06'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='FORMELNR' minOccurs='0' />
+				<xs:element ref='FRMVAL1' minOccurs='0' />
+				<xs:element ref='FRMVAL2' minOccurs='0' />
+				<xs:element ref='FRMVAL3' minOccurs='0' />
+				<xs:element ref='FRMVAL4' minOccurs='0' />
+				<xs:element ref='FRMVAL5' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDC07'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='USERF1_NUM' minOccurs='0' />
+				<xs:element ref='USERF2_NUM' minOccurs='0' />
+				<xs:element ref='USERF1_TXT' minOccurs='0' />
+				<xs:element ref='USERF2_TXT' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDC17'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='QUALF' minOccurs='0' />
+				<xs:element ref='LKOND' minOccurs='0' />
+				<xs:element ref='LKTEXT' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDC18'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='QUALF' minOccurs='0' />
+				<xs:element ref='TAGE' minOccurs='0' />
+				<xs:element ref='PRZNT' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDC19'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='QUALF' minOccurs='0' />
+				<xs:element ref='IDTNR' minOccurs='0' />
+				<xs:element ref='KTEXT' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDCA1'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='PARVW' minOccurs='0' />
+				<xs:element ref='PARTN' minOccurs='0' />
+				<xs:element ref='LIFNR' minOccurs='0' />
+				<xs:element ref='NAME1' minOccurs='0' />
+				<xs:element ref='NAME2' minOccurs='0' />
+				<xs:element ref='NAME3' minOccurs='0' />
+				<xs:element ref='NAME4' minOccurs='0' />
+				<xs:element ref='STRAS' minOccurs='0' />
+				<xs:element ref='STRS2' minOccurs='0' />
+				<xs:element ref='PFACH' minOccurs='0' />
+				<xs:element ref='ORT01' minOccurs='0' />
+				<xs:element ref='COUNC' minOccurs='0' />
+				<xs:element ref='PSTLZ' minOccurs='0' />
+				<xs:element ref='PSTL2' minOccurs='0' />
+				<xs:element ref='LAND1' minOccurs='0' />
+				<xs:element ref='ABLAD' minOccurs='0' />
+				<xs:element ref='PERNR' minOccurs='0' />
+				<xs:element ref='PARNR' minOccurs='0' />
+				<xs:element ref='TELF1' minOccurs='0' />
+				<xs:element ref='TELF2' minOccurs='0' />
+				<xs:element ref='TELBX' minOccurs='0' />
+				<xs:element ref='TELFX' minOccurs='0' />
+				<xs:element ref='TELTX' minOccurs='0' />
+				<xs:element ref='TELX1' minOccurs='0' />
+				<xs:element ref='SPRAS' minOccurs='0' />
+				<xs:element ref='ANRED' minOccurs='0' />
+				<xs:element ref='ORT02' minOccurs='0' />
+				<xs:element ref='HAUSN' minOccurs='0' />
+				<xs:element ref='STOCK' minOccurs='0' />
+				<xs:element ref='REGIO' minOccurs='0' />
+				<xs:element ref='PARGE' minOccurs='0' />
+				<xs:element ref='ISOAL' minOccurs='0' />
+				<xs:element ref='ISONU' minOccurs='0' />
+				<xs:element ref='FCODE' minOccurs='0' />
+				<xs:element ref='IHREZ' minOccurs='0' />
+				<xs:element ref='BNAME' minOccurs='0' />
+				<xs:element ref='PAORG' minOccurs='0' />
+				<xs:element ref='ORGTX' minOccurs='0' />
+				<xs:element ref='PAGRU' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDCT1'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='TDID' minOccurs='0' />
+				<xs:element ref='TSSPRAS' minOccurs='0' />
+				<xs:element ref='E1EDCT2' minOccurs='0' maxOccurs='unbounded' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDCT2'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='TDLINE' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDK01'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='ACTION' minOccurs='0' />
+				<xs:element ref='KZABS' minOccurs='0' />
+				<xs:element ref='CURCY' minOccurs='0' />
+				<xs:element ref='HWAER' minOccurs='0' />
+				<xs:element ref='WKURS' minOccurs='0' />
+				<xs:element ref='ZTERM' minOccurs='0' />
+				<xs:element ref='KUNDEUINR' minOccurs='0' />
+				<xs:element ref='EIGENUINR' minOccurs='0' />
+				<xs:element ref='BSART' minOccurs='0' />
+				<xs:element ref='BELNR' minOccurs='0' />
+				<xs:element ref='NTGEW' minOccurs='0' />
+				<xs:element ref='BRGEW' minOccurs='0' />
+				<xs:element ref='GEWEI' minOccurs='0' />
+				<xs:element ref='FKART_RL' minOccurs='0' />
+				<xs:element ref='ABLAD' minOccurs='0' />
+				<xs:element ref='BSTZD' minOccurs='0' />
+				<xs:element ref='VSART' minOccurs='0' />
+				<xs:element ref='VSART_BEZ' minOccurs='0' />
+				<xs:element ref='RECIPNT_NO' minOccurs='0' />
+				<xs:element ref='KZAZU' minOccurs='0' />
+				<xs:element ref='AUTLF' minOccurs='0' />
+				<xs:element ref='AUGRU' minOccurs='0' />
+				<xs:element ref='AUGRU_BEZ' minOccurs='0' />
+				<xs:element ref='ABRVW' minOccurs='0' />
+				<xs:element ref='ABRVW_BEZ' minOccurs='0' />
+				<xs:element ref='FKTYP' minOccurs='0' />
+				<xs:element ref='LIFSK' minOccurs='0' />
+				<xs:element ref='LIFSK_BEZ' minOccurs='0' />
+				<xs:element ref='EMPST' minOccurs='0' />
+				<xs:element ref='ABTNR' minOccurs='0' />
+				<xs:element ref='DELCO' minOccurs='0' />
+				<xs:element ref='WKURS_M' minOccurs='0' />
+				<xs:element ref='Z1EDK02' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='Z1EDK04' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='Z1EDK05' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='Z1EDK08' minOccurs='0' />
+				<xs:element ref='Z1EDK13' minOccurs='0' maxOccurs='unbounded' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDK02'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='QUALF' minOccurs='0' />
+				<xs:element ref='BELNR' minOccurs='0' />
+				<xs:element ref='POSNR' minOccurs='0' />
+				<xs:element ref='DATUM' minOccurs='0' />
+				<xs:element ref='UZEIT' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDK03'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='IDDAT' minOccurs='0' />
+				<xs:element ref='DATUM' minOccurs='0' />
+				<xs:element ref='UZEIT' minOccurs='0' />
+				<xs:element ref='Z1EDK01' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDK04'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='MWSKZ' minOccurs='0' />
+				<xs:element ref='MSATZ' minOccurs='0' />
+				<xs:element ref='MWSBT' minOccurs='0' />
+				<xs:element ref='TXJCD' minOccurs='0' />
+				<xs:element ref='KTEXT' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDK05'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='ALCKZ' minOccurs='0' />
+				<xs:element ref='KSCHL' minOccurs='0' />
+				<xs:element ref='KOTXT' minOccurs='0' />
+				<xs:element ref='BETRG' minOccurs='0' />
+				<xs:element ref='KPERC' minOccurs='0' />
+				<xs:element ref='KRATE' minOccurs='0' />
+				<xs:element ref='UPRBS' minOccurs='0' />
+				<xs:element ref='MEAUN' minOccurs='0' />
+				<xs:element ref='KOBTR' minOccurs='0' />
+				<xs:element ref='MWSKZ' minOccurs='0' />
+				<xs:element ref='MSATZ' minOccurs='0' />
+				<xs:element ref='KOEIN' minOccurs='0' />
+				<xs:element ref='Z1EDK06' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDK14'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='QUALF' minOccurs='0' />
+				<xs:element ref='ORGID' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDK17'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='QUALF' minOccurs='0' />
+				<xs:element ref='LKOND' minOccurs='0' />
+				<xs:element ref='LKTEXT' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDK18'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='QUALF' minOccurs='0' />
+				<xs:element ref='TAGE' minOccurs='0' />
+				<xs:element ref='PRZNT' minOccurs='0' />
+				<xs:element ref='ZTERM_TXT' minOccurs='0' />
+				<xs:element ref='Z1EDK07' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDK35'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='QUALZ' minOccurs='0' />
+				<xs:element ref='CUSADD' minOccurs='0' />
+				<xs:element ref='CUSADD_BEZ' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDK36'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='CCINS' minOccurs='0' />
+				<xs:element ref='CCINS_BEZEI' minOccurs='0' />
+				<xs:element ref='CCNUM' minOccurs='0' />
+				<xs:element ref='EXDATBI' minOccurs='0' />
+				<xs:element ref='CCNAME' minOccurs='0' />
+				<xs:element ref='FAKWR' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDKA1'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='PARVW' minOccurs='0' />
+				<xs:element ref='PARTN' minOccurs='0' />
+				<xs:element ref='LIFNR' minOccurs='0' />
+				<xs:element ref='NAME1' minOccurs='0' />
+				<xs:element ref='NAME2' minOccurs='0' />
+				<xs:element ref='NAME3' minOccurs='0' />
+				<xs:element ref='NAME4' minOccurs='0' />
+				<xs:element ref='STRAS' minOccurs='0' />
+				<xs:element ref='STRS2' minOccurs='0' />
+				<xs:element ref='PFACH' minOccurs='0' />
+				<xs:element ref='ORT01' minOccurs='0' />
+				<xs:element ref='COUNC' minOccurs='0' />
+				<xs:element ref='PSTLZ' minOccurs='0' />
+				<xs:element ref='PSTL2' minOccurs='0' />
+				<xs:element ref='LAND1' minOccurs='0' />
+				<xs:element ref='ABLAD' minOccurs='0' />
+				<xs:element ref='PERNR' minOccurs='0' />
+				<xs:element ref='PARNR' minOccurs='0' />
+				<xs:element ref='TELF1' minOccurs='0' />
+				<xs:element ref='TELF2' minOccurs='0' />
+				<xs:element ref='TELBX' minOccurs='0' />
+				<xs:element ref='TELFX' minOccurs='0' />
+				<xs:element ref='TELTX' minOccurs='0' />
+				<xs:element ref='TELX1' minOccurs='0' />
+				<xs:element ref='SPRAS' minOccurs='0' />
+				<xs:element ref='ANRED' minOccurs='0' />
+				<xs:element ref='ORT02' minOccurs='0' />
+				<xs:element ref='HAUSN' minOccurs='0' />
+				<xs:element ref='STOCK' minOccurs='0' />
+				<xs:element ref='REGIO' minOccurs='0' />
+				<xs:element ref='PARGE' minOccurs='0' />
+				<xs:element ref='ISOAL' minOccurs='0' />
+				<xs:element ref='ISONU' minOccurs='0' />
+				<xs:element ref='FCODE' minOccurs='0' />
+				<xs:element ref='IHREZ' minOccurs='0' />
+				<xs:element ref='BNAME' minOccurs='0' />
+				<xs:element ref='PAORG' minOccurs='0' />
+				<xs:element ref='ORGTX' minOccurs='0' />
+				<xs:element ref='PAGRU' minOccurs='0' />
+				<xs:element ref='KNREF' minOccurs='0' />
+				<xs:element ref='ILNNR' minOccurs='0' />
+				<xs:element ref='PFORT' minOccurs='0' />
+				<xs:element ref='SPRAS_ISO' minOccurs='0' />
+				<xs:element ref='TITLE' minOccurs='0' />
+				<xs:element ref='Z1EDKA1' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='Z1EDKA2' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='Z1EDKA3' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDKA3' minOccurs='0' maxOccurs='unbounded' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDKA3'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='QUALP' minOccurs='0' />
+				<xs:element ref='STDPN' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDKT1'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='TDID' minOccurs='0' />
+				<xs:element ref='TSSPRAS' minOccurs='0' />
+				<xs:element ref='TSSPRAS_ISO' minOccurs='0' />
+				<xs:element ref='TDOBJECT' minOccurs='0' />
+				<xs:element ref='TDOBNAME' minOccurs='0' />
+				<xs:element ref='E1EDKT2' minOccurs='0' maxOccurs='unbounded' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDKT2'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='TDLINE' minOccurs='0' />
+				<xs:element ref='TDFORMAT' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDL37'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='EXIDV' minOccurs='0' />
+				<xs:element ref='TARAG' minOccurs='0' />
+				<xs:element ref='GWEIT' minOccurs='0' />
+				<xs:element ref='BRGEW' minOccurs='0' />
+				<xs:element ref='NTGEW' minOccurs='0' />
+				<xs:element ref='MAGEW' minOccurs='0' />
+				<xs:element ref='GWEIM' minOccurs='0' />
+				<xs:element ref='BTVOL' minOccurs='0' />
+				<xs:element ref='NTVOL' minOccurs='0' />
+				<xs:element ref='MAVOL' minOccurs='0' />
+				<xs:element ref='VOLEM' minOccurs='0' />
+				<xs:element ref='TAVOL' minOccurs='0' />
+				<xs:element ref='VOLET' minOccurs='0' />
+				<xs:element ref='VEGR2' minOccurs='0' />
+				<xs:element ref='VEGR1' minOccurs='0' />
+				<xs:element ref='VEGR3' minOccurs='0' />
+				<xs:element ref='VHILM' minOccurs='0' />
+				<xs:element ref='VEGR4' minOccurs='0' />
+				<xs:element ref='LAENG' minOccurs='0' />
+				<xs:element ref='VEGR5' minOccurs='0' />
+				<xs:element ref='BREIT' minOccurs='0' />
+				<xs:element ref='HOEHE' minOccurs='0' />
+				<xs:element ref='MEABM' minOccurs='0' />
+				<xs:element ref='INHALT' minOccurs='0' />
+				<xs:element ref='VHART' minOccurs='0' />
+				<xs:element ref='MAGRV' minOccurs='0' />
+				<xs:element ref='LADLG' minOccurs='0' />
+				<xs:element ref='LADEH' minOccurs='0' />
+				<xs:element ref='FARZT' minOccurs='0' />
+				<xs:element ref='FAREH' minOccurs='0' />
+				<xs:element ref='ENTFE' minOccurs='0' />
+				<xs:element ref='EHENT' minOccurs='0' />
+				<xs:element ref='VELTP' minOccurs='0' />
+				<xs:element ref='EXIDV2' minOccurs='0' />
+				<xs:element ref='LANDT' minOccurs='0' />
+				<xs:element ref='LANDF' minOccurs='0' />
+				<xs:element ref='NAMEF' minOccurs='0' />
+				<xs:element ref='NAMBE' minOccurs='0' />
+				<xs:element ref='VHILM_KU' minOccurs='0' />
+				<xs:element ref='VEBEZ' minOccurs='0' />
+				<xs:element ref='SMGKN' minOccurs='0' />
+				<xs:element ref='KDMAT35' minOccurs='0' />
+				<xs:element ref='SORTL' minOccurs='0' />
+				<xs:element ref='ERNAM' minOccurs='0' />
+				<xs:element ref='GEWFX' minOccurs='0' />
+				<xs:element ref='ERLKZ' minOccurs='0' />
+				<xs:element ref='EXIDA' minOccurs='0' />
+				<xs:element ref='MOVE_STATUS' minOccurs='0' />
+				<xs:element ref='PACKVORSCHR' minOccurs='0' />
+				<xs:element ref='PACKVORSCHR_ST' minOccurs='0' />
+				<xs:element ref='LABELTYP' minOccurs='0' />
+				<xs:element ref='ZUL_AUFL' minOccurs='0' />
+				<xs:element ref='E1EDL39' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDL38' minOccurs='0' />
+				<xs:element ref='E1EDL44' minOccurs='0' maxOccurs='unbounded' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDL38'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='VEGR1_BEZ' minOccurs='0' />
+				<xs:element ref='VEGR2_BEZ' minOccurs='0' />
+				<xs:element ref='VEGR3_BEZ' minOccurs='0' />
+				<xs:element ref='VEGR4_BEZ' minOccurs='0' />
+				<xs:element ref='VEGR5_BEZ' minOccurs='0' />
+				<xs:element ref='VHART_BEZ' minOccurs='0' />
+				<xs:element ref='MAGRV_BEZ' minOccurs='0' />
+				<xs:element ref='VEBEZ' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDL39'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='QUALF' minOccurs='0' />
+				<xs:element ref='PARAM' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDL44'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='VELIN' minOccurs='0' />
+				<xs:element ref='VBELN' minOccurs='0' />
+				<xs:element ref='POSNR' minOccurs='0' />
+				<xs:element ref='EXIDV' minOccurs='0' />
+				<xs:element ref='VEMNG' minOccurs='0' />
+				<xs:element ref='VEMEH' minOccurs='0' />
+				<xs:element ref='MATNR' minOccurs='0' />
+				<xs:element ref='KDMAT' minOccurs='0' />
+				<xs:element ref='CHARG' minOccurs='0' />
+				<xs:element ref='WERKS' minOccurs='0' />
+				<xs:element ref='LGORT' minOccurs='0' />
+				<xs:element ref='CUOBJ' minOccurs='0' />
+				<xs:element ref='BESTQ' minOccurs='0' />
+				<xs:element ref='SOBKZ' minOccurs='0' />
+				<xs:element ref='SONUM' minOccurs='0' />
+				<xs:element ref='ANZSN' minOccurs='0' />
+				<xs:element ref='WDATU' minOccurs='0' />
+				<xs:element ref='PARID' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDP01'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='POSEX' minOccurs='0' />
+				<xs:element ref='ACTION' minOccurs='0' />
+				<xs:element ref='PSTYP' minOccurs='0' />
+				<xs:element ref='KZABS' minOccurs='0' />
+				<xs:element ref='MENGE' minOccurs='0' />
+				<xs:element ref='MENEE' minOccurs='0' />
+				<xs:element ref='BMNG2' minOccurs='0' />
+				<xs:element ref='PMENE' minOccurs='0' />
+				<xs:element ref='ABFTZ' minOccurs='0' />
+				<xs:element ref='VPREI' minOccurs='0' />
+				<xs:element ref='PEINH' minOccurs='0' />
+				<xs:element ref='NETWR' minOccurs='0' />
+				<xs:element ref='ANETW' minOccurs='0' />
+				<xs:element ref='SKFBP' minOccurs='0' />
+				<xs:element ref='NTGEW' minOccurs='0' />
+				<xs:element ref='GEWEI' minOccurs='0' />
+				<xs:element ref='EINKZ' minOccurs='0' />
+				<xs:element ref='CURCY' minOccurs='0' />
+				<xs:element ref='PREIS' minOccurs='0' />
+				<xs:element ref='MATKL' minOccurs='0' />
+				<xs:element ref='UEPOS' minOccurs='0' />
+				<xs:element ref='GRKOR' minOccurs='0' />
+				<xs:element ref='EVERS' minOccurs='0' />
+				<xs:element ref='BPUMN' minOccurs='0' />
+				<xs:element ref='BPUMZ' minOccurs='0' />
+				<xs:element ref='ABGRU' minOccurs='0' />
+				<xs:element ref='ABGRT' minOccurs='0' />
+				<xs:element ref='ANTLF' minOccurs='0' />
+				<xs:element ref='FIXMG' minOccurs='0' />
+				<xs:element ref='KZAZU' minOccurs='0' />
+				<xs:element ref='BRGEW' minOccurs='0' />
+				<xs:element ref='PSTYV' minOccurs='0' />
+				<xs:element ref='EMPST' minOccurs='0' />
+				<xs:element ref='ABTNR' minOccurs='0' />
+				<xs:element ref='ABRVW' minOccurs='0' />
+				<xs:element ref='WERKS' minOccurs='0' />
+				<xs:element ref='LPRIO' minOccurs='0' />
+				<xs:element ref='LPRIO_BEZ' minOccurs='0' />
+				<xs:element ref='ROUTE' minOccurs='0' />
+				<xs:element ref='ROUTE_BEZ' minOccurs='0' />
+				<xs:element ref='LGORT' minOccurs='0' />
+				<xs:element ref='VSTEL' minOccurs='0' />
+				<xs:element ref='DELCO' minOccurs='0' />
+				<xs:element ref='MATNR' minOccurs='0' />
+				<xs:element ref='VALTG' minOccurs='0' />
+				<xs:element ref='HIPOS' minOccurs='0' />
+				<xs:element ref='HIEVW' minOccurs='0' />
+				<xs:element ref='POSGUID' minOccurs='0' />
+				<xs:element ref='Z1EDP01' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='Z1EDP02' minOccurs='0' />
+				<xs:element ref='Z1EDP03' minOccurs='0' />
+				<xs:element ref='Z1EDP09' minOccurs='0' />
+				<xs:element ref='E1EDP02' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1CUREF' minOccurs='0' />
+				<xs:element ref='E1ADDI1' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDP03' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDP04' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDP05' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDP20' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDPA1' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDP19' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDPAD' minOccurs='0' />
+				<xs:element ref='E1EDP17' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDP18' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDP35' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDPT1' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDC01' minOccurs='0' maxOccurs='unbounded' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDP02'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='QUALF' minOccurs='0' />
+				<xs:element ref='BELNR' minOccurs='0' />
+				<xs:element ref='ZEILE' minOccurs='0' />
+				<xs:element ref='DATUM' minOccurs='0' />
+				<xs:element ref='UZEIT' minOccurs='0' />
+				<xs:element ref='BSARK' minOccurs='0' />
+				<xs:element ref='IHREZ' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDP03'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='IDDAT' minOccurs='0' />
+				<xs:element ref='DATUM' minOccurs='0' />
+				<xs:element ref='UZEIT' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDP04'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='MWSKZ' minOccurs='0' />
+				<xs:element ref='MSATZ' minOccurs='0' />
+				<xs:element ref='MWSBT' minOccurs='0' />
+				<xs:element ref='TXJCD' minOccurs='0' />
+				<xs:element ref='KTEXT' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDP05'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='ALCKZ' minOccurs='0' />
+				<xs:element ref='KSCHL' minOccurs='0' />
+				<xs:element ref='KOTXT' minOccurs='0' />
+				<xs:element ref='BETRG' minOccurs='0' />
+				<xs:element ref='KPERC' minOccurs='0' />
+				<xs:element ref='KRATE' minOccurs='0' />
+				<xs:element ref='UPRBS' minOccurs='0' />
+				<xs:element ref='MEAUN' minOccurs='0' />
+				<xs:element ref='KOBTR' minOccurs='0' />
+				<xs:element ref='MENGE' minOccurs='0' />
+				<xs:element ref='PREIS' minOccurs='0' />
+				<xs:element ref='MWSKZ' minOccurs='0' />
+				<xs:element ref='MSATZ' minOccurs='0' />
+				<xs:element ref='KOEIN' minOccurs='0' />
+				<xs:element ref='CURTP' minOccurs='0' />
+				<xs:element ref='KOBAS' minOccurs='0' />
+				<xs:element ref='Z1EDP04' minOccurs='0' />
+				<xs:element ref='E1EDPS5' minOccurs='0' maxOccurs='unbounded' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDP17'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='QUALF' minOccurs='0' />
+				<xs:element ref='LKOND' minOccurs='0' />
+				<xs:element ref='LKTEXT' minOccurs='0' />
+				<xs:element ref='LPRIO' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDP18'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='QUALF' minOccurs='0' />
+				<xs:element ref='TAGE' minOccurs='0' />
+				<xs:element ref='PRZNT' minOccurs='0' />
+				<xs:element ref='ZTERM_TXT' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDP19'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='QUALF' minOccurs='0' />
+				<xs:element ref='IDTNR' minOccurs='0' />
+				<xs:element ref='KTEXT' minOccurs='0' />
+				<xs:element ref='MFRPN' minOccurs='0' />
+				<xs:element ref='MFRNR' minOccurs='0' />
+				<xs:element ref='Z1EDP05' minOccurs='0' />
+				<xs:element ref='Z1EDP08' minOccurs='0' maxOccurs='unbounded' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDP20'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='WMENG' minOccurs='0' />
+				<xs:element ref='AMENG' minOccurs='0' />
+				<xs:element ref='EDATU' minOccurs='0' />
+				<xs:element ref='EZEIT' minOccurs='0' />
+				<xs:element ref='EDATU_OLD' minOccurs='0' />
+				<xs:element ref='EZEIT_OLD' minOccurs='0' />
+				<xs:element ref='Z1EDP20' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDP35'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='QUALZ' minOccurs='0' />
+				<xs:element ref='CUSADD' minOccurs='0' />
+				<xs:element ref='CUSADD_BEZ' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDPA1'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='PARVW' minOccurs='0' />
+				<xs:element ref='PARTN' minOccurs='0' />
+				<xs:element ref='LIFNR' minOccurs='0' />
+				<xs:element ref='NAME1' minOccurs='0' />
+				<xs:element ref='NAME2' minOccurs='0' />
+				<xs:element ref='NAME3' minOccurs='0' />
+				<xs:element ref='NAME4' minOccurs='0' />
+				<xs:element ref='STRAS' minOccurs='0' />
+				<xs:element ref='STRS2' minOccurs='0' />
+				<xs:element ref='PFACH' minOccurs='0' />
+				<xs:element ref='ORT01' minOccurs='0' />
+				<xs:element ref='COUNC' minOccurs='0' />
+				<xs:element ref='PSTLZ' minOccurs='0' />
+				<xs:element ref='PSTL2' minOccurs='0' />
+				<xs:element ref='LAND1' minOccurs='0' />
+				<xs:element ref='ABLAD' minOccurs='0' />
+				<xs:element ref='PERNR' minOccurs='0' />
+				<xs:element ref='PARNR' minOccurs='0' />
+				<xs:element ref='TELF1' minOccurs='0' />
+				<xs:element ref='TELF2' minOccurs='0' />
+				<xs:element ref='TELBX' minOccurs='0' />
+				<xs:element ref='TELFX' minOccurs='0' />
+				<xs:element ref='TELTX' minOccurs='0' />
+				<xs:element ref='TELX1' minOccurs='0' />
+				<xs:element ref='SPRAS' minOccurs='0' />
+				<xs:element ref='ANRED' minOccurs='0' />
+				<xs:element ref='ORT02' minOccurs='0' />
+				<xs:element ref='HAUSN' minOccurs='0' />
+				<xs:element ref='STOCK' minOccurs='0' />
+				<xs:element ref='REGIO' minOccurs='0' />
+				<xs:element ref='PARGE' minOccurs='0' />
+				<xs:element ref='ISOAL' minOccurs='0' />
+				<xs:element ref='ISONU' minOccurs='0' />
+				<xs:element ref='FCODE' minOccurs='0' />
+				<xs:element ref='IHREZ' minOccurs='0' />
+				<xs:element ref='BNAME' minOccurs='0' />
+				<xs:element ref='PAORG' minOccurs='0' />
+				<xs:element ref='ORGTX' minOccurs='0' />
+				<xs:element ref='PAGRU' minOccurs='0' />
+				<xs:element ref='KNREF' minOccurs='0' />
+				<xs:element ref='ILNNR' minOccurs='0' />
+				<xs:element ref='PFORT' minOccurs='0' />
+				<xs:element ref='SPRAS_ISO' minOccurs='0' />
+				<xs:element ref='TITLE' minOccurs='0' />
+				<xs:element ref='E1EDPA3' minOccurs='0' maxOccurs='unbounded' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDPA3'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='QUALP' minOccurs='0' />
+				<xs:element ref='STDPN' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDPAD'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='QUALF' minOccurs='0' />
+				<xs:element ref='ICC' minOccurs='0' />
+				<xs:element ref='MOI' minOccurs='0' />
+				<xs:element ref='PRI' minOccurs='0' />
+				<xs:element ref='E1TXTH1' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDPS5'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='KSTBM' minOccurs='0' />
+				<xs:element ref='KBETR' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDPT1'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='TDID' minOccurs='0' />
+				<xs:element ref='TSSPRAS' minOccurs='0' />
+				<xs:element ref='TSSPRAS_ISO' minOccurs='0' />
+				<xs:element ref='E1EDPT2' minOccurs='0' maxOccurs='unbounded' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDPT2'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='TDLINE' minOccurs='0' />
+				<xs:element ref='TDFORMAT' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1EDS01'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='SUMID' minOccurs='0' />
+				<xs:element ref='SUMME' minOccurs='0' />
+				<xs:element ref='SUNIT' minOccurs='0' />
+				<xs:element ref='WAERQ' minOccurs='0' />
+				<xs:element ref='Z1EDS02' minOccurs='0' />
+				<xs:element ref='Z1EDS01' minOccurs='0' />
+				<xs:element ref='Z1EDK11' minOccurs='0' />
+				<xs:element ref='Z1EDK12' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1TXTH1'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='FUNCTION' minOccurs='0' />
+				<xs:element ref='TDOBJECT' minOccurs='0' />
+				<xs:element ref='TDOBNAME' minOccurs='0' />
+				<xs:element ref='TDID' minOccurs='0' />
+				<xs:element ref='TDSPRAS' minOccurs='0' />
+				<xs:element ref='TDTEXTTYPE' minOccurs='0' />
+				<xs:element ref='LANGUA_ISO' minOccurs='0' />
+				<xs:element ref='E1TXTP1' minOccurs='0' maxOccurs='unbounded' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='E1TXTP1'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='TDFORMAT' minOccurs='0' />
+				<xs:element ref='TDLINE' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='EAN11'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='EANLOCAL'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='EANTP'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='EDATU'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='EDATU_OLD'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='EDI_DC40'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='TABNAM' />
+				<xs:element ref='MANDT' minOccurs='0' />
+				<xs:element ref='DOCNUM' minOccurs='0' />
+				<xs:element ref='DOCREL' minOccurs='0' />
+				<xs:element ref='STATUS' minOccurs='0' />
+				<xs:element ref='DIRECT' />
+				<xs:element ref='OUTMOD' minOccurs='0' />
+				<xs:element ref='EXPRSS' minOccurs='0' />
+				<xs:element ref='TEST' minOccurs='0' />
+				<xs:element ref='IDOCTYP' />
+				<xs:element ref='CIMTYP' minOccurs='0' />
+				<xs:element ref='MESTYP' />
+				<xs:element ref='MESCOD' minOccurs='0' />
+				<xs:element ref='MESFCT' minOccurs='0' />
+				<xs:element ref='STD' minOccurs='0' />
+				<xs:element ref='STDVRS' minOccurs='0' />
+				<xs:element ref='STDMES' minOccurs='0' />
+				<xs:element ref='SNDPOR' />
+				<xs:element ref='SNDPRT' />
+				<xs:element ref='SNDPFC' minOccurs='0' />
+				<xs:element ref='SNDPRN' />
+				<xs:element ref='SNDSAD' minOccurs='0' />
+				<xs:element ref='SNDLAD' minOccurs='0' />
+				<xs:element ref='RCVPOR' />
+				<xs:element ref='RCVPRT' />
+				<xs:element ref='RCVPFC' minOccurs='0' />
+				<xs:element ref='RCVPRN' />
+				<xs:element ref='RCVSAD' minOccurs='0' />
+				<xs:element ref='RCVLAD' minOccurs='0' />
+				<xs:element ref='CREDAT' minOccurs='0' />
+				<xs:element ref='CRETIM' minOccurs='0' />
+				<xs:element ref='REFINT' minOccurs='0' />
+				<xs:element ref='REFGRP' minOccurs='0' />
+				<xs:element ref='REFMES' minOccurs='0' />
+				<xs:element ref='ARCKEY' minOccurs='0' />
+				<xs:element ref='SERIAL' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='EHENT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='EIGENUINR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='EINKZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='EMPST'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ENTFE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ERLKZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ERNAM'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='EVERS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='EXDATBI'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='EXGRP'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='EXIDA'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='EXIDV'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='EXIDV2'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='EXPRSS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='EXPVZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='EZEIT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='EZEIT_OLD'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='FAKWR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='FAREH'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='FARZT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='FCODE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='FIXMG'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='FKART_RL'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='FKTYP'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='FORMELNR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='FRMVAL1'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='FRMVAL2'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='FRMVAL3'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='FRMVAL4'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='FRMVAL5'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='FRPOS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='FTX4440'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='FTX4451'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='FUNCTION'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='GEWEI'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='GEWFX'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='GRKOR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='GWEIM'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='GWEIT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='HAUSN'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='HERKL'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='HIEVW'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='HIPOS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='HOEHE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='HWAER'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ICC'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='IDDAT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='IDOC'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='EDI_DC40' />
+				<xs:element ref='E1EDK01' />
+				<xs:element ref='E1EDK14' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDK03' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDK04' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDK05' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDKA1' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDK02' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDK17' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDK18' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDK35' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDK36' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDKT1' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDP01' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1CUCFG' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDL37' minOccurs='0' maxOccurs='unbounded' />
+				<xs:element ref='E1EDS01' minOccurs='0' maxOccurs='unbounded' />
+			</xs:sequence>
+			<xs:attribute name='BEGIN' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='IDOCTYP'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='IDTNR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='IHREZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ILNNR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='IMD3055'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='IMD7009'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='IMD7077'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='INCO1'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='INHALT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='INST_ID'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ISOAL'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ISONU'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='KBETR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='KBNAME'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='KBVERSION'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='KDMAT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='KDMAT35'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='KNREF'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='KOBAS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='KOBTR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='KOEIN'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='KOTXT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='KPERC'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='KRATE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='KSCHL'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='KSTBM'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='KTEXT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='KTXT1'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='KTXT2'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='KUNDEUINR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='KZABS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='KZAZU'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='LABELTYP'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='LADEH'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='LADLG'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='LAENG'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='LAND1'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='LANDF'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='LANDT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='LANGUA_ISO'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='LBNUM'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='LGART'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='LGORT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='LIFNR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='LIFSK'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='LIFSK_BEZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='LKOND'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='LKTEXT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='LOC3225'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='LPRIO'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='LPRIO_BEZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='LVALT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MAGEW'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MAGRV'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MAGRV_BEZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MANDT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MATKL'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MATNR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MAVOL'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MEABM'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MEAUN'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MENEE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MENGE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MESCOD'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MESFCT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MESTYP'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MFRNR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MFRPN'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MOA5004'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MOA5025'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MOI'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MOVE_STATUS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MSATZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MWSBT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='MWSKZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='NAD3039'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='NAD3055'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='NAMBE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='NAME1'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='NAME2'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='NAME3'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='NAME4'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='NAMEF'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='NBRELOCAL'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='NETWR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='NTGEW'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='NTVOL'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='OBJ_KEY'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='OBJ_TXT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='OBJ_TYPE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ORGID'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ORGTX'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ORT01'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ORT02'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='OUTMOD'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PAC7224'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PACKVORSCHR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PACKVORSCHR_ST'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PACXXXX1'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PACXXXX2'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PAGRU'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PAORG'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PARAM'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PARENT_ID'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PARGE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PARID'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PARNR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PARTN'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PART_OF_NO'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PARVW'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PAT2151'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PAT2475'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PAT4279'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PCD5245'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PCD5482'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PEINH'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PERNR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PFACH'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PFORT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PIA4347'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PIA7143'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PMENE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='POSEX'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='POSGUID'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='POSNR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PREIS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PRI'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PRI5118'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PRI5125'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PRI5387'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PRZNT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PSTL2'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PSTLZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PSTYP'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='PSTYV'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='QTY6060'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='QTY6063'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='QTY6411'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='QUALF'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='QUALP'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='QUALZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='QUANTITY'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='RANG'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='RCVLAD'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='RCVPFC'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='RCVPOR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='RCVPRN'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='RCVPRT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='RCVSAD'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='RECIPNT_NO'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='REFGRP'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='REFINT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='REFMES'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='REGIO'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='RFF1153'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='RFF1154'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ROOT_ID'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ROUTE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ROUTE_BEZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='SCE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='SERIAL'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='SGTYP'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='SKFBP'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='SMGKN'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='SNDLAD'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='SNDPFC'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='SNDPOR'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='SNDPRN'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='SNDPRT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='SNDSAD'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='SOBKZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='SONUM'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='SORTL'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='SPRAS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='SPRAS_ISO'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='STATUS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='STD'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='STDMES'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='STDPN'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='STDVRS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='STELL'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='STOCK'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='STRAS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='STRS2'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='SUMID'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='SUMME'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='SUNIT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='SURTPARC'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TABNAM'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TAGE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TARAG'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TAVOL'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TDFORMAT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TDID'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TDLINE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TDOBJECT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TDOBNAME'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TDSPRAS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TDTEXTTYPE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TELBX'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TELF1'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TELF2'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TELFX'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TELTX'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TELX1'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TEST'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TITLE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TOD4215'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TOPOS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TSSPRAS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TSSPRAS_ISO'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='TXJCD'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='UEBTK'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='UEBTO'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='UEPOS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='UNH0051'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='UNH0052'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='UNH0057'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='UNH0062'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='UNT0062'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='UNT0074'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='UPRBS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='USERF1_NUM'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='USERF1_TXT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='USERF2_NUM'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='USERF2_TXT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='UZEIT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VALTG'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VALUE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VALUE_TXT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VBELN'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VEBEZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VEGR1'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VEGR1_BEZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VEGR2'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VEGR2_BEZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VEGR3'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VEGR3_BEZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VEGR4'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VEGR4_BEZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VEGR5'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VEGR5_BEZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VELIN'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VELTP'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VEMEH'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VEMNG'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VERLD'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VHART'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VHART_BEZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VHILM'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VHILM_KU'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VOLEM'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VOLET'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VPREI'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VSART'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VSART_BEZ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='VSTEL'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='WAERQ'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='WDATU'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='WERKS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='WKURS'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='WKURS_M'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='WMENG'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='XLINE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDK01'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='DTM2379' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDK02'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='CTA3139' minOccurs='0' />
+				<xs:element ref='CTA3412' minOccurs='0' />
+				<xs:element ref='Z1EDK03' minOccurs='0' maxOccurs='unbounded' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDK03'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='COM3155' minOccurs='0' />
+				<xs:element ref='COM3148' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDK04'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='FTX4451' minOccurs='0' />
+				<xs:element ref='FTX4440' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDK05'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='RFF1153' minOccurs='0' />
+				<xs:element ref='RFF1154' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDK06'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='ALC5463' minOccurs='0' />
+				<xs:element ref='ALC7161' minOccurs='0' />
+				<xs:element ref='PCD5245' minOccurs='0' />
+				<xs:element ref='PCD5482' minOccurs='0' />
+				<xs:element ref='MOA5025' minOccurs='0' />
+				<xs:element ref='MOA5004' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDK07'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='PAT4279' minOccurs='0' />
+				<xs:element ref='PAT2475' minOccurs='0' />
+				<xs:element ref='PAT2151' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDK08'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='TOD4215' minOccurs='0' />
+				<xs:element ref='LOC3225' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDK11'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='EXPVZ' minOccurs='0' />
+				<xs:element ref='ZOLLA' minOccurs='0' />
+				<xs:element ref='INCO1' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDK12'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='HERKL' minOccurs='0' />
+				<xs:element ref='VERLD' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDK13'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='BONIF' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDKA1'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='NAD3039' minOccurs='0' />
+				<xs:element ref='NAD3055' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDKA2'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='COM3155' minOccurs='0' />
+				<xs:element ref='COM3148' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDKA3'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='RFF1153' minOccurs='0' />
+				<xs:element ref='RFF1154' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDP01'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='QTY6063' minOccurs='0' />
+				<xs:element ref='QTY6060' minOccurs='0' />
+				<xs:element ref='QTY6411' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDP02'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='PIA4347' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDP03'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='PRI5125' minOccurs='0' />
+				<xs:element ref='PRI5118' minOccurs='0' />
+				<xs:element ref='PRI5387' minOccurs='0' />
+				<xs:element ref='PAC7224' minOccurs='0' />
+				<xs:element ref='PACXXXX1' minOccurs='0' />
+				<xs:element ref='PACXXXX2' minOccurs='0' />
+				<xs:element ref='MOA5025' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDP04'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='ALC7161' minOccurs='0' />
+				<xs:element ref='PCD5245' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDP05'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='IMD7077' minOccurs='0' />
+				<xs:element ref='IMD7009' minOccurs='0' />
+				<xs:element ref='IMD3055' minOccurs='0' />
+				<xs:element ref='EAN11' minOccurs='0' />
+				<xs:element ref='EANTP' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDP08'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='PIA7143' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDP09'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='BONIF' minOccurs='0' />
+				<xs:element ref='SURTPARC' minOccurs='0' />
+				<xs:element ref='EANLOCAL' minOccurs='0' />
+				<xs:element ref='NBRELOCAL' minOccurs='0' />
+				<xs:element ref='DIRLOCAL' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDP20'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='DTM2005' minOccurs='0' />
+				<xs:element ref='DTM2379' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDS01'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='MOA5025' minOccurs='0' />
+				<xs:element ref='CNT6069' minOccurs='0' />
+				<xs:element ref='CNT6066' minOccurs='0' />
+				<xs:element ref='UNT0074' minOccurs='0' />
+				<xs:element ref='UNT0062' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='Z1EDS02'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='UNH0062' minOccurs='0' />
+				<xs:element ref='UNH0052' minOccurs='0' />
+				<xs:element ref='UNH0051' minOccurs='0' />
+				<xs:element ref='UNH0057' minOccurs='0' />
+			</xs:sequence>
+			<xs:attribute name='SEGMENT' use='required'>
+				<xs:simpleType>
+					<xs:restriction base='xs:string'>
+						<xs:enumeration value='1' />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='ZEILE'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ZLART'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ZLTYP'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ZOLLA'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ZORDERS'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref='IDOC' maxOccurs='unbounded' />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name='ZTERM'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ZTERM_TXT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ZUL_AUFL'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+	<xs:element name='ZWERT'>
+		<xs:complexType mixed='true'></xs:complexType>
+	</xs:element>
+</xs:schema>

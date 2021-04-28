@@ -1,0 +1,42 @@
+package bbr.b2b.regional.logistic.managers.interfaces;
+
+import bbr.b2b.common.adtclasses.exceptions.AccessDeniedException;
+import bbr.b2b.common.adtclasses.exceptions.NotFoundException;
+import bbr.b2b.common.adtclasses.exceptions.OperationFailedException;
+import bbr.b2b.regional.logistic.evaluations.data.wrappers.EvaluationDetailW;
+import bbr.b2b.regional.logistic.evaluations.data.wrappers.ReceptionEvaluationW;
+import bbr.b2b.regional.logistic.evaluations.report.classes.EvaluationDetailReportInitParamDTO;
+import bbr.b2b.regional.logistic.evaluations.report.classes.EvaluationDetailReportResultDTO;
+import bbr.b2b.regional.logistic.fillrate.report.classes.FillRateDetailInitParamDTO;
+import bbr.b2b.regional.logistic.fillrate.report.classes.FillRateDetailReportResultDTO;
+import bbr.b2b.regional.logistic.fillrate.report.classes.FillRateEvolutionInitParamDTO;
+import bbr.b2b.regional.logistic.fillrate.report.classes.FillRateEvolutionReportResultDTO;
+import bbr.b2b.regional.logistic.fillrate.report.classes.FillRateInitParamDTO;
+import bbr.b2b.regional.logistic.fillrate.report.classes.FillRateReportResultDTO;
+import bbr.b2b.regional.logistic.vendors.report.classes.VendorDepartmentRankingDetailInitParamDTO;
+import bbr.b2b.regional.logistic.vendors.report.classes.VendorDepartmentRankingDetailReportResultDTO;
+import bbr.b2b.regional.logistic.vendors.report.classes.VendorDepartmentRankingInitParamDTO;
+import bbr.b2b.regional.logistic.vendors.report.classes.VendorDepartmentRankingReportResultDTO;
+import bbr.b2b.regional.logistic.vendors.report.classes.VendorRankingDetailInitParamDTO;
+import bbr.b2b.regional.logistic.vendors.report.classes.VendorRankingDetailReportResultDTO;
+import bbr.b2b.regional.logistic.vendors.report.classes.VendorRankingInitParamDTO;
+import bbr.b2b.regional.logistic.vendors.report.classes.VendorRankingReportResultDTO;
+
+public interface IEvaluationReportManager {
+
+	ReceptionEvaluationW doAddOrUpdateReceptionEvaluationAndDetails(ReceptionEvaluationW basereceptionevaluation, EvaluationDetailW... baseevaluationdetail) throws AccessDeniedException, OperationFailedException, NotFoundException;
+	VendorRankingReportResultDTO getVendorRankingsReportOfLatestRanking(VendorRankingInitParamDTO initParamDTO, boolean byFilter);
+	VendorRankingDetailReportResultDTO getOrderDeliveryEvaluationReportByVendorRanking(VendorRankingDetailInitParamDTO initParamDTO, boolean byFilter);
+	VendorDepartmentRankingReportResultDTO getVendorDepartmentRankingsReportOfLatestRanking(VendorDepartmentRankingInitParamDTO initParamDTO, boolean byFilter);
+	VendorDepartmentRankingDetailReportResultDTO getOrderDeliveryEvaluationReportByVendorDepartmentRanking(VendorDepartmentRankingDetailInitParamDTO initParamDTO, boolean byFilter);
+	VendorRankingReportResultDTO getExcelVendorRankingsReport(VendorRankingInitParamDTO initParamDTO);
+	VendorRankingDetailReportResultDTO getExcelVendorRankingDetailReport(VendorRankingDetailInitParamDTO initParamDTO);
+	VendorDepartmentRankingReportResultDTO getExcelVendorDepartmentRankingsReport(VendorDepartmentRankingInitParamDTO initParamDTO);
+	VendorDepartmentRankingDetailReportResultDTO getExcelVendorDepartmentRankingDetailReport(VendorDepartmentRankingDetailInitParamDTO initParamDTO);
+	FillRateReportResultDTO getFillRatesReportByFillRatePeriod(FillRateInitParamDTO initParamDTO, boolean byFilter);
+	FillRateEvolutionReportResultDTO getFillRatesReportByVendorAndDepartmentAndLatestPeriods(FillRateEvolutionInitParamDTO initParamDTO);
+	FillRateDetailReportResultDTO getFillRateDetailReportByFillRate(FillRateDetailInitParamDTO initParamDTO, boolean byFilter);
+	FillRateReportResultDTO getExcelFillRatesReportByFillRatePeriod(FillRateInitParamDTO initParamDTO);
+	FillRateDetailReportResultDTO getExcelFillRateDetailReport(FillRateDetailInitParamDTO initParamDTO);
+	EvaluationDetailReportResultDTO getEvaluationDetailReport(EvaluationDetailReportInitParamDTO initParams, boolean byFilter, boolean paginated);
+}

@@ -1,0 +1,72 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="QEVALUACION">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element ref="SequenceNumber" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="TransNbr" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="nasn" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="DateCreated" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="Ponbr" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="As400UserID" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="Reference3" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="ReferenceCode3" maxOccurs="1" minOccurs="0"></xs:element>
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+
+	<!-- Secuencia de mensaje -->
+    <xs:element name="SequenceNumber">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- N° de Transacción -->
+    <xs:element name="TransNbr">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- N° de ASN -->
+    <xs:element name="nasn">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Fecha Evaluación -->
+    <xs:element name="DateCreated">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Numero de OC -->
+    <xs:element name="Ponbr">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Nombre Usuario que aprueba Evaluac. -->
+    <xs:element name="As400UserID">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Motivo de la transacción -->
+    <xs:element name="Reference3">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Vendor Performance Error -->
+    <xs:element name="ReferenceCode3">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>    
+</xs:schema>

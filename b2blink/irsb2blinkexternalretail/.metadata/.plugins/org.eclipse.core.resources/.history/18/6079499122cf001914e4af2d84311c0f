@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="ExternalRetailEAR">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/application" tag="defaultRootSource"/>
+        <dependent-module archiveName="ExternalRetailManager.jar" deploy-path="/" handle="module:/resource/ExternalRetailManager/ExternalRetailManager">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ExternalRetailQueue.jar" deploy-path="/" handle="module:/resource/ExternalRetailQueue/ExternalRetailQueue">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ExternalRetailModel.jar" deploy-path="/lib" handle="module:/resource/ExternalRetailModel/ExternalRetailModel">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ExternalRetailUtils.jar" deploy-path="/lib" handle="module:/resource/ExternalRetailUtils/ExternalRetailUtils">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="BaseModel.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/bbr/b2b/common/base/BaseModel/1.0.0/BaseModel-1.0.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="BaseUtils.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/bbr/b2b/common/base/BaseUtils/1.0.0/BaseUtils-1.0.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

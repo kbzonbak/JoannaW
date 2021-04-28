@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://facade.webservices.services.esb.bbr/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="CustomerServicesManagerServerService" targetNamespace="http://facade.webservices.services.esb.bbr/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://facade.webservices.services.esb.bbr/" elementFormDefault="unqualified" targetNamespace="http://facade.webservices.services.esb.bbr/" version="1.0">
+
+  <xs:element name="doAddServiceEventBySericeProvider" type="tns:doAddServiceEventBySericeProvider"/>
+
+  <xs:element name="doAddServiceEventBySericeProviderResponse" type="tns:doAddServiceEventBySericeProviderResponse"/>
+
+  <xs:complexType name="doAddServiceEventBySericeProvider">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="doAddServiceEventBySericeProviderResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="doAddServiceEventBySericeProviderResponse">
+    <wsdl:part element="tns:doAddServiceEventBySericeProviderResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doAddServiceEventBySericeProvider">
+    <wsdl:part element="tns:doAddServiceEventBySericeProvider" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CustomerServicesManagerServer">
+    <wsdl:operation name="doAddServiceEventBySericeProvider">
+      <wsdl:input message="tns:doAddServiceEventBySericeProvider" name="doAddServiceEventBySericeProvider">
+    </wsdl:input>
+      <wsdl:output message="tns:doAddServiceEventBySericeProviderResponse" name="doAddServiceEventBySericeProviderResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomerServicesManagerServerServiceSoapBinding" type="tns:CustomerServicesManagerServer">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="doAddServiceEventBySericeProvider">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="doAddServiceEventBySericeProvider">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="doAddServiceEventBySericeProviderResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerServicesManagerServerService">
+    <wsdl:port binding="tns:CustomerServicesManagerServerServiceSoapBinding" name="CustomerServicesManagerServerPort">
+      <soap:address location="http://localhost:8180/SOA_GENERAL_Web/CustomerServicesManagerServer"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

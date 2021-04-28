@@ -1,0 +1,33 @@
+package bbr.b2b.extractors.hites.manager.classes;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+import bbr.esb.services.webservices.facade.AccessDeniedException_Exception;
+import bbr.esb.services.webservices.facade.InitParamCSDTO;
+import bbr.esb.services.webservices.facade.NotFoundException_Exception;
+import bbr.esb.services.webservices.facade.OperationFailedException_Exception;
+import bbr.esb.services.webservices.facade.ServiceManagerServer;
+import bbr.esb.services.webservices.facade.ServiceManagerServerService;
+
+public class EdiOrderManager {
+	
+	public static void main(String[] args) throws MalformedURLException, AccessDeniedException_Exception, OperationFailedException_Exception, NotFoundException_Exception {
+		
+		getCredentials("CL0702", "RVT");
+		
+	}
+
+	private static List<InitParamCSDTO> getCredentials(String sitename, String service) throws MalformedURLException, AccessDeniedException_Exception, OperationFailedException_Exception, NotFoundException_Exception{
+		// WS ACTUALIZAR DESPACHOS
+		String endpoint = "http://10.200.3.99:8180/SOA_GENERAL_Web/ServiceManagerServer?wsdl";
+		ServiceManagerServer serviceClient = new ServiceManagerServerService(new URL(endpoint)).getServiceManagerServerPort();
+		List<InitParamCSDTO> response = serviceClient.getCredentialsBySiteService(sitename, service);
+		if (response == null){
+			return new ArrayList<InitParamCSDTO>();
+		}
+		return response;
+	}
+}

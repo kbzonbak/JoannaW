@@ -1,0 +1,227 @@
+package bbr.b2b.connector.soa.msgb2btosoa;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.zip.GZIPOutputStream;
+import java.util.stream.*;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
+import bbr.common.dataset.util.CSVConverter;
+import bbr.common.dataset.util.DataColumn;
+import bbr.common.dataset.util.DataRow;
+import bbr.common.dataset.util.DataTable;
+import bbr.b2b.b2blink.commercial.xml.ReporteVentas.ObjectFactory;
+import bbr.b2b.b2blink.commercial.xml.ReporteVentas.Ventas;
+import bbr.b2b.b2blink.commercial.xml.ReporteVentas.Ventas.Comprador;
+import bbr.b2b.b2blink.commercial.xml.ReporteVentas.Ventas.Vendedor;
+import bbr.b2b.common.adtclasses.exceptions.LoadDataException;
+import bbr.b2b.common.adtclasses.exceptions.NotFoundException;
+import bbr.b2b.common.adtclasses.exceptions.OperationFailedException;
+import bbr.b2b.connector.classes.EnvioProveedorServerLocal;
+import bbr.b2b.connector.classes.ProcessTypeServerLocal;
+import bbr.b2b.connector.classes.ProveedorServerLocal;
+import bbr.b2b.connector.classes.SoaStateTypeServerLocal;
+import bbr.b2b.connector.data.classes.ProcessTypeW;
+import bbr.b2b.connector.data.classes.ProveedorW;
+import bbr.b2b.connector.data.classes.SoaStateTypeW;
+import bbr.b2b.connector.data.classes.VentaEnvioProveedorW;
+import bbr.b2b.connector.data.dto.SaleDTO;
+import bbr.b2b.connector.managers.interfaces.SalesInventoryManagerLocal;
+import bbr.b2b.connector.managers.interfaces.SchedulerManagerLocal;
+
+import com.sun.xml.bind.marshaller.DataWriter;
+
+@Stateless(name = "handlers/SalesToXml")
+@TransactionAttribute(TransactionAttributeType.REQUIRED)
+public class SalesToXml implements SalesToXmlLocal {
+	
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+	@EJB
+	SalesInventoryManagerLocal salesInventoryManagerLocal;
+	
+	@EJB
+	ProveedorServerLocal proveedorServerLocal;
+	
+	@EJB
+	SchedulerManagerLocal schedulermanager;
+	
+	@EJB
+	ProcessTypeServerLocal processTypeServerLocal;
+	
+	@EJB
+	SoaStateTypeServerLocal soaStateTypeServerLocal;
+	
+	@EJB
+	EnvioProveedorServerLocal envioProveedorServerLocal;
+	
+	private static JAXBContext jc = null;
+
+	private static JAXBContext getJCReportSales() throws JAXBException {
+		if (jc == null)
+			jc = JAXBContext.newInstance("bbr.b2b.b2blink.commercial.xml.ReporteVentas");
+		return jc;
+	}
+
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public String processMessage(String vendorRut, String buyerRut) throws OperationFailedException, LoadDataException, NotFoundException {
+
+		ProveedorW proveedorW = null;
+		try {
+			proveedorW = proveedorServerLocal.getByPropertyAsSingleResult("pv_cod_prov", vendorRut);
+		} catch (NotFoundException e) {
+			e.printStackTrace();
+		}
+		SaleDTO[] sales = salesInventoryManagerLocal.getSalesReport(proveedorW.getId());
+
+		// ------- Creación de CSV -------
+
+		// Listado de campos que incluye CSV:
+		// - Fecha (aaaa-mm-dd)
+		// - Cod. Prod retail (texto)
+		// - Cod. Prod. Prov (texto)
+		// - EAN principal (texto)
+		// - Descripción del Producto (texto)
+		// - Código del Local (texto)
+		// - Descripción del Local (texto)
+		// - Unidades (numérico)
+		// - Monto a costo (numérico)
+		// - Monto a venta (numérico)
+
+		DataRow row = null;
+
+		DataTable dt0 = new DataTable("REPORTE_VENTA");
+		//dt0.setShowcolumns(false);
+		DataColumn col01 = new DataColumn("fecha", String.class);
+		DataColumn col02 = new DataColumn("codprodretail", String.class);
+		DataColumn col03 = new DataColumn("codprodprov", String.class);
+		DataColumn col04 = new DataColumn("itemname", String.class);
+		DataColumn col05 = new DataColumn("locationcode", String.class);
+		DataColumn col06 = new DataColumn("localcodeprovider", String.class);
+		DataColumn col07 = new DataColumn("locationname", String.class);
+		DataColumn col08 = new DataColumn("units", Double.class);
+		DataColumn col09 = new DataColumn("costamount", Double.class);
+		DataColumn col10 = new DataColumn("salesamount", Double.class);
+		DataColumn col11 = new DataColumn("salechannel", String.class);
+
+		// dt0.addColumns(col01, col02, col03, col04, col05, col06, col07, col08, col09, col10);
+		dt0.addColumns(col01, col02, col03, col05, col08, col09, col10, col11);
+		dt0.setShowcolumnheaders(false);
+		for (int i = 0; i < sales.length; i++) {
+			SaleDTO sale = sales[i];
+			row = dt0.newRow();
+
+			row.setCellValue("fecha", sale.getPe_dia_cal().format(formatter));
+			row.setCellValue("codprodretail", sale.getCl_cod_prov());
+			row.setCellValue("codprodprov", sale.getPr_codigo1());
+			//row.setCellValue("itemname", sale.getCn_descripcion());
+			row.setCellValue("locationcode", sale.getLo_codigo());
+			//row.setCellValue("localcodeprovider", " ");
+			//row.setCellValue("locationname", " ");
+			row.setCellValue("units", sale.getVd_cantidad());
+			row.setCellValue("costamount", sale.getVd_mto_pc());
+			row.setCellValue("salesamount", sale.getVd_mto_pv());
+			row.setCellValue("salechannel", sale.getCn_descripcion() != null && !sale.getCn_descripcion().isEmpty() ? sale.getCn_descripcion() : "Venta retail" );
+			dt0.addRow(row);
+		}
+
+		CSVConverter converter = new CSVConverter();
+		String csvResult = converter.getCSVString(dt0, null);
+
+		// ------- Creación de XML -------
+		String result = "";
+		try {
+			JAXBContext jc = getJCReportSales();
+			ObjectFactory objFactory = new ObjectFactory();
+			Ventas salesrequest = objFactory.createVentas();
+
+			salesrequest.setNombreportal("CUSTOMER_COMERCIAL");
+			salesrequest.setFormato("CSV 1");
+			Comprador comprador = objFactory.createVentasComprador();
+			comprador.setRut("1");
+			comprador.setRazonSocial("BBR S.A");
+			comprador.setUnidadNegocio(" ");
+			salesrequest.setComprador(comprador);
+
+			Vendedor vendedor = objFactory.createVentasVendedor();
+			vendedor.setRut(vendorRut);
+			vendedor.setRazonSocial(proveedorW.getPv_rz_social());
+			salesrequest.setVendedor(vendedor);
+
+			//salesrequest.setData(csvResult);
+			
+			ByteArrayOutputStream outstream = new ByteArrayOutputStream();
+			GZIPOutputStream gzipstream = new GZIPOutputStream(outstream);
+			byte[] databytes = csvResult.getBytes("UTF-8");
+			gzipstream.write(databytes);
+			gzipstream.close();
+			sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
+			String data_compressed = encoder.encode(outstream.toByteArray());
+			salesrequest.setData(data_compressed);
+
+			// Obtiene string XML para enviarlo a la cola
+			Marshaller m = jc.createMarshaller();
+			m.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+			
+			 // The below code will take care of avoiding the conversion of < to &lt; and > to &gt; etc
+            StringWriter stringWriter = new StringWriter();
+            PrintWriter printWriter = new PrintWriter(stringWriter);
+            DataWriter dataWriter = new DataWriter(printWriter, "UTF-8", new MyCharacterEscapeHandler());
+			
+			
+			m.marshal(salesrequest, dataWriter);
+			result = stringWriter.toString();
+			
+			//System.out.println(result);
+			// ENVIA EL MENSAJE A LA COLA
+			//schedulermanager.doAddMessageQueue("jboss/qcf_soa", "jboss/activemq/queue/q_esbgrl" , "ReporteSales", "Reporte ventas", result, Charset.forName("UTF-8"));
+			/*
+			List<SaleDTO> clientes = Arrays.asList(sales).stream()
+			        .filter(distinctByKey(pr -> Arrays.asList(pr.getCl_key(), pr.getPe_key())))
+			        .collect(Collectors.toList());
+			
+			Date now = new Date();
+			for(SaleDTO cliente : clientes){
+				VentaEnvioProveedorW ventaEnvioProveedorW = new VentaEnvioProveedorW(now, proveedorW.getId(), cliente.getCl_key(), cliente.getPe_key());
+				ventaEnvioProveedorServerLocal.addIdentifiable(ventaEnvioProveedorW);	
+			}*/
+			ProcessTypeW processTypeW = processTypeServerLocal.getByPropertyAsSingleResult("code", "ventas");
+			SoaStateTypeW soaNotificadoW = soaStateTypeServerLocal.getByPropertyAsSingleResult("code", "NOTIFICADO");
+			SoaStateTypeW soaEnviadoW = soaStateTypeServerLocal.getByPropertyAsSingleResult("code", "ENVIADO");
+			envioProveedorServerLocal.doUpdateSoaState(proveedorW.getId(), processTypeW.getId(), soaNotificadoW.getId(), soaEnviadoW.getId());
+			 
+		} catch (JAXBException e2) {
+			e2.printStackTrace();
+			//LoggingUtil.error("Generación de XML de rechazo via JAXB fallo. " + e2.getMessage());
+			throw new OperationFailedException(e2.getMessage());
+		} catch (Exception e) {
+			throw new OperationFailedException(e.getMessage());
+		}
+
+		return result;
+	}
+	
+	private static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
+	    Map<Object, Boolean> seen = new ConcurrentHashMap<>();
+	    return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+	}
+}

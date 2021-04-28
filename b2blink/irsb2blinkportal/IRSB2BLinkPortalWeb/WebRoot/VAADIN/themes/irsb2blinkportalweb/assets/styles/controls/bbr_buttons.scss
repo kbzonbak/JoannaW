@@ -1,0 +1,19 @@
+@mixin bbr_buttons
+{
+	.btn-primary {
+    	height: 30px;
+    	font-size: 15px;
+    	font-weight: normal;
+    	width: 100%;
+    	color: white;
+    	box-shadow: unset;
+    	border-radius: 5px;
+    	border: 1px solid #3c9ed7;
+    	border-top-color: #3c9ed7;
+    	border-bottom-color: #3c9ed7;
+    	background-color: #3c9ed7;
+    	background-image: -webkit-linear-gradient(top, #3c9ed7 2%, #3c9ed7 98%);
+    	background-image: -moz-linear-gradient(to bottom, #529d31 2%, #529d31 98%);
+    	text-transform: uppercase;
+	}
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<project name="XJC" default="generar-clases">
+	
+	<taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask" classpath="${compile_classpath}" />
+				
+	<target name="generar-clases">				
+			
+		<!--Orden de Compra -->
+		<xjc schema="src/parsers/resources/bbr/b2b/logistic/xml/main/order.xsd" destdir="src/parsers/java" package="bbr.b2b.logistic.xml.order" />
+		
+		<!-- Mensaje ACK -->
+		<!--<xjc schema="src/parsers/resources/bbr/b2b/logistic/xml/main/ack.xsd" destdir="src/parsers/java" package="bbr.b2b.logistic.xml.ack"/>-->
+		
+		<!-- Recepcion -->
+		<!--xjc schema="src/parsers/resources/bbr/b2b/logistic/xml/main/reception.xsd" destdir="src/parsers/java" package="bbr.b2b.logistic.xml.reception"/--> 
+
+		<!-- Cancelación de OC -->
+		<!--<xjc schema="src/parsers/resources/bbr/b2b/logistic/xml/main/UBL-OrderCancellation-2.0.xsd" destdir="src/parsers/java" package="bbr.b2b.logistic.xml.ordercancellation" />-->
+
+		
+		
+	</target>
+</project>

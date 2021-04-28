@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="bbr.b2b.logistic.customer.entities.Client" table="CLIENT"
+		entity-name="bbr.b2b.logistic.customer.entities.Client" schema="LOGISTICA" >
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="identity">
+				<param name="sequence">CLIENT_SEQUENCE</param>
+				<param name="parameters">AS BIGINT CACHE 100</param>
+			</generator>
+		</id>
+		<property name="name" type="java.lang.String" />
+		<property name="identity" type="java.lang.String" />
+		<property name="check_digit" type="java.lang.String" />
+		<property name="phone" type="java.lang.String" />
+		<property name="phone2" type="java.lang.String" />
+		<property name="address" type="java.lang.String" />
+		<property name="street_number" type="java.lang.String" />
+		<property name="departmet_number" type="java.lang.String" />
+		<property name="house_number" type="java.lang.String" />
+		<property name="region" type="java.lang.String" />
+		<property name="commune" type="java.lang.String" />
+		<property name="city" type="java.lang.String" />
+		<property name="location" type="java.lang.String" />
+		<property name="observation" type="java.lang.String" />
+	</class>		
+</hibernate-mapping>
+
+
+
+

@@ -1,0 +1,156 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="QOCSUGERIDA">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element ref="numcorrelativo" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="fecha" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="coddepto" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="codigoproveedor" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="responsable_prov" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="telefono" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="mail" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="comentarios" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="cod_local_entrega" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="detalleorden" maxOccurs="1" minOccurs="1"></xs:element>
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+
+	<!--  -->
+    <xs:element name="numcorrelativo">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!--  -->
+    <xs:element name="fecha">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!--  -->
+    <xs:element name="coddepto">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!--  -->
+    <xs:element name="codigoproveedor">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!--  -->
+    <xs:element name="responsable_prov">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!--  -->
+    <xs:element name="telefono">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!--  -->
+    <xs:element name="mail">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!--  -->
+    <xs:element name="comentarios">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>   
+    
+    <!--  -->
+    <xs:element name="cod_local_entrega">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>    
+    
+    <!--  -->
+    <xs:element name="detalleorden">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    			<xs:element ref="distribucion" />
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element> 
+    
+     <!--  -->
+    <xs:element name="distribucion">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="local_destino" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="productos" maxOccurs="1" minOccurs="1"></xs:element>    			
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element> 
+    
+    <!--  -->
+    <xs:element name="local_destino">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element> 
+    
+     <!--  -->
+    <xs:element name="productos">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    			<xs:element ref="detalle"></xs:element>   
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>  
+    
+    <xs:element name="detalle">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="cod_producto" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="cod_prod_prov" maxOccurs="1" minOccurs="1"></xs:element> 
+    			<xs:element ref="cantidad" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="costo_final" maxOccurs="1" minOccurs="1"></xs:element> 
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>  
+    
+    
+     <!--  -->
+    <xs:element name="cod_producto">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>   
+    
+     <!--  -->
+    <xs:element name="cod_prod_prov">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>   
+    
+     <!--  -->
+    <xs:element name="cantidad">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:double"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>   
+    
+     <!--  -->
+    <xs:element name="costo_final">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:double"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>           
+</xs:schema>

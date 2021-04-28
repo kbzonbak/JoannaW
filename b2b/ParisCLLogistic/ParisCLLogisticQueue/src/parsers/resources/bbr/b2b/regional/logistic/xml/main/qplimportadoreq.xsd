@@ -1,0 +1,214 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+     <xs:element name="QPLIMPORTADOREQ">
+     	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="SE" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="IM" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="OC" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="GD" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="NC" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="AC" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="SC" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="PL" maxOccurs="1" minOccurs="1"></xs:element>   				
+    		</xs:sequence>
+    	</xs:complexType>   
+ 	</xs:element>
+ 	
+    <!--  Número de Secuencia -->
+    <xs:element name="SE">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Número guia importación -->
+    <xs:element name="IM">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+
+	<!-- Número de Orden -->
+    <xs:element name="OC">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Número de guía -->
+    <xs:element name="GD">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Número de contenedor -->
+    <xs:element name="NC">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Acción -->
+    <xs:element name="AC">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Solicitud de cita -->  
+    <xs:element name="SC">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="NO" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="EM" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="FE" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="HH" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="CO" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="UN" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="NP" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="CE" maxOccurs="1" minOccurs="1"></xs:element>
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+ 
+ 	<!-- Nombre -->  
+    <xs:element name="NO">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- e-mail -->  
+    <xs:element name="EM">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Fecha -->  
+    <xs:element name="FE">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Hora -->  
+    <xs:element name="HH">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Comentario -->  
+    <xs:element name="CO">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Cantidad de bultos -->  
+    <xs:element name="UN">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:integer"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>  
+    
+    <!-- Cantidad de pallets -->  
+    <xs:element name="NP">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:integer"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Código Local de entrega -->  
+    <xs:element name="CE">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+        
+    <!-- Packing List -->  
+    <xs:element name="PL">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="BS" maxOccurs="1" minOccurs="1"></xs:element>    			  			
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>        
+    
+    <!-- Bultos -->  
+    <xs:element name="BS">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    			<xs:element ref="BU" />
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>    
+      
+    <!-- Bulto -->  
+    <xs:element name="BU">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="IB" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="TB" maxOccurs="1" minOccurs="1"></xs:element> 
+    			<xs:element ref="CD" maxOccurs="1" minOccurs="1"></xs:element> 
+    			<xs:element ref="PS" maxOccurs="1" minOccurs="1"></xs:element>   				   			    			
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>  
+    
+    <!-- ID bulto -->  
+    <xs:element name="IB">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:integer"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+     <!-- Tipo bulto -->  
+    <xs:element name="TB">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+     <!-- Código destino -->  
+    <xs:element name="CD">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Productos -->   
+    <xs:element name="PS">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    			<xs:element ref="PR" />
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element> 
+    
+    <!-- Producto -->  
+    <xs:element name="PR">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="SK" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="CA" maxOccurs="1" minOccurs="1"></xs:element>     			   			   			    			
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>  
+    
+    <!-- Código SKU -->  
+    <xs:element name="SK">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Cantidad -->  
+    <xs:element name="CA">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:integer"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>    
+</xs:schema>

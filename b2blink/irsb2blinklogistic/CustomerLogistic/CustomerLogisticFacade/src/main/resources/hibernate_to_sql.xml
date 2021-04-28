@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<project name="hbm2ddl" default="schemaexportTarget">
+	<target name="schemaexportTarget">
+		<taskdef name="schemaexport" 
+					 classname="org.hibernate.tool.ant.HibernateToolTask" 
+					 classpath="${compile_classpath}" />
+		<schemaexport destdir="src/main/resources/db/scripts">
+			<configuration configurationfile="src/main/resources/META-INF/hibernate.cfg.xml" />
+
+			<!-- NOMBRE DEL ARCHIVO PARA LA VERSION -->
+			<!-- VX__Accion_Compomente.sql -->
+			<hbm2ddl export="false" drop="false" create="true" outputfilename="V4__dblog.sql" delimiter=";" format="true" />
+		</schemaexport>
+	</target>
+</project>

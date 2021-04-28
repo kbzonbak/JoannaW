@@ -1,0 +1,259 @@
+package bbr.b2b.connector.managers.classes;
+
+import java.io.StringWriter;
+import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.ejb.EJB;
+import javax.ejb.SessionContext;
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
+import org.apache.log4j.Logger;
+
+import bbr.b2b.common.adtclasses.exceptions.OperationFailedException;
+import bbr.b2b.common.adtclasses.exceptions.ServiceException;
+import bbr.b2b.connector.classes.ProveedorServerLocal;
+import bbr.b2b.connector.classes.SoaStateTypeServerLocal;
+import bbr.b2b.connector.classes.EnvioProveedorServerLocal;
+import bbr.b2b.connector.classes.ProcessTypeServerLocal;
+import bbr.b2b.connector.data.classes.ProcessTypeW;
+import bbr.b2b.connector.data.classes.ProveedorW;
+import bbr.b2b.connector.data.classes.SoaStateTypeW;
+import bbr.b2b.connector.managers.interfaces.SOANotificationManagerLocal;
+import bbr.b2b.connector.managers.interfaces.SchedulerManagerLocal;
+import bbr.b2b.b2blink.commercial.xml.NotificacionInventario.NotificacionInventario;
+import bbr.b2b.b2blink.commercial.xml.NotificacionLocales.NotificacionLocales;
+import bbr.b2b.b2blink.commercial.xml.NotificacionVentas.NotificacionVentas;
+import bbr.b2b.b2blink.commercial.xml.NotificacionVentas.ObjectFactory;
+
+@Stateless(name = "managers/SoaNotificationManager")
+@TransactionAttribute(TransactionAttributeType.REQUIRED)
+public class SoaNotificationManager implements SOANotificationManagerLocal {
+
+	private static Logger logger = Logger.getLogger(SoaNotificationManager.class);
+	private static Logger logger_soa = Logger.getLogger("SOALog");
+	private SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+
+	/*@EJB
+	ProveedorServerLocal proveedorServerLocal;
+
+	@EJB
+	EnvioProveedorServerLocal envioProveedorServerLocal;
+
+	@EJB
+	ProcessTypeServerLocal processTypeServerLocal;
+
+	@EJB
+	SoaStateTypeServerLocal soaStateTypeServerLocal;*/
+
+	@EJB
+	SchedulerManagerLocal schedulermanager;
+
+	private static JAXBContext jc = null;
+
+	private static JAXBContext getJCSales() throws JAXBException {
+		if (jc == null)
+			jc = JAXBContext.newInstance("bbr.b2b.b2blink.commercial.xml.NotificacionVentas");
+		return jc;
+	}
+
+	private static JAXBContext jcInventory = null;
+	private static JAXBContext jcLocation = null;
+
+	private static JAXBContext getJCInventory() throws JAXBException {
+		if (jcInventory == null)
+			jcInventory = JAXBContext.newInstance("bbr.b2b.b2blink.commercial.xml.NotificacionInventario");
+		return jcInventory;
+	}
+	
+	private static JAXBContext getJCLocations() throws JAXBException {
+		if (jcLocation == null)
+			jcLocation = JAXBContext.newInstance("bbr.b2b.b2blink.commercial.xml.NotificacionLocales");
+		return jcLocation;
+	}
+
+	@Resource
+	private SessionContext ctx;
+
+	public void setCtx(SessionContext ctx) {
+		this.ctx = ctx;
+	}
+
+	public synchronized void execute() {
+		try {
+			boolean sendNotif = true;
+
+			if (!sendNotif)
+				return;
+
+			/*String nombrePortal = "CUSTOMER_COMERCIAL";
+			logger.info("Evento automático de notificaciones a SOA iniciado");
+			List<ProveedorW> proveedores = proveedorServerLocal.getAll();
+			ProcessTypeW processTypeVentasW = processTypeServerLocal.getByPropertyAsSingleResult("code", "ventas");
+			ProcessTypeW processTypeInventarioW = processTypeServerLocal.getByPropertyAsSingleResult("code", "inventario");
+			ProcessTypeW processTypeLocalesW = processTypeServerLocal.getByPropertyAsSingleResult("code", "locales");
+			
+			SoaStateTypeW soaPorNotificarW = soaStateTypeServerLocal.getByPropertyAsSingleResult("code", "POR_NOTIFICAR");
+			SoaStateTypeW soaNotificadorW = soaStateTypeServerLocal.getByPropertyAsSingleResult("code", "NOTIFICADO");
+			
+			if (proveedores.size() > 0) {
+				for (ProveedorW proveedor : proveedores) {
+					// Ventas
+					Date lastSend = envioProveedorServerLocal.getMinDateToNotifyByPv(proveedor.getId(),
+							processTypeVentasW.getId(), soaPorNotificarW.getId());
+					if (lastSend != null) {
+						if (envioProveedorServerLocal.existsSalesToSend(proveedor.getId(), lastSend)) {
+							doReportingSales(nombrePortal, proveedor);
+							envioProveedorServerLocal.doUpdateSoaState(proveedor.getId(), processTypeVentasW.getId(),
+									soaPorNotificarW.getId(), soaNotificadorW.getId());
+						} else {
+							logger.info("Proveedor " + proveedor.getPv_nombre() + " no tiene ventas que informar");
+						}
+					} else {
+						logger.info("Proveedor " + proveedor.getPv_nombre() + " no tiene ventas que informar");
+					}
+					// Inventario
+					lastSend = envioProveedorServerLocal.getMinDateToNotifyByPv(proveedor.getId(),
+							processTypeInventarioW.getId(), soaPorNotificarW.getId());
+					
+					if (lastSend != null) {
+						if (envioProveedorServerLocal.existsInventoryToSend(proveedor.getId(), lastSend)) {
+							doReportingInventory(nombrePortal, proveedor);
+							envioProveedorServerLocal.doUpdateSoaState(proveedor.getId(),
+									processTypeInventarioW.getId(), soaPorNotificarW.getId(), soaNotificadorW.getId());
+						} else {
+							logger.info("Proveedor " + proveedor.getPv_nombre() + " no tiene inventario que informar");
+						}
+					} else {
+						logger.info("Proveedor " + proveedor.getPv_nombre() + " no tiene inventario que informar");
+					}
+					// Locales
+
+					if (envioProveedorServerLocal.existsLocationsToSend(proveedor.getId(), processTypeLocalesW.getId(), soaPorNotificarW.getId())) {
+						doReportingLocations(nombrePortal, proveedor.getPv_cod_prov());
+						envioProveedorServerLocal.doUpdateSoaState(proveedor.getId(), processTypeLocalesW.getId(), soaPorNotificarW.getId(), soaNotificadorW.getId());
+					} else {
+						logger.info("Proveedor " + proveedor.getPv_nombre() + " no tiene locales que informar");
+					}
+
+				}
+			} else {
+				logger.info("No hay proveedores registrados");
+			}
+			*/
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.info("Evento automático de notificaciones a SOA falló");
+		}
+		logger.info("Evento automático de notificaciones a SOA finalizado");
+	}
+
+	private void doReportingSales(String nombrePortal, ProveedorW Proveedor) throws OperationFailedException {
+		try {
+			Date now = new Date();
+			ObjectFactory objFactory = new ObjectFactory();
+			NotificacionVentas notification = objFactory.createNotificacionVentas();
+			notification.setNombreportal(nombrePortal);
+			notification.setCodproveedor(Proveedor.getPv_cod_prov());
+			String numDoc = sdf.format(now);
+			notification.setNumorden(numDoc);
+
+			JAXBContext jc = getJCSales();
+			Marshaller m = jc.createMarshaller();
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+			StringWriter sw = new StringWriter();
+			m.marshal(notification, sw);
+			String result = sw.toString();
+
+			// System.out.println(result);
+			// ENVIA EL MENSAJE A LA COLA
+			//schedulermanager.doAddMessageQueue("jboss/qcf_soa", "jboss/activemq/queue/q_esbgrl", "NotificadoSales",					"ventas", result, Charset.forName("UTF-8"));
+
+		} catch (JAXBException e2) {
+			e2.printStackTrace();
+			// LoggingUtil.error("Generación de XML de rechazo via JAXB fallo. "
+			// + e2.getMessage());
+			throw new OperationFailedException(e2.getMessage());
+		} catch (Exception e) {
+			ctx.setRollbackOnly();
+			throw new OperationFailedException(e.getMessage());
+		}
+	}
+
+	private void doReportingInventory(String nombrePortal, ProveedorW Proveedor) throws OperationFailedException {
+		try {
+			Date now = new Date();
+			bbr.b2b.b2blink.commercial.xml.NotificacionInventario.ObjectFactory objFactory = new bbr.b2b.b2blink.commercial.xml.NotificacionInventario.ObjectFactory();
+			NotificacionInventario notification = objFactory.createNotificacionInventario();
+			notification.setNombreportal(nombrePortal);
+			notification.setCodproveedor(Proveedor.getPv_cod_prov());
+			String numDoc = sdf.format(now);
+			notification.setNumorden(numDoc);
+			
+
+			JAXBContext jcInventory = getJCInventory();
+			Marshaller m = jcInventory.createMarshaller();
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+			StringWriter sw = new StringWriter();
+			m.marshal(notification, sw);
+			String result = sw.toString();
+
+			// System.out.println(result);
+			// ENVIA EL MENSAJE A LA COLA
+			//schedulermanager.doAddMessageQueue("jboss/qcf_soa", "jboss/activemq/queue/q_esbgrl", "NotificadoInv",					"inventario", result, Charset.forName("UTF-8"));
+
+		} catch (JAXBException e2) {
+			e2.printStackTrace();
+			// LoggingUtil.error("Generación de XML de rechazo via JAXB fallo. "
+			// + e2.getMessage());
+			throw new OperationFailedException(e2.getMessage());
+		} catch (Exception e) {
+			ctx.setRollbackOnly();
+			throw new OperationFailedException(e.getMessage());
+		}
+	}
+
+	private void doReportingLocations(String nombrePortal, String codProveedor) throws OperationFailedException {
+		try {
+
+			bbr.b2b.b2blink.commercial.xml.NotificacionLocales.ObjectFactory objFactory = new bbr.b2b.b2blink.commercial.xml.NotificacionLocales.ObjectFactory();
+			NotificacionLocales notification = objFactory.createNotificacionLocales();
+			notification.setNombreportal(nombrePortal);
+			notification.setCodproveedor(codProveedor);
+
+			JAXBContext jc = getJCLocations();
+			Marshaller m = jc.createMarshaller();
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+			StringWriter sw = new StringWriter();
+			m.marshal(notification, sw);
+			String result = sw.toString();
+
+			System.out.println(result);
+			// ENVIA EL MENSAJE A LA COLA
+			//schedulermanager.doAddMessageQueue("jboss/qcf_soa", "jboss/activemq/queue/q_esbgrl", "NotificadoLocations",					"locales", result, Charset.forName("UTF-8"));//jboss/activemq/queue/q_esbgrl
+			
+			//System.out.println("mensaje enviado");
+
+		} catch (JAXBException e2) {
+			e2.printStackTrace();
+			// LoggingUtil.error("Generación de XML de rechazo via JAXB fallo. "
+			// + e2.getMessage());
+			throw new OperationFailedException(e2.getMessage());
+		} catch (Exception e) {
+			ctx.setRollbackOnly();
+			throw new OperationFailedException(e.getMessage());
+		}
+
+	}
+
+}

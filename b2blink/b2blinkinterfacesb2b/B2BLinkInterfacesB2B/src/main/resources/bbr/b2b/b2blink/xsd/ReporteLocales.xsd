@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/ReporteLocales" elementFormDefault="qualified">
+<!-- Versión 1.0 -->
+  <element name="Locales">
+    <complexType>
+      <sequence>
+		<element name="idMsge" type="string" />
+        <element name="nombreportal" type="string" />
+		<element name="codcomprador" type="string" />
+        <element name="vendedor">
+          <complexType>
+            <sequence>
+              <element name="rut" type="string" />
+              <element name="razon_social" type="string" />
+            </sequence>
+          </complexType>
+        </element>
+        <element name="formato" type="string" />
+        <element name="data" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+</schema>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<consolidado xmlns="http://www.bbr.cl/bbr/OCConsolidado" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bbr.cl/bbr/OCConsolidado OC_consolidado_1.0.xsd ">
+  <numeroconsolidado>20190218164443440</numeroconsolidado>
+    <nombreportal>FALABELLA LOGISTICA</nombreportal>
+    <ticket></ticket>
+    <shipto>SHIP0078-S</shipto>
+    <edi_data>
+        <senderIdentification>test</senderIdentification>
+        <recipientIdentification>760146102</recipientIdentification>
+        <buyerLocationCode></buyerLocationCode>
+    </edi_data>
+    <comprador>
+        <rut>77261280</rut>
+        <razon_social>falabella</razon_social>
+        <unidad_negocio></unidad_negocio>
+    </comprador>
+    <vendedor>
+        <rut>760146102</rut>
+        <razon_social>LG ELECTRONICS INC CHILE LTDA</razon_social>
+        <contacto></contacto>
+        <direccion></direccion>
+        <telefono></telefono>
+    </vendedor>
+    <clientes>
+        <cliente>
+        	<id>1</id>
+            <nombre>JOSE ALVARO CARO JAUREGUI</nombre>
+            <rut></rut>
+            <telefono>800388388 opcion 01</telefono>
+            <direccion>sector Bellavista frente a planta vinos Aresti s/n Casa Patronal, RIO CLARO</direccion>
+            <numcalle>sector Bellavista frente a planta vinos Aresti s/n Casa Patronal</numcalle>
+            <numdepto></numdepto>
+            <numcasa>(CT HUB-CROSS DOCK ) FALABELLA RETAIL S.A.</numcasa>
+            <region></region>
+            <comuna>RIO CLARO</comuna>
+            <ciudad>RIO CLARO(7REG)</ciudad>
+            <comentario>8 900  - 2100 - Orden:5228711646 - HC:12:45 -</comentario>
+        </cliente>
+    </clientes>
+    <locales>
+        <local>
+            <cod>1057311131</cod>
+            <nombre>(CT HUB-CROSS DOCK ) FALABELLA RETAIL S.A.</nombre>
+            <direccion></direccion>
+            <ean>4024e5faf1e6739ed210e90a3f05499b</ean>
+        </local>
+    </locales>
+    <detalles>
+        <detalle>
+            <id>48521</id>
+            <item>1</item>
+            <tipo_oc></tipo_oc>
+            <num_oc>685</num_oc>
+            <f12>12779869825</f12>
+            <cod_prod_comp>6623166</cod_prod_comp>
+            <id_cliente>9908</id_cliente>
+            <cod_prod_vendedor></cod_prod_vendedor>
+            <prod_empaque>1.0</prod_empaque>
+            <cantidad_empaque>1</cantidad_empaque>
+            <fecha_emision>2019-02-11-03:00</fecha_emision>
+            <fecha_vigencia>2019-02-11-03:00</fecha_vigencia>
+            <fecha_compromiso>2019-02-11-03:00</fecha_compromiso>
+            <fecha_vto>2019-02-12-03:00</fecha_vto>
+            <forma_pago>60</forma_pago>
+            <responsable></responsable>
+            <desc_producto>
+                <descuento>
+                    <monto>0.0</monto>
+                    <porcentaje>0.0</porcentaje>
+                    <tipo>monto</tipo>
+                    <glosa></glosa>
+                    <codigo></codigo>
+                </descuento>
+            </desc_producto>
+            <cargos_prod>
+                <cargo>
+                    <monto>0.0</monto>
+                    <porcentaje>0.0</porcentaje>
+                    <tipo>monto</tipo>
+                    <glosa></glosa>
+                    <codigo></codigo>
+                </cargo>
+            </cargos_prod>
+        </detalle>
+    </detalles>
+    <predistribuciones></predistribuciones>
+    <sub-detalles></sub-detalles>
+</consolidado>

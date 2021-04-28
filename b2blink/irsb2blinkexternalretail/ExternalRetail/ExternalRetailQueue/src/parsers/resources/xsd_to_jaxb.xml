@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<project name="XJC" default="generar-clases">
+	
+	<!--taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask" classpath="${basedir}" /-->
+	
+	<taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
+		<classpath>
+			<fileset dir="${lib.dir}" includes="*.jar" excludes="ant.jar" />
+			<fileset dir="/../..">
+				<include name="jaxp/**/*.jar" />
+				<include name="jwsdp-shared/lib/**/*.jar" />
+			</fileset>
+		</classpath>
+	</taskdef>	
+				
+	<target name="generar-clases">				
+			
+			<!-- Mensaje ACK -->
+			<xjc schema="src/parsers/resources/bbr/b2b/logistic/xml/main/NotificacionOrden.xsd" destdir="parsers" package="bbr.b2b.logistic.xml.notificacionOrden"/>
+			
+			<!--xjc schema="src/parsers/resources/bbr/b2b/logistic/xml/main/ACK.xsd" destdir="src/parsers/java" package="bbr.b2b.logistic.xml.ack" /-->
+					
+			<!-- CANONICOS -->		
+			
+			<!--Orden de Compra -->
+			<!--xjc schema="src/parsers/resources/bbr/b2b/logistic/xml/main/UBL-Order-2.0.xsd" destdir="src/parsers/java" package="bbr.b2b.logistic.xml.purchaseorder" /-->
+						
+			<!-- Cancelación de Orden -->
+			<!--xjc schema="src/parsers/resources/bbr/b2b/logistic/xml/main/UBL-OrderCancellation-2.0.xsd" destdir="src/parsers/java" package="bbr.b2b.logistic.xml.ordercancellation"/-->
+			
+			<!-- Recepción de Orden -->
+			<!--xjc schema="src/parsers/resources/bbr/b2b/logistic/xml/main/UBL-ReceiptAdvice-2.0.xsd" destdir="src/parsers/java" package="bbr.b2b.logistic.xml.reception"/-->
+					
+			<!-- IDOCS -->		
+			<!-- Orden de Compra sin Predistribución -->
+			<!--xjc schema="src/parsers/resources/bbr/b2b/logistic/xml/main/qorden.xsd" destdir="src/parsers/java" package="bbr.b2b.logistic.xml.qorden" /-->
+			
+			<!-- Orden de Compra con Predistribución -->
+			<!--xjc schema="src/parsers/resources/bbr/b2b/logistic/xml/main/qorden_PRED.xsd" destdir="src/parsers/java" package="bbr.b2b.logistic.xml.qorden_pred" /-->
+			
+			<!-- Vendor -->
+			<!--xjc schema="src/parsers/resources/bbr/b2b/logistic/xml/main/VENDOR_DWH.xsd" destdir="src/parsers/java" package="bbr.b2b.logistic.xml.vendor" /-->
+		
+	</target>
+</project>

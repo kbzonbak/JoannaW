@@ -1,0 +1,220 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+     <xs:element name="Message">
+     	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="origen" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="accion" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="tipo" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="id_compania" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="localizacion" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="tipo_origen" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="cancelado" maxOccurs="1" minOccurs="1"></xs:element>    			
+    			<xs:element ref="numero_asn" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="tipo_asn" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="estado_asn" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="cod_proveedor" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="fecha_creacion" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="cliente" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="detalle_asn" maxOccurs="1" minOccurs="1"></xs:element>    					
+    		</xs:sequence>
+    	</xs:complexType>   
+ 	</xs:element>
+ 	
+    <!-- Origen del mensaje -->
+    <xs:element name="origen">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Acción -->
+    <xs:element name="accion">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+
+	<!-- Tipo de mensaje en EOM -->
+    <xs:element name="tipo">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Identificador de compañía -->
+    <xs:element name="id_compania">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Localización -->
+    <xs:element name="localizacion">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>    		
+    	</xs:simpleType>
+    </xs:element>
+        
+     <!-- Tipo de origen -->
+    <xs:element name="tipo_origen">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+     <!-- Indicador de estado del ASN (0 = no cancelado) -->
+    <xs:element name="cancelado">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Identificador de ASN. -->
+    <xs:element name="numero_asn">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Tipo ASN -->
+    <xs:element name="tipo_asn">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Estado ASN -->
+    <xs:element name="estado_asn">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Código proveedor -->
+    <xs:element name="cod_proveedor">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Fecha cración del despacho "En Ruta" -->
+    <xs:element name="fecha_creacion">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:dateTime"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>    
+    
+     <!-- Datos del cliente asociado a la OC -->  
+    <xs:element name="cliente">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element ref="direccion" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="ciudad" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="comuna" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="cod_postal" maxOccurs="1" minOccurs="1"></xs:element> 
+    			<xs:element ref="pais" maxOccurs="1" minOccurs="1"></xs:element>    			
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+    
+    <!-- Dirección del cliente -->
+    <xs:element name="direccion">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>    
+    
+    <!-- Ciudad -->
+    <xs:element name="ciudad">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Comuna -->
+    <xs:element name="comuna">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Código postal asociada a la dirección. -->
+    <xs:element name="cod_postal">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element> 
+    
+    <!-- Pais -->
+    <xs:element name="pais">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>    
+    
+    <!-- Listado productos en el despacho -->  
+    <xs:element name="detalle_asn">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    			<xs:element ref="detalle" />
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>    
+    
+    <xs:element name="detalle">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element ref="accion" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="cancelado" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="tipo_lpn" maxOccurs="1" minOccurs="1"></xs:element> 
+    			<xs:element ref="num_ordencompra" maxOccurs="1" minOccurs="1"></xs:element> 
+    			<xs:element ref="num_linea" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="cod_producto" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="cantidad" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="unid_medida" maxOccurs="1" minOccurs="1"></xs:element>    			
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+ 
+ 	<!-- Tipo LPN -->  
+    <xs:element name="tipo_lpn">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Número de OC -->  
+    <xs:element name="num_ordencompra">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Número de línea -->  
+    <xs:element name="num_linea">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+ 
+ 	<!-- Código SKU -->  
+    <xs:element name="cod_producto">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Cantidad comprometida en despacho -->  
+    <xs:element name="cantidad">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:double"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>  
+    
+    <!-- Unidad de medida -->  
+    <xs:element name="unid_medida">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>   
+</xs:schema>

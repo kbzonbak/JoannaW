@@ -1,0 +1,64 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="QPLIMPORTADORESP">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element ref="SE" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="IM" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="OC" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="GD" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="NC" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="ES" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="MO" maxOccurs="1" minOccurs="0"></xs:element>
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+
+	<!-- Número de Secuencia -->
+    <xs:element name="SE">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Número guia importación -->
+    <xs:element name="IM">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Número de Orden -->
+    <xs:element name="OC">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Número de guía -->
+    <xs:element name="GD">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!--Número de contenedor -->
+    <xs:element name="NC">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+     <!-- Estado -->
+     <xs:element name="ES">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Motivo -->
+    <xs:element name="MO">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+</xs:schema>

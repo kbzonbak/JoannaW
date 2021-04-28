@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/cencosud/ReporteInventario" elementFormDefault="qualified">
+<!-- Versión 1.1 -->
+  <element name="Inventario">
+    <complexType>
+      <sequence>
+        <element name="nombreportal" type="string" />
+        <element name="comprador">
+          <complexType>
+            <sequence>
+              <element name="rut" type="string" />
+              <element name="razon_social" type="string" />
+              <element name="unidad_negocio" type="string" />
+            </sequence>
+          </complexType>
+        </element>
+        <element name="vendedor">
+          <complexType>
+            <sequence>
+              <element name="rut" type="string" />
+              <element name="razon_social" type="string" />
+            </sequence>
+          </complexType>
+        </element>
+        <element name="formato" type="string" /> <!-- se agrega en 1.1-->
+        <element name="data" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+</schema>

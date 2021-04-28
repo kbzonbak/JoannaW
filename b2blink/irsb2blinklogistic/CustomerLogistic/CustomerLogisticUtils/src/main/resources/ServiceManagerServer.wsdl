@@ -1,0 +1,1436 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://facade.webservices.services.esb.bbr/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="ServiceManagerServerService" targetNamespace="http://facade.webservices.services.esb.bbr/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://facade.webservices.services.esb.bbr/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://facade.webservices.services.esb.bbr/">
+  <xs:element name="addlog" type="tns:addlog"/>
+  <xs:element name="addlogByCompanyAccess" type="tns:addlogByCompanyAccess"/>
+  <xs:element name="addlogByCompanyAccessResponse" type="tns:addlogByCompanyAccessResponse"/>
+  <xs:element name="addlogByCompanyRut" type="tns:addlogByCompanyRut"/>
+  <xs:element name="addlogByCompanyRutResponse" type="tns:addlogByCompanyRutResponse"/>
+  <xs:element name="addlogById" type="tns:addlogById"/>
+  <xs:element name="addlogByIdResponse" type="tns:addlogByIdResponse"/>
+  <xs:element name="addlogResponse" type="tns:addlogResponse"/>
+  <xs:element name="checkUploadStatus" type="tns:checkUploadStatus"/>
+  <xs:element name="checkUploadStatusResponse" type="tns:checkUploadStatusResponse"/>
+  <xs:element name="doAddFileEvent" type="tns:doAddFileEvent"/>
+  <xs:element name="doAddFileEventResponse" type="tns:doAddFileEventResponse"/>
+  <xs:element name="doAddGenericServiceEvent" type="tns:doAddGenericServiceEvent"/>
+  <xs:element name="doAddGenericServiceEventResponse" type="tns:doAddGenericServiceEventResponse"/>
+  <xs:element name="doAddServiceEvent" type="tns:doAddServiceEvent"/>
+  <xs:element name="doAddServiceEventResponse" type="tns:doAddServiceEventResponse"/>
+  <xs:element name="doAddTicketEventStatus" type="tns:doAddTicketEventStatus"/>
+  <xs:element name="doAddTicketEventStatusResponse" type="tns:doAddTicketEventStatusResponse"/>
+  <xs:element name="doAddTicketRefNumber" type="tns:doAddTicketRefNumber"/>
+  <xs:element name="doAddTicketRefNumberResponse" type="tns:doAddTicketRefNumberResponse"/>
+  <xs:element name="doLogonUser" type="tns:doLogonUser"/>
+  <xs:element name="doLogonUserResponse" type="tns:doLogonUserResponse"/>
+  <xs:element name="doUpdateFileEventStatus" type="tns:doUpdateFileEventStatus"/>
+  <xs:element name="doUpdateFileEventStatusResponse" type="tns:doUpdateFileEventStatusResponse"/>
+  <xs:element name="doUpdateFileEventStatusofPathandUser" type="tns:doUpdateFileEventStatusofPathandUser"/>
+  <xs:element name="doUpdateFileEventStatusofPathandUserResponse" type="tns:doUpdateFileEventStatusofPathandUserResponse"/>
+  <xs:element name="getCompaniesServiceStatusReport" type="tns:getCompaniesServiceStatusReport"/>
+  <xs:element name="getCompaniesServiceStatusReportResponse" type="tns:getCompaniesServiceStatusReportResponse"/>
+  <xs:element name="getCredentialsBySiteService" type="tns:getCredentialsBySiteService"/>
+  <xs:element name="getCredentialsBySiteServiceAndCompany" type="tns:getCredentialsBySiteServiceAndCompany"/>
+  <xs:element name="getCredentialsBySiteServiceAndCompanyResponse" type="tns:getCredentialsBySiteServiceAndCompanyResponse"/>
+  <xs:element name="getCredentialsBySiteServiceResponse" type="tns:getCredentialsBySiteServiceResponse"/>
+  <xs:element name="getMessageData" type="tns:getMessageData"/>
+  <xs:element name="getMessageDataResponse" type="tns:getMessageDataResponse"/>
+  <xs:element name="getMessageDataofUser" type="tns:getMessageDataofUser"/>
+  <xs:element name="getMessageDataofUserResponse" type="tns:getMessageDataofUserResponse"/>
+  <xs:element name="getMessageFolder" type="tns:getMessageFolder"/>
+  <xs:element name="getMessageFolderResponse" type="tns:getMessageFolderResponse"/>
+  <xs:element name="getMessageFolderofUser" type="tns:getMessageFolderofUser"/>
+  <xs:element name="getMessageFolderofUserResponse" type="tns:getMessageFolderofUserResponse"/>
+  <xs:element name="getUninformedFileEvents" type="tns:getUninformedFileEvents"/>
+  <xs:element name="getUninformedFileEventsResponse" type="tns:getUninformedFileEventsResponse"/>
+  <xs:element name="getUnprocessedServiceEvents" type="tns:getUnprocessedServiceEvents"/>
+  <xs:element name="getUnprocessedServiceEventsResponse" type="tns:getUnprocessedServiceEventsResponse"/>
+  <xs:element name="monitor" type="tns:monitor"/>
+  <xs:element name="monitorResponse" type="tns:monitorResponse"/>
+  <xs:element name="updateContractedServiceMonitorData" type="tns:updateContractedServiceMonitorData"/>
+  <xs:element name="updateContractedServiceMonitorDataResponse" type="tns:updateContractedServiceMonitorDataResponse"/>
+  <xs:complexType name="getMessageFolder">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMessageFolderResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:messageFolderDataDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="messageFolderDataDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="host" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+      <xs:element minOccurs="0" name="path" type="xs:string"/>
+      <xs:element minOccurs="0" name="protocol" type="xs:string"/>
+      <xs:element minOccurs="0" name="type" type="xs:string"/>
+      <xs:element minOccurs="0" name="username" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUninformedFileEvents">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getUninformedFileEventsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:fileEventDataDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fileEventDataDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="accesscode" type="xs:string"/>
+      <xs:element minOccurs="0" name="companykey" type="xs:long"/>
+      <xs:element minOccurs="0" name="datecreated" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="datereceived" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="documentid" type="xs:string"/>
+      <xs:element minOccurs="0" name="filename" type="xs:string"/>
+      <xs:element minOccurs="0" name="id" type="xs:long"/>
+      <xs:element name="ok" type="xs:boolean"/>
+      <xs:element name="received" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="servicecode" type="xs:string"/>
+      <xs:element minOccurs="0" name="servicekey" type="xs:long"/>
+      <xs:element minOccurs="0" name="servicename" type="xs:string"/>
+      <xs:element minOccurs="0" name="sitecode" type="xs:string"/>
+      <xs:element minOccurs="0" name="sitekey" type="xs:long"/>
+      <xs:element minOccurs="0" name="sitename" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateContractedServiceMonitorData">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="arg0" type="tns:contractedServiceMonitorDataDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="contractedServiceMonitorDataDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="accesscode" type="xs:string"/>
+      <xs:element minOccurs="0" name="pendingmessages" type="xs:int"/>
+      <xs:element minOccurs="0" name="servicename" type="xs:string"/>
+      <xs:element minOccurs="0" name="sitename" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateContractedServiceMonitorDataResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="addlogByCompanyAccess">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg3" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg4" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg5" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg6" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addlogByCompanyAccessResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getCredentialsBySiteServiceAndCompany">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCredentialsBySiteServiceAndCompanyResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:initParamCSDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="initParamCSDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="accesscode" type="xs:string"/>
+      <xs:element minOccurs="0" name="companyname" type="xs:string"/>
+      <xs:element minOccurs="0" name="credenciales" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doAddTicketEventStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:long"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg3" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg4" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg5" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg6" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="arg7" type="tns:ticketEventStatusDataDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ticketEventStatusDataDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string"/>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+      <xs:element minOccurs="0" name="state" type="xs:string"/>
+      <xs:element minOccurs="0" name="type" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doAddTicketEventStatusResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:ticketEventDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ticketEventDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:elementDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="adjunto" type="xs:string"/>
+          <xs:element minOccurs="0" name="companykey" type="xs:long"/>
+          <xs:element minOccurs="0" name="currentstatetypedate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="currentstatetypekey" type="xs:long"/>
+          <xs:element minOccurs="0" name="datecreated" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="messageid" type="xs:string"/>
+          <xs:element minOccurs="0" name="referencia" type="xs:string"/>
+          <xs:element minOccurs="0" name="servicekey" type="xs:long"/>
+          <xs:element minOccurs="0" name="sitekey" type="xs:long"/>
+          <xs:element minOccurs="0" name="ticketnumber" type="xs:long"/>
+          <xs:element minOccurs="0" name="userid" type="xs:long"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="elementDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUnprocessedServiceEvents">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getUnprocessedServiceEventsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:serviceEventDataDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serviceEventDataDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="accesscode" type="xs:string"/>
+      <xs:element minOccurs="0" name="activation" type="xs:string"/>
+      <xs:element minOccurs="0" name="companykey" type="xs:long"/>
+      <xs:element minOccurs="0" name="custom" type="xs:string"/>
+      <xs:element minOccurs="0" name="formatkey" type="xs:long"/>
+      <xs:element minOccurs="0" name="formatname" type="xs:string"/>
+      <xs:element minOccurs="0" name="id" type="xs:long"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="orders" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="resenddata" type="xs:string"/>
+      <xs:element minOccurs="0" name="servicecode" type="xs:string"/>
+      <xs:element minOccurs="0" name="servicekey" type="xs:long"/>
+      <xs:element minOccurs="0" name="servicename" type="xs:string"/>
+      <xs:element minOccurs="0" name="sitecode" type="xs:string"/>
+      <xs:element minOccurs="0" name="sitekey" type="xs:long"/>
+      <xs:element minOccurs="0" name="sitename" type="xs:string"/>
+      <xs:element minOccurs="0" name="statuscode" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doAddTicketRefNumber">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:long"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doAddTicketRefNumberResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:baseResultDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="baseResultDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="statuscode" type="xs:string"/>
+      <xs:element minOccurs="0" name="statusmessage" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="checkUploadStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg3" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg4" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="checkUploadStatusResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:ticketEventResultDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ticketEventResultDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseResultDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="ticketresults" nillable="true" type="tns:ticketEventDataDTO"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ticketEventDataDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string"/>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+      <xs:element minOccurs="0" name="state" type="xs:string"/>
+      <xs:element minOccurs="0" name="type" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCredentialsBySiteService">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCredentialsBySiteServiceResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:initParamCSDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addlogByCompanyRut">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg3" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg4" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg5" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg6" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addlogByCompanyRutResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getMessageFolderofUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMessageFolderofUserResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:messageFolderDataDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMessageData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMessageDataResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:messageDataDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="messageDataDTO">
+    <xs:sequence>
+      <xs:element name="compresseddocument" type="xs:boolean"/>
+      <xs:element name="encrypt" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="encryptpassword" type="xs:string"/>
+      <xs:element minOccurs="0" name="endpoint" type="tns:wsEndpointDataDTO"/>
+      <xs:element minOccurs="0" name="folder" type="tns:messageFolderDataDTO"/>
+      <xs:element minOccurs="0" name="format" type="tns:messageFormatDataDTO"/>
+      <xs:element minOccurs="0" name="servicename" type="xs:string"/>
+      <xs:element minOccurs="0" name="sitename" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsEndpointDataDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="endpoint" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="messageFormatDataDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="format" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doUpdateFileEventStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg3" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doUpdateFileEventStatusResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:fileEventDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fileEventDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:elementDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="companykey" type="xs:long"/>
+          <xs:element minOccurs="0" name="datecreated" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="datereceived" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="documentid" type="xs:string"/>
+          <xs:element minOccurs="0" name="filename" type="xs:string"/>
+          <xs:element name="informed" type="xs:boolean"/>
+          <xs:element name="ok" type="xs:boolean"/>
+          <xs:element name="received" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="servicekey" type="xs:long"/>
+          <xs:element minOccurs="0" name="sitekey" type="xs:long"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getMessageDataofUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg3" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMessageDataofUserResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:messageDataDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doLogonUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doLogonUserResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:logonResultDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logonResultDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseResultDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="user" type="tns:userDTO"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="userDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:elementDTO">
+        <xs:sequence>
+          <xs:element name="active" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="answer" type="xs:string"/>
+          <xs:element minOccurs="0" name="blocked" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="checkvolatile" type="xs:int"/>
+          <xs:element minOccurs="0" name="email" type="xs:string"/>
+          <xs:element minOccurs="0" name="lastaccess" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="lastlogon" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="lastname" type="xs:string"/>
+          <xs:element minOccurs="0" name="lastpasschange" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="question" type="xs:string"/>
+          <xs:element minOccurs="0" name="rut" type="xs:string"/>
+          <xs:element minOccurs="0" name="sessionid" type="xs:string"/>
+          <xs:element minOccurs="0" name="triescount" type="xs:int"/>
+          <xs:element minOccurs="0" name="usertypeid" type="xs:long"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="doAddServiceEvent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg3" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doAddServiceEventResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:serviceEventDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serviceEventDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:elementDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="companykey" type="xs:long"/>
+          <xs:element minOccurs="0" name="custom" type="xs:string"/>
+          <xs:element minOccurs="0" name="datecreated" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="dateprocessed" type="xs:dateTime"/>
+          <xs:element name="processed" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="resenddata" type="xs:string"/>
+          <xs:element minOccurs="0" name="servicekey" type="xs:long"/>
+          <xs:element minOccurs="0" name="sitekey" type="xs:long"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="addlogById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:int"/>
+      <xs:element minOccurs="0" name="arg2" type="xs:int"/>
+      <xs:element minOccurs="0" name="arg3" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg4" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg5" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg6" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addlogByIdResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="monitor">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="monitorResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="doAddFileEvent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg3" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg4" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doAddFileEventResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:fileEventDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doAddGenericServiceEvent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doAddGenericServiceEventResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:serviceEventDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doUpdateFileEventStatusofPathandUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg3" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doUpdateFileEventStatusofPathandUserResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:fileEventDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addlog">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg3" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg4" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg5" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg6" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addlogResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getCompaniesServiceStatusReport">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getCompaniesServiceStatusReportResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:companiesServiceStatusReportDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="companiesServiceStatusReportDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="custommaxdelay" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="datas" nillable="true" type="tns:companiesServiceStatusDataDTO"/>
+      <xs:element minOccurs="0" name="monitoringannotation" type="xs:string"/>
+      <xs:element minOccurs="0" name="servicekey" type="xs:long"/>
+      <xs:element minOccurs="0" name="servicename" type="xs:string"/>
+      <xs:element minOccurs="0" name="sitekey" type="xs:long"/>
+      <xs:element minOccurs="0" name="sitename" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="companiesServiceStatusDataDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="accesscode" type="xs:string"/>
+      <xs:element minOccurs="0" name="activation" type="xs:string"/>
+      <xs:element minOccurs="0" name="as2id" type="xs:string"/>
+      <xs:element minOccurs="0" name="companykey" type="xs:long"/>
+      <xs:element minOccurs="0" name="monitor" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="servicecode" type="xs:string"/>
+      <xs:element minOccurs="0" name="servicekey" type="xs:long"/>
+      <xs:element minOccurs="0" name="servicename" type="xs:string"/>
+      <xs:element minOccurs="0" name="sitecode" type="xs:string"/>
+      <xs:element minOccurs="0" name="sitekey" type="xs:long"/>
+      <xs:element minOccurs="0" name="sitename" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccessDeniedException" type="tns:AccessDeniedException"/>
+  <xs:complexType name="AccessDeniedException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="friendlymessage" type="xs:string"/>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OperationFailedException" type="tns:OperationFailedException"/>
+  <xs:complexType name="OperationFailedException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="friendlymessage" type="xs:string"/>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NotFoundException" type="tns:NotFoundException"/>
+  <xs:complexType name="NotFoundException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="friendlymessage" type="xs:string"/>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="doAddTicketRefNumberResponse">
+    <wsdl:part element="tns:doAddTicketRefNumberResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateContractedServiceMonitorData">
+    <wsdl:part element="tns:updateContractedServiceMonitorData" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addlogByCompanyAccess">
+    <wsdl:part element="tns:addlogByCompanyAccess" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCredentialsBySiteServiceAndCompany">
+    <wsdl:part element="tns:getCredentialsBySiteServiceAndCompany" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCredentialsBySiteServiceAndCompanyResponse">
+    <wsdl:part element="tns:getCredentialsBySiteServiceAndCompanyResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doAddTicketEventStatus">
+    <wsdl:part element="tns:doAddTicketEventStatus" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkUploadStatusResponse">
+    <wsdl:part element="tns:checkUploadStatusResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUnprocessedServiceEvents">
+    <wsdl:part element="tns:getUnprocessedServiceEvents" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="NotFoundException">
+    <wsdl:part element="tns:NotFoundException" name="NotFoundException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkUploadStatus">
+    <wsdl:part element="tns:checkUploadStatus" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUninformedFileEventsResponse">
+    <wsdl:part element="tns:getUninformedFileEventsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addlogByCompanyAccessResponse">
+    <wsdl:part element="tns:addlogByCompanyAccessResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMessageData">
+    <wsdl:part element="tns:getMessageData" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doLogonUserResponse">
+    <wsdl:part element="tns:doLogonUserResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUnprocessedServiceEventsResponse">
+    <wsdl:part element="tns:getUnprocessedServiceEventsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doUpdateFileEventStatus">
+    <wsdl:part element="tns:doUpdateFileEventStatus" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addlogByIdResponse">
+    <wsdl:part element="tns:addlogByIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doAddServiceEvent">
+    <wsdl:part element="tns:doAddServiceEvent" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addlogResponse">
+    <wsdl:part element="tns:addlogResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="monitor">
+    <wsdl:part element="tns:monitor" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="OperationFailedException">
+    <wsdl:part element="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doUpdateFileEventStatusResponse">
+    <wsdl:part element="tns:doUpdateFileEventStatusResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doAddGenericServiceEvent">
+    <wsdl:part element="tns:doAddGenericServiceEvent" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doAddFileEventResponse">
+    <wsdl:part element="tns:doAddFileEventResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="monitorResponse">
+    <wsdl:part element="tns:monitorResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doUpdateFileEventStatusofPathandUserResponse">
+    <wsdl:part element="tns:doUpdateFileEventStatusofPathandUserResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMessageFolder">
+    <wsdl:part element="tns:getMessageFolder" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AccessDeniedException">
+    <wsdl:part element="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUninformedFileEvents">
+    <wsdl:part element="tns:getUninformedFileEvents" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doAddTicketRefNumber">
+    <wsdl:part element="tns:doAddTicketRefNumber" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMessageFolderResponse">
+    <wsdl:part element="tns:getMessageFolderResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCredentialsBySiteService">
+    <wsdl:part element="tns:getCredentialsBySiteService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMessageFolderofUserResponse">
+    <wsdl:part element="tns:getMessageFolderofUserResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addlogByCompanyRut">
+    <wsdl:part element="tns:addlogByCompanyRut" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMessageFolderofUser">
+    <wsdl:part element="tns:getMessageFolderofUser" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateContractedServiceMonitorDataResponse">
+    <wsdl:part element="tns:updateContractedServiceMonitorDataResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doAddGenericServiceEventResponse">
+    <wsdl:part element="tns:doAddGenericServiceEventResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMessageDataofUser">
+    <wsdl:part element="tns:getMessageDataofUser" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addlogByCompanyRutResponse">
+    <wsdl:part element="tns:addlogByCompanyRutResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCredentialsBySiteServiceResponse">
+    <wsdl:part element="tns:getCredentialsBySiteServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doLogonUser">
+    <wsdl:part element="tns:doLogonUser" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doAddServiceEventResponse">
+    <wsdl:part element="tns:doAddServiceEventResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addlogById">
+    <wsdl:part element="tns:addlogById" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCompaniesServiceStatusReportResponse">
+    <wsdl:part element="tns:getCompaniesServiceStatusReportResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doAddFileEvent">
+    <wsdl:part element="tns:doAddFileEvent" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doUpdateFileEventStatusofPathandUser">
+    <wsdl:part element="tns:doUpdateFileEventStatusofPathandUser" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addlog">
+    <wsdl:part element="tns:addlog" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMessageDataResponse">
+    <wsdl:part element="tns:getMessageDataResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMessageDataofUserResponse">
+    <wsdl:part element="tns:getMessageDataofUserResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCompaniesServiceStatusReport">
+    <wsdl:part element="tns:getCompaniesServiceStatusReport" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doAddTicketEventStatusResponse">
+    <wsdl:part element="tns:doAddTicketEventStatusResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ServiceManagerServer">
+    <wsdl:operation name="getMessageFolder">
+      <wsdl:input message="tns:getMessageFolder" name="getMessageFolder">
+    </wsdl:input>
+      <wsdl:output message="tns:getMessageFolderResponse" name="getMessageFolderResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NotFoundException" name="NotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUninformedFileEvents">
+      <wsdl:input message="tns:getUninformedFileEvents" name="getUninformedFileEvents">
+    </wsdl:input>
+      <wsdl:output message="tns:getUninformedFileEventsResponse" name="getUninformedFileEventsResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NotFoundException" name="NotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateContractedServiceMonitorData">
+      <wsdl:input message="tns:updateContractedServiceMonitorData" name="updateContractedServiceMonitorData">
+    </wsdl:input>
+      <wsdl:output message="tns:updateContractedServiceMonitorDataResponse" name="updateContractedServiceMonitorDataResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NotFoundException" name="NotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addlogByCompanyAccess">
+      <wsdl:input message="tns:addlogByCompanyAccess" name="addlogByCompanyAccess">
+    </wsdl:input>
+      <wsdl:output message="tns:addlogByCompanyAccessResponse" name="addlogByCompanyAccessResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCredentialsBySiteServiceAndCompany">
+      <wsdl:input message="tns:getCredentialsBySiteServiceAndCompany" name="getCredentialsBySiteServiceAndCompany">
+    </wsdl:input>
+      <wsdl:output message="tns:getCredentialsBySiteServiceAndCompanyResponse" name="getCredentialsBySiteServiceAndCompanyResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NotFoundException" name="NotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="doAddTicketEventStatus">
+      <wsdl:input message="tns:doAddTicketEventStatus" name="doAddTicketEventStatus">
+    </wsdl:input>
+      <wsdl:output message="tns:doAddTicketEventStatusResponse" name="doAddTicketEventStatusResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NotFoundException" name="NotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUnprocessedServiceEvents">
+      <wsdl:input message="tns:getUnprocessedServiceEvents" name="getUnprocessedServiceEvents">
+    </wsdl:input>
+      <wsdl:output message="tns:getUnprocessedServiceEventsResponse" name="getUnprocessedServiceEventsResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NotFoundException" name="NotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="doAddTicketRefNumber">
+      <wsdl:input message="tns:doAddTicketRefNumber" name="doAddTicketRefNumber">
+    </wsdl:input>
+      <wsdl:output message="tns:doAddTicketRefNumberResponse" name="doAddTicketRefNumberResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NotFoundException" name="NotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="checkUploadStatus">
+      <wsdl:input message="tns:checkUploadStatus" name="checkUploadStatus">
+    </wsdl:input>
+      <wsdl:output message="tns:checkUploadStatusResponse" name="checkUploadStatusResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NotFoundException" name="NotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCredentialsBySiteService">
+      <wsdl:input message="tns:getCredentialsBySiteService" name="getCredentialsBySiteService">
+    </wsdl:input>
+      <wsdl:output message="tns:getCredentialsBySiteServiceResponse" name="getCredentialsBySiteServiceResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NotFoundException" name="NotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addlogByCompanyRut">
+      <wsdl:input message="tns:addlogByCompanyRut" name="addlogByCompanyRut">
+    </wsdl:input>
+      <wsdl:output message="tns:addlogByCompanyRutResponse" name="addlogByCompanyRutResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMessageFolderofUser">
+      <wsdl:input message="tns:getMessageFolderofUser" name="getMessageFolderofUser">
+    </wsdl:input>
+      <wsdl:output message="tns:getMessageFolderofUserResponse" name="getMessageFolderofUserResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NotFoundException" name="NotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMessageData">
+      <wsdl:input message="tns:getMessageData" name="getMessageData">
+    </wsdl:input>
+      <wsdl:output message="tns:getMessageDataResponse" name="getMessageDataResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NotFoundException" name="NotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="doUpdateFileEventStatus">
+      <wsdl:input message="tns:doUpdateFileEventStatus" name="doUpdateFileEventStatus">
+    </wsdl:input>
+      <wsdl:output message="tns:doUpdateFileEventStatusResponse" name="doUpdateFileEventStatusResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NotFoundException" name="NotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMessageDataofUser">
+      <wsdl:input message="tns:getMessageDataofUser" name="getMessageDataofUser">
+    </wsdl:input>
+      <wsdl:output message="tns:getMessageDataofUserResponse" name="getMessageDataofUserResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NotFoundException" name="NotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="doLogonUser">
+      <wsdl:input message="tns:doLogonUser" name="doLogonUser">
+    </wsdl:input>
+      <wsdl:output message="tns:doLogonUserResponse" name="doLogonUserResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doAddServiceEvent">
+      <wsdl:input message="tns:doAddServiceEvent" name="doAddServiceEvent">
+    </wsdl:input>
+      <wsdl:output message="tns:doAddServiceEventResponse" name="doAddServiceEventResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NotFoundException" name="NotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addlogById">
+      <wsdl:input message="tns:addlogById" name="addlogById">
+    </wsdl:input>
+      <wsdl:output message="tns:addlogByIdResponse" name="addlogByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="monitor">
+      <wsdl:input message="tns:monitor" name="monitor">
+    </wsdl:input>
+      <wsdl:output message="tns:monitorResponse" name="monitorResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doAddFileEvent">
+      <wsdl:input message="tns:doAddFileEvent" name="doAddFileEvent">
+    </wsdl:input>
+      <wsdl:output message="tns:doAddFileEventResponse" name="doAddFileEventResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NotFoundException" name="NotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="doAddGenericServiceEvent">
+      <wsdl:input message="tns:doAddGenericServiceEvent" name="doAddGenericServiceEvent">
+    </wsdl:input>
+      <wsdl:output message="tns:doAddGenericServiceEventResponse" name="doAddGenericServiceEventResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NotFoundException" name="NotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="doUpdateFileEventStatusofPathandUser">
+      <wsdl:input message="tns:doUpdateFileEventStatusofPathandUser" name="doUpdateFileEventStatusofPathandUser">
+    </wsdl:input>
+      <wsdl:output message="tns:doUpdateFileEventStatusofPathandUserResponse" name="doUpdateFileEventStatusofPathandUserResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NotFoundException" name="NotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addlog">
+      <wsdl:input message="tns:addlog" name="addlog">
+    </wsdl:input>
+      <wsdl:output message="tns:addlogResponse" name="addlogResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCompaniesServiceStatusReport">
+      <wsdl:input message="tns:getCompaniesServiceStatusReport" name="getCompaniesServiceStatusReport">
+    </wsdl:input>
+      <wsdl:output message="tns:getCompaniesServiceStatusReportResponse" name="getCompaniesServiceStatusReportResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessDeniedException" name="AccessDeniedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedException" name="OperationFailedException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NotFoundException" name="NotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceManagerServerServiceSoapBinding" type="tns:ServiceManagerServer">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getMessageFolder">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getMessageFolder">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMessageFolderResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedException">
+        <soap:fault name="AccessDeniedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedException">
+        <soap:fault name="OperationFailedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotFoundException">
+        <soap:fault name="NotFoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUninformedFileEvents">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUninformedFileEvents">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUninformedFileEventsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedException">
+        <soap:fault name="AccessDeniedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedException">
+        <soap:fault name="OperationFailedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotFoundException">
+        <soap:fault name="NotFoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateContractedServiceMonitorData">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateContractedServiceMonitorData">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateContractedServiceMonitorDataResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedException">
+        <soap:fault name="AccessDeniedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedException">
+        <soap:fault name="OperationFailedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotFoundException">
+        <soap:fault name="NotFoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addlogByCompanyAccess">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addlogByCompanyAccess">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addlogByCompanyAccessResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCredentialsBySiteServiceAndCompany">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCredentialsBySiteServiceAndCompany">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCredentialsBySiteServiceAndCompanyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedException">
+        <soap:fault name="AccessDeniedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedException">
+        <soap:fault name="OperationFailedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotFoundException">
+        <soap:fault name="NotFoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="doAddTicketEventStatus">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="doAddTicketEventStatus">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="doAddTicketEventStatusResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedException">
+        <soap:fault name="AccessDeniedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedException">
+        <soap:fault name="OperationFailedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotFoundException">
+        <soap:fault name="NotFoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUnprocessedServiceEvents">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUnprocessedServiceEvents">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUnprocessedServiceEventsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedException">
+        <soap:fault name="AccessDeniedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedException">
+        <soap:fault name="OperationFailedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotFoundException">
+        <soap:fault name="NotFoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="doAddTicketRefNumber">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="doAddTicketRefNumber">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="doAddTicketRefNumberResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedException">
+        <soap:fault name="AccessDeniedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedException">
+        <soap:fault name="OperationFailedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotFoundException">
+        <soap:fault name="NotFoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="checkUploadStatus">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="checkUploadStatus">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="checkUploadStatusResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedException">
+        <soap:fault name="AccessDeniedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedException">
+        <soap:fault name="OperationFailedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotFoundException">
+        <soap:fault name="NotFoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCredentialsBySiteService">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCredentialsBySiteService">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCredentialsBySiteServiceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedException">
+        <soap:fault name="AccessDeniedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedException">
+        <soap:fault name="OperationFailedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotFoundException">
+        <soap:fault name="NotFoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMessageFolderofUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getMessageFolderofUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMessageFolderofUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedException">
+        <soap:fault name="AccessDeniedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedException">
+        <soap:fault name="OperationFailedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotFoundException">
+        <soap:fault name="NotFoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addlogByCompanyRut">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addlogByCompanyRut">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addlogByCompanyRutResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMessageData">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getMessageData">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMessageDataResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedException">
+        <soap:fault name="AccessDeniedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedException">
+        <soap:fault name="OperationFailedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotFoundException">
+        <soap:fault name="NotFoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="doUpdateFileEventStatus">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="doUpdateFileEventStatus">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="doUpdateFileEventStatusResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedException">
+        <soap:fault name="AccessDeniedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedException">
+        <soap:fault name="OperationFailedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotFoundException">
+        <soap:fault name="NotFoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMessageDataofUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getMessageDataofUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMessageDataofUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedException">
+        <soap:fault name="AccessDeniedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedException">
+        <soap:fault name="OperationFailedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotFoundException">
+        <soap:fault name="NotFoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="doLogonUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="doLogonUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="doLogonUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doAddServiceEvent">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="doAddServiceEvent">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="doAddServiceEventResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedException">
+        <soap:fault name="AccessDeniedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedException">
+        <soap:fault name="OperationFailedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotFoundException">
+        <soap:fault name="NotFoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addlogById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addlogById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addlogByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="monitor">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="monitor">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="monitorResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doAddFileEvent">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="doAddFileEvent">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="doAddFileEventResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedException">
+        <soap:fault name="AccessDeniedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedException">
+        <soap:fault name="OperationFailedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotFoundException">
+        <soap:fault name="NotFoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="doAddGenericServiceEvent">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="doAddGenericServiceEvent">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="doAddGenericServiceEventResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedException">
+        <soap:fault name="AccessDeniedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedException">
+        <soap:fault name="OperationFailedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotFoundException">
+        <soap:fault name="NotFoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="doUpdateFileEventStatusofPathandUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="doUpdateFileEventStatusofPathandUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="doUpdateFileEventStatusofPathandUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedException">
+        <soap:fault name="AccessDeniedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedException">
+        <soap:fault name="OperationFailedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotFoundException">
+        <soap:fault name="NotFoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addlog">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addlog">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addlogResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCompaniesServiceStatusReport">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCompaniesServiceStatusReport">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCompaniesServiceStatusReportResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedException">
+        <soap:fault name="AccessDeniedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedException">
+        <soap:fault name="OperationFailedException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotFoundException">
+        <soap:fault name="NotFoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceManagerServerService">
+    <wsdl:port binding="tns:ServiceManagerServerServiceSoapBinding" name="ServiceManagerServerPort">
+      <soap:address location="http://localhost:8180/SOA_GENERAL_Web/ServiceManagerServer"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

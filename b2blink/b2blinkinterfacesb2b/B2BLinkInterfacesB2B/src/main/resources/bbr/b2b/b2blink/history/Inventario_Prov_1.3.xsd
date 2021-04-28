@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/cencosud/InventarioProv"
+	elementFormDefault="qualified" xmlns:oc="http://www.bbr.cl/cencosud/InventarioProv">
+	<!-- VERSION 1.3 -->
+	<element name="InventarioProveedor">
+		<complexType>
+			<sequence>
+				<element name="ticket" type="string" minOccurs="0" />
+				<element name="nombreportal" type="string" />
+				<element name="fecha_documento" type="date" />
+				<element name="fecha_inicio" type="date" />
+				<element name="fecha_termino" type="date" />
+				<element name="comprador" minOccurs="0">
+					<complexType>
+						<sequence>
+							<element name="rut" type="string" />
+							<element name="razon_social" type="string" minOccurs="0" />
+							<element name="unidad_negocio" type="string" minOccurs="0" />
+						</sequence>
+					</complexType>
+				</element>
+				<element name="vendedor">
+					<complexType>
+						<sequence>
+							<element name="codigo" type="string" />
+							<element name="razon_social" type="string" minOccurs="0" />
+							<element name="contacto" type="string" minOccurs="0" />
+							<element name="direccion" type="string" minOccurs="0" />
+							<element name="telefono" type="string" minOccurs="0" />
+						</sequence>
+					</complexType>
+				</element>
+				<element name="detalles">
+					<complexType>
+						<sequence minOccurs="0" maxOccurs="unbounded">
+							<element name="detalle">
+								<complexType>
+									<sequence>
+										<element name="cod_local" type="string" />
+										<element name="sku" type="string" minOccurs="0" />
+										<element name="ean" type="string" />
+										<element name="cantidad" type="string" />
+									</sequence>
+								</complexType>
+							</element>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

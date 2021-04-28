@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.cencosud.corp/Core/EBO/UBL/Custom-UBL-Order-2.0" xmlns:tns="http://xmlns.cencosud.corp/Core/EBO/UBL/Custom-UBL-Order-2.0" elementFormDefault="qualified">
+
+	<complexType name="CustomOrderType">
+		<sequence>
+			<element name="OrderCategory" minOccurs="0" maxOccurs="1">
+				<simpleType>
+					<restriction base="string">
+						<minLength value="0"></minLength>
+						<maxLength value="10"></maxLength>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="OrderType" minOccurs="0" maxOccurs="1" type="string"></element>
+			<element name="PricingDate" minOccurs="0" maxOccurs="1" type="string"></element>
+			<element name="OrderClass" type="string" minOccurs="0"></element>
+			<element name="DocComType" type="string" minOccurs="0" maxOccurs="1"></element>
+			<element name="LanguageID" type="string" minOccurs="0" maxOccurs="1"></element>
+			<element name="CurrencyExchange" type="tns:CurrencyExchangeType" minOccurs="0" maxOccurs="1" />
+		</sequence>
+	</complexType>
+
+	<complexType name="CurrencyExchangeType">
+		<sequence>
+			<element name="SourceCurrencyCode" minOccurs="0" maxOccurs="1" type="string"></element>
+			<element name="SourceUnitBase" minOccurs="0" maxOccurs="1" type="string"></element>
+			<element name="TargetCurrencyCode" minOccurs="0" maxOccurs="1" type="string"></element>
+			<element name="TargetUnitBase" minOccurs="0" maxOccurs="1" type="string"></element>
+			<element name="ConversionRate" minOccurs="0" maxOccurs="1" type="string"></element>
+			<element name="RoundingFactor" minOccurs="0" maxOccurs="1" type="string"></element>
+			<element name="ConversionTypeCode" minOccurs="0" maxOccurs="1" type="string"></element>
+			<element name="ConversionRateDateTime" minOccurs="0" maxOccurs="1" type="string"></element>
+			<element name="SourceCode" minOccurs="0" maxOccurs="1" type="string"></element>
+		</sequence>
+	</complexType>
+
+</schema>

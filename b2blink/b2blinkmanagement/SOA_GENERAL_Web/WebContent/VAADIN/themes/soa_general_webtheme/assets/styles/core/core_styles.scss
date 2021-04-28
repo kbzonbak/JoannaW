@@ -1,0 +1,50 @@
+@mixin core_styles 
+{
+
+	//******************************************************
+	//************* Beginning Waiting Styles ****************
+	//******************************************************
+	
+	.waitingStyle
+	{
+		position: fixed;
+	    top: 50%;
+	    left: 50%;
+	    margin-top: -16px;
+	    margin-left: -16px;
+	    
+	}
+	
+	.waitingTabStyle
+	{
+		position: relative;
+	    top: 50%;
+	    left: 50%;
+	    margin-top: -16px;
+	    margin-left: -16px;
+	}
+	
+	.waitingModulesStyle
+	{
+		position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    margin-top: -16px;
+	    margin-left: -16px;
+	}   
+
+	.waitingTitleWindowStyle
+	{
+		position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    margin-top: -16px;
+	    margin-left: -16px;
+	}   
+	//******************************************************
+	//************* Ending Waiting Styles ******************
+	//******************************************************
+	 
+}
+
+

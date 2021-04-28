@@ -1,0 +1,64 @@
+@import "assets/styles/controls/bbr_main_menu_bar.scss";
+@import "assets/styles/controls/bbr_table.scss";
+@import "assets/styles/controls/bbr_grid.scss";
+@import "addons.scss";
+@import "irsb2blinkportalweb.scss";
+@import "assets/styles/core/core_styles.scss";
+@import "assets/styles/controls/bbr_title_window.scss";
+@import "assets/styles/controls/login.scss";
+@import "assets/styles/controls/walldiary.scss";
+@import "assets/styles/controls/filter.scss";
+@import "assets/styles/controls/bbr_wizard.scss";
+@import "assets/styles/controls/bbr_uploader.scss";
+@import "assets/styles/controls/modules.scss";
+@import "assets/styles/controls/generic.scss";
+@import "assets/styles/controls/bbr_gallery.scss";
+@import "assets/styles/controls/bbr_buttons.scss";
+
+/* This file prefixes all rules with the theme name to avoid causing conflicts with other themes. */
+/* The actual styles should be defined in irsb2blinkportalweb.scss */
+.irsb2blinkportalweb {
+	@include bbr_main_menu_bar;
+	@include irsb2blinkportalweb; 	
+	@include addons;
+  	@include core_styles;
+ 	@include bbr_title_window;
+ 	@include bbr_table;
+ 	@include bbr_grid;     	
+  	@include login;
+  	@include walldiary;
+  	@include filter;
+  	@include bbr_wizard;
+  	@include bbr_uploader;
+  	@include modules;
+  	@include generic;
+  	@include bbr_gallery;
+  	@include bbr_buttons;
+}
+.irsb2blinkportalweb.v-app{	
+	background-color:#eaeaea;
+	font-size: 13px;
+}
+
+.irsb2blinkportalweb .activeUsers{
+	padding: 10px;
+    background-color: #fff;
+    border: #eee 1px solid;
+    margin-top: 10px;	
+	}
+	
+.irsb2blinkportalweb .v-grid-scroller {
+    position: absolute;
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1000px) {
+   .irsb2blinkportalweb .control-panel-grid {
+	  grid-template-columns: auto auto;
+	  grid-template-rows: auto;
+	  grid-template-areas: 'panel-a panel-b' 'panel-1 panel-2' 'panel-3 panel-4' 'panel-5 .';
+  }
+}

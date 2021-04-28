@@ -1,0 +1,121 @@
+package bbr.b2b.connector.managers.classes;
+
+import java.util.Date;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+
+import bbr.b2b.common.adtclasses.exceptions.LoadDataException;
+import bbr.b2b.common.adtclasses.exceptions.NotFoundException;
+import bbr.b2b.common.adtclasses.exceptions.OperationFailedException;
+import bbr.b2b.connector.classes.EnvioProveedorServerLocal;
+import bbr.b2b.connector.classes.ProcessTypeServerLocal;
+import bbr.b2b.connector.classes.ProveedorServerLocal;
+import bbr.b2b.connector.classes.SoaStateTypeServerLocal;
+import bbr.b2b.connector.data.classes.ProcessTypeW;
+import bbr.b2b.connector.data.classes.ProveedorW;
+import bbr.b2b.connector.data.classes.SoaStateTypeW;
+import bbr.b2b.connector.data.dto.InventoryDTO;
+import bbr.b2b.connector.data.dto.SaleDTO;
+import bbr.b2b.connector.managers.interfaces.SalesInventoryManagerLocal;
+
+@Stateless(name = "managers/SalesInventoryManager")
+@TransactionAttribute(TransactionAttributeType.REQUIRED)
+public class SalesInventoryManager implements SalesInventoryManagerLocal {
+
+//	@EJB
+//	EnvioProveedorServerLocal envioProveedorServerLocal;
+//
+//	@EJB
+//	ProveedorServerLocal proveedorServerLocal;
+//	
+//	@EJB
+//	ProcessTypeServerLocal processTypeServerLocal;
+//	
+//	@EJB
+//	SoaStateTypeServerLocal soaStateTypeServerLocal;
+//
+//	public InventoryDTO[] getInventoryReport(Long pv_key) throws OperationFailedException, LoadDataException, NotFoundException {
+//
+//		Date lastSend = null;
+//		ProveedorW proveedorW = null;
+//		ProcessTypeW processTypeW = processTypeServerLocal.getByPropertyAsSingleResult("code", "inventario");
+//		SoaStateTypeW soaNotificadoW = soaStateTypeServerLocal.getByPropertyAsSingleResult("code", "NOTIFICADO");
+//		
+//		/**********
+//		 * obtengo pvkey y fechas para generar el reporte de ventas
+//		 *****/
+//		try {
+//
+//			try {
+//				proveedorW = proveedorServerLocal.getById(pv_key);
+//			} catch (NotFoundException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			
+//			lastSend = envioProveedorServerLocal.getMinDateToNotifyByPv(proveedorW.getId(), processTypeW.getId(), soaNotificadoW.getId());
+//			if (lastSend == null){
+//				throw new LoadDataException("Proveedor " + proveedorW.getPv_nombre() + " no tiene inventario en estado notificado");
+//			}
+//		} catch (OperationFailedException e) {
+//			e.printStackTrace();
+//			throw new OperationFailedException("error al obtener proveedor");
+//		}
+//		
+//		InventoryDTO[] inventoryW = null;
+//		inventoryW = envioProveedorServerLocal.getInventory(proveedorW.getId(), lastSend);
+//		if (inventoryW.length == 0 || inventoryW == null) {
+//			throw new LoadDataException("Proveedor " + proveedorW.getPv_nombre() + " no tiene inventario");
+//		}
+//		return inventoryW;
+//	}
+//
+//	public SaleDTO[] getSalesReport(Long pv_key) throws OperationFailedException, LoadDataException, NotFoundException {
+//
+//		Date lastSend = null;
+//		ProveedorW proveedorW = null;
+//		ProcessTypeW processTypeW = processTypeServerLocal.getByPropertyAsSingleResult("code", "ventas");
+//		SoaStateTypeW soaNotificadoW = soaStateTypeServerLocal.getByPropertyAsSingleResult("code", "NOTIFICADO");
+//		
+//		/**********
+//		 * obtengo pvkey y fechas para generar el reporte de ventas
+//		 *****/
+//		try {
+//
+//			try {
+//				proveedorW = proveedorServerLocal.getById(pv_key);
+//			} catch (NotFoundException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			lastSend = envioProveedorServerLocal.getMinDateToNotifyByPv(proveedorW.getId(), processTypeW.getId(), soaNotificadoW.getId());
+//			if (lastSend == null){
+//				throw new LoadDataException("Proveedor " + proveedorW.getPv_nombre() + " no tiene ventas en estado notificado");
+//			}
+//		} catch (OperationFailedException e) {
+//			e.printStackTrace();
+//			throw new OperationFailedException("error al obtener proveedor");
+//		}
+//
+//		SaleDTO[] salesW = null;
+//		salesW = envioProveedorServerLocal.getSales(proveedorW.getId(), lastSend);
+//
+//		if (salesW.length == 0 || salesW == null) {
+//			throw new LoadDataException("Proveedor " + proveedorW.getPv_nombre() + " no tiene ventas");
+//		}
+//		return salesW;
+//	}
+//
+//	public ProveedorW getProviderInfo(String rut) {
+//		ProveedorW providerW = null;
+//		try {
+//			providerW = proveedorServerLocal.getByPropertyAsSingleResult("rut", rut);
+//		} catch (OperationFailedException | NotFoundException e) {
+//			e.printStackTrace();
+//		}
+//		return providerW;
+//	}
+}

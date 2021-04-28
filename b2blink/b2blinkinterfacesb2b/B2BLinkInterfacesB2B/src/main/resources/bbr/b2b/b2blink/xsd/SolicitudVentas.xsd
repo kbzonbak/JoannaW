@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/SolicitudVentas" elementFormDefault="qualified">
+<!-- Versión 1.3 -->
+  <element name="SolicitudVentas">
+    <complexType>
+      <sequence minOccurs="1" maxOccurs="1">
+        <element name="nombreportal" type="string"  minOccurs="0"/>   <!-- Se agrega en 1.3 -->
+        <element name="codproveedor" type="string" />
+        <element name="codcomprador" type="string" />
+        <element name="formato" type="string" />
+        <element name="fecha_activacion" type="string" minOccurs="0"/> <!-- Se agrega en 1.2 --> 
+      </sequence>
+    </complexType>
+  </element>
+</schema>

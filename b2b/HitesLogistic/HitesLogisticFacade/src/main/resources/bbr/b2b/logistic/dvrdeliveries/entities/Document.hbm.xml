@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+	<class name="bbr.b2b.logistic.dvrdeliveries.entities.Document" table="DOCUMENT" 
+		entity-name="bbr.b2b.logistic.dvrdeliveries.entities.Document" schema="LOGISTICA">
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="identity">
+				<param name="sequence">DOCUMENT_SEQUENCE</param>
+				<param name="parameters">AS BIGINT CACHE 100</param>
+			</generator>
+		</id>
+
+		<property name="number" type="java.lang.String" />
+		<property name="emitteddate" type="java.time.LocalDateTime" />
+		<property name="netamount" type="java.lang.Double" />
+		<property name="iva" type="java.lang.Double" />
+		<property name="totalamount" type="java.lang.Double" />
+		<property name="validated" type="java.lang.Boolean" />
+		<property name="closed" type="java.lang.Boolean" />
+		<property name="receptiondate" type="java.time.LocalDateTime" />
+		<property name="when" type="java.time.LocalDateTime" column="when1"/>
+		<property name="receptionnumber" type="java.lang.Long"/>
+		<property name="asnnumber" type="java.lang.String"/>
+		<property name="comment" type="java.lang.String" />
+		<property name="status" type="java.lang.Boolean" not-null="true"/>
+		
+		<many-to-one name="documenttype" 
+			class="bbr.b2b.logistic.dvrdeliveries.entities.DocumentType"  column="DOCUMENTTYPE_ID"
+			not-null="true" insert="false" update="false"/>
+				
+		<sql-query name="getCorrelativeFromASNNumber">
+			<![CDATA[
+				SELECT DISTINCT
+					COALESCE(CAST(split_part(doc.asnnumber, '_', 3) AS int), 0) AS asncorrelative 
+				FROM logistica.document as doc
+				JOIN logistica.bulk as bu
+				ON bu.document_id = doc.id
+				JOIN logistica.dvrdelivery as dvrdel
+				ON dvrdel.id = bu.dvrdelivery_id
+
+				WHERE doc.number = :documentnumber
+				and dvrdel.vendor_id = :vendorid
+			
+			]]>
+		</sql-query>			
+			
+		<sql-query name="getASNHeaderData">
+			<![CDATA[
+				SELECT DISTINCT
+					dvroc.id AS dvrorderid,
+					oc.number AS ordernumber,
+					ot.code AS ordertypecode,
+					dvrdel.number AS dvrdeliverynumber,
+					CAST('CREATE' AS varchar) AS action,
+					ve.code AS vendorcode,
+					loc.code AS deliverylocationcode,
+					COALESCE(doc.asnnumber, '') AS asnnumber,
+					doc.id AS documentid,
+					doc.number AS documentnumber,
+					dt.code AS documentcode,
+					dt.type AS documenttype,
+					dvrdel.pluploaddate AS pluploaddate,
+					doc.totalamount,
+					doc.netamount,
+					doc.iva AS taxamount,
+					dvroc.expiration AS expirationdate	
+				FROM
+					logistica.dvrdelivery AS dvrdel JOIN
+					logistica.dvrorderdelivery AS dvrod ON dvrod.dvrdelivery_id = dvrdel.id JOIN
+					logistica.dvrorder AS dvroc ON dvroc.id = dvrod.dvrorder_id JOIN
+					logistica.order AS oc ON oc.id = dvroc.id JOIN
+					logistica.ordertype AS ot ON ot.id = oc.ordertype_id JOIN
+					logistica.dvrorderdeliverydetail AS dvrodd ON dvrodd.dvrorder_id = dvroc.id AND dvrodd.dvrdelivery_id = dvrdel.id JOIN
+					logistica.vendor AS ve ON dvrdel.vendor_id = ve.id JOIN
+					logistica.location AS loc ON loc.id = dvrdel.deliverylocation_id JOIN
+					logistica.bulkdetail AS bd ON bd.dvrorder_id = dvrodd.dvrorder_id AND bd.dvrdelivery_id = dvrodd.dvrdelivery_id AND
+												  bd.location_id = dvrodd.location_id AND bd.item_id = dvrodd.item_id AND
+												  bd.position = dvrodd.position JOIN
+					logistica.bulk AS bu ON bu.id = bd.bulk_id JOIN
+					logistica.document AS doc ON doc.id = bu.document_id JOIN
+					logistica.documenttype AS dt ON dt.id = doc.documenttype_id
+				WHERE
+					dvrdel.id = :dvrdeliveryid AND doc.id = :documentid
+			]]>
+		</sql-query>
+
+		<sql-query name="getASNDetailData">
+			<![CDATA[
+				SELECT
+					oc.number AS ocnumber,
+					CAST('CREATE' AS varchar) AS action, 
+					it.sku AS itemsku,
+					loc.code AS destinationlocationcode,
+					bu.lpncode AS lpncode,
+					bd.units AS units,
+					dvroc.referencenumber,
+					doc.id AS documentid
+				FROM
+					logistica.bulk AS bu JOIN
+					logistica.bulkdetail AS bd ON bu.id = bd.bulk_id JOIN
+					logistica.dvrorderdeliverydetail AS dvrodd ON dvrodd.dvrorder_id = bd.dvrorder_id AND dvrodd.dvrdelivery_id = bd.dvrdelivery_id AND
+																  dvrodd.item_id = bd.item_id AND dvrodd.location_id = bd.location_id AND
+																  dvrodd.position = bd.position JOIN
+					logistica.order AS oc ON oc.id = dvrodd.dvrorder_id JOIN
+					logistica.dvrorder AS dvroc ON dvroc.id = oc.id JOIN
+					logistica.item AS it ON it.id = bd.item_id JOIN
+					logistica.location AS loc ON loc.id = bd.location_id JOIN
+					logistica.document AS doc ON doc.id = bu.document_id
+				WHERE
+					bu.dvrdelivery_id = :dvrdeliveryid AND doc.id = :documentid
+				ORDER BY bu.lpncode, it.sku
+			]]>
+		</sql-query>
+				
+		<sql-query name="getDeliveryASNHeaderData">
+			<![CDATA[
+				SELECT DISTINCT
+					dvroc.id AS dvrorderid,
+					oc.number AS ordernumber,
+					ot.code AS ordertypecode,
+					dvrdel.number AS dvrdeliverynumber,
+					CAST('CREATE' AS varchar) AS action,
+					ve.code AS vendorcode,
+					loc.code AS deliverylocationcode,
+					COALESCE(doc.asnnumber, '') AS asnnumber,
+					doc.id AS documentid,
+					doc.number AS documentnumber,
+					dt.code AS documentcode,
+					dt.type AS documenttype,
+					dvrdel.pluploaddate AS pluploaddate,
+					doc.totalamount,
+					doc.netamount,
+					doc.iva AS taxamount,
+					dvroc.expiration AS expirationdate	
+				FROM
+					logistica.dvrdelivery AS dvrdel JOIN
+					logistica.dvrorderdelivery AS dvrod ON dvrod.dvrdelivery_id = dvrdel.id JOIN
+					logistica.dvrorder AS dvroc ON dvroc.id = dvrod.dvrorder_id JOIN
+					logistica.order AS oc ON oc.id = dvroc.id JOIN
+					logistica.ordertype AS ot ON ot.id = oc.ordertype_id JOIN
+					logistica.dvrorderdeliverydetail AS dvrodd ON dvrodd.dvrorder_id = dvroc.id AND dvrodd.dvrdelivery_id = dvrdel.id JOIN
+					logistica.vendor AS ve ON dvrdel.vendor_id = ve.id JOIN
+					logistica.location AS loc ON loc.id = dvrdel.deliverylocation_id JOIN
+					logistica.bulkdetail AS bd ON bd.dvrorder_id = dvrodd.dvrorder_id AND bd.dvrdelivery_id = dvrodd.dvrdelivery_id AND
+												  bd.location_id = dvrodd.location_id AND bd.item_id = dvrodd.item_id AND
+												  bd.position = dvrodd.position JOIN
+					logistica.bulk AS bu ON bu.id = bd.bulk_id JOIN
+					logistica.document AS doc ON doc.id = bu.document_id JOIN
+					logistica.documenttype AS dt ON dt.id = doc.documenttype_id
+				WHERE
+					dvrdel.id = :dvrdeliveryid AND doc.id IN :documentids
+			]]>
+		</sql-query>
+
+		<sql-query name="getDeliveryASNDetailData">
+			<![CDATA[
+				SELECT
+					oc.number AS ocnumber,
+					CAST('CREATE' AS varchar) AS action, 
+					it.sku AS itemsku,
+					loc.code AS destinationlocationcode,
+					bu.lpncode AS lpncode,
+					bd.units AS units,
+					dvroc.referencenumber,
+					doc.id AS documentid
+				FROM
+					logistica.bulk AS bu JOIN
+					logistica.bulkdetail AS bd ON bu.id = bd.bulk_id JOIN
+					logistica.dvrorderdeliverydetail AS dvrodd ON dvrodd.dvrorder_id = bd.dvrorder_id AND dvrodd.dvrdelivery_id = bd.dvrdelivery_id AND
+																  dvrodd.item_id = bd.item_id AND dvrodd.location_id = bd.location_id AND
+																  dvrodd.position = bd.position JOIN
+					logistica.order AS oc ON oc.id = dvrodd.dvrorder_id JOIN
+					logistica.dvrorder AS dvroc ON dvroc.id = oc.id JOIN
+					logistica.item AS it ON it.id = bd.item_id JOIN
+					logistica.location AS loc ON loc.id = bd.location_id JOIN
+					logistica.document AS doc ON doc.id = bu.document_id
+				WHERE
+					bu.dvrdelivery_id = :dvrdeliveryid AND doc.id IN :documentids
+				ORDER BY bu.lpncode, it.sku
+			]]>
+		</sql-query>
+				
+	</class>
+</hibernate-mapping>

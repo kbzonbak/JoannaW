@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://xmlns.cencosud.corp/Core/EBO/UBL/Custom-UBL-CommonAggregateComponents-2.0" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.cencosud.corp/Core/EBO/UBL/Custom-UBL-CommonAggregateComponents-2.0" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+	<!-- ===== Imports ===== -->
+	<!--  	<import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" schemaLocation="./common/UBL-CommonAggregateComponents-2.0.xsd"/>
+		
+		<complexType name="CustomCustomerPartyType">
+		<sequence>
+		<element name="cextBuyerOrganizationParty" type="cac:PartyType">			
+		
+		</element>
+		</sequence>
+		
+		</complexType>
+	-->
+
+	<complexType name="CustomDocumentReferenceType" />
+	<complexType name="CustomAddressType" />
+	<complexType name="CustomAddressLineType" />
+	<complexType name="CustomOrderLineType" />
+
+	<complexType name="CustomLineItemType">
+		<sequence>
+			<element name="cextActionCode" type="string" minOccurs="0"></element>
+			<element name="PositionType" type="string" minOccurs="0"></element>
+			<element name="AcceptanceRequiredIndicator" type="string" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+	<complexType name="CustomSupplierPartyType">
+		<sequence>
+			<element name="Organization" type="string" minOccurs="0" maxOccurs="1">
+
+			</element>
+			<element name="SalesChannelCode" type="string" minOccurs="0" maxOccurs="1"></element>
+			<element name="SalesSection" type="string" minOccurs="0" maxOccurs="1"></element>
+
+			<element name="SalesOffice" type="string" minOccurs="0" maxOccurs="1"></element>
+			<element name="SalesGroup" type="string" minOccurs="0" maxOccurs="1">
+
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="CustomDespatchType">
+		<sequence>
+			<element name="Quantity" type="string" minOccurs="0"></element>
+			<element name="RequestedDespatchDate" type="string" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="CustomPaymentMeansDaysType">
+		<sequence>
+			<element name="PaymentMeansDays" type="int" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+
+	<complexType name="PaymentMeansTermsType">
+		<simpleContent>
+			<extension base="string">
+				<attribute name="UnitCode" use="optional" type="string" />
+			</extension>
+		</simpleContent>
+	</complexType>
+
+
+
+
+</schema>

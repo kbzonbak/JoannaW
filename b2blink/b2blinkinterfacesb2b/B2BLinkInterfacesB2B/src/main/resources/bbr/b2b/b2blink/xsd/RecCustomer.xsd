@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/RecCustomer" elementFormDefault="qualified"
+  xmlns:oc="http://www.bbr.cl/RecCustomer">
+<!-- Versión 1.0 -->
+  <element name="recepcion">
+    <complexType>
+      <sequence>
+        <element name="buyer" type="string"/>
+        <element name="vendor" type="string"/> 
+        <element name="receptionnumber" type="long" />
+        <element name="ordernumber" type="long" />
+        <element name="ordertype" type="string"/>
+        <element name="ordertypename" type="string" minOccurs="0" />
+        <element name="complete" type="boolean"/>
+        <element name="receptiondate" type="date" />
+        <element name="total" type="double" />
+        <element name="deliveryplace" type="oc:local" minOccurs="0"/>
+        <element name="paymentcondition" type="string" minOccurs="0" />
+        <element name="observation" type="string" minOccurs="0" />
+        <element name="responsible" type="string" minOccurs="0" />
+        <element name="locals" minOccurs="0">
+          <complexType>
+              <sequence minOccurs="0" maxOccurs="unbounded">
+                <element name="local" type="oc:local" />
+              </sequence>
+          </complexType>
+        </element>
+        <element name="details">
+          <complexType>
+            <sequence maxOccurs="unbounded">
+              <element name="detail">
+                <complexType>
+                  <sequence>
+                    <element name="position" type="int" />
+                    <element name="skubuyer" type="string" />
+                    <element name="skuvendor" type="string" minOccurs="0" />
+                    <element name="ean13" type="string" />
+                    <element name="productdescription" type="string" minOccurs="0" />
+                    <element name="codeumc" type="string" minOccurs="0" />
+                    <element name="descriptionumc" type="string" minOccurs="0" />
+                    <element name="descriptionumb" type="string" minOccurs="0" />
+                    <element name="quantityumc" type="int" minOccurs="0" />
+                    <element name="receivedquantity" type="float" />
+                    <element name="listcost" type="double" minOccurs="0" />
+                    <element name="finalcost" type="double" minOccurs="0" />
+                  </sequence>
+                </complexType>
+              </element>
+            </sequence>
+          </complexType>
+        </element>
+      </sequence>
+    </complexType>
+  </element>
+    <complexType name="local">
+    <sequence>
+      <element name="code" type="string" />
+      <element name="name" type="string" />
+    </sequence>
+  </complexType>
+</schema>

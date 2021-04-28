@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/ListaOrdenes" elementFormDefault="qualified">
+  <element name="ListaOrdenes">
+    <complexType>
+      <sequence>
+        <element name="nombreportal" type="string" />
+        <element name="codproveedor" type="string" />
+        <element name="Ordenes">
+          <complexType>
+            <sequence minOccurs="1" maxOccurs="unbounded">
+              <element name="Orden">
+                <complexType>
+                  <sequence>
+                    <element name="numorden" type="string" />
+                    <element name="emision" type="string" />
+                    <element name="vencimiento" type="string" />
+                    <element name="comentarios" type="string" />
+                    <element name="detalles">
+                      <complexType>
+                        <sequence maxOccurs="unbounded">
+                          <element name="detalle">
+                            <complexType>
+                              <sequence>
+                                <element name="cod_producto" type="string" />
+                                <element name="cod_prod_prov" type="string" />
+                                <element name="cantidad" type="string" />
+                                <element name="costo_final" type="string" />
+                              </sequence>
+                            </complexType>
+                          </element>
+                        </sequence>
+                      </complexType>
+                    </element>
+                    <element name="predist">
+                      <complexType>
+                        <sequence maxOccurs="unbounded">
+                          <element name="detallepred">
+                            <complexType>
+                              <sequence>
+                                <element name="pr_codprod" type="string" />
+                                <element name="pr_codlocal" type="string" />
+                                <element name="pr_cantidad" type="string" />
+                              </sequence>
+                            </complexType>
+                          </element>
+                        </sequence>
+                      </complexType>
+                    </element>
+                  </sequence>
+                </complexType>
+              </element>
+            </sequence>
+          </complexType>
+        </element>
+      </sequence>
+    </complexType>
+  </element>
+</schema>

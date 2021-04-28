@@ -1,0 +1,60 @@
+@mixin mlogin 
+{
+	.mlogin-buttons-panel{
+		text-align: center;
+	}
+
+	.mlogin-header-label{
+		text-align: center;
+	}
+	
+	.mlogin-buttons{
+		color: #FF0000 ;
+	}
+
+	.mlogin-footer{
+		color: #585858 ;
+		z-index: -99999 ;	
+	}
+
+	.mlogin-main-panel{
+		background: white ;	
+	}
+	
+	
+	.mlogin-link-button {
+	   	font-size:12px !important;
+	   	border: none !important;
+	    box-shadow: none !important;
+	    background: transparent !important;
+	    cursor: pointer;
+	    color: #585858 !important;
+	    text-decoration: underline;
+	    transition: color 140ms;
+	    padding:0;
+	}	
+	.mlogin-link-button:hover {
+	    color: #585858 !important;
+	}	
+	.mlogin-link-button:hover:after {
+		background-color: transparent !important;
+	}	
+	.mlogin-link-button:focus {
+	    outline: none !important;
+	}
+	.mlogin-link-button:focus:after {
+	    box-shadow: none !important;
+	}
+
+	.mlogin-link-button:active .v-button-wrap:after {
+		background: transparent !important;
+	}	
+	.mlogin-link-button:active .v-button-wrap .v-button-caption {
+    	color: #03457d !important;
+    	text-decoration: none !important;
+	}
+
+}
+
+
+

@@ -1,0 +1,97 @@
+package bbr.b2b.extractors.timers.manager.classes;
+
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.stream.Stream;
+
+import javax.annotation.Resource;
+import javax.ejb.EJB;
+import javax.ejb.SessionContext;
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
+import javax.json.JsonString;
+import javax.json.JsonStructure;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
+
+import org.apache.log4j.Logger;
+
+
+import bbr.b2b.b2blink.logistic.xml.OC_customer.Local;
+import bbr.b2b.b2blink.logistic.xml.OC_customer.ObjectFactory;
+import bbr.b2b.b2blink.logistic.xml.OC_customer.Order;
+import bbr.b2b.b2blink.logistic.xml.OC_customer.Order.Client;
+import bbr.b2b.b2blink.logistic.xml.OC_customer.Order.Details;
+import bbr.b2b.b2blink.logistic.xml.OC_customer.Order.Details.Detail;
+import bbr.b2b.b2blink.logistic.xml.OC_customer.Order.Details.Detail.Predistributions;
+import bbr.b2b.b2blink.logistic.xml.OC_customer.Order.Details.Detail.Predistributions.Predistribution;
+import bbr.b2b.common.adtclasses.exceptions.OperationFailedException;
+import bbr.b2b.common.adtclasses.exceptions.ServiceException;
+import bbr.b2b.connector.managers.classes.PendingMessageManager;
+import bbr.b2b.connector.managers.interfaces.SchedulerManagerLocal;
+import bbr.b2b.extractors.timers.manager.interfaces.HitesEdiOrderManagerLocal;
+import bbr.b2b.extractors.timers.manager.interfaces.RipleyApiOrderManagerLocal;
+import bbr.b2b.b2blink.logistic.xml.OC_customer.Order.Section;
+import bbr.b2b.logistic.utils.SFTPClient;
+import bbr.esb.services.webservices.facade.AccessDeniedException_Exception;
+import bbr.esb.services.webservices.facade.InitParamCSDTO;
+import bbr.esb.services.webservices.facade.NotFoundException_Exception;
+import bbr.esb.services.webservices.facade.OperationFailedException_Exception;
+import bbr.esb.services.webservices.facade.ServiceManagerServer;
+import bbr.esb.services.webservices.facade.ServiceManagerServerService;
+
+@Stateless(name = "managers/RipleyApiOrderManager")
+@TransactionAttribute(TransactionAttributeType.REQUIRED)
+public class RipleyApiOrderManager  implements RipleyApiOrderManagerLocal {
+	
+	private static Logger logger = Logger.getLogger(PendingMessageManager.class);
+	private static JAXBContext jc = null;
+	static SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd"); 
+	
+	@EJB
+	SchedulerManagerLocal schmanager;
+	
+	@Resource
+	private SessionContext ctx;
+	
+	public void setCtx(SessionContext ctx) {
+		this.ctx = ctx;
+	}
+	
+	
+	private static JAXBContext getJC() throws JAXBException {
+		if (jc == null)
+			jc = JAXBContext.newInstance("bbr.b2b.b2blink.logistic.xml.OC_customer");
+		return jc;
+	}
+	
+	public void execute() throws ServiceException {
+		
+		
+	}
+	
+	
+}

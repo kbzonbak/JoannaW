@@ -1,0 +1,185 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>bbr.b2b.pariscl</groupId>
+  <artifactId>ParisCLLogistic</artifactId>
+  <version>1.0.8-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+  	<name>ParisCLLogistic</name>
+
+	<properties>
+		<b2b.version>1.0.8-SNAPSHOT</b2b.version>
+		<b2b.basemodel.version>1.0.2</b2b.basemodel.version>
+		<b2b.baseutils.version>1.0.2</b2b.baseutils.version>
+		<system.properties.cli.path>src/main/application/</system.properties.cli.path>
+		<system.properties.cli.file.1>system-properties-1.cli</system.properties.cli.file.1>
+		<system.properties.cli.file.2>system-properties-2.cli</system.properties.cli.file.2>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+  <modules>
+  	<module>ParisCLLogisticEAR</module>
+  	<module>ParisCLLogisticFacade</module>
+  	<module>ParisCLLogisticManager</module>
+  	<module>ParisCLLogisticModel</module>
+  	<module>ParisCLLogisticQueue</module>
+  	<module>ParisCLLogisticQueueEJBInterfaces</module>
+  	<module>ParisCLLogisticUtils</module>
+   	<module>ParisCLLogisticWSClient</module>
+   	<module>ParisCLLogisticWSPaperlessClient</module>
+  	<module>ParisCLLogisticScheduleApi</module>
+  	<module>ParisCLLogisticWSRESTVeVPD</module>
+  </modules>
+  
+  	<repositories>
+		<repository>
+			<id>jfrogserver</id>
+			<url>http://jfrogserver:8081/artifactory/bbr-repository/</url>
+		</repository>
+	</repositories> 
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.wildfly</groupId>
+				<artifactId>wildfly-parent</artifactId>
+				<version>10.1.0.Final</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>			
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-archetype-plugin</artifactId>
+				<version>3.0.1</version>
+				
+				<configuration>
+					<archetypeGroupId>${project.groupId}</archetypeGroupId>
+					<archetypeArtifactId>${project.artifactId}</archetypeArtifactId>
+					<archetypeVersion>1.0.3</archetypeVersion>
+					<propertyFile>archetype.properties</propertyFile>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<profiles>
+		<profile>
+			<id>validate-single-server</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.wildfly.plugins</groupId>
+						<artifactId>wildfly-maven-plugin</artifactId>
+						<version>2.0.1.Final</version>
+						<inherited>false</inherited>
+						<configuration>
+							<id>wildfly-credentials</id>
+							<force>true</force>
+							<serverConfig>${wildfly-profile-file}</serverConfig>
+							<hostname>${wildfly-hostname}</hostname>
+							<port>${wildfly-port}</port>
+						</configuration>
+						<executions>
+							<execution>
+								<id>Validar Server</id>
+								<phase>validate</phase>
+								<goals>
+									<goal>execute-commands</goal>
+								</goals>
+								<configuration>
+									<fail-on-error>true</fail-on-error>
+									<commands>
+										<!-- Lee el atributo del estado del server -->
+										<command>:read-attribute(name=server-state)</command>
+									</commands>
+								</configuration>
+							</execution>
+						</executions>
+						<dependencies>
+							<dependency>
+								<groupId>org.wildfly.core</groupId>
+								<artifactId>wildfly-cli</artifactId>
+								<version>6.0.2.Final</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>validate-multiple-server</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.wildfly.plugins</groupId>
+						<artifactId>wildfly-maven-plugin</artifactId>
+						<version>2.0.1.Final</version>
+						<inherited>false</inherited>
+						<configuration>
+							<id>wildfly-credentials</id>
+							<force>true</force>
+							<serverConfig>${wildfly-profile-file}</serverConfig>
+						</configuration>
+						<executions>
+							<execution>
+								<id>Validar Server 1</id>
+								<phase>validate</phase>
+								<goals>
+									<goal>execute-commands</goal>
+								</goals>
+								<configuration>
+									<fail-on-error>true</fail-on-error>
+									<hostname>${wildfly-hostname-1}</hostname>
+									<port>${wildfly-port-1}</port>
+									<commands>
+										<!-- Lee el atributo del estado del server -->
+										<command>:read-attribute(name=server-state)</command>
+									</commands>
+								</configuration>
+							</execution>
+							<execution>
+								<id>Validar Server 2</id>
+								<phase>validate</phase>
+								<goals>
+									<goal>execute-commands</goal>
+								</goals>
+								<configuration>
+									<fail-on-error>true</fail-on-error>
+									<hostname>${wildfly-hostname-2}</hostname>
+									<port>${wildfly-port-2}</port>
+									<commands>
+										<!-- Lee el atributo del estado del server -->
+										<command>:read-attribute(name=server-state)</command>
+									</commands>
+								</configuration>
+							</execution>
+						</executions>
+						<dependencies>
+							<dependency>
+								<groupId>org.wildfly.core</groupId>
+								<artifactId>wildfly-cli</artifactId>
+								<version>6.0.2.Final</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+
+
+
+	<distributionManagement>
+		<repository>
+			<id>jfrogserver</id>
+			<url>http://jfrogserver:8081/artifactory/bbr-repository/</url>
+		</repository>
+	</distributionManagement>			
+  
+</project>

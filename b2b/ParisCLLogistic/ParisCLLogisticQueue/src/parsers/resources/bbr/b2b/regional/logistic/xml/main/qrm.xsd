@@ -1,0 +1,48 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+     <xs:element name="QRM">
+     	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="nasn" maxOccurs="1" minOccurs="0"></xs:element>
+    			<xs:element ref="norden" maxOccurs="1" minOccurs="0"></xs:element>
+    			<xs:element ref="factura" maxOccurs="1" minOccurs="0"></xs:element>
+    			<xs:element ref="rm" maxOccurs="1" minOccurs="0"></xs:element>
+    			<xs:element ref="frecepcion" maxOccurs="1" minOccurs="0"></xs:element> 					
+    		</xs:sequence>
+    	</xs:complexType>   
+ 	</xs:element>
+ 	
+    <!--  Número de ASN -->
+    <xs:element name="nasn">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!--  Número de OC -->
+    <xs:element name="norden">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+
+	<!-- Número de factura asociada a la OC -->
+    <xs:element name="factura">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Número de RM asociado a la OC y factura -->
+    <xs:element name="rm">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Fecha de recepción -->
+    <xs:element name="frecepcion">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+</xs:schema>

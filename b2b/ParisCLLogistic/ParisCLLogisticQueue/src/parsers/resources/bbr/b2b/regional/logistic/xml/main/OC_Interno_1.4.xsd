@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/cencosud/OCInterno" elementFormDefault="qualified"
+  xmlns:oc="http://www.bbr.cl/cencosud/OCInterno">
+  <element name="orden">
+    <complexType>
+      <sequence>
+        <element name="nombreportal" type="string" />
+        <element name="no" type="long" />
+        <element name="nosolicitud" type="string" minOccurs="0" />
+        <element name="digito_verificador" type="int" />
+        <element name="estado_oc" type="string" />
+        <element name="tipo_oc" type="string" />
+        <element name="seccion" type="string" />
+        <element name="fecha_emision" type="date" />
+        <element name="fecha_vigencia" type="date" minOccurs="0" />
+        <element name="fecha_vto" type="date" />
+        <element name="total" type="double" />
+        <element name="cod_local_entrega" type="string" />
+        <element name="forma_pago" type="string" />
+        <element name="comentarios" type="string" />
+        <element name="responsable" type="string" />
+        <element name="edi_data">
+          <complexType>
+            <sequence>
+              <element name="senderIdentification" type="string" />
+              <element name="recipientIdentification" type="string" />
+              <element name="correlativeVendor" type="string" />
+              <element name="messageReferenceNumber" type="string" />
+              <element name="countrycode" type="string" />
+              <element name="buyerCode" type="string" />
+              <element name="buyerLocationCode" type="string" />
+            </sequence>
+          </complexType>
+        </element>
+        <element name="comprador">
+          <complexType>
+            <sequence>
+              <element name="rut" type="string" />
+              <element name="razon_social" type="string" />
+              <element name="unidad_negocio" type="string" />
+            </sequence>
+          </complexType>
+        </element>
+        <element name="vendedor">
+          <complexType>
+            <sequence>
+              <element name="rut" type="string" />
+              <element name="razon_social" type="string" />
+              <element name="contacto" type="string" />
+              <element name="direccion" type="string" />
+              <element name="telefono" type="string" />
+            </sequence>
+          </complexType>
+        </element>
+        <element name="cliente" minOccurs="0">
+          <complexType>
+            <sequence>
+              <element name="nombre" type="string" />
+              <element name="rut" type="string" />
+              <element name="telefono" type="string" />
+              <element name="direccion" type="string" />
+              <element name="numcalle" type="string" />
+              <element name="numdepto" type="string" />
+              <element name="numcasa" type="string" />
+              <element name="region" type="string" />
+              <element name="comuna" type="string" />
+              <element name="ciudad" type="string" />
+              <element name="comentario" type="string" />
+            </sequence>
+          </complexType>
+        </element>
+        <element name="locales">
+          <complexType>
+            <sequence>
+              <element name="local" minOccurs="1" maxOccurs="unbounded">
+                <complexType>
+                  <sequence>
+                    <element name="cod" type="string" />
+                    <element name="nombre" type="string" />
+                    <element name="direccion" type="string" />
+                    <element name="ean" type="string" />
+                  </sequence>
+                </complexType>
+              </element>
+            </sequence>
+          </complexType>
+        </element>
+        <element name="desc_generales">
+          <complexType>
+            <sequence minOccurs="0" maxOccurs="unbounded">
+              <element name="descuento" type="oc:cargo_descuento" />
+            </sequence>
+          </complexType>
+        </element>
+        <element name="cargos_generales">
+          <complexType>
+            <sequence minOccurs="0" maxOccurs="unbounded">
+              <element name="cargo" type="oc:cargo_descuento" />
+            </sequence>
+          </complexType>
+        </element>
+        <element name="detalles">
+          <complexType>
+            <sequence>
+              <element name="detalle" minOccurs="1" maxOccurs="unbounded">
+                <complexType>
+                  <sequence>
+                    <element name="item" type="int" />
+                    <element name="cod_prod_comp" type="string" />
+                    <element name="cod_prod_vendedor" type="string" />
+                    <element name="ean13" type="string" />
+                    <element name="descripcion_prod" type="string" />
+                    <element name="cod_empaque" type="string" />
+                    <element name="desc_empaque" type="string" />
+                    <element name="desc_um_unidad" type="string" />
+                    <element name="prod_empaque" type="float" />
+                    <element name="cantidad_empaque" type="float" />
+                    <element name="costo_lista" type="double" />
+                    <element name="costo_final" type="double" />
+                    <element name="desc_producto">
+                      <complexType>
+                        <sequence minOccurs="0" maxOccurs="unbounded">
+                          <element name="descuento" type="oc:cargo_descuento" />
+                        </sequence>
+                      </complexType>
+                    </element>
+                    <element name="cargos_prod">
+                      <complexType>
+                        <sequence minOccurs="0" maxOccurs="unbounded">
+                          <element name="cargo" type="oc:cargo_descuento" />
+                        </sequence>
+                      </complexType>
+                    </element>
+                  </sequence>
+                </complexType>
+              </element>
+            </sequence>
+          </complexType>
+        </element>
+        <element name="predistribuciones">
+          <complexType>
+            <sequence>
+              <element name="predistribucion" minOccurs="0" maxOccurs="unbounded">
+                <complexType>
+                  <sequence>
+                    <element name="cod_local" type="string" />
+                    <element name="sku" type="string" />
+                    <element name="cantidad" type="string" />
+                  </sequence>
+                </complexType>
+              </element>
+            </sequence>
+          </complexType>
+        </element>
+      </sequence>
+    </complexType>
+  </element>
+
+
+  <complexType name="cargo_descuento">
+    <sequence>
+      <element name="monto" type="float" />
+      <element name="porcentaje" type="float" />
+      <element name="tipo" type="oc:tipo_cargo_descuento" />
+      <element name="glosa" type="string" />
+      <element name="codigo" type="string" />
+    </sequence>
+  </complexType>
+
+  <simpleType name="tipo_cargo_descuento">
+    <restriction base="string">
+      <enumeration value="monto"></enumeration>
+      <enumeration value="porcentaje"></enumeration>
+    </restriction>
+  </simpleType>
+</schema>

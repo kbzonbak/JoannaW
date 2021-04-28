@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/SolicitudRecOC" elementFormDefault="qualified">
+  <!-- Versión 1.2 -->
+  <element name="SolicitudRecOC">
+    <complexType>
+      <sequence minOccurs="1" maxOccurs="1">
+        <element name="codproveedor" type="string" />
+        <element name="codcomprador" type="string" />
+        <element name="fecha_activacion" type="string" minOccurs="0"/>  <!-- se agrega en 1.1 -->
+        <element name="estadoSoa" type="string" minOccurs="0"/>  	<!-- Se agrega en 1.2 -->
+        <element name="documentos" minOccurs="0">					<!-- Se agrega en 1.2 -->
+          <complexType>
+            <sequence minOccurs="1" maxOccurs="unbounded">
+              <element name="documento">
+                <complexType>
+                  <sequence>
+                    <element name="id" type="string" />	<!-- numero de oc -->
+                  </sequence>
+                </complexType>
+              </element>
+            </sequence>
+          </complexType>
+        </element>
+      </sequence>
+    </complexType>
+  </element>
+</schema>

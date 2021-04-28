@@ -1,0 +1,537 @@
+@mixin walldiary {	
+
+	.panelMain {        
+	    background-color:#ffffff;	    
+	}	
+	.pnlFooter{
+		background-color:#444444;
+		color:#FFFFFF;
+		font-size:11px;
+		font-weight:bold;
+	}
+	.lblFooter{
+		text-align:center;
+	}
+	.lblInfo{
+		font-size:14px;
+		text-align:justify;
+		padding:20px;
+	}
+	.emailLink{
+		
+	}
+	.loginInputText {
+		height:28px;
+		font-size:12px;
+		width:90%;
+	}
+	.btnLogin {
+		height:30px;
+		font-size:15px;
+	}	
+	.link-button {
+	   	font-size:12px;
+	   	border: none;
+	    box-shadow: none;
+	    background: transparent;
+	    cursor: pointer;
+	    color: #059ae5;
+	    text-decoration: underline;
+	    transition: color 140ms;
+	    padding:0;
+	}	
+	.link-button:hover {
+	    color: #12b0ff;
+	}	
+	.link-button:hover:after {
+		background-color: transparent;
+	}	
+	.link-button:focus {
+	    outline: none;
+	}
+	.link-button:focus:after {
+	    box-shadow: none;
+	}	
+		
+	.dashboard-statistic-panel {		 
+		margin-bottom : 10px; 
+		width: 350px !important;
+		/*height: 97%;*/
+	}	
+	.dashboard-statistic-panel[width-range~="0-250px"] {		
+		width: 250px !important;		
+	}	
+	.active-users-panel{   	 	
+    	border: #EAEAEA 1px solid;
+    	width : 100%;
+    	height : 100% !important;   	
+    }
+	.faqs-panel{
+	 	background-color: #fff;
+    	border: #EAEAEA 1px solid;
+    	width : 100%;
+    	height : 100% !important;
+    	padding-bottom: 15px;
+		padding-top: 10px;
+		padding-left: 10px;
+		padding-right: 10px;
+    }
+	.table-faqs-toolbar{
+		 
+    }
+    
+     .news-toolbar{
+     	float:left;
+    	.v-label-colored{
+    		color:#808080;
+   		}    	  	
+    }
+    
+    .table-others-news-toolbar{
+    	background-color: #eaeaea;    	  	
+    }
+    
+    .table-others-news-toolbar{
+    	.v-label-colored{
+    		color:#1b87e3;
+   		}
+   		.v-menubar-borderless .v-menubar-menuitem{
+   			color: #1b87e3 !important;
+   		}
+    }   
+	
+	.table-faqs{
+    }
+    
+    .v-label-colored{
+    	color:#fff;
+    } 
+    .v-label-colorazulStockPool{
+    	color: #197DE1;
+    	font-weight: bold;
+    } 
+    
+    .accordion-bar{
+    	.v-caption{
+    		color: #197de1;
+    		text-transform: uppercase;
+    	}
+    }    
+    .walldiary-procedure{
+    	border-block-end-width: medium;
+		border-block-end-style: groove;
+		border-block-end-color: azure;
+		margin-block-end: 10px;
+		width: 100%;
+		padding: 5px;
+    }
+    .walldiary-procedure-date{
+    	font-weight: bold;
+    	color:#ff8c71;
+    }
+    .walldiary-procedure-title{
+    	font-weight: bold;
+    }
+    .walldiary-procedure-content{    
+   
+    }    
+    
+	.walldiary-news{
+    	margin-block-end: 10px;
+		width: 100%;
+		padding: 15px;
+		min-width: 150px;		
+    }
+    .walldiary-news-date{
+    	font-size:12px;
+    	font-weight: bold;
+    	color:#ff8c71;
+    }
+ 
+    .walldiary-news-title{
+    	font-size: 16px;
+    	font-weight: bold;
+    }
+    
+    .walldiary-news-preferences{
+    	padding-left:15px;
+    }
+    
+    .walldiary-news-content{
+        	
+    }
+    
+     .walldiary-news-content p{        
+        white-space: normal !important;	        
+        padding-left: 150px;
+    }
+    
+    .walldiary-news-content img{        
+        position:absolute;
+        top:0;
+        left:0;	
+    }
+    .dashboard-panels{
+    	width: 100%;
+    }
+
+	.title-identation{
+		padding-left: 14px;
+	}
+    .news-title{
+    	text-align: center;
+    }
+    .main-news-toolbar{
+    	height: 37px;
+    	background-color: #107ca9;
+    }
+    .main-news-content{
+    	margin-top:20px;
+    }
+    .main-news-footerbar{
+    	height: 37px;
+    }    
+    .bottom-left-layout{
+    	/*margin-top:10px;*/
+    }
+    
+    .content-standard-state{
+    	padding: 10px;
+		margin: 0;
+    	position: relative;
+    	top: 13%;
+    	left: 50%;
+    	transform: translate(-50%, -50%);
+    }    
+   
+   .stats-header{
+         border-top-style: solid;
+         border-color: #4dd0e1;
+         .v-label-colored{
+             color:#808080;
+        }
+    }
+    .stats-header-StockPool{
+         border-top-style: solid;
+         border-color: #458CD1;
+         .v-label-colored{
+             color:#458CD1;
+        }
+    }
+    .stats-footer{
+         border-bottom-style: solid;
+         border-color: #4dd0e1;
+         .v-label-colored{
+             color:#808080;
+        }
+    }
+     .walldiary-stats-data{
+         margin-left:15px;
+         font-size: 30px;
+         color: #4dd0e1;
+         line-height: 20px;
+    }
+     .walldiary-stats-title{
+         margin-left: 15px;
+         font-size: 12px;
+         line-height: 20px;
+         font-weight: bold;
+         text-transform: capitalize;
+    }
+   
+   .lblDetail-state-current-month-sales{
+   		margin-left:20px;
+   		font-size: 11px;
+   		color: #066bb4;
+   		line-height: 10px;
+   }
+   
+   .walldiary-stats-image{
+   		width:58px;
+   		height: 54px;
+		right: 20px;
+		top: 35px;
+   }
+   
+   .stats-header-inventary-cost{
+   		border-top-style: solid;
+   		border-color: #64b5f6;
+   		.v-label-colored{
+    		color:#808080;
+   		}   		
+   } 
+   
+   .lbl-state-inventary-cost{
+   		margin-left:10px;
+   		font-size: 30px;
+   		color: #64b5f6;
+   		line-height: 20px;
+   }
+   
+   .lblDetail-state-inventary-cost{
+   		margin-left:20px;
+   		font-size: 11px;
+   		color: #ff1b1b;
+   		line-height: 10px;
+   }
+   
+   .image-state-inventary-cost{
+   		width:54px;
+   		height: 54px;
+   		/*position: absolute;*/
+		right: 20px;
+		top: 35px;
+   }
+   
+     .stats-header-instock{
+   		border-top-style: solid;
+   		border-color: #dce775;
+   		.v-label-colored{
+    		color:#808080;
+   		}   		
+   } 
+   
+   .lbl-state-instock{
+   		margin-left:10px;
+   		font-size: 30px;
+   		color: #dce775;
+   		line-height: 20px;
+   }
+   
+   .lblDetail-state-instock{
+   		margin-left:20px;
+   		font-size: 11px;
+   		color: #066bb4;
+   		line-height: 10px;
+   }
+   
+   .image-state-instock{
+   		width:58px;
+   		height: 54px;
+   		/*position: absolute;*/
+		right: 20px;
+		top: 35px;
+   }
+   
+     .stats-header-orders{
+   		border-top-style: solid;
+   		border-color: #a1887f;
+   		.v-label-colored{
+    		color:#808080;
+   		}   		
+   } 
+   
+   .lbl-state-orders{
+   		margin-left:10px;
+   		font-size: 30px;
+   		color: #a1887f;
+   		line-height: 20px;
+   }
+   
+   .lblDetail-state-orders{
+   		margin-left:20px;
+   		font-size: 11px;
+   		color: #ff1b1b;
+   		line-height: 10px;
+   }
+   
+   .image-state-orders{
+   		width:54px;
+   		height: 54px;
+   		/*position: absolute;*/
+		right: 20px;
+		top: 35px;
+   }   
+   
+   .bottom-left-layout[width-range~="0-500px"]{
+    	div.v-slot-tickets-panel{    	
+    		width:100% !important;     	
+     		float:left !important;     	 		   
+    	}    	
+    	.tickets-panel{
+    		cursor : pointer;
+	    	width:100%!important;
+	    	padding: 10px 0 0 0;
+	    	.v-table-body{
+	    		border: 1px solid #fff;
+	    		background-color: #ffffff;
+	    		background-image: url("/BBRe-commerce/VAADIN/themes/irsb2blinkportalweb/assets/images/basic/banner01_small.png");
+	    		background-repeat: round;
+	    		/*background-size: cover;*/
+	    	}    	    	
+	    	.table-others-news-toolbar{
+	    	display:none;   	  	
+	    	}    	
+    	}    	
+	}
+		 
+	.bottom-left-layout[width-range~="0-500px"]{
+    	div.v-slot-active-users-panel{    	
+    		width:100% !important;     	
+     		float:left !important;     		   
+    	}
+	}
+	
+	.bottom-left-layout[width-range~="0-500px"]{
+    	div.v-slot-expirations-panel{    	
+    		width:100% !important;     	
+     		float:left !important;     		   
+    	}    	
+    	.expirations-panel{
+	    	width:100%!important;
+	    	padding: 10px 0 10px 0;
+	    	.v-table-body{
+	    		border: 1px solid #fff;
+	    		background-color: #ffffff;
+	    		background-image: url("/BBRe-commerce/VAADIN/themes/irsb2blinkportalweb/assets/images/basic/banner02_small.png");
+	    		background-repeat: round;
+	    		/*background-size: cover;*/
+	    	}	    	   	
+	    	.table-others-news-toolbar{
+	    	display:none;   	  	
+	    	}    	
+    	}    	
+	}
+	
+	.bottom-left-layout[width-range~="0-500px"]{		
+    	div.v-slot-notification-panel{    	
+    		width:100% !important;     	
+     		float:left !important;     		   
+    	}
+	}	  
+           
+    .others-news-panel{
+    	width:100%!important;    	 	
+    	background-color: #ffffff;
+    	.v-table-body{
+    		border: 1px solid #fff;
+    		background-color: #ffffff;
+    	}
+    	.v-table-cell-wrapper{
+    		background-color: aliceblue;
+    	}
+    }
+    
+    .expirations-panel{
+    	width:100%!important;
+    	padding: 10px 0 10px 0;
+    	.v-table-body{
+    		border: 1px solid #fff;
+    		background-color: #ffffff;
+    		background-image: url("/BBRe-commerce/VAADIN/themes/irsb2blinkportalweb/assets/images/basic/banner02.png");
+    		background-repeat: round;
+    		/*background-size: cover;*/
+    	}
+    	.v-table-cell-wrapper{
+    		background-color: aliceblue;
+    	}    	
+    	.table-others-news-toolbar{
+    	display:none;   	  	
+    	}    	
+    }
+    
+    .tickets-panel{
+    	cursor : pointer;
+    	width:100%!important;
+    	padding: 0px 0px 0 0;
+    	.v-table-body{
+    		border: 1px solid #fff;
+    		background-color: #ffffff;
+    		background-image: url("/BBRe-commerce/VAADIN/themes/irsb2blinkportalweb/assets/images/basic/banner01.png");
+    		background-repeat: round;
+    		/*background-size: cover;*/
+    	}
+    	.v-table-cell-wrapper{
+    		background-color: aliceblue;
+    	}    	
+    	.table-others-news-toolbar{
+    	display:none;   	  	
+    	}    	
+    }    
+    
+    .notification-panel{
+    	width:100%!important;
+    	padding-top: 0px;
+    	padding-left: 0px;  
+    	padding-right: 0px;
+    	padding-bottom: 10px;
+    	background-color: #fff;    	
+    	.v-table-body{
+    		border: 1px solid #fff;
+    		background-color: #ffffff;
+    	}
+    	.v-table-cell-wrapper{
+    		background-color: aliceblue;
+    	}
+    }    
+         
+    .procedures-panel{       
+        width:98.5%!important; 
+        background-color: #fff;
+        .v-table-body{
+    		border: 1px solid #fff;
+    		background-color: #ffffff;
+    	}
+	    /*.table-others-news-toolbar{
+	    	display:none;  	  	
+	    }  */      	   	  	
+    }
+    
+    
+  .v-table-body-noselection .v-table-table{
+  		box-shadow: none;  		
+  } 
+    
+    .left-panel{
+        padding-bottom: 22px;       
+    }
+    .left-panel[width-range~="0-650px"]{
+        padding-bottom: 22px;
+        padding-right:15px;
+        overflow: auto !important; 
+        /*overflow: overlay !important; */ 
+        
+        .v-slot.v-slot-bottom-left-layout{		
+    		height: auto !important;
+		}          
+    }    	
+    .bbr-object-list{
+    	text-align : center;
+    	/* Quita el borde al boton del newspanel */
+		.v-button:focus:after{
+			box-shadow: none;
+		}	
+    }
+    .bbr-object-list:focus {
+	    outline: none;
+	}
+	.news-panel[width-range~="801px-"] {	
+    	background-color: #fff;    	    
+	}
+	
+	.news-panel[width-range~="0-800px"] { 	  
+    	background-color: #fff;    	
+    	margin-top: 10px;    	
+    }		
+
+	.news-panel[width-range~="0-650px"] {
+ 		background-color: #fff;    	
+    	margin-top: 10px;
+    	.walldiary-news-image{
+    		display:none;    		
+    	}
+    	.v-slot .v-slot-walldiary-news{
+    		width:100% !important; 
+    	}
+    	.v-slot .v-slot-walldiary-news-image{
+    		width:0 !important;
+    	}     	
+	}
+
+	.commercial-loading-walldairy{
+		background-color: #abbfc7;
+    	color: white;
+    	border-radius: 10px;
+	}
+
+}

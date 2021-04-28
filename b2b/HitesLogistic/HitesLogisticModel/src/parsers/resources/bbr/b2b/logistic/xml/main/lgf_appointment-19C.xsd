@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:element name="LgfData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="1" maxOccurs="1" name="Header">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="DocumentVersion" type="xs:string"/>
+							<xs:element name="OriginSystem" type="xs:string"/>
+							<xs:element name="ClientEnvCode" type="xs:string"/>
+							<xs:element name="ParentCompanyCode" type="xs:string"/>
+							<xs:element name="Entity" type="xs:string"/>
+							<xs:element name="TimeStamp" type="xs:dateTime"/>
+							<xs:element name="MessageId" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element minOccurs="1" maxOccurs="1" name="ListOfAppointments">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="1" maxOccurs="unbounded" ref="appointment"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="appointment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="facility_code" type="xs:string"/>
+				<xs:element name="company_code" type="xs:string"/>
+				<xs:element name="appt_nbr" type="xs:string"/>
+				<xs:element name="load_nbr" type="xs:string"/>
+				<xs:element name="dock_type" type="xs:string"/>
+				<xs:element name="action_code" type="xs:string"/>
+				<xs:element name="preferred_dock_nbr" type="xs:string"/>
+				<xs:element name="planned_start_ts" type="xs:dateTime"/>
+				<xs:element name="duration" type="xs:integer"/>
+				<xs:element name="estimated_units" type="xs:integer"/>
+				<xs:element name="carrier_info" type="xs:string"/>
+				<xs:element name="trailer_nbr" type="xs:string"/>
+				<xs:element name="load_type" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

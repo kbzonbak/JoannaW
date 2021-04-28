@@ -1,0 +1,57 @@
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+    <xs:element name='ACK'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="A0" minOccurs="1" maxOccurs="1"></xs:element>
+				<xs:element ref="A1" minOccurs="1" maxOccurs="1"></xs:element>
+				<xs:element ref="A2" minOccurs="1" maxOccurs="1"></xs:element>
+				<xs:element ref="A3" minOccurs="1" maxOccurs="1"></xs:element>
+				<xs:element ref="A4" minOccurs="1" maxOccurs="1"></xs:element>
+				<xs:element ref="A5" minOccurs="1" maxOccurs="1"></xs:element>
+				<xs:element ref="A6" minOccurs="1" maxOccurs="1"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="A0">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+	<xs:element name="A1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+	<xs:element name="A2">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+	<xs:element name="A3">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	
+	<xs:element name="A4">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	
+	<xs:element name="A5">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	
+	<xs:element name="A6">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

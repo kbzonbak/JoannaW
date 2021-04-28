@@ -1,0 +1,100 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>bbr.b2b.customer</groupId>
+    <artifactId>CustomerLogistic</artifactId>
+    <version>1.0.0</version>
+  </parent>
+  <artifactId>CustomerLogisticGeneralApi</artifactId>
+  <version>${b2b.version}</version>
+  <packaging>war</packaging>
+  
+  <dependencies>
+		<dependency>
+			<groupId>bbr.b2b.common.base</groupId>
+			<artifactId>BaseModel</artifactId>
+			<version>${b2b.basemodel.version}</version>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>bbr.b2b.common.base</groupId>
+			<artifactId>BaseUtils</artifactId>
+			<version>${b2b.baseutils.version}</version>
+			<optional>true</optional>
+		</dependency>
+		
+		<dependency>
+			<groupId>bbr.b2b.customer</groupId>
+			<artifactId>CustomerLogisticModel</artifactId>
+			<version>${b2b.version}</version>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>bbr.b2b.customer</groupId>
+			<artifactId>CustomerLogisticManager</artifactId>
+			<version>${b2b.version}</version>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>bbr.b2b.customer</groupId>
+			<artifactId>CustomerLogisticUtils</artifactId>
+			<version>${b2b.version}</version>
+			<optional>true</optional>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.json</groupId>
+			<artifactId>javax.json-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.json</groupId>
+			<artifactId>javax.json-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>6.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<warSourceDirectory>WebContent</warSourceDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

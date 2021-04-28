@@ -1,0 +1,352 @@
+package bbr.b2b.extractors.timers.manager.classes;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeoutException;
+import java.util.stream.Collectors;
+
+import javax.annotation.Resource;
+import javax.ejb.EJB;
+import javax.ejb.SessionContext;
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.security.auth.login.LoginException;
+import javax.xml.bind.JAXBContext;
+
+import org.apache.log4j.Logger;
+import org.awaitility.core.ConditionTimeoutException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
+
+import bbr.b2b.connector.managers.interfaces.SchedulerManagerLocal;
+import bbr.b2b.extractors.timers.manager.interfaces.WalmartWebSalesManagerLocal;
+import bbr.b2b.extractors.utils.WsSoaService;
+import bbr.b2b.extractors.walmart.dto.WebElementDTO;
+import bbr.b2b.logistic.utils.JsonParser;
+import bbr.esb.services.webservices.facade.InitParamCSDTO;
+
+import static java.util.concurrent.TimeUnit.MINUTES;
+import static org.awaitility.Awaitility.await;
+
+
+@Stateless(name = "managers/WalmartWebSalesManager")
+@TransactionAttribute(TransactionAttributeType.REQUIRED)
+public class WalmartWebSalesManager  implements WalmartWebSalesManagerLocal {
+	
+	private static Logger logger = Logger.getLogger(WalmartWebSalesManager.class);
+	private static JAXBContext jc = null;
+	private SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+	private static final String SITECODE= "CL0702";
+	private static final String SITENAME = "WALMART";
+	private WebDriver driver = null;
+    private String user;
+    private String pass;
+    private String downloadPath;
+    private String urlLogin;
+    private String geckoDriverpath;
+    private String prefix;
+    private String finalPath;
+    private boolean hideMode;
+    private boolean proxy;
+    private String proxyAdress;
+    private int proxyPort;
+    private int maxTimeWaitDownload;
+    private int maxNumberOfAttempts;
+    private String[] statusToDownload;
+    private String fileNameToDownload;
+    
+    private SimpleDateFormat pageFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private static final int NAMEINDEX = 0;
+    private static final int IDINDEX = 1;
+    private static final int DATEINDEX = 2;
+    private static final int STATUSINDEX = 3;
+    private static final int ACTIONSINDEX = 4;
+	
+	
+	@EJB
+	SchedulerManagerLocal schmanager;
+	
+	@Resource
+	private SessionContext ctx;
+	
+	public void setCtx(SessionContext ctx) {
+		this.ctx = ctx;
+	}
+	
+	public void execute() {
+		try {
+			String service = "RVT";
+			WsSoaService wsSoaService = new WsSoaService(); 
+			List<InitParamCSDTO> credentials = wsSoaService.getCredentials(SITECODE, service);
+			String geckoDriverPath = "C:\\gecko\\geckodriver.exe";
+			String finalPath = "C:/Users/FELIPE FUENTES/Desktop/basura/sales/";
+			String tempPath = "C:/Users/FELIPE FUENTES/Desktop/basura/sales/temp";
+			String proxy = "false";
+			for (InitParamCSDTO credential : credentials) {
+				try {
+					JsonParser jsonParser = new JsonParser(); 
+					HashMap<String, String> keys = jsonParser.JsonToHashMap(credential.getCredenciales(), "user", "password", "urlLogin", "maxTimeWaitDownload", "maxNumberOfAttempts", "statusToDownload", "fileNameToDownload");
+					String prefix = "VTA_"+SITECODE+ "_"+  credential.getAccesscode() + "_";
+					//<invoke object-ref="WalmartSaleToReport" method="doDownload" methodArguments="#[empresa], #[rutProveedor], #[payload.user], #[payload.downloadPath], ${pathTemp}, ${walmartUrlWeb}, ${geckoDriverpath}, #[payload.prefix], ${pathSales}, false, ${proxy}, ${proxyAdress}, ${proxyPort}, #[payload.maxTimeWaitDownload], #[payload.maxNumberOfAttempts], #[payload.statusToDownload], #[payload.fileNameToDownload]" doc:name="Invoke"/>
+					doDownload("empresa", "proveedor", keys.get("user"), keys.get("password"), tempPath,  keys.get("urlLogin"), geckoDriverPath, prefix, finalPath, "false", proxy, "proxyAdress", "22", keys.get("maxTimeWaitDownload"), keys.get("maxNumberOfAttempts"), keys.get("statusToDownload"), keys.get("fileNameToDownload"));
+				} catch (Exception ex){
+					logger.error("Empresa: " + SITENAME + " Proveedor: " + credential.getAccesscode() + " Error: " + ex.getMessage() );
+				}
+				
+			} 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+
+    
+    public List<String> doDownload(String empresa, String rutProveedor, String user, String pass, String downloadPath, String urlLogin, String geckoDriverpath, String prefix, String finalPath, String hideMode, String proxy, String proxyAdress, String proxyPort, String maxTimeWaitDownload, String maxNumberOfAttempts, String statusToDownload, String fileNameToDownload) throws Exception {
+        this.user = user;
+        this.pass = pass;
+        this.downloadPath = downloadPath;
+        this.urlLogin = urlLogin;
+        this.geckoDriverpath = geckoDriverpath;
+        this.prefix = prefix;
+        this.finalPath = finalPath;
+        this.hideMode = hideMode.equals("true");
+        this.proxy = proxy.equals("true");
+        this.proxyAdress = proxyAdress;
+        this.proxyPort = Integer.valueOf(proxyPort);
+        this.maxTimeWaitDownload = Integer.valueOf(maxTimeWaitDownload);
+        this.maxNumberOfAttempts = Integer.valueOf(maxNumberOfAttempts);
+        this.statusToDownload = statusToDownload.split(",");
+        this.fileNameToDownload = fileNameToDownload;
+        //SaleToReport transformer = new SaleToReport();
+        //transformer.doDownload(empresa, rutProveedor, user, pass, downloadPath, urlLogin, geckoDriverpath, prefix, finalPath, hideMode, proxy, proxyAdress, proxyPort, maxTimeWaitDownload, maxNumberOfAttempts, statusToDownload, fileNameToDownload);
+        authenticate();
+        return null;
+    }
+
+    private WebDriver init() {
+        if (driver == null) {
+            logger.info("CARGANDO \"geckoDriver\"");
+            //se carga ruta de geckodriver
+            System.setProperty("webdriver.gecko.driver", geckoDriverpath);
+
+
+            logger.info("CARGANDO PROFILE");
+            FirefoxProfile profile = new FirefoxProfile();
+            //set directorio de descarga
+            profile.setPreference("browser.download.dir", downloadPath);
+            profile.setPreference("browser.download.folderList", 2);
+
+            //set de archivos que no deberia preguntar para descargar
+            profile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/xls;text/csv");
+            profile.setPreference("browser.download.manager.showWhenStarting", false);
+            profile.setPreference("pdfjs.disabled", true);
+            profile.setAcceptUntrustedCertificates(true);
+            profile.setAssumeUntrustedCertificateIssuer(true);
+
+            logger.info("CARGANDO OPTIONS");
+            FirefoxOptions options = new FirefoxOptions();
+            //config uso de proxy
+            if (proxy) {
+                logger.info("CARGANDO PROXY");
+                //Proxy proxy = new Proxy();
+                //proxy.setAutodetect(false);
+                //proxy.setProxyType(Proxy.ProxyType.MANUAL);
+                //proxy.setHttpProxy(proxyAdress+ ":" + proxyPort);
+                //proxy.setSocksProxy(proxyAdress+ ":" + proxyPort);
+
+                //options.setProxy(proxy);
+                options.addPreference("network.proxy.type", 1);
+                options.addPreference("network.proxy.http", proxyAdress);
+                options.addPreference("network.proxy.http_port", proxyPort);
+
+                options.addPreference("network.proxy.ftp", proxyAdress);
+                options.addPreference("network.proxy.ftp_port", proxyPort);
+
+                options.addPreference("network.proxy.share_proxy_settings", true);
+                options.addPreference("network.proxy.socks", proxyAdress);
+                options.addPreference("network.proxy.socks_port", proxyPort);
+
+                options.addPreference("network.proxy.ssl", proxyAdress);
+                options.addPreference("network.proxy.ssl_port", proxyPort);
+
+                                //options.addPreference("network.proxy.type", 1);
+                                //options.addPreference("network.proxy.socks", proxyAdress);
+                                //options.addPreference("network.proxy.socks_port", proxyPort);
+            } else {
+                options.addPreference("network.proxy.type", 0);
+            }
+            //set tipo de despligue, modo no display = true
+            options.setHeadless(hideMode);
+            logger.info("SETTING PROFILE");
+            options.setProfile(profile);
+            driver = new FirefoxDriver(options);
+        }
+
+        return driver;
+    }
+
+    public void authenticate() throws Exception {
+
+    	boolean isLogged = false;
+        driver = init();
+        int i = 0;
+        while (i < maxNumberOfAttempts) {
+            try {
+            	if (!isLogged){
+	                logger.info("INTENTO -> " + (i + 1) + " <- INTENTO");
+	                logger.info("CARGANDO -> " + urlLogin);
+	                driver.get(urlLogin);
+	                //busncado textbox usuario
+	                WebElement userFirefox = driver.findElement(By.xpath("//input[@name='txtUser']"));
+	                logger.info("CARGANDO USUARIO");
+	                userFirefox.sendKeys(user);
+	                //buscando textbox pass
+	                logger.info("CARGANDO PASSWORD");
+	                WebElement passFirefox = driver.findElement(By.xpath("//input[@name='txtPass']"));
+	                passFirefox.sendKeys(pass);
+	                logger.info("LOGIN");
+	                WebElement button = driver.findElement(By.xpath("//button[@id='Login']"));
+	                button.click();
+	
+	
+	                Thread.sleep(5000);
+	                try {
+	                    WebElement errorWebElement = driver.findElement(By.xpath("//span[@id='lblError']"));
+	                    String error = errorWebElement.getText();
+	                    if(error.equals("")){
+	                        WebElement modalExpiredPassword = driver.findElement(By.xpath("//div[@id='lightbox1']"));
+	                        WebElement labelExpiredPassword = modalExpiredPassword.findElement(By.id("lblBoxTitle"));
+	                        error = labelExpiredPassword.getText();
+	                        throw new LoginException(error);
+	                    }
+	                    else{
+	                        error = error.substring(0, error.indexOf("\n"));
+	                        throw new LoginException(error);
+	                    }
+	                } catch (NoSuchElementException e) {
+	                	isLogged = true;
+	                    logger.trace("USUARIO LOGEADO");
+	                }
+            	}
+                List<WebElementDTO> listWebElementDTO = new ArrayList<WebElementDTO>();
+                List<WebElement> rows = ((FirefoxDriver) driver).findElementsByClassName("statusResultsText");
+                for (WebElement row : rows) {
+                    List<WebElement> divs = row.findElements(By.tagName("div"));
+                    String name = divs.get(NAMEINDEX).getText();
+                    String fileID = divs.get(IDINDEX).getText();
+                    String stringDate = divs.get(DATEINDEX).getText();
+                    Date date = pageFormat.parse(stringDate);
+                    String status = divs.get(STATUSINDEX).getText();
+
+                    logger.info( name + ": " + fileID + " fecha: " + stringDate + " status: " + status);
+                    if(Arrays.asList(statusToDownload).contains(status) && name.contains(fileNameToDownload) ) {
+                        WebElement webElement = divs.get(ACTIONSINDEX).findElement(By.className("icon-download-alt"));
+                        if(webElement != null) {
+                            listWebElementDTO.add(new WebElementDTO(date, webElement));
+                        }
+                    }
+                }
+                if (listWebElementDTO.size() > 0){
+                    listWebElementDTO = listWebElementDTO.stream().sorted(Comparator.comparing(WebElementDTO::getDate)).collect(Collectors.toList());
+                    logger.info("INICIANDO DESCARGA");
+                    for (WebElementDTO dto : listWebElementDTO) {
+                        WebElement downloadButton = dto.getWebElement();
+                        String id = downloadButton.getAttribute("id");
+                        id = id.substring(id.indexOf("filename=/") + 10, id.indexOf("&reqname"));
+                        id = id.substring(id.indexOf("/") + 1);
+                        Files.deleteIfExists(Paths.get(downloadPath, id + ".xls.part"));
+                        Files.deleteIfExists(Paths.get(downloadPath, id + ".xls"));
+                        logger.info("DESCARGANDO ARCHIVO -> " + id);
+                        downloadButton.click();
+                        Path filePath = Paths.get(downloadPath, id + ".xls.part");
+                        logger.trace("ESPERANDO CREACION DE ARCHIVO TEMPORAL -> " + filePath.getFileName());
+                        //se espera maximo un minuto que se cree el archivo temporal
+                        logger.trace("DESCARGANDO....");
+                        try {
+                            await().atMost(1, MINUTES)
+                                    .ignoreExceptions()
+                                    .until(() -> filePath.toFile().exists());
+                        } catch (ConditionTimeoutException ctoe) {
+                            logger.error("Archivo no se pudo descargar(documento no existe) ");
+                            continue;
+                        }
+
+                        logger.trace("ESPERANDO ELIMINACION DE ARCHIVO TEMPORAL -> " + filePath.getFileName());
+                        //se espera mAximo X minutos que se elimine el archivo temporal (property)
+                        await().atMost(maxTimeWaitDownload, MINUTES)
+                                .ignoreExceptions()
+                                .until(() -> !filePath.toFile().exists());
+                        logger.info("FIN DESCARGA ARCHIVO -> " + id);
+
+                        //nombre final de archivo
+                        String newFileName = finalPath + prefix + "_" + sdf.format(new Date()) + ".xls";
+                        logger.info("MOVIENDO ARCHIVO -> " + id + ".xls a " + newFileName);
+                        //se mueve archivo de ruta temporal a final
+                        Files.move(Paths.get(downloadPath, id + ".xls"), Paths.get(newFileName), StandardCopyOption.ATOMIC_MOVE);
+                    }
+                    logger.info("FIN DESCARGA");
+                    logger.trace("INICIANDO CIERRE DE VENTANAS");
+                    String homeWindow = driver.getWindowHandle();
+                    Set<String> allWindows = driver.getWindowHandles();
+                    for (String childWindow : allWindows) {
+                        // Store the Recruiter window id
+                        logger.trace("CERRANDO VENTANA -> " + childWindow);
+                        if (!homeWindow.equals(childWindow)) {
+                            driver.switchTo().window(childWindow);
+                            // WebDriverWait wait = new WebDriverWait(driver, 10);
+                            // wait.until(ExpectedConditions.urlContains("https://retaillink.wal-mart.com/decision_support/Status_retrieve_request.aspx"));
+                            driver.close();
+                        }
+                    }
+                    logger.trace("FIN CIERRE DE VENTANAS");
+                    driver.switchTo().window(homeWindow);
+                }else {
+                    throw new Exception("NO HAY ARCHIVOS PARA DESCARGAR");
+                    //logger.info("NO HAY ARCHIVOS PARA DESCARGAR");
+                }
+                driver.close();
+                logger.info("NAVEGADOR CERRADO");
+                break;
+            } catch (ConditionTimeoutException ctoe) {
+                i++;
+                if (i == maxNumberOfAttempts) {
+                    driver.quit();
+                    throw new TimeoutException("Archivo no se pudo descargar en el tiempo maximo establecido(" + maxTimeWaitDownload +" min)");
+                    //throw ctoe;
+                } else {
+                    logger.warn(ctoe);
+                    driver.quit();
+                    driver = null;
+                    driver = init();
+                }
+            } catch (Exception e) {
+                i++;
+                if (i == maxNumberOfAttempts) {
+                    driver.close();
+                    throw e;
+                } else {
+                    logger.warn(e);
+                }
+            }
+
+
+        }
+    }
+}

@@ -1,0 +1,69 @@
+package bbr.b2b.extractors.hites.manager.classes;
+
+import java.io.StringReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
+import javax.json.JsonString;
+import javax.json.JsonStructure;
+
+import bbr.esb.services.webservices.facade.AccessDeniedException_Exception;
+import bbr.esb.services.webservices.facade.InitParamCSDTO;
+import bbr.esb.services.webservices.facade.NotFoundException_Exception;
+import bbr.esb.services.webservices.facade.OperationFailedException_Exception;
+import bbr.esb.services.webservices.facade.ServiceManagerServer;
+import bbr.esb.services.webservices.facade.ServiceManagerServerService;
+
+public class EdiOrderManager {
+	
+	public static void main(String[] args) throws MalformedURLException, AccessDeniedException_Exception, OperationFailedException_Exception, NotFoundException_Exception {
+		
+		List<InitParamCSDTO> credentials = getCredentials("CL0702", "RVT");
+		for(InitParamCSDTO credential : credentials){
+			HashMap<String, String> keys = JsonToHashMap(credential.getCredenciales(), "user", "password");
+			
+		}
+		
+		System.out.println("test");
+		
+	}
+
+	private static List<InitParamCSDTO> getCredentials(String sitename, String service) throws MalformedURLException, AccessDeniedException_Exception, OperationFailedException_Exception, NotFoundException_Exception{
+		// WS ACTUALIZAR DESPACHOS
+		String endpoint = "http://10.200.3.99:8180/SOA_GENERAL_Web/ServiceManagerServer?wsdl";
+		ServiceManagerServer serviceClient = new ServiceManagerServerService(new URL(endpoint)).getServiceManagerServerPort();
+		List<InitParamCSDTO> response = serviceClient.getCredentialsBySiteService(sitename, service);
+		if (response == null){
+			return new ArrayList<InitParamCSDTO>();
+		}
+		return response;
+	}
+	
+	
+	
+	private static HashMap<String, String> JsonToHashMap(String credential, String... keys){
+		try {
+			HashMap<String, String> data = new HashMap<>();
+		    JsonReader reader = Json.createReader(new StringReader(credential));
+		    JsonStructure jsonst = reader.read();
+		    JsonObject object = (JsonObject) jsonst;
+		    for(String key : keys){
+		    	JsonString status = (JsonString) object.get(key);
+		    	data.put(key, status.getString());
+		    }
+		     return data;
+
+		  
+		} catch (Exception e) {
+		    
+		    e.printStackTrace();
+		}
+		return null;
+	}
+}

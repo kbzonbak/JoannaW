@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="bbr.b2b.logistic.customer.entities.ReceptionLocation"
+		table="RECEPTIONLOCATION" entity-name="bbr.b2b.logistic.customer.entities.ReceptionLocation"
+		schema="LOGISTICA">
+
+		<composite-id name="id"
+			class="bbr.b2b.logistic.customer.entities.ReceptionLocationId">
+			<key-property name="receptionid" access="field" type="java.lang.Long"
+				column="RECEPTION_ID"  />
+			<key-property name="locationid" access="field" type="java.lang.Long"
+				column="LOCATION_ID" />
+		</composite-id>
+
+	</class>
+</hibernate-mapping>

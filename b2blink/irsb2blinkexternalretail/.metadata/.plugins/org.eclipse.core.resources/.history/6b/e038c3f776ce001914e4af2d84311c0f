@@ -1,0 +1,58 @@
+package bbr.b2b.extractors.timers.classes;
+
+import javax.annotation.Resource;
+import javax.ejb.DependsOn;
+import javax.ejb.EJB;
+import javax.ejb.Singleton;
+import javax.ejb.Timeout;
+import javax.ejb.Timer;
+import javax.ejb.TimerService;
+
+import org.apache.log4j.Logger;
+
+import bbr.b2b.common.adtclasses.exceptions.ServiceException;
+import bbr.b2b.connector.timers.managers.interfaces.Scheduler;
+import bbr.b2b.extractors.timers.manager.interfaces.HitesEdiOrderManagerLocal;
+
+@Singleton
+@DependsOn("managers/EdiOrderManager")
+public class HitesEdiOrderService implements Scheduler {
+	
+	@Resource
+    private TimerService timerService;
+
+	private static Logger logger = Logger.getLogger(HitesEdiOrderService.class);	
+	
+	public static final String CRON_NAME = "Descarga de archivos edi de hites";
+	public static final String JNDI_TIMER = "java:global/ExternalRetailEAR/ExternalRetailManager/EdiOrderService";
+	//!bbr.b2b.logistic.timers.managers.interfaces.Scheduler
+	
+	@EJB
+	private HitesEdiOrderManagerLocal ediOrderManagerLocal;
+		
+	@Timeout
+    public void scheduler(Timer timer) throws ServiceException{
+		logger.info("Se ejecuta " + CRON_NAME);
+    	
+		ediOrderManagerLocal.execute();	
+    }
+
+    @Override
+    public void initialize(String info, long initialinterval, long milliseconds) {
+    	// DETIENE TODOS LOS CRON ASOCIADOS A ESTE SERVICIO
+    	stop();
+    	
+    	// CREA EL TIMER
+    	logger.info("Creando Timer de PendingMessages");
+  		timerService.createTimer(initialinterval, milliseconds, CRON_NAME);            
+    }
+
+    @Override
+    public void stop() {
+    	logger.info("Detiene algún " + CRON_NAME + " existente");
+        for (Timer timer : timerService.getTimers()) {
+        	logger.trace("Detiene timer: " + timer.getInfo());
+            timer.cancel();
+        }
+    }
+}

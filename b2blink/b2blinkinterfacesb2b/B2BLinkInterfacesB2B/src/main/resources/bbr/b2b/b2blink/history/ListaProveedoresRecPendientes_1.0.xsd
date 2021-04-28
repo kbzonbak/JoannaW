@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bbr.cl/ListaProveedoresRecPendientes" elementFormDefault="qualified">
+  <element name="ListaProveedoresRecPendientes">
+    <complexType>
+      <sequence>
+        <element name="nombreportal" type="string" />
+        <element name="codcomprador" type="string" />
+        <element name="Proveedores">
+          <complexType>
+            <sequence minOccurs="1" maxOccurs="unbounded">
+              <element name="Proveedor">
+                <complexType>
+                  <sequence>
+                    <element name="codigo" type="string" />
+                    <element name="nombre" type="string" />
+                    <element name="numpendientes" type="int" />
+                  </sequence>
+                </complexType>
+              </element>
+            </sequence>
+          </complexType>
+        </element>
+      </sequence>
+    </complexType>
+  </element>
+</schema>

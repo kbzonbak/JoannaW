@@ -1,0 +1,19 @@
+<project name="Example" xmlns:liquibase="antlib:liquibase.integration.ant">
+
+	<!-- Global properties for this build -->
+	<property name="src.java.dir" value="source" />
+	<property name="lib.dir" value="lib" />
+	<property name="build.dir" value="classes" />
+	<property name="src.etc.dir" value="etc" />
+
+	<!-- Classpath declaration -->
+	<path id="project.classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+			<include name="**/*.zip" />
+		</fileset>
+	</path>
+
+	<taskdef resource="liquibase/integration/ant/antlib.xml" uri="antlib:liquibase.integration.ant" classpathref="project.classpath" />
+
+</project>

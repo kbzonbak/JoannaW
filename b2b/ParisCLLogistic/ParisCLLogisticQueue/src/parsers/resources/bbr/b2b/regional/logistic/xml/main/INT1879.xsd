@@ -1,0 +1,220 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+     <xs:element name="Message">
+     	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="1">
+    			<xs:element ref="origen" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="accion" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="tipo" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="id_compania" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="num_despacho" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="num_ordencompra" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="tienda_origen" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="codigo_proveedor" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="kpi_proveedor" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="personalizado1" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="personalizado2" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="personalizado3" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="personalizado4" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="estado" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="listado_productos" maxOccurs="1" minOccurs="1"></xs:element>    					
+    		</xs:sequence>
+    	</xs:complexType>   
+ 	</xs:element>
+ 	
+    <!-- Origen del mensaje -->
+    <xs:element name="origen">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Acción -->
+    <xs:element name="accion">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+
+	<!-- Tipo de mensaje en EOM -->
+    <xs:element name="tipo">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Identificador de compañía -->
+    <xs:element name="id_compania">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Número del despacho en B2B -->
+    <xs:element name="num_despacho">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:long"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Número de orden de compra VeV PD -->
+    <xs:element name="num_ordencompra">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Tienda que origino la venta -->
+    <xs:element name="tienda_origen">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- proveedor  -->
+    <xs:element name="codigo_proveedor">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Kpi del proveedor del mes anterior  -->
+    <xs:element name="kpi_proveedor">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:double"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Campo personalizado para EOM -->
+    <xs:element name="personalizado1">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Campo personalizado para EOM -->
+    <xs:element name="personalizado2">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Campo personalizado para EOM -->
+    <xs:element name="personalizado3">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Campo personalizado para EOM -->
+    <xs:element name="personalizado4">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+     <!-- Nuevo estado del despacho -->  
+    <xs:element name="estado">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element ref="cod_tipo" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="cod_descripcion" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="cod_id" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="cd_id_descripcion" maxOccurs="1" minOccurs="1"></xs:element>    			
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+    
+    <!-- Correspondencia con tabla de estados -->
+    <xs:element name="cod_tipo">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    
+    <!-- Correspondencia con tabla de estados -->
+    <xs:element name="cod_descripcion">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Correspondencia con tabla de estados -->
+    <xs:element name="cod_id">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Correspondencia con tabla de estados -->
+    <xs:element name="cd_id_descripcion">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>    
+    
+    <!-- Listado productos en el despacho -->  
+    <xs:element name="listado_productos">
+    	<xs:complexType>
+    		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    			<xs:element ref="producto" />
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>    
+    
+    <xs:element name="producto">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element ref="cod_producto" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="cod_departmento" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="ctdad_enviada" maxOccurs="1" minOccurs="1"></xs:element>
+    			<xs:element ref="ctdad_entregada" maxOccurs="1" minOccurs="1"></xs:element> 
+    			<xs:element ref="unid_medida" maxOccurs="1" minOccurs="1"></xs:element>    
+    			<xs:element ref="num_linea" maxOccurs="1" minOccurs="1"></xs:element>
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+ 
+ 	<!-- Código SKU -->  
+    <xs:element name="cod_producto">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+     <!-- Codigo departamento Producto -->  
+    <xs:element name="cod_departmento">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element> 
+    
+    <!-- Cantidad original comprometida en despacho -->  
+    <xs:element name="ctdad_enviada">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:double"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+    <!-- Cantidad entregada al cliente -->  
+    <xs:element name="ctdad_entregada">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:double"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element> 
+    
+    <!-- Unidad de medida -->  
+    <xs:element name="unid_medida">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:string"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>   
+    
+        <!-- Número de línea -->  
+    <xs:element name="num_linea">
+    	<xs:simpleType>
+    		<xs:restriction base="xs:int"></xs:restriction>
+    	</xs:simpleType>
+    </xs:element>
+    
+</xs:schema>
