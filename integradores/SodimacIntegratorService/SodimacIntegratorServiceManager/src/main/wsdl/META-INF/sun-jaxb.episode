@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+  <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2021.04.08 a las 02:24:52 PM CLT 
+
+  -->
+  <bindings xmlns:tns="http://b2b.falabella.com/schemas/ol/admin-archivo-carga-request" if-exists="true" scd="x-schema::tns">
+    <schemaBindings map="false">
+      <package name="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_carga_request"/>
+    </schemaBindings>
+    <bindings if-exists="true" scd="~tns:admin-archivo-carga-request">
+      <class ref="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_carga_request.AdminArchivoCargaRequest"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:files">
+      <class ref="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_carga_request.Files"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:file">
+      <class ref="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_carga_request.File"/>
+    </bindings>
+  </bindings>
+  <bindings xmlns:tns="http://b2b.falabella.com/schemas/ol/admin-archivo-carga-response" if-exists="true" scd="x-schema::tns">
+    <schemaBindings map="false">
+      <package name="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_carga_response"/>
+    </schemaBindings>
+    <bindings if-exists="true" scd="~tns:admin-archivo-carga-response">
+      <class ref="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_carga_response.AdminArchivoCargaResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:messages">
+      <class ref="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_carga_response.Messages"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:message">
+      <class ref="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_carga_response.Message"/>
+    </bindings>
+  </bindings>
+  <bindings xmlns:tns="http://b2b.falabella.com/schemas/ol/admin-archivo-descarga-request" if-exists="true" scd="x-schema::tns">
+    <schemaBindings map="false">
+      <package name="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_descarga_request"/>
+    </schemaBindings>
+    <bindings if-exists="true" scd="~tns:admin-archivo-descarga-request">
+      <class ref="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_descarga_request.AdminArchivoDescargaRequest"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:files">
+      <class ref="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_descarga_request.Files"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:file">
+      <class ref="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_descarga_request.File"/>
+    </bindings>
+  </bindings>
+  <bindings xmlns:tns="http://b2b.falabella.com/schemas/ol/admin-archivo-descarga-response" if-exists="true" scd="x-schema::tns">
+    <schemaBindings map="false">
+      <package name="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_descarga_response"/>
+    </schemaBindings>
+    <bindings if-exists="true" scd="~tns:admin-archivo-descarga-response">
+      <class ref="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_descarga_response.AdminArchivoDescargaResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:messages">
+      <class ref="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_descarga_response.Messages"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:message">
+      <class ref="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_descarga_response.Message"/>
+    </bindings>
+  </bindings>
+  <bindings xmlns:tns="http://b2b.falabella.com/schemas/ol/admin-archivo-consulta-request" if-exists="true" scd="x-schema::tns">
+    <schemaBindings map="false">
+      <package name="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_consulta_request"/>
+    </schemaBindings>
+    <bindings if-exists="true" scd="~tns:admin-archivo-consulta-request">
+      <class ref="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_consulta_request.AdminArchivoConsultaRequest"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:file">
+      <class ref="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_consulta_request.File"/>
+    </bindings>
+  </bindings>
+  <bindings xmlns:tns="http://b2b.falabella.com/schemas/ol/admin-archivo-consulta-response" if-exists="true" scd="x-schema::tns">
+    <schemaBindings map="false">
+      <package name="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_consulta_response"/>
+    </schemaBindings>
+    <bindings if-exists="true" scd="~tns:admin-archivo-consulta-response">
+      <class ref="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_consulta_response.AdminArchivoConsultaResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:file">
+      <class ref="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_consulta_response.File"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:status">
+      <class ref="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_consulta_response.Status"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:errors">
+      <class ref="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_consulta_response.Errors"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:error">
+      <class ref="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_consulta_response.Error"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:estado">
+      <class ref="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_consulta_response.Estado"/>
+    </bindings>
+  </bindings>
+</bindings>

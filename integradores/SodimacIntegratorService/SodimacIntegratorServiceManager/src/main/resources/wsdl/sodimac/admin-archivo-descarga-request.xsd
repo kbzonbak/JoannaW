@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://b2b.falabella.com/schemas/ol/admin-archivo-descarga-request" xmlns="http://b2b.falabella.com/schemas/ol/admin-archivo-descarga-request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <xs:element name="admin-archivo-descarga-request" type="admin-archivo-descarga-request"></xs:element>
+	   
+    <xs:complexType name="admin-archivo-descarga-request">
+		<xs:sequence>
+			<xs:element name="files" type="files"></xs:element>
+		</xs:sequence>
+    </xs:complexType>
+	
+	<xs:complexType name="files">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="file" type="file"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+    <xs:complexType name="file">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="id" type="xs:string"></xs:element>
+            <xs:element minOccurs="0" name="tipo" type="xs:string"></xs:element>
+            <xs:element minOccurs="0" name="fecha-inicio" type="xs:string"></xs:element>
+            <xs:element minOccurs="0" name="fecha-termino" type="xs:string"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+	
+</xs:schema>

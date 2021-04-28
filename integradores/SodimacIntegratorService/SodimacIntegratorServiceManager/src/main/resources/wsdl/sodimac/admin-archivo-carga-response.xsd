@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://b2b.falabella.com/schemas/ol/admin-archivo-carga-response" xmlns="http://b2b.falabella.com/schemas/ol/admin-archivo-carga-response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <xs:element name="admin-archivo-carga-response" type="admin-archivo-carga-response"></xs:element>
+    	
+    <!--xs:complexType name="admin-archivo-carga-response">
+		<xs:sequence>
+			<xs:element name="message" type="message"/>		
+		</xs:sequence>
+    </xs:complexType>
+	
+    <xs:complexType name="message">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="xs:int" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType-->        
+    
+   <xs:complexType name="admin-archivo-carga-response">
+         <xs:sequence>
+               <xs:element name="messages" type="messages"></xs:element>
+         </xs:sequence>
+   </xs:complexType>
+	
+   <xs:complexType name="messages">
+         <xs:sequence>
+               <xs:element maxOccurs="unbounded" name="message" type="message"></xs:element>
+         </xs:sequence>
+   </xs:complexType>
+        
+    <xs:complexType name="message">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="xs:string" use="required"></xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <!--xs:complexType name="file">
+        <xs:sequence>
+            <xs:element name="tipo-archivo" type="xs:string" />
+            <xs:element name="archivo" type="xs:string" />			 
+            <xs:element name="extension-archivo" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType-->    
+
+</xs:schema>

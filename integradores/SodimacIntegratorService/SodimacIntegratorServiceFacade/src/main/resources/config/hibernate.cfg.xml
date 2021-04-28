@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://www.hibernate.org/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+
+		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		 		
+
+		<mapping resource="bbr/b2b/soa/integrator/facade/entities/Client.hbm.xml" />
+		<mapping resource="bbr/b2b/soa/integrator/facade/entities/Vendor.hbm.xml" />
+		<mapping resource="bbr/b2b/soa/integrator/facade/entities/FileData.hbm.xml" />
+		<mapping resource="bbr/b2b/soa/integrator/facade/entities/Order.hbm.xml" />
+		<mapping resource="bbr/b2b/soa/integrator/facade/entities/OrderDetail.hbm.xml" />
+		<mapping resource="bbr/b2b/soa/integrator/facade/entities/PreDeliveryDetail.hbm.xml" />
+		<mapping resource="bbr/b2b/soa/integrator/facade/entities/SoaStateType.hbm.xml" />
+		<mapping resource="bbr/b2b/soa/integrator/facade/entities/SoaState.hbm.xml" />
+		<mapping resource="bbr/b2b/soa/integrator/facade/entities/SellOut.hbm.xml" />
+		<mapping resource="bbr/b2b/soa/integrator/facade/entities/SellOutType.hbm.xml" />
+
+	</session-factory>
+</hibernate-configuration>

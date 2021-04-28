@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+		<query name="getPendingOrdersByVendor">
+			<![CDATA[
+				SELECT oc from Order oc
+				JOIN Vendor vd on oc.vendor.id = vd.id
+				JOIN SoaStateType sst on oc.currentSoaStateType.id = sst.id 
+				WHERE sst.id <> ?1
+				AND oc.currentSoaStateTypeDate <= ?2
+				AND vd.id = ?3
+				AND oc.emittedDate >= ?4
+			]]>
+		</query>			
+		<query name="getOrdersByNumbersAndVendorIdAndEmitted">
+			<![CDATA[
+				SELECT oc from Order oc
+				JOIN Vendor vd on oc.vendor.id = vd.id
+				JOIN SoaStateType sst on oc.currentSoaStateType.id = sst.id 
+				WHERE oc.ocNumber in (?1)				
+				AND vd.id = ?2
+				AND oc.emittedDate >= ?3
+			]]>
+		</query>
+		<query name="getOrdersByVendorIdAndEmittedAndSoaStateTypeIds">
+			<![CDATA[
+				SELECT oc from Order oc
+				JOIN Vendor vd on oc.vendor.id = vd.id
+				JOIN SoaStateType sst on oc.currentSoaStateType.id = sst.id 
+				WHERE vd.id = ?1
+				AND oc.emittedDate >= ?2
+				AND sst.id in (?3)
+			]]>
+		</query>		
+</hibernate-mapping>

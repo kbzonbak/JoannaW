@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://b2b.falabella.com/schemas/ol/admin-archivo-consulta-request" xmlns="http://b2b.falabella.com/schemas/ol/admin-archivo-consulta-request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <xs:element name="admin-archivo-consulta-request" type="admin-archivo-consulta-request"></xs:element>
+	   
+    <xs:complexType name="admin-archivo-consulta-request">
+		<xs:sequence>
+			<xs:element name="file" type="file"></xs:element>
+		</xs:sequence>
+    </xs:complexType>
+	
+    <xs:complexType name="file">
+        <xs:sequence>
+            <xs:element name="id" type="xs:positiveInteger"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+	
+</xs:schema>

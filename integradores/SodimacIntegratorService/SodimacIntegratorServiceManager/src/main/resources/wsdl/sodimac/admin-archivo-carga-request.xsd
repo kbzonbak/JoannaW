@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://b2b.falabella.com/schemas/ol/admin-archivo-carga-request" xmlns="http://b2b.falabella.com/schemas/ol/admin-archivo-carga-request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <xs:element name="admin-archivo-carga-request" type="admin-archivo-carga-request"></xs:element>
+	   
+    <xs:complexType name="admin-archivo-carga-request">
+		<xs:sequence>
+			<xs:element name="files" type="files"></xs:element>
+		</xs:sequence>
+    </xs:complexType>
+	
+	<xs:complexType name="files">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="file" type="file"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+    <xs:complexType name="file">
+        <xs:sequence>
+            <xs:element name="tipo-archivo" type="xs:string"></xs:element>
+            <xs:element name="archivo" type="xs:string"></xs:element>			 
+            <xs:element name="extension-archivo" type="xs:string"></xs:element>
+        </xs:sequence>
+    </xs:complexType>	
+</xs:schema>

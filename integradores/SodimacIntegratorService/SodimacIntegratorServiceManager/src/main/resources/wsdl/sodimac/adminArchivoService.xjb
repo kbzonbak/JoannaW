@@ -1,0 +1,40 @@
+<jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
+
+	<jaxb:bindings schemaLocation="admin-archivo-carga-request.xsd">
+	    <jaxb:schemaBindings >
+	        <jaxb:package name="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_carga_request" />
+	    </jaxb:schemaBindings>
+	</jaxb:bindings>
+	
+	<jaxb:bindings schemaLocation="admin-archivo-carga-response.xsd">
+	    <jaxb:schemaBindings >
+	        <jaxb:package name="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_carga_response" />
+	    </jaxb:schemaBindings>
+	</jaxb:bindings>
+	
+	<jaxb:bindings schemaLocation="admin-archivo-consulta-request.xsd">
+	    <jaxb:schemaBindings >
+	        <jaxb:package name="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_consulta_request" />
+	    </jaxb:schemaBindings>
+	</jaxb:bindings>
+	
+	<jaxb:bindings schemaLocation="admin-archivo-consulta-response.xsd">
+	    <jaxb:schemaBindings >
+	        <jaxb:package name="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_consulta_response" />
+	    </jaxb:schemaBindings>
+	</jaxb:bindings>
+	
+	<jaxb:bindings schemaLocation="admin-archivo-descarga-request.xsd">
+	    <jaxb:schemaBindings >
+	        <jaxb:package name="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_descarga_request" />
+	    </jaxb:schemaBindings>
+	</jaxb:bindings>
+	
+	<jaxb:bindings schemaLocation="admin-archivo-descarga-response.xsd">
+	    <jaxb:schemaBindings >
+	        <jaxb:package name="bbr.b2b.sodimac.soap.webservices.classes.admin_archivo_descarga_response" />
+	    </jaxb:schemaBindings>
+	</jaxb:bindings> 
+
+</jaxb:bindings>

@@ -1,0 +1,234 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>bbr.b2b.soa.integrator</groupId>
+		<artifactId>SodimacIntegratorService</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../SodimacIntegratorService/pom.xml</relativePath>
+	</parent>
+	<artifactId>SodimacIntegratorServiceManager</artifactId>
+
+	<dependencies>
+		<dependency>
+			<groupId>bbr.b2b.soa.integrator</groupId>
+			<artifactId>SodimacIntegratorServiceModel</artifactId>
+			<version>${base.model.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>bbr.b2b.soa.integrator</groupId>
+			<artifactId>SodimacIntegratorServiceUtils</artifactId>
+			<version>${base.utils.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>bbr.b2b.soa.integrator</groupId>
+			<artifactId>SodimacIntegratorServiceFacade</artifactId>
+			<version>${base.facade.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>bbr.b2b.common.base</groupId>
+			<artifactId>B2BLinkInterfacesB2B</artifactId>
+			<version>${b2blink.interfaces.version}</version>
+		</dependency>
+
+		<!-- SPRING -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-activemq</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.activemq.tooling</groupId>
+			<artifactId>activemq-junit</artifactId>
+			<version>5.15.11</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.ws</groupId>
+			<artifactId>spring-ws-security</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.jws</groupId>
+			<artifactId>javax.jws-api</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>wss4j</groupId>
+			<artifactId>wss4j</artifactId>
+			<version>1.5.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.xml.messaging.saaj</groupId>
+			<artifactId>saaj-impl</artifactId>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.apache.commons</groupId>
+    		<artifactId>commons-lang3</artifactId>   		
+		</dependency>
+
+		<dependency>
+			<groupId>net.javacrumbs.shedlock</groupId>
+			<artifactId>shedlock-spring</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.javacrumbs.shedlock</groupId>
+			<artifactId>shedlock-provider-jdbc-template</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+
+		<!-- ESTAS DEPENDENCIAS SON NECESARIAS AL CAMBIAR DE JDK ORACLE A OPENJDK -->
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+		</dependency>
+		<!-- (FIN) ESTAS DEPENDENCIAS SON NECESARIAS AL CAMBIAR DE JDK ORACLE A 
+			OPENJDK -->
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/main/wsdl/</source>
+								<source>src/main/java/</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+						<version>3.0.0</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>		
+	</build>
+		
+	<profiles>
+		<profile>
+			<id>dev</id>			
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.jvnet.jaxb2.maven2</groupId>
+						<artifactId>maven-jaxb2-plugin</artifactId>
+						<version>0.14.0</version>
+						<executions>
+							<execution>
+								<id>soa-wsdl</id>
+								<phase>package</phase>						
+								<goals>
+									<goal>generate</goal>							
+								</goals>
+		
+								<configuration>
+									<schemaLanguage>WSDL</schemaLanguage>
+									<generateDirectory>${project.basedir}/src/main/wsdl</generateDirectory>
+									<generatePackage>bbr.b2b.soa.soap.webservices.classes</generatePackage>
+									<schemaDirectory>src/main/resources/wsdl/soa</schemaDirectory>
+									<schemaIncludes>
+										<schemaInclude>*.wsdl</schemaInclude>
+									</schemaIncludes>
+								</configuration>
+							</execution>
+							<execution>
+								<id>sodimac-wsdl</id>
+								<phase>package</phase>
+								<goals>
+									<goal>generate</goal>
+								</goals>
+		
+								<configuration>
+									<schemaLanguage>WSDL</schemaLanguage>
+									<generateDirectory>${project.basedir}/src/main/wsdl</generateDirectory>
+									<schemaDirectory>src/main/resources/wsdl/sodimac</schemaDirectory>
+									<bindingDirectory>src/main/resources/wsdl/sodimac</bindingDirectory>
+									<schemaIncludes>
+										<schemaInclude>*.wsdl</schemaInclude>
+									</schemaIncludes>
+									<bindingIncludes>
+										<bindingInclude>adminArchivoService.xjb</bindingInclude>
+									</bindingIncludes>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>		
+				</plugins>			
+			</build>	
+		</profile>		
+	</profiles>
+</project>

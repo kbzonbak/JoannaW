@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<query name="getNotificationDetailsByCompanyUserIdAndSent">
+  		<![CDATA[
+  				SELECT dn from NotificationDetail dn
+  				JOIN Notification n on dn.notification.id = n.id
+  				JOIN Company c on n.userId = c.userId
+  				WHERE c.userId = ?1
+  				AND dn.sent = ?2
+  				ORDER BY dn.id 
+  		 ]]>
+	</query>
+	<query name="getNotificationDetailsByCompanyUserIdAndTopicAndSent">
+  		<![CDATA[
+  				SELECT dn from NotificationDetail dn
+  				JOIN Notification n on dn.notification.id = n.id
+  				JOIN Company c on n.userId = c.userId
+  				WHERE c.userId = ?1
+  				AND n.topic = ?2
+  				AND dn.sent = ?3
+  				ORDER BY dn.id 
+  		 ]]>
+	</query>
+	<query name="getNotificationDetailsByCompanyUserIdAndTopicAndResources">
+  		<![CDATA[
+  				SELECT dn from NotificationDetail dn
+  				JOIN Notification n on dn.notification.id = n.id
+  				JOIN Company c on n.userId = c.userId
+  				WHERE c.userId = ?1
+  				AND n.topic = ?2
+  				AND n.resource in (?3) 
+  				ORDER BY dn.id 
+  		 ]]>
+	</query>
+	<query name="getNotificationDetailsByCompanyUserIdAndReceived">
+  		<![CDATA[
+  				SELECT dn from NotificationDetail dn
+  				JOIN Notification n on dn.notification.id = n.id
+  				JOIN Company c on n.userId = c.userId
+  				WHERE c.userId = ?1
+  				AND dn.received = ?2
+  				ORDER BY dn.id 
+  		 ]]>
+	</query>
+	<query name="getNotificationDetailsByCompanyUserIdAndTopicAndReceived">
+  		<![CDATA[
+  				SELECT dn from NotificationDetail dn
+  				JOIN Notification n on dn.notification.id = n.id
+  				JOIN Company c on n.userId = c.userId
+  				WHERE c.userId = ?1
+  				AND n.topic = ?2
+  				AND dn.received = ?3
+  				ORDER BY dn.id 
+  		 ]]>
+	</query>
+	<query name="getNotificationDetailsByCompanyUserIdAndResource">
+  		<![CDATA[
+  				SELECT dn from NotificationDetail dn
+  				JOIN Notification n on dn.notification.id = n.id
+  				JOIN Company c on n.userId = c.userId
+  				WHERE c.userId = ?1
+  				AND n.resource = ?2
+  				ORDER BY dn.id 
+  		 ]]>
+	</query>
+</hibernate-mapping>

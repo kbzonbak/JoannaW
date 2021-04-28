@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://b2b.falabella.com/schemas/ol/admin-archivo-consulta-response" xmlns="http://b2b.falabella.com/schemas/ol/admin-archivo-consulta-response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+   <xs:element name="admin-archivo-consulta-response" type="admin-archivo-consulta-response"></xs:element>
+    	
+   <xs:complexType name="admin-archivo-consulta-response">   
+         <xs:sequence>
+            <xs:choice>
+               <xs:element name="file" type="file"></xs:element>
+               <xs:element name="error" type="error"></xs:element>
+            </xs:choice>
+         </xs:sequence>
+   </xs:complexType>
+	
+   <xs:complexType name="file">
+         <xs:sequence>
+               <xs:element name="status" type="status"></xs:element>
+               <xs:element minOccurs="0" name="errors" type="errors"></xs:element>
+         </xs:sequence>
+   </xs:complexType>
+        
+    <xs:complexType name="status">
+         <xs:sequence>
+            <xs:element name="id" type="xs:positiveInteger"></xs:element>
+            <xs:element name="estado" type="estado"></xs:element>
+            <xs:element name="tipo" type="xs:string"></xs:element>
+         </xs:sequence>
+    </xs:complexType>
+    
+   <xs:complexType name="errors">
+         <xs:sequence>
+               <xs:element maxOccurs="unbounded" name="error" type="error"></xs:element>
+         </xs:sequence>
+   </xs:complexType>
+   
+    <xs:complexType name="error">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="xs:string" use="required"></xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="estado">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="xs:string" use="required"></xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+</xs:schema>
